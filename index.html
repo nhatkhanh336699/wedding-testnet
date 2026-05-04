@@ -1,0 +1,535 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg0:#0f1510;--bg1:#161e17;--bg2:#1c261d;--bg3:#232e24;
+  --border:#2a3a2b;--green:#4caf6a;--green2:#2e7a45;--green3:#1a5230;
+  --text1:#e8f0e8;--text2:#9ab09a;--text3:#6a806a;
+  --red:#e05060;--amber:#d4903a;--sage:#4caf6a;
+}
+.app{font-family:'Inter',sans-serif;border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--bg0)}
+
+.topbar{background:var(--bg1);padding:13px 16px 11px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
+.app-name{font-size:15px;font-weight:600;color:var(--text1)}
+.app-date-row{display:flex;align-items:center;gap:6px;margin-top:3px}
+.app-date{font-size:12px;color:var(--text3)}
+.edit-date-btn{width:18px;height:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0.5;border:none;background:none;padding:0;transition:opacity 0.15s}
+.edit-date-btn:hover{opacity:1}
+.edit-date-btn svg{display:block}
+.countdown{background:var(--bg3);border-radius:10px;padding:5px 12px;text-align:center;border:1px solid var(--border)}
+.countdown-num{font-size:18px;font-weight:600;color:var(--green);line-height:1}
+.countdown-label{font-size:10px;color:var(--text3);margin-top:1px}
+
+.date-edit-wrap{display:none;background:var(--bg2);border-bottom:1px solid var(--border);padding:9px 16px;gap:6px;align-items:center;flex-wrap:wrap}
+.date-edit-wrap.show{display:flex}
+.date-edit-wrap input{font-size:12px;padding:5px 9px;border:1px solid var(--border);border-radius:7px;background:var(--bg3);color:var(--text1);font-family:'Inter',sans-serif;outline:none}
+.date-edit-wrap input:focus{border-color:var(--green2)}
+.date-edit-wrap input[type=date]{color-scheme:dark}
+.de-save{font-size:12px;font-weight:500;color:#fff;background:var(--green2);border:none;border-radius:7px;padding:5px 12px;cursor:pointer;font-family:'Inter',sans-serif}
+.de-cancel{font-size:12px;color:var(--text3);background:none;border:1px solid var(--border);border-radius:7px;padding:5px 9px;cursor:pointer;font-family:'Inter',sans-serif}
+
+.nav{display:flex;background:var(--bg1);border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav-btn{flex:0 0 auto;padding:10px 14px;font-size:12px;font-weight:500;color:var(--text3);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;font-family:'Inter',sans-serif;white-space:nowrap;transition:color 0.15s}
+.nav-btn.on{color:var(--green);border-bottom-color:var(--green)}
+
+.body{background:var(--bg0)}
+.tab{display:none;padding:12px}
+.tab.on{display:block}
+
+.card{background:var(--bg1);border-radius:11px;border:1px solid var(--border);margin-bottom:10px;overflow:hidden}
+.card-head{padding:11px 13px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.card-title{font-size:13px;font-weight:600;color:var(--text1)}
+.card-action{font-size:11px;font-weight:500;color:var(--green);background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:4px 11px;cursor:pointer;font-family:'Inter',sans-serif}
+.card-body{padding:11px 13px}
+
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:10px}
+.stat{background:var(--bg1);border-radius:9px;padding:9px 11px;border:1px solid var(--border)}
+.stat-lbl{font-size:10px;color:var(--text3);font-weight:500;margin-bottom:3px;text-transform:uppercase;letter-spacing:0.3px}
+.stat-val{font-size:19px;font-weight:600;color:var(--text1)}
+.stat-val.rose{color:var(--red)}
+.stat-val.sage{color:var(--sage)}
+.stat-val.amber{color:var(--amber)}
+
+.prog-block{margin-bottom:9px}
+.prog-head{display:flex;justify-content:space-between;margin-bottom:4px}
+.prog-label{font-size:11px;color:var(--text2)}
+.prog-pct{font-size:11px;font-weight:600}
+.prog-track{height:6px;background:var(--bg3);border-radius:20px;overflow:hidden}
+.prog-fill{height:100%;border-radius:20px}
+
+.day-pills{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
+.pill{font-size:11px;font-weight:500;padding:5px 11px;border-radius:16px;border:1px solid var(--border);color:var(--text2);background:var(--bg1);cursor:pointer;font-family:'Inter',sans-serif}
+.pill.on{background:var(--green3);color:var(--green);border-color:var(--green2)}
+.day-sum{font-size:10px;color:var(--text3);margin-left:3px}
+.pill.on .day-sum{color:#6ad880}
+
+.expense-item{padding:10px 0;border-bottom:1px solid var(--bg2);display:flex;align-items:flex-start;gap:8px}
+.expense-item:last-child{border-bottom:none}
+.ei-dot{width:7px;height:7px;border-radius:50%;margin-top:5px;flex-shrink:0}
+.ei-name{font-size:13px;font-weight:500;color:var(--text1)}
+.ei-sub{font-size:11px;color:var(--text3);margin-top:1px}
+.ei-price{font-size:13px;font-weight:600;color:var(--text1);text-align:right}
+.ei-deposit{font-size:11px;color:var(--sage);text-align:right;margin-top:1px}
+.ei-remain{font-size:11px;color:var(--amber);text-align:right;margin-top:1px}
+
+.badge{font-size:10px;font-weight:500;padding:2px 7px;border-radius:12px;display:inline-block;margin-top:3px}
+.b-done{background:#1a3022;color:#6ad880;border:1px solid #2a4a32}
+.b-dep{background:#2a1e0a;color:#c09040;border:1px solid #3a2e10}
+.b-pend{background:#2a1018;color:#c06070;border:1px solid #3a1828}
+
+.section-total{background:var(--bg2);padding:8px 13px;display:flex;justify-content:space-between;align-items:center}
+.st-label{font-size:11px;color:var(--text3)}
+.st-val{font-size:12px;font-weight:600;color:var(--green)}
+
+.group-header{font-size:10px;font-weight:600;color:var(--green2);letter-spacing:0.6px;text-transform:uppercase;padding:10px 0 5px;display:flex;justify-content:space-between;border-bottom:1px solid var(--border);margin-bottom:2px}
+
+.add-btn{font-size:12px;font-weight:500;color:var(--text3);background:transparent;border:1px dashed var(--border);border-radius:7px;padding:8px;cursor:pointer;width:100%;font-family:'Inter',sans-serif;margin-top:8px}
+.add-btn:hover{color:var(--green);border-color:var(--green2)}
+
+.fund-row{padding:8px 0;border-bottom:1px solid var(--bg2);display:flex;justify-content:space-between;align-items:center}
+.fund-row:last-child{border-bottom:none}
+.fr-label{font-size:13px;color:var(--text1);font-weight:500}
+.fr-sub{font-size:11px;color:var(--text3);margin-top:1px}
+.fr-val{font-size:13px;font-weight:600;color:var(--sage)}
+.fund-total{background:var(--green3);border-radius:9px;padding:9px 13px;display:flex;justify-content:space-between;align-items:center;margin-top:8px;border:1px solid var(--green2)}
+.ft-label{font-size:11px;color:#6ad880}
+.ft-val{font-size:18px;font-weight:600;color:#fff}
+
+.gift-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:10px}
+.gs{background:var(--bg1);border-radius:9px;padding:8px;text-align:center;border:1px solid var(--border)}
+.gs-val{font-size:15px;font-weight:600;color:var(--green)}
+.gs-lbl{font-size:10px;color:var(--text3);margin-top:2px}
+
+.table-block{background:var(--bg1);border-radius:9px;border:1px solid var(--border);margin-bottom:8px;overflow:hidden}
+.tb-head{background:var(--bg2);padding:9px 12px;display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+.tb-name{font-size:13px;font-weight:600;color:var(--text1)}
+.tb-meta{font-size:11px;color:var(--text3);margin-top:1px}
+.tb-total{font-size:13px;font-weight:600;color:var(--sage);text-align:right}
+.tb-sub{font-size:10px;color:var(--text3);text-align:right}
+.tb-chev{font-size:11px;color:var(--text3);margin-left:8px;transition:transform 0.2s;display:inline-block}
+.tb-chev.open{transform:rotate(180deg)}
+
+.guest-row{display:flex;align-items:center;padding:8px 12px;border-bottom:1px solid var(--bg2);gap:9px}
+.guest-row:last-child{border-bottom:none}
+.gstatus{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.st-invited{background:var(--text3)}
+.st-confirmed{background:#4a9a6a}
+.st-gifted{background:var(--green)}
+.gavatar{width:28px;height:28px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--green);flex-shrink:0}
+.gname{font-size:12px;font-weight:500;color:var(--text1)}
+.gnote{font-size:11px;color:var(--text3);margin-top:1px}
+.gamount{text-align:right;flex-shrink:0;min-width:55px}
+.ga-val{font-size:12px;font-weight:600;color:var(--sage)}
+.ga-empty{font-size:11px;color:var(--text3)}
+.ga-type{font-size:10px;color:var(--text3)}
+.gift-action-btn{font-size:10px;font-weight:500;padding:2px 7px;border-radius:10px;border:1px solid var(--border);color:var(--green);background:var(--bg3);cursor:pointer;font-family:'Inter',sans-serif;margin-top:3px}
+
+.guest-add-area{padding:9px 12px;border-top:1px solid var(--border);background:var(--bg2)}
+.guest-add-row{display:flex;gap:5px;flex-wrap:wrap}
+.guest-add-row input{flex:1;min-width:80px;font-size:12px;padding:6px 9px;border:1px solid var(--border);border-radius:7px;background:var(--bg3);color:var(--text1);font-family:'Inter',sans-serif;outline:none}
+.guest-add-row input::placeholder{color:var(--text3)}
+.guest-add-row input:focus{border-color:var(--green2)}
+.btn-add-guest{font-size:12px;font-weight:500;color:#fff;background:var(--green2);border:none;border-radius:7px;padding:6px 12px;cursor:pointer;font-family:'Inter',sans-serif}
+
+.gift-overlay{background:var(--bg2);border-top:1px solid var(--border);padding:10px 12px}
+.go-title{font-size:11px;font-weight:600;color:var(--green);margin-bottom:7px}
+.go-row{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
+.go-row input,.go-row select{font-size:12px;padding:5px 9px;border:1px solid var(--border);border-radius:7px;background:var(--bg3);color:var(--text1);font-family:'Inter',sans-serif;outline:none;color-scheme:dark}
+.go-row input{flex:1;min-width:90px}
+.go-row input::placeholder{color:var(--text3)}
+.go-row input:focus,.go-row select:focus{border-color:var(--green2)}
+.btn-save{font-size:12px;font-weight:500;color:#fff;background:var(--green2);border:none;border-radius:7px;padding:5px 12px;cursor:pointer;font-family:'Inter',sans-serif}
+.btn-cancel{font-size:12px;color:var(--text3);background:none;border:1px solid var(--border);border-radius:7px;padding:5px 9px;cursor:pointer;font-family:'Inter',sans-serif}
+
+.check-item{display:flex;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid var(--bg2)}
+.check-item:last-child{border-bottom:none}
+.check-box{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.check-box.done{background:var(--green2);border-color:var(--green2)}
+.check-tick{width:9px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(1px,-1px)}
+.check-txt{flex:1;font-size:13px;color:var(--text1);font-weight:500}
+.check-txt.done{color:var(--text3);text-decoration:line-through;font-weight:400}
+.check-deadline{font-size:10px;font-weight:500;padding:2px 7px;border-radius:10px;white-space:nowrap}
+.dl-ok{background:#1a3022;color:#6ad880}
+.dl-warn{background:#2a1e0a;color:#c09040}
+.dl-hot{background:#2a1018;color:#c06070}
+.milestone{font-size:10px;font-weight:600;color:var(--green2);letter-spacing:0.7px;padding:10px 0 4px;text-transform:uppercase}
+
+.contact-card{background:var(--bg1);border-radius:9px;border:1px solid var(--border);padding:11px 13px;margin-bottom:8px}
+.cc-top{display:flex;align-items:center;gap:9px;margin-bottom:7px}
+.cc-avatar{width:36px;height:36px;border-radius:9px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--green);flex-shrink:0}
+.cc-name{font-size:13px;font-weight:600;color:var(--text1)}
+.cc-role{font-size:11px;color:var(--green);margin-top:1px}
+.cc-row{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text2);margin-bottom:4px}
+.cc-note{font-size:11px;color:var(--text3);background:var(--bg2);border-radius:6px;padding:6px 9px;margin-top:5px;line-height:1.5}
+
+.legend{display:flex;gap:12px;margin-bottom:9px;flex-wrap:wrap}
+.leg-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--text3)}
+.leg-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+</style>
+
+<div class="app">
+  <div class="topbar">
+    <div style="flex:1">
+      <div class="app-name" id="app-name-el">Đám cưới Linh &amp; Minh 💍</div>
+      <div class="app-date-row">
+        <span class="app-date" id="display-date">15 tháng 12, 2025</span>
+        <button class="edit-date-btn" onclick="toggleDateEdit()" title="Sửa ngày cưới">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.5 1.5L11.5 3.5L4 11H2V9L9.5 1.5Z" stroke="#9ab09a" stroke-width="1.2" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="countdown">
+      <div class="countdown-num" id="countdown-num">225</div>
+      <div class="countdown-label">ngày nữa</div>
+    </div>
+  </div>
+
+  <div class="date-edit-wrap" id="date-edit-wrap">
+    <input type="date" id="date-input" value="2025-12-15"/>
+    <input id="couple-input" placeholder="Tên cặp đôi..." value="Linh & Minh" style="max-width:130px"/>
+    <button class="de-save" onclick="saveDate()">Lưu</button>
+    <button class="de-cancel" onclick="toggleDateEdit()">Huỷ</button>
+  </div>
+
+  <div class="nav">
+    <button class="nav-btn on" onclick="goTab('dashboard',this)">Dashboard</button>
+    <button class="nav-btn" onclick="goTab('budget',this)">Chi tiêu</button>
+    <button class="nav-btn" onclick="goTab('fund',this)">Quỹ tiền</button>
+    <button class="nav-btn" onclick="goTab('gift',this)">Tiền mừng</button>
+    <button class="nav-btn" onclick="goTab('checklist',this)">Checklist</button>
+    <button class="nav-btn" onclick="goTab('contacts',this)">Liên hệ</button>
+  </div>
+
+  <div class="body">
+
+    <!-- DASHBOARD -->
+    <div class="tab on" id="tab-dashboard">
+      <div class="stat-row">
+        <div class="stat"><div class="stat-lbl">Ngân sách</div><div class="stat-val">350tr</div></div>
+        <div class="stat"><div class="stat-lbl">Đã chi / cọc</div><div class="stat-val rose">142tr</div></div>
+        <div class="stat"><div class="stat-lbl">Còn phải trả</div><div class="stat-val amber">98tr</div></div>
+        <div class="stat"><div class="stat-lbl">Quỹ còn lại</div><div class="stat-val sage">110tr</div></div>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="card-title">Tiến trình</span><span style="font-size:20px;font-weight:600;color:var(--green)">52%</span></div>
+        <div class="card-body">
+          <div class="prog-block">
+            <div class="prog-head"><span class="prog-label">Thanh toán hạng mục</span><span class="prog-pct" style="color:var(--red)">59%</span></div>
+            <div class="prog-track"><div class="prog-fill" style="width:59%;background:var(--red)"></div></div>
+          </div>
+          <div class="prog-block">
+            <div class="prog-head"><span class="prog-label">Checklist hoàn thành</span><span class="prog-pct" style="color:var(--sage)">40%</span></div>
+            <div class="prog-track"><div class="prog-fill" style="width:40%;background:var(--sage)"></div></div>
+          </div>
+          <div class="prog-block" style="margin-bottom:0">
+            <div class="prog-head"><span class="prog-label">Khách xác nhận dự</span><span class="prog-pct" style="color:var(--green)">68%</span></div>
+            <div class="prog-track"><div class="prog-fill" style="width:68%;background:var(--green)"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="card-title">Chi tiêu theo ngày</span></div>
+        <div class="card-body">
+          <div class="expense-item">
+            <div class="ei-dot" style="background:var(--green)"></div>
+            <div style="flex:1"><div class="ei-name">Trước đám cưới</div><div class="ei-sub">8 hạng mục</div></div>
+            <div><div class="ei-price">85tr</div><div class="ei-remain">còn 20tr</div></div>
+          </div>
+          <div class="expense-item">
+            <div class="ei-dot" style="background:var(--green2)"></div>
+            <div style="flex:1"><div class="ei-name">Ngày rước dâu</div><div class="ei-sub">6 hạng mục</div></div>
+            <div><div class="ei-price">62tr</div><div class="ei-remain">còn 28tr</div></div>
+          </div>
+          <div class="expense-item">
+            <div class="ei-dot" style="background:var(--green3)"></div>
+            <div style="flex:1"><div class="ei-name">Đám cưới nhà hàng</div><div class="ei-sub">10 hạng mục</div></div>
+            <div><div class="ei-price">93tr</div><div class="ei-remain">còn 50tr</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUDGET -->
+    <div class="tab" id="tab-budget">
+      <div class="day-pills">
+        <button class="pill on" onclick="switchDay('all',this)">Tất cả <span class="day-sum">240tr</span></button>
+        <button class="pill" onclick="switchDay('d1',this)">Trước đám cưới <span class="day-sum">85tr</span></button>
+        <button class="pill" onclick="switchDay('d2',this)">Rước dâu <span class="day-sum">62tr</span></button>
+        <button class="pill" onclick="switchDay('d3',this)">Nhà hàng <span class="day-sum">93tr</span></button>
+      </div>
+
+      <div id="day-all">
+        <div class="card">
+          <div class="card-head"><span class="card-title">Tất cả chi tiêu</span><span style="font-size:12px;font-weight:600;color:var(--green)">240tr · 24 hạng mục</span></div>
+          <div class="card-body">
+            <div class="group-header"><span>Trước đám cưới</span><span>85tr</span></div>
+            <div class="expense-item"><div class="ei-dot" style="background:var(--green)"></div><div style="flex:1"><div class="ei-name">Chụp ảnh &amp; quay phim</div><div class="ei-sub">Studio Ánh Hồng</div></div><div><div class="ei-price">25tr</div><div class="ei-deposit">Cọc 5tr</div><div class="ei-remain">Còn 20tr</div><span class="badge b-dep">Đã cọc</span></div></div>
+            <div class="expense-item"><div class="ei-dot" style="background:var(--green)"></div><div style="flex:1"><div class="ei-name">Thiệp cưới</div><div class="ei-sub">In Minh Long · 300 tờ</div></div><div><div class="ei-price">4.5tr</div><div class="ei-deposit">Đã trả đủ</div><span class="badge b-done">Hoàn tất</span></div></div>
+            <div class="expense-item"><div class="ei-dot" style="background:var(--border)"></div><div style="flex:1"><div class="ei-name">Nhẫn cưới vàng 18K</div><div class="ei-sub">PNJ · 2 chiếc</div></div><div><div class="ei-price">18tr</div><div class="ei-remain">Chưa cọc</div><span class="badge b-pend">Chưa đặt</span></div></div>
+            <div class="group-header" style="margin-top:8px"><span>Ngày rước dâu</span><span>62tr</span></div>
+            <div class="expense-item"><div class="ei-dot" style="background:var(--green)"></div><div style="flex:1"><div class="ei-name">Xe hoa Bentley</div><div class="ei-sub">Cho thuê xe Sang</div></div><div><div class="ei-price">12tr</div><div class="ei-deposit">Cọc 3tr</div><div class="ei-remain">Còn 9tr</div><span class="badge b-dep">Đã cọc</span></div></div>
+            <div class="expense-item"><div class="ei-dot" style="background:var(--border)"></div><div style="flex:1"><div class="ei-name">Trang điểm cô dâu</div><div class="ei-sub">Make up by Hà</div></div><div><div class="ei-price">8tr</div><div class="ei-remain">Chưa cọc</div><span class="badge b-pend">Chưa đặt</span></div></div>
+            <div class="group-header" style="margin-top:8px"><span>Đám cưới nhà hàng</span><span>93tr</span></div>
+            <div class="expense-item"><div class="ei-dot" style="background:var(--green)"></div><div style="flex:1"><div class="ei-name">Tiệc cưới 30 bàn</div><div class="ei-sub">Nhà hàng Bạch Ngọc · Menu Set B</div></div><div><div class="ei-price">60tr</div><div class="ei-deposit">Cọc 15tr</div><div class="ei-remain">Còn 45tr</div><span class="badge b-dep">Đã cọc</span></div></div>
+            <div class="expense-item"><div class="ei-dot" style="background:var(--border)"></div><div style="flex:1"><div class="ei-name">MC &amp; Ban nhạc sống</div><div class="ei-sub">Entertainment Sao Việt</div></div><div><div class="ei-price">15tr</div><div class="ei-remain">Chưa cọc</div><span class="badge b-pend">Chưa đặt</span></div></div>
+          </div>
+          <div class="section-total"><span class="st-label">Tổng tất cả</span><span class="st-val">240tr</span></div>
+        </div>
+      </div>
+
+      <div id="day-d1" style="display:none">
+        <div class="card">
+          <div class="card-head"><span class="card-title">Trước đám cưới</span><button class="card-action">+ Thêm</button></div>
+          <div class="card-body">
+            <div class="expense-item"><div class="ei-dot" style="background:var(--green)"></div><div style="flex:1"><div class="ei-name">Chụp ảnh &amp; quay phim</div><div class="ei-sub">Studio Ánh Hồng · 0909 123 456</div></div><div><div class="ei-price">25tr</div><div class="ei-deposit">Cọc 5tr</div><div class="ei-remain">Còn 20tr</div><span class="badge b-dep">Đã cọc</span></div></div>
+            <div class="expense-item"><div class="ei-dot" style="background:var(--green)"></div><div style="flex:1"><div class="ei-name">Thiệp cưới in offset</div><div class="ei-sub">In Minh Long · 300 tờ</div></div><div><div class="ei-price">4.5tr</div><div class="ei-deposit">Đã trả đủ</div><span class="badge b-done">Hoàn tất</span></div></div>
+            <div class="expense-item"><div class="ei-dot" style="background:var(--border)"></div><div style="flex:1"><div class="ei-name">Nhẫn cưới vàng 18K</div><div class="ei-sub">PNJ · 2 chiếc</div></div><div><div class="ei-price">18tr</div><div class="ei-remain">Chưa cọc</div><span class="badge b-pend">Chưa đặt</span></div></div>
+            <button class="add-btn">+ Thêm hạng mục</button>
+          </div>
+          <div class="section-total"><span class="st-label">Tổng ngày này</span><span class="st-val">85tr · còn 47.5tr</span></div>
+        </div>
+      </div>
+
+      <div id="day-d2" style="display:none">
+        <div class="card">
+          <div class="card-head"><span class="card-title">Ngày rước dâu</span><button class="card-action">+ Thêm</button></div>
+          <div class="card-body">
+            <div class="expense-item"><div class="ei-dot" style="background:var(--green)"></div><div style="flex:1"><div class="ei-name">Xe hoa Bentley</div><div class="ei-sub">Cho thuê xe Sang · 0912 000 111</div></div><div><div class="ei-price">12tr</div><div class="ei-deposit">Cọc 3tr</div><div class="ei-remain">Còn 9tr</div><span class="badge b-dep">Đã cọc</span></div></div>
+            <div class="expense-item"><div class="ei-dot" style="background:var(--border)"></div><div style="flex:1"><div class="ei-name">Trang điểm cô dâu</div><div class="ei-sub">Make up by Hà · 0901 222 333</div></div><div><div class="ei-price">8tr</div><div class="ei-remain">Chưa cọc</div><span class="badge b-pend">Chưa đặt</span></div></div>
+            <button class="add-btn">+ Thêm hạng mục</button>
+          </div>
+          <div class="section-total"><span class="st-label">Tổng ngày này</span><span class="st-val">62tr · còn 47tr</span></div>
+        </div>
+      </div>
+
+      <div id="day-d3" style="display:none">
+        <div class="card">
+          <div class="card-head"><span class="card-title">Đám cưới nhà hàng</span><button class="card-action">+ Thêm</button></div>
+          <div class="card-body">
+            <div class="expense-item"><div class="ei-dot" style="background:var(--green)"></div><div style="flex:1"><div class="ei-name">Tiệc cưới 30 bàn</div><div class="ei-sub">Nhà hàng Bạch Ngọc · Menu Set B</div></div><div><div class="ei-price">60tr</div><div class="ei-deposit">Cọc 15tr</div><div class="ei-remain">Còn 45tr</div><span class="badge b-dep">Đã cọc</span></div></div>
+            <div class="expense-item"><div class="ei-dot" style="background:var(--border)"></div><div style="flex:1"><div class="ei-name">MC &amp; Ban nhạc sống</div><div class="ei-sub">Entertainment Sao Việt</div></div><div><div class="ei-price">15tr</div><div class="ei-remain">Chưa cọc</div><span class="badge b-pend">Chưa đặt</span></div></div>
+            <button class="add-btn">+ Thêm hạng mục</button>
+          </div>
+          <div class="section-total"><span class="st-label">Tổng ngày này</span><span class="st-val">93tr · còn 60tr</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FUND -->
+    <div class="tab" id="tab-fund">
+      <div class="card">
+        <div class="card-head"><span class="card-title">Nguồn quỹ</span><button class="card-action">+ Thêm</button></div>
+        <div class="card-body">
+          <div class="fund-row"><div><div class="fr-label">Tiền tích lũy đôi bạn</div><div class="fr-sub">Tiết kiệm 2 năm</div></div><div class="fr-val">200tr</div></div>
+          <div class="fund-row"><div><div class="fr-label">Bố mẹ hỗ trợ</div><div class="fr-sub">Hai bên gia đình</div></div><div class="fr-val">100tr</div></div>
+          <div class="fund-row"><div><div class="fr-label">Tiền mừng dự kiến</div><div class="fr-sub">Ước tính ~142 khách</div></div><div class="fr-val">50tr</div></div>
+          <div class="fund-total"><span class="ft-label">Tổng quỹ</span><span class="ft-val">350tr</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="card-title">Tình hình sử dụng</span></div>
+        <div class="card-body">
+          <div class="fund-row"><div class="fr-label">Đã chi &amp; cọc</div><div style="font-size:13px;font-weight:600;color:var(--red)">−142tr</div></div>
+          <div class="fund-row"><div class="fr-label">Cần thanh toán thêm</div><div style="font-size:13px;font-weight:600;color:var(--amber)">−98tr</div></div>
+          <div class="fund-row" style="border:none;margin-top:4px;padding-top:10px;border-top:1px solid var(--border)">
+            <div style="font-size:13px;font-weight:600;color:var(--text1)">Dự kiến còn lại</div>
+            <div style="font-size:16px;font-weight:600;color:var(--sage)">+110tr</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIFT -->
+    <div class="tab" id="tab-gift">
+      <div class="gift-stats">
+        <div class="gs"><div class="gs-val">6.5tr</div><div class="gs-lbl">Tổng tiền mừng</div></div>
+        <div class="gs"><div class="gs-val">5</div><div class="gs-lbl">Tổng khách</div></div>
+        <div class="gs"><div class="gs-val">3</div><div class="gs-lbl">Đã mừng tiền</div></div>
+      </div>
+      <div class="legend">
+        <div class="leg-item"><div class="leg-dot st-invited"></div>Đã mời</div>
+        <div class="leg-item"><div class="leg-dot st-confirmed"></div>Xác nhận dự</div>
+        <div class="leg-item"><div class="leg-dot st-gifted"></div>Đã mừng tiền</div>
+      </div>
+
+      <div class="table-block">
+        <div class="tb-head" onclick="toggleTable('t1',this)">
+          <div><div class="tb-name">Bàn VIP — Họ nhà trai</div><div class="tb-meta">3 khách · 2 đã mừng</div></div>
+          <div style="display:flex;align-items:center"><div><div class="tb-total">5tr</div><div class="tb-sub">đã nhận</div></div><span class="tb-chev open" id="cv-t1">▾</span></div>
+        </div>
+        <div id="t1">
+          <div class="guest-row"><div class="gstatus st-gifted"></div><div class="gavatar">BT</div><div style="flex:1"><div class="gname">Bác Trần Văn Bình</div><div class="gnote">Chú ruột chú rể</div></div><div class="gamount"><div class="ga-val">3tr</div><div class="ga-type">tiền mặt</div></div></div>
+          <div class="guest-row"><div class="gstatus st-gifted"></div><div class="gavatar">HN</div><div style="flex:1"><div class="gname">Cô Hoàng Thị Nga</div><div class="gnote">Cô ruột chú rể</div></div><div class="gamount"><div class="ga-val">2tr</div><div class="ga-type">phong bì</div></div></div>
+          <div class="guest-row" id="gr-pm"><div class="gstatus st-confirmed"></div><div class="gavatar">PM</div><div style="flex:1"><div class="gname">Anh Phạm Tuấn Minh</div><div class="gnote">Anh họ chú rể</div></div><div class="gamount"><div class="ga-empty">Chưa mừng</div><button class="gift-action-btn" onclick="showGift('gr-pm','Anh Phạm Tuấn Minh')">+ Nhập tiền</button></div></div>
+          <div class="guest-add-area"><div class="guest-add-row"><input id="ni-t1" placeholder="Tên khách mời..."/><input id="rel-t1" placeholder="Quan hệ..." style="max-width:90px"/><button class="btn-add-guest" onclick="addGuest('t1')">+ Thêm</button></div></div>
+        </div>
+      </div>
+
+      <div class="table-block">
+        <div class="tb-head" onclick="toggleTable('t2',this)">
+          <div><div class="tb-name">Bàn 1 — Bạn thân cô dâu</div><div class="tb-meta">2 khách · 1 đã mừng</div></div>
+          <div style="display:flex;align-items:center"><div><div class="tb-total">1.5tr</div><div class="tb-sub">đã nhận</div></div><span class="tb-chev" id="cv-t2">▾</span></div>
+        </div>
+        <div id="t2" style="display:none">
+          <div class="guest-row"><div class="gstatus st-gifted"></div><div class="gavatar">LA</div><div style="flex:1"><div class="gname">Nguyễn Lan Anh</div><div class="gnote">Bạn thân cấp 3</div></div><div class="gamount"><div class="ga-val">1.5tr</div><div class="ga-type">chuyển khoản</div></div></div>
+          <div class="guest-row" id="gr-th"><div class="gstatus st-confirmed"></div><div class="gavatar">TH</div><div style="flex:1"><div class="gname">Trần Thu Hà</div><div class="gnote">Bạn đại học</div></div><div class="gamount"><div class="ga-empty">Chưa mừng</div><button class="gift-action-btn" onclick="showGift('gr-th','Trần Thu Hà')">+ Nhập tiền</button></div></div>
+          <div class="guest-add-area"><div class="guest-add-row"><input id="ni-t2" placeholder="Tên khách mời..."/><input id="rel-t2" placeholder="Quan hệ..." style="max-width:90px"/><button class="btn-add-guest" onclick="addGuest('t2')">+ Thêm</button></div></div>
+        </div>
+      </div>
+
+      <div id="gift-overlay-wrap" style="display:none">
+        <div class="table-block">
+          <div class="gift-overlay">
+            <div class="go-title" id="go-title">Nhập tiền mừng</div>
+            <div class="go-row">
+              <input id="gift-amt" placeholder="Số tiền (vd: 1500000)"/>
+              <select id="gift-type"><option value="phong bì">Phong bì</option><option value="chuyển khoản">Chuyển khoản</option><option value="tiền mặt">Tiền mặt</option><option value="quà tặng">Quà tặng</option></select>
+              <button class="btn-save" onclick="saveGift()">Lưu</button>
+              <button class="btn-cancel" onclick="closeGift()">Huỷ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="add-btn">+ Thêm bàn mới</button>
+    </div>
+
+    <!-- CHECKLIST -->
+    <div class="tab" id="tab-checklist">
+      <div class="card">
+        <div class="card-head"><span class="card-title">Tiến độ checklist</span><span style="font-size:13px;font-weight:600;color:var(--sage)">4/10 xong</span></div>
+        <div style="padding:10px 13px"><div class="prog-track" style="height:8px"><div class="prog-fill" style="width:40%;background:var(--green)"></div></div></div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="milestone">6 tháng trước</div>
+          <div class="check-item"><div class="check-box done" onclick="toggleCheck(this)"><div class="check-tick"></div></div><span class="check-txt done">Đặt nhà hàng tiệc cưới</span><span class="check-deadline dl-ok">Xong</span></div>
+          <div class="check-item"><div class="check-box done" onclick="toggleCheck(this)"><div class="check-tick"></div></div><span class="check-txt done">Đặt lịch &amp; cọc studio ảnh cưới</span><span class="check-deadline dl-ok">Xong</span></div>
+          <div class="check-item"><div class="check-box done" onclick="toggleCheck(this)"><div class="check-tick"></div></div><span class="check-txt done">Chọn váy cưới &amp; vest</span><span class="check-deadline dl-ok">Xong</span></div>
+          <div class="milestone">3 tháng trước</div>
+          <div class="check-item"><div class="check-box done" onclick="toggleCheck(this)"><div class="check-tick"></div></div><span class="check-txt done">Gửi thiệp mời chính thức</span><span class="check-deadline dl-ok">Xong</span></div>
+          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span class="check-txt">Đặt xe hoa &amp; xe đưa dâu</span><span class="check-deadline dl-warn">15/09</span></div>
+          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span class="check-txt">Đặt cọc nhẫn cưới</span><span class="check-deadline dl-warn">20/09</span></div>
+          <div class="milestone">1 tháng trước</div>
+          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span class="check-txt">Xác nhận số lượng bàn với nhà hàng</span><span class="check-deadline dl-hot">15/11</span></div>
+          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span class="check-txt">Tập dượt MC &amp; ban nhạc</span><span class="check-deadline dl-hot">20/11</span></div>
+          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span class="check-txt">Chuẩn bị phong bì &amp; quà cảm ơn</span><span class="check-deadline">01/12</span></div>
+          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span class="check-txt">Thanh toán toàn bộ còn lại</span><span class="check-deadline dl-hot">10/12</span></div>
+          <button class="add-btn">+ Thêm việc cần làm</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACTS -->
+    <div class="tab" id="tab-contacts">
+      <div class="contact-card">
+        <div class="cc-top">
+          <div class="cc-avatar">AH</div>
+          <div><div class="cc-name">Studio Ánh Hồng</div><div class="cc-role">Chụp ảnh &amp; quay phim</div></div>
+          <div style="margin-left:auto"><span class="badge b-dep">Đã cọc</span></div>
+        </div>
+        <div class="cc-row"><span>☏</span><span>0909 123 456</span></div>
+        <div class="cc-row"><span>◎</span><span>123 Nguyễn Huệ, Quận 1</span></div>
+        <div class="cc-note">Chụp 2 bộ outdoor + studio. Album 30 trang, video highlight 5 phút. Hạn TT còn lại: 01/11/2025</div>
+      </div>
+      <div class="contact-card">
+        <div class="cc-top">
+          <div class="cc-avatar">BN</div>
+          <div><div class="cc-name">Nhà hàng Bạch Ngọc</div><div class="cc-role">Tiệc cưới · 30 bàn</div></div>
+          <div style="margin-left:auto"><span class="badge b-dep">Đã cọc</span></div>
+        </div>
+        <div class="cc-row"><span>☏</span><span>028 3822 5566</span></div>
+        <div class="cc-row"><span>◎</span><span>45 Đinh Tiên Hoàng, Quận 1</span></div>
+        <div class="cc-note">Menu Set B, bia Tiger. Cọc 15tr / còn 45tr. Xác nhận số bàn trước 15/11.</div>
+      </div>
+      <div class="contact-card">
+        <div class="cc-top">
+          <div class="cc-avatar">SV</div>
+          <div><div class="cc-name">Entertainment Sao Việt</div><div class="cc-role">MC &amp; Ban nhạc sống</div></div>
+          <div style="margin-left:auto"><span class="badge b-pend">Chưa đặt</span></div>
+        </div>
+        <div class="cc-row"><span>☏</span><span>0912 888 999</span></div>
+        <div class="cc-note">Cần gặp demo và chốt setlist trước 01/10. Giá 15tr gồm 1 MC + 4 nhạc công.</div>
+      </div>
+      <button class="add-btn">+ Thêm nhà cung cấp</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+var activeGuestRow=null;
+function goTab(id,btn){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('on'));
+  document.getElementById('tab-'+id).classList.add('on');
+  btn.classList.add('on');
+}
+function switchDay(id,btn){
+  ['all','d1','d2','d3'].forEach(d=>{var el=document.getElementById('day-'+d);if(el)el.style.display='none'});
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));
+  document.getElementById('day-'+id).style.display='block';
+  btn.classList.add('on');
+}
+function toggleTable(id){
+  var el=document.getElementById(id);var cv=document.getElementById('cv-'+id);
+  var open=el.style.display!=='none'&&el.style.display!=='';
+  el.style.display=open?'none':'block';
+  if(cv)cv.classList.toggle('open',!open);
+}
+function toggleCheck(box){
+  box.classList.toggle('done');
+  var txt=box.nextElementSibling;
+  if(txt)txt.classList.toggle('done');
+  box.innerHTML=box.classList.contains('done')?'<div class="check-tick"></div>':'';
+}
+function toggleDateEdit(){
+  document.getElementById('date-edit-wrap').classList.toggle('show');
+}
+function saveDate(){
+  var d=document.getElementById('date-input').value;
+  var name=document.getElementById('couple-input').value.trim()||'Cặp đôi';
+  if(d){
+    var dt=new Date(d);
+    var months=['tháng 1','tháng 2','tháng 3','tháng 4','tháng 5','tháng 6','tháng 7','tháng 8','tháng 9','tháng 10','tháng 11','tháng 12'];
+    document.getElementById('display-date').textContent=dt.getDate()+' '+months[dt.getMonth()]+', '+dt.getFullYear();
+    var diff=Math.ceil((dt-new Date())/(1000*60*60*24));
+    document.getElementById('countdown-num').textContent=diff>0?diff:0;
+    document.getElementById('app-name-el').textContent='Đám cưới '+name+' 💍';
+  }
+  document.getElementById('date-edit-wrap').classList.remove('show');
+}
+function showGift(rowId,name){
+  activeGuestRow=rowId;
+  document.getElementById('go-title').textContent='Nhập tiền mừng — '+(name||'');
+  document.getElementById('gift-overlay-wrap').style.display='block';
+  document.getElementById('gift-amt').value='';
+}
+function closeGift(){document.getElementById('gift-overlay-wrap').style.display='none';activeGuestRow=null;}
+function saveGift(){
+  if(!activeGuestRow)return;
+  var amt=parseFloat(document.getElementById('gift-amt').value)||0;
+  var type=document.getElementById('gift-type').value;
+  if(!amt)return;
+  var d=amt>=1000000?(amt/1000000).toFixed(1).replace('.0','')+'tr':(amt>=1000?(amt/1000).toFixed(0)+'k':amt+'đ');
+  var row=document.getElementById(activeGuestRow);
+  if(row){row.querySelector('.gstatus').className='gstatus st-gifted';row.querySelector('.gamount').innerHTML='<div class="ga-val">'+d+'</div><div class="ga-type">'+type+'</div>';}
+  closeGift();
+}
+function addGuest(tid){
+  var n=document.getElementById('ni-'+tid);var r=document.getElementById('rel-'+tid);
+  var name=n?n.value.trim():'';if(!name)return;
+  var rel=r?r.value.trim():'Khách mời';
+  var init=name.split(' ').filter(Boolean).map(w=>w[0]).slice(-2).join('').toUpperCase();
+  var rid='gr-'+Math.random().toString(36).slice(2,7);
+  var row=document.createElement('div');row.className='guest-row';row.id=rid;
+  row.innerHTML='<div class="gstatus st-invited"></div><div class="gavatar">'+init+'</div><div style="flex:1"><div class="gname">'+name+'</div><div class="gnote">'+rel+'</div></div><div class="gamount"><div class="ga-empty">Chưa mừng</div><button class="gift-action-btn" onclick="showGift(\''+rid+'\',\''+name+'\')">+ Nhập tiền</button></div>';
+  var area=document.querySelector('#'+tid+' .guest-add-area');
+  if(area)area.parentNode.insertBefore(row,area);
+  if(n)n.value='';if(r)r.value='';
+}
+</script>
