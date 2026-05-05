@@ -1,4 +1,9 @@
-
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Wedding Planner 💍</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 *{box-sizing:border-box;margin:0;padding:0}
@@ -6,530 +11,1020 @@
   --bg0:#0f1510;--bg1:#161e17;--bg2:#1c261d;--bg3:#232e24;
   --border:#2a3a2b;--green:#4caf6a;--green2:#2e7a45;--green3:#1a5230;
   --text1:#e8f0e8;--text2:#9ab09a;--text3:#6a806a;
-  --red:#e05060;--amber:#d4903a;--sage:#4caf6a;
+  --red:#e05060;--amber:#d4903a;--sw:220px;
 }
-.app{font-family:'Inter',sans-serif;border-radius:14px;overflow:hidden;border:1px solid var(--border);background:var(--bg0)}
+html,body{height:100%;font-family:'Inter',sans-serif;background:var(--bg0);color:var(--text1)}
 
-.topbar{background:var(--bg1);padding:13px 16px 11px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)}
-.app-name{font-size:15px;font-weight:600;color:var(--text1)}
-.app-date-row{display:flex;align-items:center;gap:6px;margin-top:3px}
-.app-date{font-size:12px;color:var(--text3)}
-.edit-date-btn{width:18px;height:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0.5;border:none;background:none;padding:0;transition:opacity 0.15s}
-.edit-date-btn:hover{opacity:1}
-.edit-date-btn svg{display:block}
-.countdown{background:var(--bg3);border-radius:10px;padding:5px 12px;text-align:center;border:1px solid var(--border)}
-.countdown-num{font-size:18px;font-weight:600;color:var(--green);line-height:1}
-.countdown-label{font-size:10px;color:var(--text3);margin-top:1px}
+/* LOADING */
+#loading{position:fixed;inset:0;background:var(--bg0);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999}
+.spin{width:28px;height:28px;border:3px solid var(--border);border-top-color:var(--green);border-radius:50%;animation:spin .6s linear infinite;margin-bottom:12px}
+@keyframes spin{to{transform:rotate(360deg)}}
+#loading p{font-size:13px;color:var(--text3)}
 
-.date-edit-wrap{display:none;background:var(--bg2);border-bottom:1px solid var(--border);padding:9px 16px;gap:6px;align-items:center;flex-wrap:wrap}
-.date-edit-wrap.show{display:flex}
-.date-edit-wrap input{font-size:12px;padding:5px 9px;border:1px solid var(--border);border-radius:7px;background:var(--bg3);color:var(--text1);font-family:'Inter',sans-serif;outline:none}
-.date-edit-wrap input:focus{border-color:var(--green2)}
-.date-edit-wrap input[type=date]{color-scheme:dark}
-.de-save{font-size:12px;font-weight:500;color:#fff;background:var(--green2);border:none;border-radius:7px;padding:5px 12px;cursor:pointer;font-family:'Inter',sans-serif}
-.de-cancel{font-size:12px;color:var(--text3);background:none;border:1px solid var(--border);border-radius:7px;padding:5px 9px;cursor:pointer;font-family:'Inter',sans-serif}
+/* LOGIN */
+#login-screen{display:none;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.login-box{background:var(--bg1);border:1px solid var(--border);border-radius:14px;padding:32px 28px;width:100%;max-width:360px}
+.login-logo{text-align:center;font-size:30px;margin-bottom:6px}
+.login-title{text-align:center;font-size:18px;font-weight:600;color:var(--text1);margin-bottom:3px}
+.login-sub{text-align:center;font-size:12px;color:var(--text3);margin-bottom:22px}
+.ltabs{display:flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:18px}
+.ltab{flex:1;padding:8px;font-size:12px;font-weight:500;text-align:center;cursor:pointer;color:var(--text3);background:var(--bg2);border:none;font-family:'Inter',sans-serif}
+.ltab.on{background:var(--green3);color:var(--green)}
+.lf{margin-bottom:11px}
+.lf label{font-size:11px;color:var(--text3);display:block;margin-bottom:4px;font-weight:500}
+.lf input{width:100%;padding:9px 11px;border:1px solid var(--border);border-radius:8px;background:var(--bg3);color:var(--text1);font-family:'Inter',sans-serif;font-size:13px;outline:none}
+.lf input:focus{border-color:var(--green2)}
+.lf input::placeholder{color:var(--text3)}
+.login-btn{width:100%;padding:10px;background:var(--green2);border:none;border-radius:8px;color:#fff;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;margin-top:4px}
+.login-btn:hover{background:var(--green3)}
+.login-err{font-size:12px;color:var(--red);text-align:center;margin-top:10px;min-height:18px}
+.login-ro{text-align:center;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.login-ro a{font-size:12px;color:var(--text3);cursor:pointer;text-decoration:underline}
+.login-ro a:hover{color:var(--green)}
 
-.nav{display:flex;background:var(--bg1);border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
-.nav::-webkit-scrollbar{display:none}
-.nav-btn{flex:0 0 auto;padding:10px 14px;font-size:12px;font-weight:500;color:var(--text3);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;font-family:'Inter',sans-serif;white-space:nowrap;transition:color 0.15s}
-.nav-btn.on{color:var(--green);border-bottom-color:var(--green)}
+/* APP */
+#app-screen{display:none;height:100vh;overflow:hidden}
+.app-layout{display:flex;height:100%}
 
-.body{background:var(--bg0)}
-.tab{display:none;padding:12px}
-.tab.on{display:block}
+/* SIDEBAR */
+.sidebar{width:var(--sw);background:var(--bg1);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto}
+.sb-top{padding:16px 14px 12px}
+.sb-name{font-size:14px;font-weight:600;color:var(--text1);margin-bottom:2px;line-height:1.3}
+.sb-date-row{display:flex;align-items:center;gap:5px;margin-top:3px}
+.sb-date{font-size:11px;color:var(--text3)}
+.sb-edit{background:none;border:none;cursor:pointer;padding:0;opacity:.45;line-height:1;display:none}
+.sb-edit:hover{opacity:1}
+.sb-cd{margin-top:10px;background:var(--bg3);border:1px solid var(--border);border-radius:9px;padding:8px;text-align:center}
+.sb-cd-num{font-size:26px;font-weight:600;color:var(--green);line-height:1}
+.sb-cd-lbl{font-size:10px;color:var(--text3);margin-top:1px}
+.de-bar{display:none;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:9px 10px;margin-top:8px;gap:5px;flex-direction:column}
+.de-bar.show{display:flex}
+.de-bar input{font-size:12px;padding:6px 8px;border:1px solid var(--border);border-radius:7px;background:var(--bg3);color:var(--text1);font-family:'Inter',sans-serif;outline:none;color-scheme:dark;width:100%}
+.de-bar input::placeholder{color:var(--text3)}
+.de-bar input:focus{border-color:var(--green2)}
+.de-acts{display:flex;gap:5px}
+.de-save{font-size:12px;font-weight:500;color:#fff;background:var(--green2);border:none;border-radius:6px;padding:5px 10px;cursor:pointer;font-family:'Inter',sans-serif}
+.de-cancel{font-size:12px;color:var(--text3);background:none;border:1px solid var(--border);border-radius:6px;padding:5px 8px;cursor:pointer;font-family:'Inter',sans-serif}
+.sb-nav{padding:6px 0;flex:1}
+.sni{display:flex;align-items:center;gap:9px;padding:9px 14px;font-size:13px;font-weight:500;color:var(--text3);cursor:pointer;border-left:3px solid transparent;transition:all .15s;border:none;background:none;width:100%;font-family:'Inter',sans-serif;text-align:left}
+.sni:hover{color:var(--text2);background:var(--bg2)}
+.sni.on{color:var(--green);background:var(--bg2);border-left-color:var(--green)}
+.sni-icon{font-size:15px;width:20px;text-align:center}
+.sb-foot{padding:12px 14px;border-top:1px solid var(--border)}
+.role-badge{font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;display:inline-block;margin-bottom:8px}
+.rb-admin{background:var(--green3);color:var(--green);border:1px solid var(--green2)}
+.rb-ro{background:var(--bg3);color:var(--text3);border:1px solid var(--border)}
+.logout-btn{font-size:12px;color:var(--text3);background:none;border:1px solid var(--border);border-radius:7px;padding:5px 10px;cursor:pointer;font-family:'Inter',sans-serif;width:100%}
+.logout-btn:hover{color:var(--red);border-color:var(--red)}
 
-.card{background:var(--bg1);border-radius:11px;border:1px solid var(--border);margin-bottom:10px;overflow:hidden}
-.card-head{padding:11px 13px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+/* MAIN */
+.main{flex:1;overflow-y:auto;padding:20px 24px}
+.page{display:none}.page.on{display:block}
+.page-title{font-size:18px;font-weight:600;color:var(--text1);margin-bottom:16px}
+.ro-banner{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:12px;color:var(--text3);margin-bottom:14px;display:none;align-items:center;gap:8px}
+.ro-banner a{color:var(--green);cursor:pointer;text-decoration:underline;margin-left:4px}
+
+/* CARDS */
+.card{background:var(--bg1);border-radius:11px;border:1px solid var(--border);margin-bottom:12px;overflow:hidden}
+.card-head{padding:11px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
 .card-title{font-size:13px;font-weight:600;color:var(--text1)}
-.card-action{font-size:11px;font-weight:500;color:var(--green);background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:4px 11px;cursor:pointer;font-family:'Inter',sans-serif}
-.card-body{padding:11px 13px}
+.card-meta{font-size:12px;font-weight:600;color:var(--green)}
+.card-body{padding:12px 14px}
+.btn-add{font-size:11px;font-weight:500;color:var(--green);background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:4px 12px;cursor:pointer;font-family:'Inter',sans-serif}
+.btn-add:hover{border-color:var(--green2)}
 
-.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:10px}
-.stat{background:var(--bg1);border-radius:9px;padding:9px 11px;border:1px solid var(--border)}
-.stat-lbl{font-size:10px;color:var(--text3);font-weight:500;margin-bottom:3px;text-transform:uppercase;letter-spacing:0.3px}
-.stat-val{font-size:19px;font-weight:600;color:var(--text1)}
-.stat-val.rose{color:var(--red)}
-.stat-val.sage{color:var(--sage)}
-.stat-val.amber{color:var(--amber)}
+/* STATS */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:14px}
+.stat{background:var(--bg1);border-radius:9px;padding:10px 12px;border:1px solid var(--border)}
+.stat-lbl{font-size:10px;color:var(--text3);font-weight:500;margin-bottom:3px;text-transform:uppercase;letter-spacing:.3px}
+.stat-val{font-size:20px;font-weight:600;color:var(--text1)}
+.rose{color:var(--red)}.sage{color:var(--green)}.amber{color:var(--amber)}
 
+/* PROGRESS */
 .prog-block{margin-bottom:9px}
 .prog-head{display:flex;justify-content:space-between;margin-bottom:4px}
-.prog-label{font-size:11px;color:var(--text2)}
+.prog-lbl{font-size:11px;color:var(--text2)}
 .prog-pct{font-size:11px;font-weight:600}
 .prog-track{height:6px;background:var(--bg3);border-radius:20px;overflow:hidden}
-.prog-fill{height:100%;border-radius:20px}
+.prog-fill{height:100%;border-radius:20px;transition:width .5s}
 
-.day-pills{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
-.pill{font-size:11px;font-weight:500;padding:5px 11px;border-radius:16px;border:1px solid var(--border);color:var(--text2);background:var(--bg1);cursor:pointer;font-family:'Inter',sans-serif}
+/* PILLS */
+.day-pills{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:11px;font-weight:500;padding:5px 12px;border-radius:16px;border:1px solid var(--border);color:var(--text2);background:var(--bg1);cursor:pointer;font-family:'Inter',sans-serif}
 .pill.on{background:var(--green3);color:var(--green);border-color:var(--green2)}
-.day-sum{font-size:10px;color:var(--text3);margin-left:3px}
-.pill.on .day-sum{color:#6ad880}
+.pill-s{font-size:10px;color:var(--text3);margin-left:2px}
+.pill.on .pill-s{color:#6ad880}
 
-.expense-item{padding:10px 0;border-bottom:1px solid var(--bg2);display:flex;align-items:flex-start;gap:8px}
-.expense-item:last-child{border-bottom:none}
-.ei-dot{width:7px;height:7px;border-radius:50%;margin-top:5px;flex-shrink:0}
-.ei-name{font-size:13px;font-weight:500;color:var(--text1)}
-.ei-sub{font-size:11px;color:var(--text3);margin-top:1px}
-.ei-price{font-size:13px;font-weight:600;color:var(--text1);text-align:right}
-.ei-deposit{font-size:11px;color:var(--sage);text-align:right;margin-top:1px}
-.ei-remain{font-size:11px;color:var(--amber);text-align:right;margin-top:1px}
-
+/* EXPENSE */
+.exp-item{padding:10px 0;border-bottom:1px solid var(--bg2);display:flex;align-items:flex-start;gap:9px}
+.exp-item:last-child{border-bottom:none}
+.exp-dot{width:7px;height:7px;border-radius:50%;margin-top:5px;flex-shrink:0}
+.exp-name{font-size:13px;font-weight:500;color:var(--text1)}
+.exp-sub{font-size:11px;color:var(--text3);margin-top:1px}
+.exp-right{text-align:right;flex-shrink:0}
+.exp-price{font-size:13px;font-weight:600;color:var(--text1)}
+.exp-dep{font-size:11px;color:var(--green);margin-top:1px}
+.exp-rem{font-size:11px;color:var(--amber);margin-top:1px}
 .badge{font-size:10px;font-weight:500;padding:2px 7px;border-radius:12px;display:inline-block;margin-top:3px}
 .b-done{background:#1a3022;color:#6ad880;border:1px solid #2a4a32}
 .b-dep{background:#2a1e0a;color:#c09040;border:1px solid #3a2e10}
 .b-pend{background:#2a1018;color:#c06070;border:1px solid #3a1828}
+.sec-total{background:var(--bg2);padding:8px 14px;display:flex;justify-content:space-between}
+.st-l{font-size:11px;color:var(--text3)}.st-v{font-size:12px;font-weight:600;color:var(--green)}
+.grp-hdr{font-size:10px;font-weight:600;color:var(--green2);letter-spacing:.6px;text-transform:uppercase;padding:10px 0 5px;display:flex;justify-content:space-between;border-bottom:1px solid var(--border);margin-bottom:2px}
 
-.section-total{background:var(--bg2);padding:8px 13px;display:flex;justify-content:space-between;align-items:center}
-.st-label{font-size:11px;color:var(--text3)}
-.st-val{font-size:12px;font-weight:600;color:var(--green)}
+/* FORMS */
+.add-form{background:var(--bg2);border-top:1px solid var(--border);padding:12px 14px;display:none}
+.add-form.show{display:block}
+.fg{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:7px;margin-bottom:8px}
+.fg input,.fg select,.fg textarea{font-size:12px;padding:7px 9px;border:1px solid var(--border);border-radius:7px;background:var(--bg3);color:var(--text1);font-family:'Inter',sans-serif;outline:none;width:100%;color-scheme:dark}
+.fg input::placeholder,.fg textarea::placeholder{color:var(--text3)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--green2)}
+.f-acts{display:flex;gap:6px}
+.btn-save{font-size:12px;font-weight:500;color:#fff;background:var(--green2);border:none;border-radius:7px;padding:6px 14px;cursor:pointer;font-family:'Inter',sans-serif}
+.btn-save:hover{background:var(--green3)}
+.btn-cancel{font-size:12px;color:var(--text3);background:none;border:1px solid var(--border);border-radius:7px;padding:6px 10px;cursor:pointer;font-family:'Inter',sans-serif}
+.btn-dashed{font-size:12px;font-weight:500;color:var(--text3);background:transparent;border:1px dashed var(--border);border-radius:7px;padding:8px;cursor:pointer;width:100%;font-family:'Inter',sans-serif;margin-top:8px}
+.btn-dashed:hover{color:var(--green);border-color:var(--green2)}
+.btn-del{font-size:10px;color:var(--text3);background:none;border:none;cursor:pointer;padding:2px 4px;opacity:.6}
+.btn-del:hover{color:var(--red);opacity:1}
 
-.group-header{font-size:10px;font-weight:600;color:var(--green2);letter-spacing:0.6px;text-transform:uppercase;padding:10px 0 5px;display:flex;justify-content:space-between;border-bottom:1px solid var(--border);margin-bottom:2px}
-
-.add-btn{font-size:12px;font-weight:500;color:var(--text3);background:transparent;border:1px dashed var(--border);border-radius:7px;padding:8px;cursor:pointer;width:100%;font-family:'Inter',sans-serif;margin-top:8px}
-.add-btn:hover{color:var(--green);border-color:var(--green2)}
-
+/* FUND */
 .fund-row{padding:8px 0;border-bottom:1px solid var(--bg2);display:flex;justify-content:space-between;align-items:center}
 .fund-row:last-child{border-bottom:none}
-.fr-label{font-size:13px;color:var(--text1);font-weight:500}
+.fr-lbl{font-size:13px;color:var(--text1);font-weight:500}
 .fr-sub{font-size:11px;color:var(--text3);margin-top:1px}
 .fr-val{font-size:13px;font-weight:600;color:var(--sage)}
-.fund-total{background:var(--green3);border-radius:9px;padding:9px 13px;display:flex;justify-content:space-between;align-items:center;margin-top:8px;border:1px solid var(--green2)}
-.ft-label{font-size:11px;color:#6ad880}
-.ft-val{font-size:18px;font-weight:600;color:#fff}
+.fund-total{background:var(--green3);border-radius:9px;padding:10px 13px;display:flex;justify-content:space-between;align-items:center;margin-top:8px;border:1px solid var(--green2)}
+.ft-l{font-size:11px;color:#6ad880}.ft-v{font-size:20px;font-weight:600;color:#fff}
 
-.gift-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:10px}
-.gs{background:var(--bg1);border-radius:9px;padding:8px;text-align:center;border:1px solid var(--border)}
-.gs-val{font-size:15px;font-weight:600;color:var(--green)}
-.gs-lbl{font-size:10px;color:var(--text3);margin-top:2px}
-
+/* GIFT */
+.gift-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px;margin-bottom:12px}
+.gs-box{background:var(--bg1);border-radius:9px;padding:10px;text-align:center;border:1px solid var(--border)}
+.gs-val{font-size:18px;font-weight:600;color:var(--green)}.gs-lbl{font-size:10px;color:var(--text3);margin-top:2px}
 .table-block{background:var(--bg1);border-radius:9px;border:1px solid var(--border);margin-bottom:8px;overflow:hidden}
-.tb-head{background:var(--bg2);padding:9px 12px;display:flex;align-items:center;justify-content:space-between;cursor:pointer}
-.tb-name{font-size:13px;font-weight:600;color:var(--text1)}
-.tb-meta{font-size:11px;color:var(--text3);margin-top:1px}
-.tb-total{font-size:13px;font-weight:600;color:var(--sage);text-align:right}
-.tb-sub{font-size:10px;color:var(--text3);text-align:right}
-.tb-chev{font-size:11px;color:var(--text3);margin-left:8px;transition:transform 0.2s;display:inline-block}
-.tb-chev.open{transform:rotate(180deg)}
-
-.guest-row{display:flex;align-items:center;padding:8px 12px;border-bottom:1px solid var(--bg2);gap:9px}
+.tb-head{background:var(--bg2);padding:10px 12px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border:none;width:100%;text-align:left;font-family:'Inter',sans-serif}
+.tb-name{font-size:13px;font-weight:600;color:var(--text1)}.tb-meta{font-size:11px;color:var(--text3);margin-top:1px}
+.tb-total{font-size:13px;font-weight:600;color:var(--sage);text-align:right}.tb-sub{font-size:10px;color:var(--text3)}
+.tb-chev{font-size:11px;color:var(--text3);margin-left:8px;transition:transform .2s;display:inline-block}.tb-chev.open{transform:rotate(180deg)}
+.guest-row{display:flex;align-items:center;padding:8px 12px;border-bottom:1px solid var(--bg2);gap:8px}
 .guest-row:last-child{border-bottom:none}
-.gstatus{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.st-invited{background:var(--text3)}
-.st-confirmed{background:#4a9a6a}
-.st-gifted{background:var(--green)}
-.gavatar{width:28px;height:28px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--green);flex-shrink:0}
-.gname{font-size:12px;font-weight:500;color:var(--text1)}
-.gnote{font-size:11px;color:var(--text3);margin-top:1px}
-.gamount{text-align:right;flex-shrink:0;min-width:55px}
-.ga-val{font-size:12px;font-weight:600;color:var(--sage)}
-.ga-empty{font-size:11px;color:var(--text3)}
-.ga-type{font-size:10px;color:var(--text3)}
-.gift-action-btn{font-size:10px;font-weight:500;padding:2px 7px;border-radius:10px;border:1px solid var(--border);color:var(--green);background:var(--bg3);cursor:pointer;font-family:'Inter',sans-serif;margin-top:3px}
+.gst{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.st-i{background:var(--text3)}.st-c{background:#4a9a6a}.st-g{background:var(--green)}
+.gav{width:28px;height:28px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--green);flex-shrink:0}
+.gname{font-size:12px;font-weight:500;color:var(--text1)}.gnote{font-size:11px;color:var(--text3);margin-top:1px}
+.gamt{text-align:right;flex-shrink:0;min-width:60px}
+.ga-v{font-size:12px;font-weight:600;color:var(--sage)}.ga-e{font-size:11px;color:var(--text3)}.ga-t{font-size:10px;color:var(--text3)}
+.gift-btn{font-size:10px;font-weight:500;padding:2px 7px;border-radius:10px;border:1px solid var(--border);color:var(--green);background:var(--bg3);cursor:pointer;font-family:'Inter',sans-serif;margin-top:2px}
+.g-add-area{padding:9px 12px;border-top:1px solid var(--border);background:var(--bg2);display:flex;gap:5px;flex-wrap:wrap}
+.g-add-area input{flex:1;min-width:80px;font-size:12px;padding:6px 9px;border:1px solid var(--border);border-radius:7px;background:var(--bg3);color:var(--text1);font-family:'Inter',sans-serif;outline:none}
+.g-add-area input::placeholder{color:var(--text3)}
+.g-add-area input:focus{border-color:var(--green2)}
+.btn-ag{font-size:12px;font-weight:500;color:#fff;background:var(--green2);border:none;border-radius:7px;padding:6px 12px;cursor:pointer;font-family:'Inter',sans-serif}
+.gi-area{background:var(--bg2);border-top:1px solid var(--border);padding:10px 12px;display:none}
+.gi-area.show{display:block}
+.gi-title{font-size:11px;font-weight:600;color:var(--green);margin-bottom:7px}
+.gi-row{display:flex;gap:5px;flex-wrap:wrap}
+.gi-row input,.gi-row select{font-size:12px;padding:6px 9px;border:1px solid var(--border);border-radius:7px;background:var(--bg3);color:var(--text1);font-family:'Inter',sans-serif;outline:none;color-scheme:dark}
+.gi-row input{flex:1;min-width:90px}.gi-row input::placeholder{color:var(--text3)}
+.gi-row input:focus,.gi-row select:focus{border-color:var(--green2)}
 
-.guest-add-area{padding:9px 12px;border-top:1px solid var(--border);background:var(--bg2)}
-.guest-add-row{display:flex;gap:5px;flex-wrap:wrap}
-.guest-add-row input{flex:1;min-width:80px;font-size:12px;padding:6px 9px;border:1px solid var(--border);border-radius:7px;background:var(--bg3);color:var(--text1);font-family:'Inter',sans-serif;outline:none}
-.guest-add-row input::placeholder{color:var(--text3)}
-.guest-add-row input:focus{border-color:var(--green2)}
-.btn-add-guest{font-size:12px;font-weight:500;color:#fff;background:var(--green2);border:none;border-radius:7px;padding:6px 12px;cursor:pointer;font-family:'Inter',sans-serif}
-
-.gift-overlay{background:var(--bg2);border-top:1px solid var(--border);padding:10px 12px}
-.go-title{font-size:11px;font-weight:600;color:var(--green);margin-bottom:7px}
-.go-row{display:flex;gap:5px;flex-wrap:wrap;align-items:center}
-.go-row input,.go-row select{font-size:12px;padding:5px 9px;border:1px solid var(--border);border-radius:7px;background:var(--bg3);color:var(--text1);font-family:'Inter',sans-serif;outline:none;color-scheme:dark}
-.go-row input{flex:1;min-width:90px}
-.go-row input::placeholder{color:var(--text3)}
-.go-row input:focus,.go-row select:focus{border-color:var(--green2)}
-.btn-save{font-size:12px;font-weight:500;color:#fff;background:var(--green2);border:none;border-radius:7px;padding:5px 12px;cursor:pointer;font-family:'Inter',sans-serif}
-.btn-cancel{font-size:12px;color:var(--text3);background:none;border:1px solid var(--border);border-radius:7px;padding:5px 9px;cursor:pointer;font-family:'Inter',sans-serif}
-
+/* CHECKLIST */
 .check-item{display:flex;align-items:center;gap:9px;padding:9px 0;border-bottom:1px solid var(--bg2)}
 .check-item:last-child{border-bottom:none}
-.check-box{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer}
-.check-box.done{background:var(--green2);border-color:var(--green2)}
-.check-tick{width:9px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(1px,-1px)}
-.check-txt{flex:1;font-size:13px;color:var(--text1);font-weight:500}
-.check-txt.done{color:var(--text3);text-decoration:line-through;font-weight:400}
-.check-deadline{font-size:10px;font-weight:500;padding:2px 7px;border-radius:10px;white-space:nowrap}
-.dl-ok{background:#1a3022;color:#6ad880}
-.dl-warn{background:#2a1e0a;color:#c09040}
-.dl-hot{background:#2a1018;color:#c06070}
-.milestone{font-size:10px;font-weight:600;color:var(--green2);letter-spacing:0.7px;padding:10px 0 4px;text-transform:uppercase}
+.chk-box{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;background:none}
+.chk-box.done{background:var(--green2);border-color:var(--green2)}
+.chk-tick{width:9px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(1px,-1px)}
+.chk-txt{flex:1;font-size:13px;color:var(--text1);font-weight:500}
+.chk-txt.done{color:var(--text3);text-decoration:line-through;font-weight:400}
+.chk-dl{font-size:10px;font-weight:500;padding:2px 7px;border-radius:10px;white-space:nowrap}
+.dl-ok{background:#1a3022;color:#6ad880}.dl-warn{background:#2a1e0a;color:#c09040}.dl-hot{background:#2a1018;color:#c06070}
+.milestone{font-size:10px;font-weight:600;color:var(--green2);letter-spacing:.7px;padding:10px 0 4px;text-transform:uppercase}
+.legend{display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.leg-i{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--text3)}
+.leg-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
 
-.contact-card{background:var(--bg1);border-radius:9px;border:1px solid var(--border);padding:11px 13px;margin-bottom:8px}
+/* CONTACTS */
+.cc{background:var(--bg1);border-radius:9px;border:1px solid var(--border);padding:12px 14px;margin-bottom:8px}
 .cc-top{display:flex;align-items:center;gap:9px;margin-bottom:7px}
-.cc-avatar{width:36px;height:36px;border-radius:9px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--green);flex-shrink:0}
-.cc-name{font-size:13px;font-weight:600;color:var(--text1)}
-.cc-role{font-size:11px;color:var(--green);margin-top:1px}
+.cc-av{width:36px;height:36px;border-radius:9px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:var(--green);flex-shrink:0}
+.cc-name{font-size:13px;font-weight:600;color:var(--text1)}.cc-role{font-size:11px;color:var(--green);margin-top:1px}
 .cc-row{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text2);margin-bottom:4px}
 .cc-note{font-size:11px;color:var(--text3);background:var(--bg2);border-radius:6px;padding:6px 9px;margin-top:5px;line-height:1.5}
 
-.legend{display:flex;gap:12px;margin-bottom:9px;flex-wrap:wrap}
-.leg-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--text3)}
-.leg-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+/* TOAST */
+.toast{position:fixed;bottom:20px;right:20px;background:var(--green2);color:#fff;font-size:12px;font-weight:500;padding:9px 16px;border-radius:9px;z-index:999;opacity:0;transition:opacity .3s;pointer-events:none;font-family:'Inter',sans-serif}
+.toast.show{opacity:1}
+
+/* MOBILE */
+.mob-nav{display:none;background:var(--bg1);border-top:1px solid var(--border);position:fixed;bottom:0;left:0;right:0;z-index:100}
+.mob-items{display:flex}
+.mn-i{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 4px 10px;cursor:pointer;color:var(--text3);font-size:9px;font-weight:500;border:none;background:none;font-family:'Inter',sans-serif}
+.mn-i.on{color:var(--green)}
+.mn-icon{font-size:18px;margin-bottom:2px}
+
+@media(max-width:680px){
+  .sidebar{display:none}
+  .mob-nav{display:block}
+  .main{padding:14px 14px 80px}
+  #app-screen{height:100vh}
+}
 </style>
+</head>
+<body>
 
-<div class="app">
-  <div class="topbar">
-    <div style="flex:1">
-      <div class="app-name" id="app-name-el">Đám cưới Linh &amp; Minh 💍</div>
-      <div class="app-date-row">
-        <span class="app-date" id="display-date">15 tháng 12, 2025</span>
-        <button class="edit-date-btn" onclick="toggleDateEdit()" title="Sửa ngày cưới">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M9.5 1.5L11.5 3.5L4 11H2V9L9.5 1.5Z" stroke="#9ab09a" stroke-width="1.2" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      </div>
+<div id="loading"><div class="spin"></div><p>Đang kết nối...</p></div>
+
+<!-- LOGIN -->
+<div id="login-screen" style="display:none;flex-direction:column">
+  <div class="login-box">
+    <div class="login-logo">💍</div>
+    <div class="login-title">Wedding Planner</div>
+    <div class="login-sub">Quản lý chi tiêu đám cưới</div>
+    <div class="ltabs">
+      <button class="ltab on" onclick="switchLTab('admin',this)">✏️ Admin</button>
+      <button class="ltab" onclick="switchLTab('changepw',this)">🔑 Đổi mật khẩu</button>
     </div>
-    <div class="countdown">
-      <div class="countdown-num" id="countdown-num">225</div>
-      <div class="countdown-label">ngày nữa</div>
+    <div id="lt-admin">
+      <div class="lf"><label>Mật khẩu Admin (cấp 1)</label><input type="password" id="pw-admin" placeholder="Nhập mật khẩu..." onkeydown="if(event.key==='Enter')doLogin()"/></div>
+      <button class="login-btn" onclick="doLogin()">Đăng nhập</button>
     </div>
-  </div>
-
-  <div class="date-edit-wrap" id="date-edit-wrap">
-    <input type="date" id="date-input" value="2025-12-15"/>
-    <input id="couple-input" placeholder="Tên cặp đôi..." value="Linh & Minh" style="max-width:130px"/>
-    <button class="de-save" onclick="saveDate()">Lưu</button>
-    <button class="de-cancel" onclick="toggleDateEdit()">Huỷ</button>
-  </div>
-
-  <div class="nav">
-    <button class="nav-btn on" onclick="goTab('dashboard',this)">Dashboard</button>
-    <button class="nav-btn" onclick="goTab('budget',this)">Chi tiêu</button>
-    <button class="nav-btn" onclick="goTab('fund',this)">Quỹ tiền</button>
-    <button class="nav-btn" onclick="goTab('gift',this)">Tiền mừng</button>
-    <button class="nav-btn" onclick="goTab('checklist',this)">Checklist</button>
-    <button class="nav-btn" onclick="goTab('contacts',this)">Liên hệ</button>
-  </div>
-
-  <div class="body">
-
-    <!-- DASHBOARD -->
-    <div class="tab on" id="tab-dashboard">
-      <div class="stat-row">
-        <div class="stat"><div class="stat-lbl">Ngân sách</div><div class="stat-val">350tr</div></div>
-        <div class="stat"><div class="stat-lbl">Đã chi / cọc</div><div class="stat-val rose">142tr</div></div>
-        <div class="stat"><div class="stat-lbl">Còn phải trả</div><div class="stat-val amber">98tr</div></div>
-        <div class="stat"><div class="stat-lbl">Quỹ còn lại</div><div class="stat-val sage">110tr</div></div>
-      </div>
-      <div class="card">
-        <div class="card-head"><span class="card-title">Tiến trình</span><span style="font-size:20px;font-weight:600;color:var(--green)">52%</span></div>
-        <div class="card-body">
-          <div class="prog-block">
-            <div class="prog-head"><span class="prog-label">Thanh toán hạng mục</span><span class="prog-pct" style="color:var(--red)">59%</span></div>
-            <div class="prog-track"><div class="prog-fill" style="width:59%;background:var(--red)"></div></div>
-          </div>
-          <div class="prog-block">
-            <div class="prog-head"><span class="prog-label">Checklist hoàn thành</span><span class="prog-pct" style="color:var(--sage)">40%</span></div>
-            <div class="prog-track"><div class="prog-fill" style="width:40%;background:var(--sage)"></div></div>
-          </div>
-          <div class="prog-block" style="margin-bottom:0">
-            <div class="prog-head"><span class="prog-label">Khách xác nhận dự</span><span class="prog-pct" style="color:var(--green)">68%</span></div>
-            <div class="prog-track"><div class="prog-fill" style="width:68%;background:var(--green)"></div></div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-head"><span class="card-title">Chi tiêu theo ngày</span></div>
-        <div class="card-body">
-          <div class="expense-item">
-            <div class="ei-dot" style="background:var(--green)"></div>
-            <div style="flex:1"><div class="ei-name">Trước đám cưới</div><div class="ei-sub">8 hạng mục</div></div>
-            <div><div class="ei-price">85tr</div><div class="ei-remain">còn 20tr</div></div>
-          </div>
-          <div class="expense-item">
-            <div class="ei-dot" style="background:var(--green2)"></div>
-            <div style="flex:1"><div class="ei-name">Ngày rước dâu</div><div class="ei-sub">6 hạng mục</div></div>
-            <div><div class="ei-price">62tr</div><div class="ei-remain">còn 28tr</div></div>
-          </div>
-          <div class="expense-item">
-            <div class="ei-dot" style="background:var(--green3)"></div>
-            <div style="flex:1"><div class="ei-name">Đám cưới nhà hàng</div><div class="ei-sub">10 hạng mục</div></div>
-            <div><div class="ei-price">93tr</div><div class="ei-remain">còn 50tr</div></div>
-          </div>
-        </div>
-      </div>
+    <div id="lt-changepw" style="display:none">
+      <div class="lf"><label>Mật khẩu Super Admin (cấp 2)</label><input type="password" id="pw-super" placeholder="Mật khẩu cấp 2..."/></div>
+      <div class="lf"><label>Mật khẩu Admin mới</label><input type="password" id="pw-new" placeholder="Mật khẩu mới..."/></div>
+      <div class="lf"><label>Xác nhận mật khẩu mới</label><input type="password" id="pw-new2" placeholder="Nhập lại..."/></div>
+      <button class="login-btn" onclick="doChangePw()">Đổi mật khẩu</button>
     </div>
-
-    <!-- BUDGET -->
-    <div class="tab" id="tab-budget">
-      <div class="day-pills">
-        <button class="pill on" onclick="switchDay('all',this)">Tất cả <span class="day-sum">240tr</span></button>
-        <button class="pill" onclick="switchDay('d1',this)">Trước đám cưới <span class="day-sum">85tr</span></button>
-        <button class="pill" onclick="switchDay('d2',this)">Rước dâu <span class="day-sum">62tr</span></button>
-        <button class="pill" onclick="switchDay('d3',this)">Nhà hàng <span class="day-sum">93tr</span></button>
-      </div>
-
-      <div id="day-all">
-        <div class="card">
-          <div class="card-head"><span class="card-title">Tất cả chi tiêu</span><span style="font-size:12px;font-weight:600;color:var(--green)">240tr · 24 hạng mục</span></div>
-          <div class="card-body">
-            <div class="group-header"><span>Trước đám cưới</span><span>85tr</span></div>
-            <div class="expense-item"><div class="ei-dot" style="background:var(--green)"></div><div style="flex:1"><div class="ei-name">Chụp ảnh &amp; quay phim</div><div class="ei-sub">Studio Ánh Hồng</div></div><div><div class="ei-price">25tr</div><div class="ei-deposit">Cọc 5tr</div><div class="ei-remain">Còn 20tr</div><span class="badge b-dep">Đã cọc</span></div></div>
-            <div class="expense-item"><div class="ei-dot" style="background:var(--green)"></div><div style="flex:1"><div class="ei-name">Thiệp cưới</div><div class="ei-sub">In Minh Long · 300 tờ</div></div><div><div class="ei-price">4.5tr</div><div class="ei-deposit">Đã trả đủ</div><span class="badge b-done">Hoàn tất</span></div></div>
-            <div class="expense-item"><div class="ei-dot" style="background:var(--border)"></div><div style="flex:1"><div class="ei-name">Nhẫn cưới vàng 18K</div><div class="ei-sub">PNJ · 2 chiếc</div></div><div><div class="ei-price">18tr</div><div class="ei-remain">Chưa cọc</div><span class="badge b-pend">Chưa đặt</span></div></div>
-            <div class="group-header" style="margin-top:8px"><span>Ngày rước dâu</span><span>62tr</span></div>
-            <div class="expense-item"><div class="ei-dot" style="background:var(--green)"></div><div style="flex:1"><div class="ei-name">Xe hoa Bentley</div><div class="ei-sub">Cho thuê xe Sang</div></div><div><div class="ei-price">12tr</div><div class="ei-deposit">Cọc 3tr</div><div class="ei-remain">Còn 9tr</div><span class="badge b-dep">Đã cọc</span></div></div>
-            <div class="expense-item"><div class="ei-dot" style="background:var(--border)"></div><div style="flex:1"><div class="ei-name">Trang điểm cô dâu</div><div class="ei-sub">Make up by Hà</div></div><div><div class="ei-price">8tr</div><div class="ei-remain">Chưa cọc</div><span class="badge b-pend">Chưa đặt</span></div></div>
-            <div class="group-header" style="margin-top:8px"><span>Đám cưới nhà hàng</span><span>93tr</span></div>
-            <div class="expense-item"><div class="ei-dot" style="background:var(--green)"></div><div style="flex:1"><div class="ei-name">Tiệc cưới 30 bàn</div><div class="ei-sub">Nhà hàng Bạch Ngọc · Menu Set B</div></div><div><div class="ei-price">60tr</div><div class="ei-deposit">Cọc 15tr</div><div class="ei-remain">Còn 45tr</div><span class="badge b-dep">Đã cọc</span></div></div>
-            <div class="expense-item"><div class="ei-dot" style="background:var(--border)"></div><div style="flex:1"><div class="ei-name">MC &amp; Ban nhạc sống</div><div class="ei-sub">Entertainment Sao Việt</div></div><div><div class="ei-price">15tr</div><div class="ei-remain">Chưa cọc</div><span class="badge b-pend">Chưa đặt</span></div></div>
-          </div>
-          <div class="section-total"><span class="st-label">Tổng tất cả</span><span class="st-val">240tr</span></div>
-        </div>
-      </div>
-
-      <div id="day-d1" style="display:none">
-        <div class="card">
-          <div class="card-head"><span class="card-title">Trước đám cưới</span><button class="card-action">+ Thêm</button></div>
-          <div class="card-body">
-            <div class="expense-item"><div class="ei-dot" style="background:var(--green)"></div><div style="flex:1"><div class="ei-name">Chụp ảnh &amp; quay phim</div><div class="ei-sub">Studio Ánh Hồng · 0909 123 456</div></div><div><div class="ei-price">25tr</div><div class="ei-deposit">Cọc 5tr</div><div class="ei-remain">Còn 20tr</div><span class="badge b-dep">Đã cọc</span></div></div>
-            <div class="expense-item"><div class="ei-dot" style="background:var(--green)"></div><div style="flex:1"><div class="ei-name">Thiệp cưới in offset</div><div class="ei-sub">In Minh Long · 300 tờ</div></div><div><div class="ei-price">4.5tr</div><div class="ei-deposit">Đã trả đủ</div><span class="badge b-done">Hoàn tất</span></div></div>
-            <div class="expense-item"><div class="ei-dot" style="background:var(--border)"></div><div style="flex:1"><div class="ei-name">Nhẫn cưới vàng 18K</div><div class="ei-sub">PNJ · 2 chiếc</div></div><div><div class="ei-price">18tr</div><div class="ei-remain">Chưa cọc</div><span class="badge b-pend">Chưa đặt</span></div></div>
-            <button class="add-btn">+ Thêm hạng mục</button>
-          </div>
-          <div class="section-total"><span class="st-label">Tổng ngày này</span><span class="st-val">85tr · còn 47.5tr</span></div>
-        </div>
-      </div>
-
-      <div id="day-d2" style="display:none">
-        <div class="card">
-          <div class="card-head"><span class="card-title">Ngày rước dâu</span><button class="card-action">+ Thêm</button></div>
-          <div class="card-body">
-            <div class="expense-item"><div class="ei-dot" style="background:var(--green)"></div><div style="flex:1"><div class="ei-name">Xe hoa Bentley</div><div class="ei-sub">Cho thuê xe Sang · 0912 000 111</div></div><div><div class="ei-price">12tr</div><div class="ei-deposit">Cọc 3tr</div><div class="ei-remain">Còn 9tr</div><span class="badge b-dep">Đã cọc</span></div></div>
-            <div class="expense-item"><div class="ei-dot" style="background:var(--border)"></div><div style="flex:1"><div class="ei-name">Trang điểm cô dâu</div><div class="ei-sub">Make up by Hà · 0901 222 333</div></div><div><div class="ei-price">8tr</div><div class="ei-remain">Chưa cọc</div><span class="badge b-pend">Chưa đặt</span></div></div>
-            <button class="add-btn">+ Thêm hạng mục</button>
-          </div>
-          <div class="section-total"><span class="st-label">Tổng ngày này</span><span class="st-val">62tr · còn 47tr</span></div>
-        </div>
-      </div>
-
-      <div id="day-d3" style="display:none">
-        <div class="card">
-          <div class="card-head"><span class="card-title">Đám cưới nhà hàng</span><button class="card-action">+ Thêm</button></div>
-          <div class="card-body">
-            <div class="expense-item"><div class="ei-dot" style="background:var(--green)"></div><div style="flex:1"><div class="ei-name">Tiệc cưới 30 bàn</div><div class="ei-sub">Nhà hàng Bạch Ngọc · Menu Set B</div></div><div><div class="ei-price">60tr</div><div class="ei-deposit">Cọc 15tr</div><div class="ei-remain">Còn 45tr</div><span class="badge b-dep">Đã cọc</span></div></div>
-            <div class="expense-item"><div class="ei-dot" style="background:var(--border)"></div><div style="flex:1"><div class="ei-name">MC &amp; Ban nhạc sống</div><div class="ei-sub">Entertainment Sao Việt</div></div><div><div class="ei-price">15tr</div><div class="ei-remain">Chưa cọc</div><span class="badge b-pend">Chưa đặt</span></div></div>
-            <button class="add-btn">+ Thêm hạng mục</button>
-          </div>
-          <div class="section-total"><span class="st-label">Tổng ngày này</span><span class="st-val">93tr · còn 60tr</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- FUND -->
-    <div class="tab" id="tab-fund">
-      <div class="card">
-        <div class="card-head"><span class="card-title">Nguồn quỹ</span><button class="card-action">+ Thêm</button></div>
-        <div class="card-body">
-          <div class="fund-row"><div><div class="fr-label">Tiền tích lũy đôi bạn</div><div class="fr-sub">Tiết kiệm 2 năm</div></div><div class="fr-val">200tr</div></div>
-          <div class="fund-row"><div><div class="fr-label">Bố mẹ hỗ trợ</div><div class="fr-sub">Hai bên gia đình</div></div><div class="fr-val">100tr</div></div>
-          <div class="fund-row"><div><div class="fr-label">Tiền mừng dự kiến</div><div class="fr-sub">Ước tính ~142 khách</div></div><div class="fr-val">50tr</div></div>
-          <div class="fund-total"><span class="ft-label">Tổng quỹ</span><span class="ft-val">350tr</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-head"><span class="card-title">Tình hình sử dụng</span></div>
-        <div class="card-body">
-          <div class="fund-row"><div class="fr-label">Đã chi &amp; cọc</div><div style="font-size:13px;font-weight:600;color:var(--red)">−142tr</div></div>
-          <div class="fund-row"><div class="fr-label">Cần thanh toán thêm</div><div style="font-size:13px;font-weight:600;color:var(--amber)">−98tr</div></div>
-          <div class="fund-row" style="border:none;margin-top:4px;padding-top:10px;border-top:1px solid var(--border)">
-            <div style="font-size:13px;font-weight:600;color:var(--text1)">Dự kiến còn lại</div>
-            <div style="font-size:16px;font-weight:600;color:var(--sage)">+110tr</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- GIFT -->
-    <div class="tab" id="tab-gift">
-      <div class="gift-stats">
-        <div class="gs"><div class="gs-val">6.5tr</div><div class="gs-lbl">Tổng tiền mừng</div></div>
-        <div class="gs"><div class="gs-val">5</div><div class="gs-lbl">Tổng khách</div></div>
-        <div class="gs"><div class="gs-val">3</div><div class="gs-lbl">Đã mừng tiền</div></div>
-      </div>
-      <div class="legend">
-        <div class="leg-item"><div class="leg-dot st-invited"></div>Đã mời</div>
-        <div class="leg-item"><div class="leg-dot st-confirmed"></div>Xác nhận dự</div>
-        <div class="leg-item"><div class="leg-dot st-gifted"></div>Đã mừng tiền</div>
-      </div>
-
-      <div class="table-block">
-        <div class="tb-head" onclick="toggleTable('t1',this)">
-          <div><div class="tb-name">Bàn VIP — Họ nhà trai</div><div class="tb-meta">3 khách · 2 đã mừng</div></div>
-          <div style="display:flex;align-items:center"><div><div class="tb-total">5tr</div><div class="tb-sub">đã nhận</div></div><span class="tb-chev open" id="cv-t1">▾</span></div>
-        </div>
-        <div id="t1">
-          <div class="guest-row"><div class="gstatus st-gifted"></div><div class="gavatar">BT</div><div style="flex:1"><div class="gname">Bác Trần Văn Bình</div><div class="gnote">Chú ruột chú rể</div></div><div class="gamount"><div class="ga-val">3tr</div><div class="ga-type">tiền mặt</div></div></div>
-          <div class="guest-row"><div class="gstatus st-gifted"></div><div class="gavatar">HN</div><div style="flex:1"><div class="gname">Cô Hoàng Thị Nga</div><div class="gnote">Cô ruột chú rể</div></div><div class="gamount"><div class="ga-val">2tr</div><div class="ga-type">phong bì</div></div></div>
-          <div class="guest-row" id="gr-pm"><div class="gstatus st-confirmed"></div><div class="gavatar">PM</div><div style="flex:1"><div class="gname">Anh Phạm Tuấn Minh</div><div class="gnote">Anh họ chú rể</div></div><div class="gamount"><div class="ga-empty">Chưa mừng</div><button class="gift-action-btn" onclick="showGift('gr-pm','Anh Phạm Tuấn Minh')">+ Nhập tiền</button></div></div>
-          <div class="guest-add-area"><div class="guest-add-row"><input id="ni-t1" placeholder="Tên khách mời..."/><input id="rel-t1" placeholder="Quan hệ..." style="max-width:90px"/><button class="btn-add-guest" onclick="addGuest('t1')">+ Thêm</button></div></div>
-        </div>
-      </div>
-
-      <div class="table-block">
-        <div class="tb-head" onclick="toggleTable('t2',this)">
-          <div><div class="tb-name">Bàn 1 — Bạn thân cô dâu</div><div class="tb-meta">2 khách · 1 đã mừng</div></div>
-          <div style="display:flex;align-items:center"><div><div class="tb-total">1.5tr</div><div class="tb-sub">đã nhận</div></div><span class="tb-chev" id="cv-t2">▾</span></div>
-        </div>
-        <div id="t2" style="display:none">
-          <div class="guest-row"><div class="gstatus st-gifted"></div><div class="gavatar">LA</div><div style="flex:1"><div class="gname">Nguyễn Lan Anh</div><div class="gnote">Bạn thân cấp 3</div></div><div class="gamount"><div class="ga-val">1.5tr</div><div class="ga-type">chuyển khoản</div></div></div>
-          <div class="guest-row" id="gr-th"><div class="gstatus st-confirmed"></div><div class="gavatar">TH</div><div style="flex:1"><div class="gname">Trần Thu Hà</div><div class="gnote">Bạn đại học</div></div><div class="gamount"><div class="ga-empty">Chưa mừng</div><button class="gift-action-btn" onclick="showGift('gr-th','Trần Thu Hà')">+ Nhập tiền</button></div></div>
-          <div class="guest-add-area"><div class="guest-add-row"><input id="ni-t2" placeholder="Tên khách mời..."/><input id="rel-t2" placeholder="Quan hệ..." style="max-width:90px"/><button class="btn-add-guest" onclick="addGuest('t2')">+ Thêm</button></div></div>
-        </div>
-      </div>
-
-      <div id="gift-overlay-wrap" style="display:none">
-        <div class="table-block">
-          <div class="gift-overlay">
-            <div class="go-title" id="go-title">Nhập tiền mừng</div>
-            <div class="go-row">
-              <input id="gift-amt" placeholder="Số tiền (vd: 1500000)"/>
-              <select id="gift-type"><option value="phong bì">Phong bì</option><option value="chuyển khoản">Chuyển khoản</option><option value="tiền mặt">Tiền mặt</option><option value="quà tặng">Quà tặng</option></select>
-              <button class="btn-save" onclick="saveGift()">Lưu</button>
-              <button class="btn-cancel" onclick="closeGift()">Huỷ</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <button class="add-btn">+ Thêm bàn mới</button>
-    </div>
-
-    <!-- CHECKLIST -->
-    <div class="tab" id="tab-checklist">
-      <div class="card">
-        <div class="card-head"><span class="card-title">Tiến độ checklist</span><span style="font-size:13px;font-weight:600;color:var(--sage)">4/10 xong</span></div>
-        <div style="padding:10px 13px"><div class="prog-track" style="height:8px"><div class="prog-fill" style="width:40%;background:var(--green)"></div></div></div>
-      </div>
-      <div class="card">
-        <div class="card-body">
-          <div class="milestone">6 tháng trước</div>
-          <div class="check-item"><div class="check-box done" onclick="toggleCheck(this)"><div class="check-tick"></div></div><span class="check-txt done">Đặt nhà hàng tiệc cưới</span><span class="check-deadline dl-ok">Xong</span></div>
-          <div class="check-item"><div class="check-box done" onclick="toggleCheck(this)"><div class="check-tick"></div></div><span class="check-txt done">Đặt lịch &amp; cọc studio ảnh cưới</span><span class="check-deadline dl-ok">Xong</span></div>
-          <div class="check-item"><div class="check-box done" onclick="toggleCheck(this)"><div class="check-tick"></div></div><span class="check-txt done">Chọn váy cưới &amp; vest</span><span class="check-deadline dl-ok">Xong</span></div>
-          <div class="milestone">3 tháng trước</div>
-          <div class="check-item"><div class="check-box done" onclick="toggleCheck(this)"><div class="check-tick"></div></div><span class="check-txt done">Gửi thiệp mời chính thức</span><span class="check-deadline dl-ok">Xong</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span class="check-txt">Đặt xe hoa &amp; xe đưa dâu</span><span class="check-deadline dl-warn">15/09</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span class="check-txt">Đặt cọc nhẫn cưới</span><span class="check-deadline dl-warn">20/09</span></div>
-          <div class="milestone">1 tháng trước</div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span class="check-txt">Xác nhận số lượng bàn với nhà hàng</span><span class="check-deadline dl-hot">15/11</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span class="check-txt">Tập dượt MC &amp; ban nhạc</span><span class="check-deadline dl-hot">20/11</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span class="check-txt">Chuẩn bị phong bì &amp; quà cảm ơn</span><span class="check-deadline">01/12</span></div>
-          <div class="check-item"><div class="check-box" onclick="toggleCheck(this)"></div><span class="check-txt">Thanh toán toàn bộ còn lại</span><span class="check-deadline dl-hot">10/12</span></div>
-          <button class="add-btn">+ Thêm việc cần làm</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- CONTACTS -->
-    <div class="tab" id="tab-contacts">
-      <div class="contact-card">
-        <div class="cc-top">
-          <div class="cc-avatar">AH</div>
-          <div><div class="cc-name">Studio Ánh Hồng</div><div class="cc-role">Chụp ảnh &amp; quay phim</div></div>
-          <div style="margin-left:auto"><span class="badge b-dep">Đã cọc</span></div>
-        </div>
-        <div class="cc-row"><span>☏</span><span>0909 123 456</span></div>
-        <div class="cc-row"><span>◎</span><span>123 Nguyễn Huệ, Quận 1</span></div>
-        <div class="cc-note">Chụp 2 bộ outdoor + studio. Album 30 trang, video highlight 5 phút. Hạn TT còn lại: 01/11/2025</div>
-      </div>
-      <div class="contact-card">
-        <div class="cc-top">
-          <div class="cc-avatar">BN</div>
-          <div><div class="cc-name">Nhà hàng Bạch Ngọc</div><div class="cc-role">Tiệc cưới · 30 bàn</div></div>
-          <div style="margin-left:auto"><span class="badge b-dep">Đã cọc</span></div>
-        </div>
-        <div class="cc-row"><span>☏</span><span>028 3822 5566</span></div>
-        <div class="cc-row"><span>◎</span><span>45 Đinh Tiên Hoàng, Quận 1</span></div>
-        <div class="cc-note">Menu Set B, bia Tiger. Cọc 15tr / còn 45tr. Xác nhận số bàn trước 15/11.</div>
-      </div>
-      <div class="contact-card">
-        <div class="cc-top">
-          <div class="cc-avatar">SV</div>
-          <div><div class="cc-name">Entertainment Sao Việt</div><div class="cc-role">MC &amp; Ban nhạc sống</div></div>
-          <div style="margin-left:auto"><span class="badge b-pend">Chưa đặt</span></div>
-        </div>
-        <div class="cc-row"><span>☏</span><span>0912 888 999</span></div>
-        <div class="cc-note">Cần gặp demo và chốt setlist trước 01/10. Giá 15tr gồm 1 MC + 4 nhạc công.</div>
-      </div>
-      <button class="add-btn">+ Thêm nhà cung cấp</button>
-    </div>
-
+    <div class="login-err" id="login-err"></div>
+    <div class="login-ro"><a onclick="enterReadonly()">👁 Chỉ xem không cần đăng nhập</a></div>
   </div>
 </div>
 
-<script>
-var activeGuestRow=null;
-function goTab(id,btn){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('on'));
-  document.getElementById('tab-'+id).classList.add('on');
+<!-- APP -->
+<div id="app-screen">
+  <div class="app-layout">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sb-top">
+        <div class="sb-name" id="sb-name">Đám cưới 💍</div>
+        <div class="sb-date-row">
+          <span class="sb-date" id="sb-date">—</span>
+          <button class="sb-edit" id="sb-edit-btn" onclick="toggleDE()" title="Sửa ngày cưới">
+            <svg width="12" height="12" viewBox="0 0 13 13" fill="none"><path d="M9.5 1.5L11.5 3.5L4 11H2V9L9.5 1.5Z" stroke="#9ab09a" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="de-bar" id="de-bar">
+          <input type="date" id="de-date"/>
+          <input id="de-name" placeholder="Tên cặp đôi (vd: Linh & Minh)"/>
+          <div class="de-acts">
+            <button class="de-save" onclick="saveWeddingInfo()">Lưu</button>
+            <button class="de-cancel" onclick="toggleDE()">Huỷ</button>
+          </div>
+        </div>
+        <div class="sb-cd"><div class="sb-cd-num" id="sb-cnt">—</div><div class="sb-cd-lbl">ngày nữa</div></div>
+      </div>
+      <nav class="sb-nav">
+        <button class="sni on" onclick="goPage('dashboard',this)" data-p="dashboard"><span class="sni-icon">📊</span>Dashboard</button>
+        <button class="sni" onclick="goPage('budget',this)" data-p="budget"><span class="sni-icon">💸</span>Chi tiêu</button>
+        <button class="sni" onclick="goPage('fund',this)" data-p="fund"><span class="sni-icon">💰</span>Quỹ tiền</button>
+        <button class="sni" onclick="goPage('gift',this)" data-p="gift"><span class="sni-icon">🎁</span>Tiền mừng</button>
+        <button class="sni" onclick="goPage('checklist',this)" data-p="checklist"><span class="sni-icon">✅</span>Checklist</button>
+        <button class="sni" onclick="goPage('contacts',this)" data-p="contacts"><span class="sni-icon">📋</span>Liên hệ</button>
+      </nav>
+      <div class="sb-foot">
+        <div class="role-badge rb-ro" id="role-badge">👁 Chỉ đọc</div>
+        <button class="logout-btn" onclick="doLogout()">Đăng xuất</button>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+      <div class="ro-banner" id="ro-banner">
+        👁 Chế độ chỉ đọc — dữ liệu cập nhật realtime.
+        <a onclick="showLoginScreen()">Đăng nhập để chỉnh sửa</a>
+      </div>
+
+      <!-- DASHBOARD -->
+      <div class="page on" id="page-dashboard">
+        <div class="page-title">Tổng quan</div>
+        <div class="stat-grid">
+          <div class="stat"><div class="stat-lbl">Tổng quỹ</div><div class="stat-val" id="d-fund">—</div></div>
+          <div class="stat"><div class="stat-lbl">Đã chi / cọc</div><div class="stat-val rose" id="d-spent">—</div></div>
+          <div class="stat"><div class="stat-lbl">Còn phải trả</div><div class="stat-val amber" id="d-remain">—</div></div>
+          <div class="stat"><div class="stat-lbl">Quỹ còn lại</div><div class="stat-val sage" id="d-left">—</div></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="card-title">Tiến trình tổng thể</span><span class="card-meta" id="d-overall">0%</span></div>
+          <div class="card-body">
+            <div class="prog-block">
+              <div class="prog-head"><span class="prog-lbl">Thanh toán hạng mục</span><span class="prog-pct rose" id="dp-pay">0%</span></div>
+              <div class="prog-track"><div class="prog-fill" id="dp-pay-b" style="background:var(--red);width:0%"></div></div>
+            </div>
+            <div class="prog-block">
+              <div class="prog-head"><span class="prog-lbl">Checklist hoàn thành</span><span class="prog-pct sage" id="dp-chk">0%</span></div>
+              <div class="prog-track"><div class="prog-fill" id="dp-chk-b" style="background:var(--green);width:0%"></div></div>
+            </div>
+            <div class="prog-block" style="margin-bottom:0">
+              <div class="prog-head"><span class="prog-lbl">Khách xác nhận dự</span><span class="prog-pct" id="dp-guest" style="color:var(--green)">0%</span></div>
+              <div class="prog-track"><div class="prog-fill" id="dp-guest-b" style="background:var(--green2);width:0%"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="card-title">Chi tiêu theo ngày</span></div>
+          <div class="card-body" id="dash-days"></div>
+        </div>
+      </div>
+
+      <!-- BUDGET -->
+      <div class="page" id="page-budget">
+        <div class="page-title">Chi tiêu</div>
+        <div class="day-pills">
+          <button class="pill on" onclick="switchDay('all',this)">Tất cả <span class="pill-s" id="ps-all"></span></button>
+          <button class="pill" onclick="switchDay('pre',this)">Trước đám cưới <span class="pill-s" id="ps-pre"></span></button>
+          <button class="pill" onclick="switchDay('wed',this)">Rước dâu <span class="pill-s" id="ps-wed"></span></button>
+          <button class="pill" onclick="switchDay('party',this)">Nhà hàng <span class="pill-s" id="ps-party"></span></button>
+        </div>
+        <div id="budget-content"></div>
+      </div>
+
+      <!-- FUND -->
+      <div class="page" id="page-fund">
+        <div class="page-title">Quỹ tiền</div>
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Nguồn quỹ</span>
+            <button class="btn-add admin-only" onclick="toggleForm('fund-form')" style="display:none">+ Thêm nguồn</button>
+          </div>
+          <div class="card-body" id="fund-list"></div>
+          <div class="add-form" id="fund-form">
+            <div class="fg">
+              <input id="ff-name" placeholder="Tên nguồn (vd: Tiết kiệm)"/>
+              <input id="ff-note" placeholder="Ghi chú..."/>
+              <input id="ff-amt" type="number" placeholder="Số tiền (VNĐ)"/>
+            </div>
+            <div class="f-acts">
+              <button class="btn-save" onclick="saveFund()">Lưu</button>
+              <button class="btn-cancel" onclick="toggleForm('fund-form')">Huỷ</button>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head"><span class="card-title">Tình hình sử dụng</span></div>
+          <div class="card-body" id="fund-usage"></div>
+        </div>
+      </div>
+
+      <!-- GIFT -->
+      <div class="page" id="page-gift">
+        <div class="page-title">Tiền mừng</div>
+        <div class="gift-stats">
+          <div class="gs-box"><div class="gs-val" id="gt-money">—</div><div class="gs-lbl">Tổng tiền mừng</div></div>
+          <div class="gs-box"><div class="gs-val" id="gt-guests">0</div><div class="gs-lbl">Tổng khách mời</div></div>
+          <div class="gs-box"><div class="gs-val" id="gt-gifted">0</div><div class="gs-lbl">Đã mừng tiền</div></div>
+          <div class="gs-box"><div class="gs-val" id="gt-confirm">0</div><div class="gs-lbl">Xác nhận dự</div></div>
+        </div>
+        <div class="legend">
+          <div class="leg-i"><div class="leg-dot st-i"></div>Đã mời</div>
+          <div class="leg-i"><div class="leg-dot st-c"></div>Xác nhận dự</div>
+          <div class="leg-i"><div class="leg-dot st-g"></div>Đã mừng tiền</div>
+        </div>
+        <div id="gift-tables"></div>
+        <button class="btn-dashed admin-only" onclick="addGiftTable()" style="display:none">+ Thêm bàn mới</button>
+      </div>
+
+      <!-- CHECKLIST -->
+      <div class="page" id="page-checklist">
+        <div class="page-title">Checklist</div>
+        <div class="card">
+          <div class="card-head"><span class="card-title">Tiến độ</span><span class="card-meta" id="cl-stat">0/0 xong</span></div>
+          <div style="padding:10px 14px"><div class="prog-track" style="height:8px"><div class="prog-fill" id="cl-bar" style="width:0%;background:var(--green)"></div></div></div>
+        </div>
+        <div class="card">
+          <div class="card-body" id="cl-body">
+            <div class="milestone">6 tháng trước</div>
+            <div class="check-item" data-id="c1"><button class="chk-box" onclick="toggleCheck(this,'c1')"></button><span class="chk-txt">Đặt nhà hàng tiệc cưới</span><span class="chk-dl dl-warn">6T trước</span></div>
+            <div class="check-item" data-id="c2"><button class="chk-box" onclick="toggleCheck(this,'c2')"></button><span class="chk-txt">Đặt lịch &amp; cọc studio ảnh cưới</span><span class="chk-dl dl-warn">6T trước</span></div>
+            <div class="check-item" data-id="c3"><button class="chk-box" onclick="toggleCheck(this,'c3')"></button><span class="chk-txt">Chọn váy cưới &amp; vest</span><span class="chk-dl dl-warn">6T trước</span></div>
+            <div class="milestone">3 tháng trước</div>
+            <div class="check-item" data-id="c4"><button class="chk-box" onclick="toggleCheck(this,'c4')"></button><span class="chk-txt">Gửi thiệp mời chính thức</span><span class="chk-dl dl-warn">3T trước</span></div>
+            <div class="check-item" data-id="c5"><button class="chk-box" onclick="toggleCheck(this,'c5')"></button><span class="chk-txt">Đặt xe hoa &amp; xe đưa dâu</span><span class="chk-dl dl-warn">3T trước</span></div>
+            <div class="check-item" data-id="c6"><button class="chk-box" onclick="toggleCheck(this,'c6')"></button><span class="chk-txt">Đặt cọc nhẫn cưới</span><span class="chk-dl dl-warn">3T trước</span></div>
+            <div class="milestone">1 tháng trước</div>
+            <div class="check-item" data-id="c7"><button class="chk-box" onclick="toggleCheck(this,'c7')"></button><span class="chk-txt">Xác nhận số lượng bàn với nhà hàng</span><span class="chk-dl dl-hot">1T trước</span></div>
+            <div class="check-item" data-id="c8"><button class="chk-box" onclick="toggleCheck(this,'c8')"></button><span class="chk-txt">Tập dượt MC &amp; ban nhạc</span><span class="chk-dl dl-hot">1T trước</span></div>
+            <div class="check-item" data-id="c9"><button class="chk-box" onclick="toggleCheck(this,'c9')"></button><span class="chk-txt">Chuẩn bị phong bì &amp; quà cảm ơn</span><span class="chk-dl">Trước ngày cưới</span></div>
+            <div class="check-item" data-id="c10"><button class="chk-box" onclick="toggleCheck(this,'c10')"></button><span class="chk-txt">Thanh toán toàn bộ còn lại</span><span class="chk-dl dl-hot">Trước ngày cưới</span></div>
+            <button class="btn-dashed admin-only" onclick="addCheckItem()" style="display:none">+ Thêm việc cần làm</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACTS -->
+      <div class="page" id="page-contacts">
+        <div class="page-title">Liên hệ &amp; Nhà cung cấp</div>
+        <div id="contacts-list"></div>
+        <button class="btn-dashed admin-only" onclick="toggleForm('contact-form')" style="display:none">+ Thêm nhà cung cấp</button>
+        <div class="add-form" id="contact-form">
+          <div class="fg">
+            <input id="cf-name" placeholder="Tên dịch vụ / nhà cung cấp"/>
+            <input id="cf-role" placeholder="Vai trò (vd: Chụp ảnh)"/>
+            <input id="cf-phone" placeholder="Số điện thoại"/>
+            <input id="cf-addr" placeholder="Địa chỉ"/>
+            <select id="cf-status">
+              <option value="pending">Chưa đặt</option>
+              <option value="deposit">Đã cọc</option>
+              <option value="done">Hoàn tất</option>
+            </select>
+          </div>
+          <div class="fg" style="margin-top:0">
+            <input id="cf-note" placeholder="Ghi chú thêm..." style="grid-column:1/-1"/>
+          </div>
+          <div class="f-acts" style="margin-top:8px">
+            <button class="btn-save" onclick="saveContact()">Lưu</button>
+            <button class="btn-cancel" onclick="toggleForm('contact-form')">Huỷ</button>
+          </div>
+        </div>
+      </div>
+    </div><!-- /main -->
+  </div>
+
+  <!-- MOBILE NAV -->
+  <div class="mob-nav">
+    <div class="mob-items">
+      <button class="mn-i on" onclick="goPage('dashboard',this)" data-p="dashboard"><span class="mn-icon">📊</span>Dashboard</button>
+      <button class="mn-i" onclick="goPage('budget',this)" data-p="budget"><span class="mn-icon">💸</span>Chi tiêu</button>
+      <button class="mn-i" onclick="goPage('fund',this)" data-p="fund"><span class="mn-icon">💰</span>Quỹ</button>
+      <button class="mn-i" onclick="goPage('gift',this)" data-p="gift"><span class="mn-icon">🎁</span>Mừng</button>
+      <button class="mn-i" onclick="goPage('checklist',this)" data-p="checklist"><span class="mn-icon">✅</span>Checklist</button>
+      <button class="mn-i" onclick="goPage('contacts',this)" data-p="contacts"><span class="mn-icon">📋</span>Liên hệ</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getDatabase, ref, set, get, update, remove, onValue, push, child }
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+const app = initializeApp({
+  apiKey:"AIzaSyD7qGol-oL1XHt9UufrD337pQ-PnSnl4sQ",
+  authDomain:"wedding-a56f3.firebaseapp.com",
+  projectId:"wedding-a56f3",
+  storageBucket:"wedding-a56f3.firebasestorage.app",
+  messagingSenderId:"493056327981",
+  appId:"1:493056327981:web:aa8acc5a9ae338502753a4",
+  databaseURL:"https://wedding-a56f3-default-rtdb.asia-southeast1.firebasedatabase.app"
+});
+const db = getDatabase(app);
+
+// ── STATE ──────────────────────────────────────────────
+let role = null; // 'admin' | 'readonly'
+let currentDay = 'all';
+let activeGiftTable = null;
+let activeGiftGuest = null;
+let DATA = { config:{}, budget:{}, fund:{}, gift_tables:{}, gift_guests:{}, contacts:{}, checklist:{} };
+
+// ── HELPERS ────────────────────────────────────────────
+const fmt = v => {
+  if(v===undefined||v===null||v==='') return '—';
+  const n = Number(v);
+  if(isNaN(n)) return v;
+  if(n>=1e9) return (n/1e9).toFixed(1).replace('.0','')+'tỷ';
+  if(n>=1e6) return (n/1e6).toFixed(1).replace('.0','')+'tr';
+  if(n>=1e3) return (n/1e3).toFixed(0)+'k';
+  return n.toLocaleString('vi')+'đ';
+};
+const toast = msg => {
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2500);
+};
+const isAdmin = () => role==='admin';
+const $ = id => document.getElementById(id);
+const fmtDate = s => {
+  if(!s) return '—';
+  const d = new Date(s);
+  const mo=['tháng 1','tháng 2','tháng 3','tháng 4','tháng 5','tháng 6','tháng 7','tháng 8','tháng 9','tháng 10','tháng 11','tháng 12'];
+  return `${d.getDate()} ${mo[d.getMonth()]}, ${d.getFullYear()}`;
+};
+const daysLeft = s => {
+  if(!s) return '—';
+  const diff = Math.ceil((new Date(s)-new Date())/(864e5));
+  return diff>0?diff:0;
+};
+const DAYS = {pre:'Trước đám cưới',wed:'Ngày rước dâu',party:'Đám cưới nhà hàng'};
+const DOTS = {pre:'#4caf6a',wed:'#2e7a45',party:'#1a5230'};
+const BADGE = {done:['b-done','Hoàn tất'],deposit:['b-dep','Đã cọc'],pending:['b-pend','Chưa đặt']};
+
+// ── LOGIN ──────────────────────────────────────────────
+window.switchLTab = (tab, btn) => {
+  document.querySelectorAll('.ltab').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
-}
-function switchDay(id,btn){
-  ['all','d1','d2','d3'].forEach(d=>{var el=document.getElementById('day-'+d);if(el)el.style.display='none'});
-  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));
-  document.getElementById('day-'+id).style.display='block';
-  btn.classList.add('on');
-}
-function toggleTable(id){
-  var el=document.getElementById(id);var cv=document.getElementById('cv-'+id);
-  var open=el.style.display!=='none'&&el.style.display!=='';
-  el.style.display=open?'none':'block';
-  if(cv)cv.classList.toggle('open',!open);
-}
-function toggleCheck(box){
-  box.classList.toggle('done');
-  var txt=box.nextElementSibling;
-  if(txt)txt.classList.toggle('done');
-  box.innerHTML=box.classList.contains('done')?'<div class="check-tick"></div>':'';
-}
-function toggleDateEdit(){
-  document.getElementById('date-edit-wrap').classList.toggle('show');
-}
-function saveDate(){
-  var d=document.getElementById('date-input').value;
-  var name=document.getElementById('couple-input').value.trim()||'Cặp đôi';
-  if(d){
-    var dt=new Date(d);
-    var months=['tháng 1','tháng 2','tháng 3','tháng 4','tháng 5','tháng 6','tháng 7','tháng 8','tháng 9','tháng 10','tháng 11','tháng 12'];
-    document.getElementById('display-date').textContent=dt.getDate()+' '+months[dt.getMonth()]+', '+dt.getFullYear();
-    var diff=Math.ceil((dt-new Date())/(1000*60*60*24));
-    document.getElementById('countdown-num').textContent=diff>0?diff:0;
-    document.getElementById('app-name-el').textContent='Đám cưới '+name+' 💍';
+  $('lt-admin').style.display = tab==='admin'?'block':'none';
+  $('lt-changepw').style.display = tab==='changepw'?'block':'none';
+  $('login-err').textContent='';
+};
+
+window.doLogin = async () => {
+  const pw = $('pw-admin').value;
+  try {
+    const snap = await get(ref(db,'config/passwords'));
+    const d = snap.val()||{};
+    const adminPw = d.admin||'wedding2025';
+    if(pw===adminPw){ role='admin'; enterApp(); }
+    else { $('login-err').textContent='Sai mật khẩu!'; }
+  } catch(e) {
+    $('login-err').textContent='Lỗi kết nối: '+e.message;
   }
-  document.getElementById('date-edit-wrap').classList.remove('show');
-}
-function showGift(rowId,name){
-  activeGuestRow=rowId;
-  document.getElementById('go-title').textContent='Nhập tiền mừng — '+(name||'');
-  document.getElementById('gift-overlay-wrap').style.display='block';
-  document.getElementById('gift-amt').value='';
-}
-function closeGift(){document.getElementById('gift-overlay-wrap').style.display='none';activeGuestRow=null;}
-function saveGift(){
-  if(!activeGuestRow)return;
-  var amt=parseFloat(document.getElementById('gift-amt').value)||0;
-  var type=document.getElementById('gift-type').value;
-  if(!amt)return;
-  var d=amt>=1000000?(amt/1000000).toFixed(1).replace('.0','')+'tr':(amt>=1000?(amt/1000).toFixed(0)+'k':amt+'đ');
-  var row=document.getElementById(activeGuestRow);
-  if(row){row.querySelector('.gstatus').className='gstatus st-gifted';row.querySelector('.gamount').innerHTML='<div class="ga-val">'+d+'</div><div class="ga-type">'+type+'</div>';}
-  closeGift();
-}
-function addGuest(tid){
-  var n=document.getElementById('ni-'+tid);var r=document.getElementById('rel-'+tid);
-  var name=n?n.value.trim():'';if(!name)return;
-  var rel=r?r.value.trim():'Khách mời';
-  var init=name.split(' ').filter(Boolean).map(w=>w[0]).slice(-2).join('').toUpperCase();
-  var rid='gr-'+Math.random().toString(36).slice(2,7);
-  var row=document.createElement('div');row.className='guest-row';row.id=rid;
-  row.innerHTML='<div class="gstatus st-invited"></div><div class="gavatar">'+init+'</div><div style="flex:1"><div class="gname">'+name+'</div><div class="gnote">'+rel+'</div></div><div class="gamount"><div class="ga-empty">Chưa mừng</div><button class="gift-action-btn" onclick="showGift(\''+rid+'\',\''+name+'\')">+ Nhập tiền</button></div>';
-  var area=document.querySelector('#'+tid+' .guest-add-area');
-  if(area)area.parentNode.insertBefore(row,area);
-  if(n)n.value='';if(r)r.value='';
-}
+};
+
+window.doChangePw = async () => {
+  const sp=$('pw-super').value, np=$('pw-new').value, np2=$('pw-new2').value;
+  const err=$('login-err');
+  if(np!==np2){err.textContent='Mật khẩu mới không khớp!';return;}
+  if(!np){err.textContent='Mật khẩu mới trống!';return;}
+  try {
+    const snap = await get(ref(db,'config/passwords'));
+    const d = snap.val()||{};
+    if(sp!==(d.super||'superadmin2025')){err.textContent='Sai mật khẩu cấp 2!';return;}
+    await update(ref(db,'config/passwords'),{admin:np});
+    err.style.color='var(--green)';
+    err.textContent='Đổi mật khẩu thành công!';
+  } catch(e){err.textContent='Lỗi: '+e.message;}
+};
+
+window.enterReadonly = () => { role='readonly'; enterApp(); };
+window.showLoginScreen = () => {
+  $('app-screen').style.display='none';
+  $('login-screen').style.display='flex';
+};
+window.doLogout = () => { role=null; showLoginScreen(); };
+
+const enterApp = () => {
+  $('login-screen').style.display='none';
+  $('app-screen').style.display='flex';
+  const admin = isAdmin();
+  $('sb-edit-btn').style.display = admin?'flex':'none';
+  $('ro-banner').style.display = admin?'none':'flex';
+  $('role-badge').textContent = admin?'✏️ Admin':'👁 Chỉ đọc';
+  $('role-badge').className = 'role-badge '+(admin?'rb-admin':'rb-ro');
+  document.querySelectorAll('.admin-only').forEach(el=>el.style.display=admin?'':'none');
+  subscribeAll();
+};
+
+// ── REALTIME DB SUBSCRIPTIONS ──────────────────────────
+const subscribeAll = () => {
+  onValue(ref(db,'config/wedding'), snap => {
+    DATA.config = snap.val()||{};
+    renderWeddingInfo();
+  });
+  onValue(ref(db,'config/passwords'), ()=>{}); // just init
+  onValue(ref(db,'budget'), snap => {
+    DATA.budget = snap.val()||{};
+    renderBudget(); renderFund(); updateDash();
+  });
+  onValue(ref(db,'fund'), snap => {
+    DATA.fund = snap.val()||{};
+    renderFund(); updateDash();
+  });
+  onValue(ref(db,'gift_tables'), snap => {
+    DATA.gift_tables = snap.val()||{};
+    renderGift(); updateDash();
+  });
+  onValue(ref(db,'gift_guests'), snap => {
+    DATA.gift_guests = snap.val()||{};
+    renderGift(); updateDash();
+  });
+  onValue(ref(db,'contacts'), snap => {
+    DATA.contacts = snap.val()||{};
+    renderContacts();
+  });
+  onValue(ref(db,'checklist'), snap => {
+    DATA.checklist = snap.val()||{};
+    applyChecklist(); updateCheckProg(); updateDash();
+  });
+};
+
+// ── WEDDING INFO ───────────────────────────────────────
+const renderWeddingInfo = () => {
+  const d = DATA.config;
+  const name = d.name||'Linh & Minh';
+  const date = d.date||'';
+  $('sb-name').textContent = `Đám cưới ${name} 💍`;
+  document.title = `Đám cưới ${name} 💍`;
+  $('sb-date').textContent = fmtDate(date);
+  $('sb-cnt').textContent = daysLeft(date);
+  if($('de-date')) $('de-date').value = date;
+  if($('de-name')) $('de-name').value = name;
+};
+window.toggleDE = () => $('de-bar').classList.toggle('show');
+window.saveWeddingInfo = async () => {
+  await update(ref(db,'config/wedding'),{ date:$('de-date').value, name:$('de-name').value.trim()||'Linh & Minh' });
+  $('de-bar').classList.remove('show'); toast('Đã lưu!');
+};
+
+// ── NAV ────────────────────────────────────────────────
+window.goPage = (id, btn) => {
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.sni,.mn-i').forEach(b=>b.classList.remove('on'));
+  $('page-'+id).classList.add('on');
+  document.querySelectorAll(`[data-p="${id}"]`).forEach(b=>b.classList.add('on'));
+};
+
+// ── BUDGET ─────────────────────────────────────────────
+window.switchDay = (day, btn) => {
+  currentDay=day;
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('on'));
+  btn.classList.add('on');
+  renderBudget();
+};
+
+const budgetArr = () => Object.entries(DATA.budget).map(([id,v])=>({id,...v}));
+const dayTotal = (day) => budgetArr().filter(i=>i.day===day).reduce((s,i)=>s+(Number(i.total)||0),0);
+
+const renderBudget = () => {
+  const items = budgetArr();
+  ['pre','wed','party'].forEach(d=>{
+    const el=$('ps-'+d); if(el) el.textContent=fmt(dayTotal(d));
+  });
+  const all = items.reduce((s,i)=>s+(Number(i.total)||0),0);
+  const psAll=$('ps-all'); if(psAll) psAll.textContent=fmt(all);
+
+  const el=$('budget-content'); if(!el) return;
+  const admin=isAdmin();
+
+  if(currentDay==='all'){
+    let h=`<div class="card"><div class="card-head"><span class="card-title">Tất cả chi tiêu</span><span class="card-meta">${fmt(all)} · ${items.length} hạng mục</span></div><div class="card-body">`;
+    ['pre','wed','party'].forEach(day=>{
+      const di=items.filter(i=>i.day===day);
+      const dt=di.reduce((s,i)=>s+(Number(i.total)||0),0);
+      h+=`<div class="grp-hdr"><span>${DAYS[day]}</span><span>${fmt(dt)}</span></div>`;
+      di.forEach(item=>{ h+=expHTML(item,false); });
+    });
+    h+=`</div><div class="sec-total"><span class="st-l">Tổng tất cả</span><span class="st-v">${fmt(all)}</span></div></div>`;
+    el.innerHTML=h;
+  } else {
+    const di=items.filter(i=>i.day===currentDay);
+    const dt=di.reduce((s,i)=>s+(Number(i.total)||0),0);
+    const dep=di.reduce((s,i)=>s+(Number(i.deposit)||0),0);
+    let h=`<div class="card">
+      <div class="card-head"><span class="card-title">${DAYS[currentDay]}</span>${admin?`<button class="btn-add" onclick="showBudgetForm()">+ Thêm</button>`:''}</div>
+      <div class="card-body">`;
+    if(di.length===0) h+=`<div style="color:var(--text3);font-size:13px;padding:4px 0">Chưa có hạng mục nào.</div>`;
+    di.forEach(item=>{ h+=expHTML(item,true); });
+    h+=`${admin?`<button class="btn-dashed" onclick="showBudgetForm()">+ Thêm hạng mục</button>`:''}
+      </div>
+      <div id="budget-form-wrap" class="add-form">
+        <div class="fg">
+          <input id="bf-name" placeholder="Tên dịch vụ / hạng mục *"/>
+          <input id="bf-vendor" placeholder="Nhà cung cấp"/>
+          <input id="bf-phone" placeholder="SĐT liên hệ"/>
+          <input id="bf-qty" type="number" placeholder="Số lượng" value="1"/>
+          <input id="bf-total" type="number" placeholder="Tổng giá (VNĐ) *"/>
+          <input id="bf-deposit" type="number" placeholder="Đã cọc (VNĐ)" value="0"/>
+          <select id="bf-status"><option value="pending">Chưa đặt</option><option value="deposit">Đã cọc</option><option value="done">Hoàn tất</option></select>
+          <input id="bf-deadline" type="date"/>
+          <input id="bf-note" placeholder="Ghi chú..." style="grid-column:1/-1"/>
+        </div>
+        <div class="f-acts">
+          <button class="btn-save" onclick="saveBudgetItem()">Lưu</button>
+          <button class="btn-cancel" onclick="hideBudgetForm()">Huỷ</button>
+        </div>
+      </div>
+      <div class="sec-total"><span class="st-l">Tổng ngày này</span><span class="st-v">${fmt(dt)} · còn ${fmt(dt-dep)}</span></div>
+    </div>`;
+    el.innerHTML=h;
+  }
+};
+
+const expHTML = (item, showDel) => {
+  const [bc,bl]=BADGE[item.status]||BADGE.pending;
+  const remain=(Number(item.total)||0)-(Number(item.deposit)||0);
+  return `<div class="exp-item">
+    <div class="exp-dot" style="background:${DOTS[item.day]||'var(--green)'}"></div>
+    <div style="flex:1">
+      <div class="exp-name">${item.name||'—'}</div>
+      <div class="exp-sub">${[item.vendor,item.phone,item.qty>1?'SL: '+item.qty:''].filter(Boolean).join(' · ')}</div>
+      ${item.note?`<div class="exp-sub" style="font-style:italic">${item.note}</div>`:''}
+      ${item.deadline?`<div class="exp-sub">Hạn: ${fmtDate(item.deadline)}</div>`:''}
+    </div>
+    <div class="exp-right">
+      <div class="exp-price">${fmt(item.total)}</div>
+      ${item.deposit>0?`<div class="exp-dep">Cọc: ${fmt(item.deposit)}</div>`:''}
+      ${remain>0&&item.status!=='done'?`<div class="exp-rem">Còn: ${fmt(remain)}</div>`:''}
+      <span class="badge ${bc}">${bl}</span>
+      ${showDel&&isAdmin()?`<br><button class="btn-del" onclick="delDB('budget','${item.id}')">🗑 Xoá</button>`:''}
+    </div>
+  </div>`;
+};
+
+window.showBudgetForm = () => { const f=$('budget-form-wrap'); if(f) f.classList.add('show'); };
+window.hideBudgetForm = () => { const f=$('budget-form-wrap'); if(f) f.classList.remove('show'); };
+window.saveBudgetItem = async () => {
+  const name=$('bf-name')?.value.trim();
+  const total=Number($('bf-total')?.value)||0;
+  if(!name){toast('Nhập tên hạng mục!');return;}
+  if(!total){toast('Nhập tổng giá!');return;}
+  const newRef=push(ref(db,'budget'));
+  await set(newRef,{
+    day:currentDay, name, vendor:$('bf-vendor')?.value||'',
+    phone:$('bf-phone')?.value||'', qty:Number($('bf-qty')?.value)||1,
+    total, deposit:Number($('bf-deposit')?.value)||0,
+    status:$('bf-status')?.value||'pending',
+    deadline:$('bf-deadline')?.value||'', note:$('bf-note')?.value||'',
+    ts:Date.now()
+  });
+  toast('Đã thêm hạng mục!'); hideBudgetForm();
+};
+
+// ── FUND ───────────────────────────────────────────────
+const renderFund = () => {
+  const items=Object.entries(DATA.fund).map(([id,v])=>({id,...v}));
+  const totalFund=items.reduce((s,i)=>s+(Number(i.amount)||0),0);
+  const budgets=Object.values(DATA.budget);
+  const spent=budgets.reduce((s,i)=>s+(Number(i.deposit)||0),0);
+  const totalCost=budgets.reduce((s,i)=>s+(Number(i.total)||0),0);
+  const needPay=totalCost-spent;
+  const left=totalFund-totalCost;
+
+  const fl=$('fund-list'); if(!fl) return;
+  fl.innerHTML=(items.length===0?'<div style="color:var(--text3);font-size:13px">Chưa có nguồn quỹ nào.</div>':'')+
+    items.map(i=>`<div class="fund-row">
+      <div><div class="fr-lbl">${i.name||'—'}</div>${i.note?`<div class="fr-sub">${i.note}</div>`:''}</div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div class="fr-val">${fmt(i.amount)}</div>
+        ${isAdmin()?`<button class="btn-del" onclick="delDB('fund','${i.id}')">🗑</button>`:''}
+      </div>
+    </div>`).join('')+
+    `<div class="fund-total"><span class="ft-l">Tổng quỹ</span><span class="ft-v">${fmt(totalFund)}</span></div>`;
+
+  const fu=$('fund-usage'); if(!fu) return;
+  fu.innerHTML=`
+    <div class="fund-row"><div class="fr-lbl">Đã chi &amp; cọc</div><div style="font-size:13px;font-weight:600;color:var(--red)">−${fmt(spent)}</div></div>
+    <div class="fund-row"><div class="fr-lbl">Cần thanh toán thêm</div><div style="font-size:13px;font-weight:600;color:var(--amber)">−${fmt(needPay>0?needPay:0)}</div></div>
+    <div class="fund-row" style="border:none;padding-top:10px;border-top:1px solid var(--border);margin-top:4px">
+      <div style="font-size:13px;font-weight:600;color:var(--text1)">Dự kiến còn lại</div>
+      <div style="font-size:18px;font-weight:600;color:${left>=0?'var(--green)':'var(--red)'}">${left>=0?'+':''}${fmt(left)}</div>
+    </div>`;
+};
+
+window.saveFund = async () => {
+  const name=$('ff-name')?.value.trim();
+  const amt=Number($('ff-amt')?.value)||0;
+  if(!name){toast('Nhập tên nguồn!');return;}
+  const nr=push(ref(db,'fund'));
+  await set(nr,{name, note:$('ff-note')?.value||'', amount:amt, ts:Date.now()});
+  ['ff-name','ff-note','ff-amt'].forEach(id=>{const e=$(id);if(e)e.value='';});
+  toggleForm('fund-form'); toast('Đã thêm nguồn quỹ!');
+};
+
+// ── GIFT ───────────────────────────────────────────────
+const renderGift = () => {
+  const tables=Object.entries(DATA.gift_tables).map(([id,v])=>({id,...v}));
+  const guests=Object.entries(DATA.gift_guests).map(([id,v])=>({id,...v}));
+
+  let totalMoney=0,totalG=0,gifted=0,confirmed=0;
+  guests.forEach(g=>{
+    totalG++;
+    if(g.status==='gifted'){gifted++;totalMoney+=(Number(g.amount)||0);}
+    if(g.status==='confirmed'||g.status==='gifted') confirmed++;
+  });
+  $('gt-money').textContent=fmt(totalMoney);
+  $('gt-guests').textContent=totalG;
+  $('gt-gifted').textContent=gifted;
+  $('gt-confirm').textContent=confirmed;
+
+  const el=$('gift-tables'); if(!el) return;
+  const admin=isAdmin();
+
+  el.innerHTML=tables.sort((a,b)=>(a.ts||0)-(b.ts||0)).map(t=>{
+    const tGuests=guests.filter(g=>g.tableId===t.id);
+    const tMoney=tGuests.filter(g=>g.status==='gifted').reduce((s,g)=>s+(Number(g.amount)||0),0);
+    const tGifted=tGuests.filter(g=>g.status==='gifted').length;
+    return `<div class="table-block">
+      <button class="tb-head" onclick="toggleTB('tb-${t.id}','chev-${t.id}')">
+        <div><div class="tb-name">${t.name||'Bàn'}</div><div class="tb-meta">${tGuests.length} khách · ${tGifted} đã mừng</div></div>
+        <div style="display:flex;align-items:center">
+          <div><div class="tb-total">${tMoney>0?fmt(tMoney):'—'}</div><div class="tb-sub">đã nhận</div></div>
+          <span class="tb-chev open" id="chev-${t.id}">▾</span>
+        </div>
+      </button>
+      <div id="tb-${t.id}">
+        ${tGuests.sort((a,b)=>(a.ts||0)-(b.ts||0)).map(g=>{
+          const stCls={invited:'st-i',confirmed:'st-c',gifted:'st-g'}[g.status]||'st-i';
+          const init=(g.name||'?').split(' ').filter(Boolean).map(w=>w[0]).slice(-2).join('').toUpperCase();
+          return `<div class="guest-row">
+            <div class="gst ${stCls}"></div>
+            <div class="gav">${init}</div>
+            <div style="flex:1"><div class="gname">${g.name||'—'}</div><div class="gnote">${g.note||''}</div></div>
+            <div class="gamt">
+              ${g.status==='gifted'
+                ?`<div class="ga-v">${fmt(g.amount)}</div><div class="ga-t">${g.giftType||''}</div>`
+                :`<div class="ga-e">Chưa mừng</div>${admin?`<button class="gift-btn" onclick="showGI('${t.id}','${g.id}','${(g.name||'').replace(/'/g,"\\'")}')">+ Nhập tiền</button>`:''}`}
+            </div>
+            ${admin?`<button class="btn-del" onclick="delDB('gift_guests','${g.id}')">🗑</button>`:''}
+          </div>`;
+        }).join('')}
+        <div class="gi-area" id="gi-${t.id}">
+          <div class="gi-title" id="gi-title-${t.id}">Nhập tiền mừng</div>
+          <div class="gi-row">
+            <input id="gi-amt-${t.id}" type="number" placeholder="Số tiền (VNĐ)"/>
+            <select id="gi-type-${t.id}">
+              <option value="phong bì">Phong bì</option>
+              <option value="chuyển khoản">Chuyển khoản</option>
+              <option value="tiền mặt">Tiền mặt</option>
+              <option value="quà tặng">Quà tặng</option>
+            </select>
+            <button class="btn-save" onclick="saveGI('${t.id}')">Lưu</button>
+            <button class="btn-cancel" onclick="closeGI('${t.id}')">Huỷ</button>
+          </div>
+        </div>
+        ${admin?`<div class="g-add-area">
+          <input id="ga-name-${t.id}" placeholder="Tên khách mời..."/>
+          <input id="ga-note-${t.id}" placeholder="Quan hệ / ghi chú..." style="max-width:130px"/>
+          <button class="btn-ag" onclick="addGuest('${t.id}')">+ Thêm khách</button>
+          <button class="btn-del" style="margin-left:auto;font-size:11px;color:var(--red)" onclick="delDB('gift_tables','${t.id}')">🗑 Xoá bàn</button>
+        </div>`:''}
+      </div>
+    </div>`;
+  }).join('');
+};
+
+window.toggleTB = (bodyId, chevId) => {
+  const el=$(bodyId), chev=$(chevId);
+  if(!el) return;
+  const open = el.style.display!=='none';
+  el.style.display=open?'none':'block';
+  if(chev) chev.classList.toggle('open',!open);
+};
+window.addGiftTable = async () => {
+  const name=prompt('Tên bàn (vd: Bàn VIP - Họ nhà trai):');
+  if(!name?.trim()) return;
+  const nr=push(ref(db,'gift_tables'));
+  await set(nr,{name:name.trim(),ts:Date.now()});
+  toast('Đã thêm bàn!');
+};
+window.addGuest = async (tableId) => {
+  const nameEl=$('ga-name-'+tableId), noteEl=$('ga-note-'+tableId);
+  const name=nameEl?.value.trim();
+  if(!name){toast('Nhập tên khách!');return;}
+  const nr=push(ref(db,'gift_guests'));
+  await set(nr,{tableId, name, note:noteEl?.value.trim()||'', status:'invited', amount:0, giftType:'', ts:Date.now()});
+  if(nameEl) nameEl.value='';
+  if(noteEl) noteEl.value='';
+  toast('Đã thêm khách!');
+};
+window.showGI = (tableId, guestId, name) => {
+  activeGiftTable=tableId; activeGiftGuest=guestId;
+  const el=$('gi-'+tableId), title=$('gi-title-'+tableId);
+  if(el) el.classList.add('show');
+  if(title) title.textContent='Nhập tiền mừng — '+name;
+};
+window.closeGI = (tableId) => { const el=$('gi-'+tableId); if(el) el.classList.remove('show'); };
+window.saveGI = async (tableId) => {
+  const amt=Number($('gi-amt-'+tableId)?.value)||0;
+  const type=$('gi-type-'+tableId)?.value||'phong bì';
+  if(!amt){toast('Nhập số tiền!');return;}
+  if(!activeGiftGuest){toast('Lỗi: không tìm thấy khách!');return;}
+  await update(ref(db,'gift_guests/'+activeGiftGuest),{status:'gifted',amount:amt,giftType:type});
+  closeGI(tableId); toast('Đã lưu tiền mừng!');
+};
+
+// ── CHECKLIST ──────────────────────────────────────────
+const applyChecklist = () => {
+  document.querySelectorAll('.check-item[data-id]').forEach(item=>{
+    const id=item.dataset.id;
+    const done=DATA.checklist[id]===true;
+    const box=item.querySelector('.chk-box');
+    const txt=item.querySelector('.chk-txt');
+    if(!box||!txt) return;
+    box.classList.toggle('done',done);
+    box.innerHTML=done?'<div class="chk-tick"></div>':'';
+    txt.classList.toggle('done',done);
+  });
+};
+const updateCheckProg = () => {
+  const items=document.querySelectorAll('.check-item[data-id]');
+  const total=items.length;
+  const done=Object.values(DATA.checklist).filter(v=>v===true).length;
+  const pct=total>0?Math.round(done/total*100):0;
+  $('cl-stat').textContent=`${done}/${total} xong`;
+  $('cl-bar').style.width=pct+'%';
+};
+window.toggleCheck = async (box, id) => {
+  if(!isAdmin()){toast('Chế độ chỉ đọc.');return;}
+  const newVal=!DATA.checklist[id];
+  const updates={};
+  updates[id]=newVal;
+  await update(ref(db,'checklist'),updates);
+};
+window.addCheckItem = async () => {
+  const txt=prompt('Nhập việc cần làm:');
+  if(!txt?.trim()) return;
+  const id='c_'+Date.now();
+  const body=$('cl-body'), btn=body?.querySelector('.admin-only');
+  const div=document.createElement('div');
+  div.className='check-item'; div.dataset.id=id;
+  div.innerHTML=`<button class="chk-box" onclick="toggleCheck(this,'${id}')"></button><span class="chk-txt">${txt.trim()}</span><span class="chk-dl">Mới thêm</span>`;
+  if(btn) body.insertBefore(div,btn); else body?.appendChild(div);
+  updateCheckProg();
+};
+
+// ── CONTACTS ───────────────────────────────────────────
+const renderContacts = () => {
+  const el=$('contacts-list'); if(!el) return;
+  const items=Object.entries(DATA.contacts).map(([id,v])=>({id,...v})).sort((a,b)=>(a.ts||0)-(b.ts||0));
+  if(items.length===0){el.innerHTML='<div style="color:var(--text3);font-size:13px;margin-bottom:12px">Chưa có liên hệ nào.</div>';return;}
+  el.innerHTML=items.map(c=>{
+    const [bc,bl]=BADGE[c.status]||BADGE.pending;
+    const init=(c.name||'?').split(' ').map(w=>w[0]).slice(-2).join('').toUpperCase();
+    return `<div class="cc">
+      <div class="cc-top">
+        <div class="cc-av">${init}</div>
+        <div><div class="cc-name">${c.name||'—'}</div><div class="cc-role">${c.role||''}</div></div>
+        <div style="margin-left:auto;display:flex;align-items:center;gap:8px">
+          <span class="badge ${bc}">${bl}</span>
+          ${isAdmin()?`<button class="btn-del" onclick="delDB('contacts','${c.id}')">🗑</button>`:''}
+        </div>
+      </div>
+      ${c.phone?`<div class="cc-row"><span>☏</span><span>${c.phone}</span></div>`:''}
+      ${c.addr?`<div class="cc-row"><span>◎</span><span>${c.addr}</span></div>`:''}
+      ${c.note?`<div class="cc-note">${c.note}</div>`:''}
+    </div>`;
+  }).join('');
+};
+window.saveContact = async () => {
+  const name=$('cf-name')?.value.trim();
+  if(!name){toast('Nhập tên!');return;}
+  const nr=push(ref(db,'contacts'));
+  await set(nr,{name, role:$('cf-role')?.value||'', phone:$('cf-phone')?.value||'', addr:$('cf-addr')?.value||'', status:$('cf-status')?.value||'pending', note:$('cf-note')?.value||'', ts:Date.now()});
+  ['cf-name','cf-role','cf-phone','cf-addr','cf-note'].forEach(id=>{const e=$(id);if(e)e.value='';});
+  toggleForm('contact-form'); toast('Đã thêm liên hệ!');
+};
+
+// ── DASHBOARD ──────────────────────────────────────────
+const updateDash = () => {
+  const budgets=Object.values(DATA.budget);
+  const funds=Object.values(DATA.fund);
+  const totalFund=funds.reduce((s,i)=>s+(Number(i.amount)||0),0);
+  const totalCost=budgets.reduce((s,i)=>s+(Number(i.total)||0),0);
+  const spent=budgets.reduce((s,i)=>s+(Number(i.deposit)||0),0);
+  const needPay=totalCost-spent;
+  const left=totalFund-totalCost;
+  const payPct=totalCost>0?Math.round(spent/totalCost*100):0;
+
+  $('d-fund').textContent=fmt(totalFund);
+  $('d-spent').textContent=fmt(spent);
+  $('d-remain').textContent=fmt(needPay>0?needPay:0);
+  $('d-left').textContent=fmt(left);
+
+  const checkItems=document.querySelectorAll('.check-item[data-id]').length;
+  const checkDone=Object.values(DATA.checklist).filter(v=>v).length;
+  const checkPct=checkItems>0?Math.round(checkDone/checkItems*100):0;
+
+  const guests=Object.values(DATA.gift_guests);
+  const confirmed=guests.filter(g=>g.status==='confirmed'||g.status==='gifted').length;
+  const guestPct=guests.length>0?Math.round(confirmed/guests.length*100):0;
+
+  const overall=Math.round((payPct+checkPct+guestPct)/3);
+  $('d-overall').textContent=overall+'%';
+
+  const set_prog=(pid,bid,pct,col)=>{
+    const pe=$(pid), be=$(bid);
+    if(pe) pe.textContent=pct+'%';
+    if(be){be.style.width=pct+'%';be.style.background=col;}
+  };
+  set_prog('dp-pay','dp-pay-b',payPct,'var(--red)');
+  set_prog('dp-chk','dp-chk-b',checkPct,'var(--green)');
+  set_prog('dp-guest','dp-guest-b',guestPct,'var(--green2)');
+
+  const dd=$('dash-days'); if(!dd) return;
+  dd.innerHTML=['pre','wed','party'].map(day=>{
+    const di=Object.values(DATA.budget).filter(i=>i.day===day);
+    const dt=di.reduce((s,i)=>s+(Number(i.total)||0),0);
+    const dep=di.reduce((s,i)=>s+(Number(i.deposit)||0),0);
+    return `<div class="exp-item">
+      <div class="exp-dot" style="background:${DOTS[day]}"></div>
+      <div style="flex:1"><div class="exp-name">${DAYS[day]}</div><div class="exp-sub">${di.length} hạng mục</div></div>
+      <div><div class="exp-price">${fmt(dt)}</div><div class="exp-rem">còn ${fmt(dt-dep)}</div></div>
+    </div>`;
+  }).join('');
+};
+
+// ── UTILS ──────────────────────────────────────────────
+window.delDB = async (col, id) => {
+  if(!confirm('Xoá mục này?')) return;
+  await remove(ref(db,col+'/'+id));
+  toast('Đã xoá!');
+};
+window.toggleForm = (id) => { $(id)?.classList.toggle('show'); };
+
+// ── INIT ───────────────────────────────────────────────
+$('loading').style.display='none';
+$('login-screen').style.display='flex';
 </script>
+</body>
+</html>
