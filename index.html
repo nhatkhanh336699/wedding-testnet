@@ -6,77 +6,59 @@
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta name="theme-color" content="#0a0f07"/>
-<title>KT Wedding Planner — Khanh ❦ Tú</title>
+<link rel="apple-touch-icon" href="logo.png"/>
+<link rel="icon" href="logo.png"/>
+<title>KT Wedding · Khanh & Tú</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+SC:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-/* ============================================
-   KT WEDDING PLANNER v2 — LIQUID OLIVE
-   Preview Demo (Mock Data, No Firebase)
-   ============================================ */
-
+/* ============================================================
+   KT WEDDING PLANNER v2.1 — Refined Liquid Olive
+   Preview Demo · Compact · Tinh tế
+   ============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* === OLIVE PALETTE (from logo) === */
   --olive-deep: #2d3a16;
   --olive: #4a5d20;
   --olive-mid: #6b8338;
   --olive-bright: #a8b85a;
   --olive-glow: #c9d575;
-
-  /* === CREAM (logo text) === */
   --cream: #f5ecd0;
   --cream-soft: #e8dfc0;
-  --cream-dim: rgba(245,236,208,0.65);
-  --cream-faint: rgba(245,236,208,0.4);
-  --cream-ghost: rgba(245,236,208,0.15);
-
-  /* === GOLD ACCENT === */
+  --cream-dim: rgba(245,236,208,0.62);
+  --cream-faint: rgba(245,236,208,0.38);
+  --cream-ghost: rgba(245,236,208,0.12);
   --gold: #c9a961;
   --gold-light: #e6c989;
   --gold-dark: #8b7340;
-
-  /* === BACKGROUNDS === */
   --bg-base: #0a0f07;
   --bg-deep: #060904;
-  --bg-card: rgba(26,36,20,0.4);
-
-  /* === SEMANTIC === */
   --success: #8fb84a;
   --warning: #d4a942;
   --danger: #c96b5a;
-  --info: #7a9a8e;
 
-  /* === GLASS === */
-  --glass-bg: linear-gradient(135deg, rgba(245,236,208,0.06), rgba(168,184,90,0.02) 50%, rgba(13,19,10,0.3));
-  --glass-border: rgba(245,236,208,0.1);
-  --glass-border-hover: rgba(245,236,208,0.18);
-  --glass-blur: blur(24px) saturate(180%);
+  --glass-bg: linear-gradient(135deg, rgba(245,236,208,0.05), rgba(168,184,90,0.02) 50%, rgba(13,19,10,0.25));
+  --glass-border: rgba(245,236,208,0.09);
+  --glass-border-hover: rgba(245,236,208,0.16);
+  --glass-blur: blur(20px) saturate(160%);
 
-  /* === SHADOWS === */
-  --shadow-card: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(245,236,208,0.12), inset 0 -1px 0 rgba(0,0,0,0.2);
-  --shadow-elev: 0 16px 48px rgba(0,0,0,0.5), inset 0 1px 0 rgba(245,236,208,0.18);
-  --shadow-glow-olive: 0 0 40px rgba(168,184,90,0.2);
-  --shadow-glow-gold: 0 0 32px rgba(201,169,97,0.18);
+  --shadow-card: 0 4px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(245,236,208,0.08), inset 0 -1px 0 rgba(0,0,0,0.15);
+  --shadow-elev: 0 12px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(245,236,208,0.12);
 
-  /* === SPACING === */
-  --r-sm: 12px; --r-md: 16px; --r-lg: 24px; --r-xl: 32px;
+  --r-sm: 10px; --r-md: 14px; --r-lg: 18px;
   --safe-top: env(safe-area-inset-top);
   --safe-bot: env(safe-area-inset-bottom);
-
-  /* === EASE === */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 html, body {
   height: 100%;
   background: var(--bg-base);
   color: var(--cream);
-  font-family: 'Outfit', system-ui, sans-serif;
-  font-size: 15px;
+  font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  font-size: 14px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
@@ -89,51 +71,47 @@ body {
   position: relative;
 }
 
-/* === AURORA BACKGROUND === */
+/* === AURORA BG === */
 body::before {
   content: '';
-  position: fixed; inset: -30%;
+  position: fixed; inset: -20%;
   background:
-    radial-gradient(circle at 18% 22%, rgba(107,131,56,0.35), transparent 38%),
-    radial-gradient(circle at 82% 18%, rgba(168,184,90,0.22), transparent 42%),
-    radial-gradient(circle at 75% 78%, rgba(201,169,97,0.18), transparent 45%),
-    radial-gradient(circle at 22% 82%, rgba(74,93,32,0.3), transparent 40%);
-  filter: blur(80px);
+    radial-gradient(circle at 18% 22%, rgba(107,131,56,0.28), transparent 38%),
+    radial-gradient(circle at 82% 18%, rgba(168,184,90,0.18), transparent 42%),
+    radial-gradient(circle at 75% 78%, rgba(201,169,97,0.14), transparent 45%),
+    radial-gradient(circle at 22% 82%, rgba(74,93,32,0.22), transparent 40%);
+  filter: blur(70px);
   z-index: -2;
-  animation: aurora 24s ease-in-out infinite;
+  animation: aurora 26s ease-in-out infinite;
   pointer-events: none;
 }
 body::after {
   content: '';
   position: fixed; inset: 0;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(45,58,22,0.4), transparent 60%),
-    linear-gradient(180deg, rgba(6,9,4,0.3), rgba(10,15,7,0.6));
-  z-index: -1;
-  pointer-events: none;
+    radial-gradient(ellipse at 50% 0%, rgba(45,58,22,0.35), transparent 60%),
+    linear-gradient(180deg, rgba(6,9,4,0.2), rgba(10,15,7,0.5));
+  z-index: -1; pointer-events: none;
 }
 @keyframes aurora {
   0%, 100% { transform: rotate(0deg) scale(1); }
-  33% { transform: rotate(8deg) scale(1.08); }
-  66% { transform: rotate(-5deg) scale(0.95); }
+  33% { transform: rotate(6deg) scale(1.06); }
+  66% { transform: rotate(-4deg) scale(0.96); }
 }
 
-/* Grain texture overlay */
 .grain {
   position: fixed; inset: 0; pointer-events: none; z-index: 100;
-  opacity: 0.025; mix-blend-mode: overlay;
+  opacity: 0.02; mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ============================================
-   GLASS PRIMITIVE
-   ============================================ */
+/* === GLASS === */
 .glass {
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  border-radius: var(--r-lg);
+  border-radius: var(--r-md);
   box-shadow: var(--shadow-card);
   position: relative;
   overflow: hidden;
@@ -141,134 +119,99 @@ body::after {
 .glass::before {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(105deg, transparent 45%, rgba(245,236,208,0.06) 50%, transparent 55%);
-  pointer-events: none;
-  opacity: 0;
+  background: linear-gradient(105deg, transparent 45%, rgba(245,236,208,0.05) 50%, transparent 55%);
+  pointer-events: none; opacity: 0;
   transition: opacity 0.6s var(--ease-out);
 }
 .glass:hover::before { opacity: 1; }
 
-/* ============================================
-   TYPOGRAPHY
-   ============================================ */
+/* === Typography helpers === */
 .serif { font-family: 'Cormorant Garamond', serif; }
-.sc { font-family: 'Cormorant SC', serif; letter-spacing: 0.3em; }
 .italic { font-style: italic; }
 .num { font-variant-numeric: tabular-nums; font-feature-settings: 'tnum'; }
-
-h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; color: var(--cream); }
-h1 { font-size: 32px; }
-h2 { font-size: 24px; }
-h3 { font-size: 18px; }
-
-.text-dim { color: var(--cream-dim); }
-.text-faint { color: var(--cream-faint); }
-.text-gold { color: var(--gold-light); }
-.text-olive { color: var(--olive-glow); }
-
 .gradient-cream {
-  background: linear-gradient(135deg, #faf3dc 0%, #f5ecd0 50%, #d4c89a 100%);
+  background: linear-gradient(135deg, #faf3dc, #f5ecd0 50%, #d4c89a);
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .gradient-gold {
-  background: linear-gradient(135deg, #e6c989 0%, #c9a961 60%, #8b7340 100%);
+  background: linear-gradient(135deg, #e6c989, #c9a961 60%, #8b7340);
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.gradient-olive {
-  background: linear-gradient(135deg, #c9d575 0%, #a8b85a 50%, #6b8338 100%);
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+.text-dim { color: var(--cream-dim); }
+.text-faint { color: var(--cream-faint); }
+.text-gold { color: var(--gold-light); }
 
-/* ============================================
-   LOGO MARK (chữ kt)
-   ============================================ */
-.logo-mark {
-  display: inline-flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, #2d3a16 0%, #4a5d20 40%, #a8b85a 100%);
-  border-radius: 14px;
+/* === SVG ICON STYLE (Phosphor thin 1px) === */
+.ic {
+  display: inline-flex;
+  width: 18px; height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+.ic-sm { width: 14px; height: 14px; }
+.ic-md { width: 20px; height: 20px; }
+.ic-lg { width: 24px; height: 24px; }
+
+/* === LOGO IMG === */
+.logo-img {
+  display: block;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3), inset 0 1px 0 rgba(245,236,208,0.1);
+}
+.logo-fallback {
+  display: none;
+  align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #2d3a16 0%, #4a5d20 50%, #a8b85a 100%);
+  border-radius: 10px;
   font-family: 'Cormorant Garamond', serif;
   font-weight: 500;
   color: var(--cream);
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(45,58,22,0.5), inset 0 1px 0 rgba(245,236,208,0.2);
+  letter-spacing: -1px;
+  box-shadow: 0 2px 10px rgba(45,58,22,0.4), inset 0 1px 0 rgba(245,236,208,0.18);
 }
-.logo-mark::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 75% 25%, rgba(201,213,117,0.4), transparent 60%);
-  pointer-events: none;
-}
-.logo-mark span { position: relative; z-index: 1; }
 
-/* ============================================
-   BUTTONS
-   ============================================ */
+/* === BUTTONS === */
 .btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 12px 20px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 16px;
   border: 1px solid var(--glass-border);
-  border-radius: 14px;
-  font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500;
+  border-radius: 11px;
+  font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 500;
   color: var(--cream); cursor: pointer;
   background: rgba(245,236,208,0.04);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  transition: all 0.3s var(--ease-out);
-  position: relative; overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.25s var(--ease-out);
   user-select: none;
 }
-.btn:hover {
-  border-color: var(--glass-border-hover);
-  background: rgba(245,236,208,0.08);
-  transform: translateY(-1px);
-}
-.btn:active { transform: translateY(0) scale(0.98); }
-
+.btn:hover { border-color: var(--glass-border-hover); background: rgba(245,236,208,0.07); }
+.btn:active { transform: scale(0.98); }
 .btn-primary {
-  background: linear-gradient(135deg, var(--olive-mid) 0%, var(--olive) 100%);
-  border-color: rgba(201,213,117,0.3);
-  color: var(--cream);
-  box-shadow: 0 4px 16px rgba(107,131,56,0.3), inset 0 1px 0 rgba(245,236,208,0.2);
+  background: linear-gradient(135deg, var(--olive-mid), var(--olive));
+  border-color: rgba(201,213,117,0.25);
+  box-shadow: 0 3px 12px rgba(107,131,56,0.25), inset 0 1px 0 rgba(245,236,208,0.15);
 }
-.btn-primary:hover {
-  background: linear-gradient(135deg, var(--olive-bright) 0%, var(--olive-mid) 100%);
-  box-shadow: 0 8px 24px rgba(168,184,90,0.4), inset 0 1px 0 rgba(245,236,208,0.3);
-}
+.btn-primary:hover { background: linear-gradient(135deg, var(--olive-bright), var(--olive-mid)); }
+.btn-ghost { background: transparent; border-color: transparent; color: var(--cream-dim); }
+.btn-ghost:hover { color: var(--cream); background: rgba(245,236,208,0.04); }
+.btn-icon { width: 36px; height: 36px; padding: 0; border-radius: 10px; }
 
-.btn-gold {
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-  border-color: rgba(230,201,137,0.3);
-  color: var(--bg-base);
-  font-weight: 600;
-}
-
-.btn-ghost {
-  background: transparent;
-  border-color: transparent;
-  color: var(--cream-dim);
-}
-.btn-ghost:hover { color: var(--cream); background: rgba(245,236,208,0.05); }
-
-.btn-icon {
-  width: 40px; height: 40px; padding: 0;
-  border-radius: 12px;
-}
-
-/* ============================================
-   FORM
-   ============================================ */
+/* === FORM === */
 .input {
   width: 100%;
-  padding: 12px 16px;
+  padding: 11px 14px;
   background: rgba(13,19,10,0.4);
   border: 1px solid var(--glass-border);
-  border-radius: 12px;
+  border-radius: 11px;
   color: var(--cream);
-  font-family: 'Outfit', sans-serif; font-size: 15px;
+  font-family: inherit; font-size: 14px;
   transition: all 0.25s var(--ease-out);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -277,465 +220,395 @@ h3 { font-size: 18px; }
   outline: none;
   border-color: var(--olive-bright);
   background: rgba(13,19,10,0.6);
-  box-shadow: 0 0 0 3px rgba(168,184,90,0.12), 0 0 24px rgba(168,184,90,0.1);
+  box-shadow: 0 0 0 3px rgba(168,184,90,0.1);
 }
 .input::placeholder { color: var(--cream-faint); }
-
 .label {
   display: block;
-  font-size: 12px; font-weight: 500;
+  font-size: 10px; font-weight: 500;
   color: var(--cream-dim);
-  text-transform: uppercase; letter-spacing: 0.1em;
+  text-transform: uppercase; letter-spacing: 0.18em;
   margin-bottom: 6px;
 }
 
-/* ============================================
-   LOGIN SCREEN
-   ============================================ */
+/* ============================================================
+   LOGIN
+   ============================================================ */
 .login {
   min-height: 100vh;
   display: flex; align-items: center; justify-content: center;
-  padding: 24px;
-  padding-top: calc(24px + var(--safe-top));
-  padding-bottom: calc(24px + var(--safe-bot));
+  padding: 20px;
+  padding-top: calc(20px + var(--safe-top));
+  padding-bottom: calc(20px + var(--safe-bot));
 }
 .login-inner {
-  width: 100%; max-width: 420px;
+  width: 100%; max-width: 360px;
   display: flex; flex-direction: column; align-items: center;
-  gap: 24px;
-  animation: fadeUp 0.8s var(--ease-out);
+  gap: 20px;
+  animation: fadeUp 0.7s var(--ease-out);
 }
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); filter: blur(8px); }
+  from { opacity: 0; transform: translateY(16px); filter: blur(6px); }
   to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
-
 .login-logo-wrap {
   position: relative;
-  width: 110px; height: 110px;
-  display: flex; align-items: center; justify-content: center;
+  width: 76px; height: 76px;
 }
 .login-logo-wrap::before {
   content: '';
-  position: absolute; inset: -20px;
-  background: radial-gradient(circle, rgba(168,184,90,0.35), transparent 65%);
-  filter: blur(20px);
+  position: absolute; inset: -16px;
+  background: radial-gradient(circle, rgba(168,184,90,0.3), transparent 65%);
+  filter: blur(16px);
   animation: pulse 4s ease-in-out infinite;
 }
 @keyframes pulse {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.1); }
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.08); }
 }
-.login-logo {
-  width: 100px; height: 100px;
-  font-size: 56px;
-  border-radius: 24px;
-  letter-spacing: -2px;
-}
-
-.login-title {
-  text-align: center;
-}
+.login-logo, .login-logo-fb { width: 76px; height: 76px; font-size: 38px; border-radius: 18px; position: relative; }
+.login-title { text-align: center; }
 .login-couple {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 44px;
+  font-size: 28px;
   font-weight: 500;
   line-height: 1.1;
-  letter-spacing: 0.02em;
 }
 .login-couple .sep {
-  font-size: 28px;
-  color: var(--gold);
-  margin: 0 4px;
-  vertical-align: middle;
-  font-style: normal;
+  color: var(--gold); margin: 0 4px;
+  font-size: 22px; font-style: normal;
+  vertical-align: 1px;
 }
 .login-subtitle {
-  display: flex; align-items: center; justify-content: center; gap: 16px;
-  margin-top: 12px;
-  color: var(--cream-dim);
-  font-size: 11px; font-weight: 500;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  margin-top: 8px;
+  color: var(--cream-faint);
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
 }
 .login-subtitle::before, .login-subtitle::after {
-  content: ''; height: 1px; width: 40px;
+  content: ''; height: 1px; width: 30px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 .login-date {
-  margin-top: 14px;
+  margin-top: 10px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
+  font-size: 15px;
   color: var(--gold-light);
-  text-align: center;
 }
-.login-date .countdown {
-  display: inline-block; margin-left: 6px;
-  padding: 2px 12px;
-  background: rgba(201,169,97,0.12);
-  border: 1px solid rgba(201,169,97,0.25);
+.login-date .cd {
+  display: inline-block; margin-left: 4px;
+  padding: 1px 9px;
+  background: rgba(201,169,97,0.1);
+  border: 1px solid rgba(201,169,97,0.22);
   border-radius: 99px;
-  font-size: 14px;
+  font-size: 12px;
 }
-
-.login-card {
-  width: 100%;
-  padding: 28px;
-}
-.login-card .label { text-align: center; margin-bottom: 14px; }
-
-.login-actions {
-  display: flex; flex-direction: column; gap: 12px;
-  width: 100%;
-  margin-top: 8px;
-}
-
-.login-readonly {
-  margin-top: 8px;
-  text-align: center;
-}
+.login-card { width: 100%; padding: 20px; }
+.login-card .label { text-align: center; margin-bottom: 10px; }
+.login-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+.login-readonly { margin-top: 4px; text-align: center; }
 .login-readonly button {
   background: none; border: none;
-  color: var(--cream-faint); font-size: 13px;
-  cursor: pointer;
-  padding: 8px 16px;
+  color: var(--cream-faint); font-size: 12px;
+  cursor: pointer; padding: 6px 12px;
   font-family: inherit;
-  border-bottom: 1px solid transparent;
-  transition: all 0.3s var(--ease-out);
+  transition: color 0.25s var(--ease-out);
 }
-.login-readonly button:hover {
-  color: var(--cream-dim);
-  border-bottom-color: var(--cream-faint);
-}
+.login-readonly button:hover { color: var(--cream-dim); }
 
-/* ============================================
+/* ============================================================
    APP SHELL
-   ============================================ */
+   ============================================================ */
 .app { display: none; min-height: 100vh; }
 .app.active { display: flex; }
 
-/* Sidebar (desktop) */
+/* SIDEBAR (desktop) */
 .sidebar {
-  width: 264px;
+  width: 232px;
   flex-shrink: 0;
-  padding: 24px 16px;
-  padding-top: calc(24px + var(--safe-top));
-  display: flex; flex-direction: column; gap: 20px;
-  border-right: 1px solid rgba(245,236,208,0.06);
-  background: linear-gradient(180deg, rgba(13,19,10,0.6), rgba(10,15,7,0.4));
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  padding: 18px 12px;
+  padding-top: calc(18px + var(--safe-top));
+  display: flex; flex-direction: column; gap: 14px;
+  border-right: 1px solid rgba(245,236,208,0.05);
+  background: linear-gradient(180deg, rgba(13,19,10,0.5), rgba(10,15,7,0.3));
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   position: sticky; top: 0;
   height: 100vh;
   overflow-y: auto;
 }
-
 .sidebar-head {
-  display: flex; align-items: center; gap: 12px;
-  padding: 4px 8px;
+  display: flex; align-items: center; gap: 10px;
+  padding: 4px 6px;
 }
-.sidebar-head .logo-mark {
-  width: 44px; height: 44px;
-  font-size: 22px; letter-spacing: -1px;
-  border-radius: 12px;
+.sidebar-head .logo-img, .sidebar-head .logo-fallback {
+  width: 36px; height: 36px; font-size: 17px;
 }
 .sidebar-head .title {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 22px;
+  font-size: 17px;
   font-weight: 500;
-  color: var(--cream);
-  line-height: 1;
+  line-height: 1.1;
 }
+.sidebar-head .title .sep { color: var(--gold); margin: 0 2px; font-style: normal; }
 .sidebar-head .sub {
-  font-size: 10px;
-  letter-spacing: 0.2em;
+  font-size: 8px;
+  letter-spacing: 0.25em;
   color: var(--cream-faint);
-  margin-top: 4px;
+  margin-top: 3px;
   text-transform: uppercase;
 }
 
 .sidebar-countdown {
-  padding: 16px;
+  padding: 14px;
   text-align: center;
-  border-radius: var(--r-md);
 }
 .sidebar-countdown .days {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 44px;
+  font-size: 30px;
   font-weight: 500;
   line-height: 1;
 }
 .sidebar-countdown .label-c {
-  font-size: 10px;
+  font-size: 9px;
   letter-spacing: 0.25em;
   color: var(--cream-dim);
-  margin-top: 6px;
+  margin-top: 4px;
   text-transform: uppercase;
 }
 .sidebar-countdown .date {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 15px;
+  font-size: 13px;
   color: var(--gold-light);
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(245,236,208,0.08);
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(245,236,208,0.06);
 }
 
-.nav { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+.nav { display: flex; flex-direction: column; gap: 1px; flex: 1; }
 .nav-item {
-  display: flex; align-items: center; gap: 12px;
-  padding: 11px 14px;
-  border-radius: 12px;
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 12px;
+  border-radius: 10px;
   color: var(--cream-dim);
   text-decoration: none;
-  font-size: 14px; font-weight: 500;
+  font-size: 13px; font-weight: 500;
   cursor: pointer;
   transition: all 0.25s var(--ease-out);
   border: 1px solid transparent;
   position: relative;
 }
-.nav-item:hover {
-  color: var(--cream);
-  background: rgba(245,236,208,0.04);
-}
+.nav-item:hover { color: var(--cream); background: rgba(245,236,208,0.03); }
 .nav-item.active {
-  background: linear-gradient(135deg, rgba(107,131,56,0.25), rgba(74,93,32,0.15));
+  background: linear-gradient(135deg, rgba(107,131,56,0.22), rgba(74,93,32,0.1));
   color: var(--cream);
-  border-color: rgba(168,184,90,0.25);
-  box-shadow: inset 0 1px 0 rgba(245,236,208,0.1), 0 4px 12px rgba(74,93,32,0.2);
+  border-color: rgba(168,184,90,0.2);
 }
 .nav-item.active::before {
   content: '';
-  position: absolute; left: -16px; top: 50%;
+  position: absolute; left: -12px; top: 50%;
   transform: translateY(-50%);
-  width: 3px; height: 20px;
+  width: 2px; height: 16px;
   background: linear-gradient(180deg, var(--olive-glow), var(--gold));
-  border-radius: 0 3px 3px 0;
-}
-.nav-item .ic {
-  width: 20px; height: 20px;
-  display: inline-flex; align-items: center; justify-content: center;
-  font-size: 16px;
+  border-radius: 0 2px 2px 0;
 }
 
 .sidebar-foot {
-  padding: 12px;
-  font-size: 12px;
-  color: var(--cream-faint);
+  padding: 8px 6px;
   display: flex; align-items: center; justify-content: space-between;
+  gap: 8px;
 }
 .role-pill {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 4px 10px;
-  background: rgba(168,184,90,0.15);
-  border: 1px solid rgba(168,184,90,0.3);
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 9px;
+  background: rgba(168,184,90,0.13);
+  border: 1px solid rgba(168,184,90,0.25);
   border-radius: 99px;
-  font-size: 11px;
+  font-size: 10px;
   color: var(--olive-glow);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-weight: 600;
 }
 .role-pill .dot {
-  width: 6px; height: 6px; border-radius: 50%;
+  width: 5px; height: 5px; border-radius: 50%;
   background: var(--olive-glow);
-  box-shadow: 0 0 8px var(--olive-glow);
+  box-shadow: 0 0 5px var(--olive-glow);
 }
 
-/* Main */
+/* MAIN */
 .main {
   flex: 1;
-  padding: 24px 32px;
-  padding-top: calc(20px + var(--safe-top));
+  padding: 18px 24px;
+  padding-top: calc(16px + var(--safe-top));
   min-height: 100vh;
   overflow-x: hidden;
 }
-
-/* Top bar */
 .topbar {
   display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 24px;
-  gap: 12px;
+  margin-bottom: 16px;
+  gap: 10px;
 }
 .topbar-left h1 {
-  font-size: 30px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
   font-style: italic;
   font-weight: 500;
+  color: var(--cream);
+  line-height: 1.1;
 }
 .topbar-left .crumb {
-  font-size: 11px;
-  letter-spacing: 0.25em;
+  font-size: 9px;
+  letter-spacing: 0.28em;
   color: var(--cream-faint);
   text-transform: uppercase;
   margin-bottom: 2px;
 }
-.topbar-right { display: flex; align-items: center; gap: 8px; }
+.topbar-right { display: flex; align-items: center; gap: 6px; }
 
-.readonly-banner {
-  margin-bottom: 16px;
-  padding: 10px 16px;
-  background: rgba(212,169,66,0.1);
-  border: 1px solid rgba(212,169,66,0.25);
-  border-radius: 12px;
-  color: var(--warning);
-  font-size: 13px;
-  display: flex; align-items: center; gap: 10px;
-  display: none;
-}
-
-/* ============================================
-   PAGE CONTENT
-   ============================================ */
-.page {
-  animation: pageEnter 0.5s var(--ease-out);
-}
+/* ============================================================
+   PAGE
+   ============================================================ */
+.page { animation: pageEnter 0.45s var(--ease-out); }
 @keyframes pageEnter {
-  from { opacity: 0; transform: translateY(12px); filter: blur(6px); }
+  from { opacity: 0; transform: translateY(8px); filter: blur(4px); }
   to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
-/* ============================================
-   DASHBOARD — HERO
-   ============================================ */
+/* HERO (desktop) */
 .hero {
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 32px;
+  gap: 24px;
   align-items: center;
-  padding: 32px;
-  margin-bottom: 24px;
+  padding: 22px 26px;
+  margin-bottom: 14px;
 }
 .hero-text .quote {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 16px;
+  font-size: 13px;
   color: var(--cream-dim);
-  margin-bottom: 16px;
-  max-width: 480px;
-  line-height: 1.5;
+  margin-bottom: 10px;
 }
-.hero-text .quote::before { content: '"'; color: var(--gold); margin-right: 4px; }
-.hero-text .quote::after { content: '"'; color: var(--gold); margin-left: 2px; }
-
 .hero-couple {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 56px;
+  font-size: 34px;
   font-weight: 500;
   line-height: 1;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 .hero-couple .sep {
-  color: var(--gold);
-  font-size: 38px;
-  font-style: normal;
-  margin: 0 8px;
-  vertical-align: 6px;
+  color: var(--gold); font-size: 24px; font-style: normal;
+  margin: 0 6px; vertical-align: 3px;
 }
 .hero-meta {
-  display: flex; align-items: center; gap: 20px;
+  display: flex; align-items: center; gap: 12px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
+  font-size: 15px;
   color: var(--cream-dim);
+  flex-wrap: wrap;
 }
 .hero-meta .pill {
-  padding: 4px 14px;
+  padding: 2px 11px;
   background: rgba(201,169,97,0.1);
-  border: 1px solid rgba(201,169,97,0.25);
+  border: 1px solid rgba(201,169,97,0.22);
   border-radius: 99px;
   color: var(--gold-light);
-  font-size: 14px;
+  font-size: 12px;
 }
 
 /* Countdown Ring */
-.ring-wrap {
-  position: relative;
-  width: 180px; height: 180px;
-}
+.ring-wrap { position: relative; width: 130px; height: 130px; }
 .ring-wrap svg { transform: rotate(-90deg); }
-.ring-bg { stroke: rgba(245,236,208,0.08); fill: none; }
+.ring-bg { stroke: rgba(245,236,208,0.07); fill: none; }
 .ring-fg {
   fill: none;
   stroke: url(#ring-grad);
   stroke-linecap: round;
-  filter: drop-shadow(0 0 8px rgba(168,184,90,0.6));
+  filter: drop-shadow(0 0 6px rgba(168,184,90,0.45));
   transition: stroke-dashoffset 1.2s var(--ease-out);
 }
 .ring-center {
   position: absolute; inset: 0;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
 }
 .ring-center .n {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 56px;
+  font-size: 38px;
   font-weight: 500;
   line-height: 1;
 }
 .ring-center .l {
-  font-size: 10px;
-  letter-spacing: 0.25em;
+  font-size: 8px;
+  letter-spacing: 0.3em;
   color: var(--cream-dim);
   text-transform: uppercase;
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
-/* Stats Grid */
+/* STATS GRID */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 10px;
+  margin-bottom: 14px;
 }
 .stat {
-  padding: 20px;
+  padding: 14px 16px;
   position: relative;
 }
 .stat-head {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 12px;
-}
-.stat-ic {
-  width: 38px; height: 38px;
-  display: inline-flex; align-items: center; justify-content: center;
-  border-radius: 11px;
-  background: linear-gradient(135deg, rgba(168,184,90,0.18), rgba(74,93,32,0.1));
-  border: 1px solid rgba(168,184,90,0.2);
-  font-size: 18px;
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 8px;
+  color: var(--cream-dim);
 }
 .stat-label {
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  color: var(--cream-dim);
+  font-size: 10px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 500;
 }
 .stat-value {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 32px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 22px;
   font-weight: 500;
   line-height: 1.1;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.3px;
+  color: var(--cream);
+}
+.stat-value .u {
+  font-size: 13px;
+  color: var(--cream-dim);
+  font-weight: 400;
+  margin-left: 2px;
 }
 .stat-sub {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--cream-faint);
-  margin-top: 6px;
+  margin-top: 4px;
 }
 
-/* Progress Rings Row */
+/* RINGS ROW */
 .rings-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 10px;
+  margin-bottom: 14px;
 }
 .ring-card {
-  padding: 24px;
-  display: flex; align-items: center; gap: 20px;
+  padding: 14px 16px;
+  display: flex; align-items: center; gap: 14px;
 }
 .ring-mini {
   position: relative;
-  width: 90px; height: 90px;
+  width: 64px; height: 64px;
   flex-shrink: 0;
 }
 .ring-mini svg { transform: rotate(-90deg); }
@@ -743,156 +616,87 @@ h3 { font-size: 18px; }
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 26px;
+  font-size: 19px;
   font-weight: 500;
 }
+.ring-info { min-width: 0; flex: 1; }
 .ring-info .ttl {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 19px;
-  margin-bottom: 4px;
+  font-style: italic;
+  font-size: 16px;
+  margin-bottom: 2px;
 }
 .ring-info .det {
-  font-size: 13px;
+  font-size: 11px;
   color: var(--cream-dim);
+  font-variant-numeric: tabular-nums;
 }
 
-/* Two-col section */
-.two-col {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-/* Activity feed */
-.activity {
-  padding: 20px 24px;
-}
+/* DAY EXPENSE */
+.day-expense-list { padding: 16px 18px; }
 .section-head {
   display: flex; align-items: center; justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 .section-head h2 {
-  font-size: 22px;
+  font-family: 'Cormorant Garamond', serif;
   font-style: italic;
+  font-size: 18px;
+  font-weight: 500;
 }
 .section-head .ornament {
   color: var(--gold);
-  font-size: 14px;
+  font-size: 10px;
   letter-spacing: 0.4em;
+  opacity: 0.7;
 }
-
-.act-item {
-  display: flex; align-items: center; gap: 14px;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(245,236,208,0.06);
-}
-.act-item:last-child { border-bottom: none; }
-.act-ic {
-  width: 36px; height: 36px;
-  border-radius: 10px;
-  display: inline-flex; align-items: center; justify-content: center;
-  background: rgba(168,184,90,0.12);
-  border: 1px solid rgba(168,184,90,0.2);
-  font-size: 14px;
-  flex-shrink: 0;
-}
-.act-body { flex: 1; min-width: 0; }
-.act-body .t { font-size: 14px; color: var(--cream); }
-.act-body .s { font-size: 12px; color: var(--cream-faint); margin-top: 2px; }
-.act-time {
-  font-size: 11px;
-  color: var(--cream-faint);
-  white-space: nowrap;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 13px;
-  font-style: italic;
-}
-
-/* Quick actions */
-.quick-actions { padding: 20px 24px; }
-.qa-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-}
-.qa-btn {
-  display: flex; align-items: center; gap: 14px;
-  padding: 14px;
-  border-radius: 14px;
-  background: rgba(245,236,208,0.03);
-  border: 1px solid rgba(245,236,208,0.08);
-  color: var(--cream);
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 14px;
-  text-align: left;
-  transition: all 0.3s var(--ease-out);
-}
-.qa-btn:hover {
-  background: linear-gradient(135deg, rgba(107,131,56,0.2), rgba(74,93,32,0.1));
-  border-color: rgba(168,184,90,0.3);
-  transform: translateX(4px);
-}
-.qa-ic {
-  width: 36px; height: 36px; flex-shrink: 0;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--olive-mid), var(--olive));
-  display: inline-flex; align-items: center; justify-content: center;
-  font-size: 18px;
-  box-shadow: inset 0 1px 0 rgba(245,236,208,0.2);
-}
-.qa-body { flex: 1; }
-.qa-body .t { font-weight: 500; }
-.qa-body .d { font-size: 12px; color: var(--cream-faint); margin-top: 1px; }
-.qa-btn .arrow { color: var(--cream-faint); transition: transform 0.3s var(--ease-out); }
-.qa-btn:hover .arrow { transform: translateX(4px); color: var(--olive-glow); }
-
-/* Day expense list (dashboard) */
-.day-expense-list { padding: 20px 24px; }
 .dex-row {
   display: flex; align-items: center; justify-content: space-between;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(245,236,208,0.06);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(245,236,208,0.05);
 }
-.dex-row:last-child { border-bottom: none; }
-.dex-left { display: flex; align-items: center; gap: 12px; }
+.dex-row:last-child { border-bottom: none; padding-bottom: 2px; }
+.dex-row:first-child { padding-top: 2px; }
+.dex-left { display: flex; align-items: center; gap: 10px; }
 .dex-dot {
-  width: 8px; height: 8px; border-radius: 50%;
-  box-shadow: 0 0 8px currentColor;
+  width: 6px; height: 6px; border-radius: 50%;
+  box-shadow: 0 0 6px currentColor;
 }
-.dex-name { font-size: 14px; }
-.dex-count { font-size: 11px; color: var(--cream-faint); }
+.dex-name { font-size: 13px; }
+.dex-count { font-size: 10px; color: var(--cream-faint); margin-top: 1px; }
 .dex-amount {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
   font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--cream);
 }
+.dex-amount .u { font-size: 11px; color: var(--cream-dim); margin-left: 1px; }
 
-/* ============================================
-   CHI TIEU PAGE
-   ============================================ */
+/* ============================================================
+   EXPENSE PAGE
+   ============================================================ */
 .day-tabs {
-  display: flex; gap: 6px;
-  margin-bottom: 16px;
-  padding: 6px;
-  background: rgba(13,19,10,0.4);
+  display: flex; gap: 4px;
+  margin-bottom: 12px;
+  padding: 4px;
+  background: rgba(13,19,10,0.35);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   overflow-x: auto;
   scrollbar-width: none;
 }
 .day-tabs::-webkit-scrollbar { display: none; }
 .day-tab {
   flex-shrink: 0;
-  padding: 10px 18px;
-  border-radius: 11px;
-  font-size: 13px; font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 9px;
+  font-size: 12px; font-weight: 500;
   color: var(--cream-dim);
   cursor: pointer;
-  transition: all 0.3s var(--ease-out);
+  transition: all 0.25s var(--ease-out);
   border: 1px solid transparent;
   background: transparent;
   font-family: inherit;
@@ -902,235 +706,233 @@ h3 { font-size: 18px; }
 .day-tab.active {
   background: linear-gradient(135deg, var(--olive-mid), var(--olive));
   color: var(--cream);
-  border-color: rgba(168,184,90,0.3);
-  box-shadow: inset 0 1px 0 rgba(245,236,208,0.15), 0 4px 12px rgba(74,93,32,0.3);
+  border-color: rgba(168,184,90,0.25);
+  box-shadow: inset 0 1px 0 rgba(245,236,208,0.12);
 }
 
 .summary-strip {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  padding: 18px 22px;
-  margin-bottom: 16px;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  align-items: center;
 }
 .ss-item .l {
-  font-size: 11px;
+  font-size: 9px;
   letter-spacing: 0.2em;
   color: var(--cream-dim);
   text-transform: uppercase;
   font-weight: 500;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 .ss-item .v {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 26px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 18px;
   font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
 }
+.ss-item .v .u { font-size: 12px; color: var(--cream-dim); margin-left: 1px; }
 .ss-divider {
   width: 1px;
-  background: linear-gradient(180deg, transparent, rgba(245,236,208,0.15), transparent);
+  height: 30px;
+  background: linear-gradient(180deg, transparent, rgba(245,236,208,0.12), transparent);
+  justify-self: center;
 }
 
 .filter-chips {
-  display: flex; gap: 8px;
-  margin-bottom: 16px;
+  display: flex; gap: 6px;
+  margin-bottom: 12px;
   flex-wrap: wrap;
 }
 .chip {
-  padding: 7px 14px;
+  padding: 6px 12px;
   border-radius: 99px;
-  background: rgba(245,236,208,0.04);
+  background: rgba(245,236,208,0.03);
   border: 1px solid var(--glass-border);
   color: var(--cream-dim);
-  font-size: 12px; font-weight: 500;
+  font-size: 11px; font-weight: 500;
   cursor: pointer;
   transition: all 0.25s var(--ease-out);
   font-family: inherit;
-  display: inline-flex; align-items: center; gap: 6px;
+  display: inline-flex; align-items: center; gap: 5px;
 }
 .chip:hover { color: var(--cream); }
 .chip.active {
-  background: rgba(168,184,90,0.18);
-  border-color: rgba(168,184,90,0.4);
+  background: rgba(168,184,90,0.16);
+  border-color: rgba(168,184,90,0.35);
   color: var(--olive-glow);
 }
 .chip .ct {
-  background: rgba(245,236,208,0.1);
-  padding: 1px 7px;
+  background: rgba(245,236,208,0.08);
+  padding: 1px 6px;
   border-radius: 99px;
-  font-size: 10px;
-  margin-left: 2px;
+  font-size: 9px;
 }
 
-/* Expense item card */
-.exp-list { display: flex; flex-direction: column; gap: 10px; }
+/* Expense card */
+.exp-list { display: flex; flex-direction: column; gap: 8px; }
 .exp-card {
-  padding: 16px 18px;
-  display: flex; align-items: center; gap: 14px;
+  padding: 13px 16px;
+  display: flex; align-items: center; gap: 12px;
   cursor: pointer;
-  transition: all 0.3s var(--ease-out);
+  transition: all 0.25s var(--ease-out);
 }
 .exp-card:hover {
   border-color: var(--glass-border-hover);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-elev);
 }
 .exp-avatar {
-  width: 44px; height: 44px; flex-shrink: 0;
-  border-radius: 12px;
+  width: 38px; height: 38px; flex-shrink: 0;
+  border-radius: 10px;
   display: inline-flex; align-items: center; justify-content: center;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 18px; font-weight: 500;
+  font-size: 15px; font-weight: 500;
   background: linear-gradient(135deg, var(--olive-mid), var(--olive-deep));
   color: var(--cream);
-  box-shadow: inset 0 1px 0 rgba(245,236,208,0.15);
+  box-shadow: inset 0 1px 0 rgba(245,236,208,0.12);
+  letter-spacing: -0.5px;
 }
 .exp-body { flex: 1; min-width: 0; }
 .exp-name {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
   line-height: 1.2;
 }
 .exp-meta {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--cream-faint);
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; gap: 6px;
   flex-wrap: wrap;
 }
-.exp-meta a { color: var(--cream-dim); text-decoration: none; }
+.exp-meta a { color: var(--cream-dim); text-decoration: none; display: inline-flex; align-items: center; gap: 3px; }
 .exp-meta a:hover { color: var(--olive-glow); }
 .exp-meta .sep-dot { color: var(--cream-faint); }
 
 .exp-right {
   text-align: right;
-  display: flex; flex-direction: column; align-items: flex-end; gap: 6px;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 4px;
 }
 .exp-amount {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
   font-weight: 500;
+  font-variant-numeric: tabular-nums;
   line-height: 1;
 }
+.exp-amount .u { font-size: 11px; color: var(--cream-dim); margin-left: 1px; }
+
 .status-pill {
-  display: inline-flex; align-items: center; gap: 5px;
-  padding: 3px 10px;
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 8px;
   border-radius: 99px;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 500;
-  letter-spacing: 0.05em;
+  white-space: nowrap;
 }
-.status-pill .d { width: 5px; height: 5px; border-radius: 50%; }
-.status-done {
-  background: rgba(143,184,74,0.12);
-  border: 1px solid rgba(143,184,74,0.3);
-  color: var(--success);
-}
-.status-done .d { background: var(--success); box-shadow: 0 0 6px var(--success); }
-.status-deposit {
-  background: rgba(212,169,66,0.12);
-  border: 1px solid rgba(212,169,66,0.3);
-  color: var(--warning);
-}
-.status-deposit .d { background: var(--warning); box-shadow: 0 0 6px var(--warning); }
-.status-pending {
-  background: rgba(201,107,90,0.12);
-  border: 1px solid rgba(201,107,90,0.3);
-  color: var(--danger);
-}
-.status-pending .d { background: var(--danger); box-shadow: 0 0 6px var(--danger); }
+.status-pill .d { width: 4px; height: 4px; border-radius: 50%; }
+.status-done { background: rgba(143,184,74,0.1); border: 1px solid rgba(143,184,74,0.28); color: var(--success); }
+.status-done .d { background: var(--success); box-shadow: 0 0 4px var(--success); }
+.status-deposit { background: rgba(212,169,66,0.1); border: 1px solid rgba(212,169,66,0.28); color: var(--warning); }
+.status-deposit .d { background: var(--warning); box-shadow: 0 0 4px var(--warning); }
+.status-pending { background: rgba(201,107,90,0.1); border: 1px solid rgba(201,107,90,0.28); color: var(--danger); }
+.status-pending .d { background: var(--danger); box-shadow: 0 0 4px var(--danger); }
 
 /* FAB */
 .fab {
   position: fixed;
-  right: 28px;
-  bottom: 28px;
-  width: 60px; height: 60px;
+  right: 22px;
+  bottom: 22px;
+  width: 50px; height: 50px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--olive-bright), var(--olive));
   color: var(--cream);
-  border: 1px solid rgba(201,213,117,0.4);
-  font-size: 28px; font-weight: 300;
+  border: 1px solid rgba(201,213,117,0.3);
   cursor: pointer;
   z-index: 50;
-  box-shadow: 0 8px 24px rgba(74,93,32,0.5), 0 0 32px rgba(168,184,90,0.3), inset 0 1px 0 rgba(245,236,208,0.3);
+  box-shadow: 0 6px 18px rgba(74,93,32,0.4), 0 0 24px rgba(168,184,90,0.22);
   transition: all 0.3s var(--ease-out);
   display: none;
   align-items: center; justify-content: center;
 }
-.fab.show { display: flex; animation: fabIn 0.5s var(--ease-out); }
-.fab:hover { transform: scale(1.08) rotate(90deg); box-shadow: 0 12px 32px rgba(74,93,32,0.6), 0 0 48px rgba(168,184,90,0.5); }
+.fab.show { display: flex; animation: fabIn 0.4s var(--ease-out); }
+.fab:hover { transform: scale(1.08) rotate(90deg); }
 @keyframes fabIn {
-  from { transform: scale(0) rotate(-180deg); opacity: 0; }
-  to { transform: scale(1) rotate(0); opacity: 1; }
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
 }
 
-/* ============================================
+/* ============================================================
    MOBILE
-   ============================================ */
+   ============================================================ */
 .mobile-head {
   display: none;
-  align-items: center; justify-content: space-between;
-  padding: 14px 16px;
-  padding-top: calc(12px + var(--safe-top));
+  align-items: center; gap: 10px;
+  padding: 10px 14px;
+  padding-top: calc(8px + var(--safe-top));
   position: sticky; top: 0; z-index: 40;
-  background: rgba(10,15,7,0.7);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid rgba(245,236,208,0.06);
+  background: rgba(10,15,7,0.72);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-bottom: 1px solid rgba(245,236,208,0.05);
 }
-.mobile-head .logo-mark {
-  width: 38px; height: 38px; font-size: 19px; letter-spacing: -1px;
-  border-radius: 10px;
+.mobile-head .logo-img, .mobile-head .logo-fallback {
+  width: 32px; height: 32px; font-size: 15px;
 }
-.mobile-head .titles { flex: 1; padding: 0 12px; }
+.mobile-head .titles { flex: 1; min-width: 0; }
 .mobile-head .titles .t1 {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 19px;
+  font-size: 17px;
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
+.mobile-head .titles .t1 .sep { color: var(--gold); margin: 0 2px; font-style: normal; }
 .mobile-head .titles .t2 {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--cream-faint);
   font-family: 'Cormorant Garamond', serif;
-  letter-spacing: 0.05em;
+  margin-top: 1px;
 }
 .mobile-head .cd {
   text-align: right;
+  padding-left: 6px;
 }
 .mobile-head .cd .n {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 22px; font-weight: 500;
+  font-size: 18px; font-weight: 500;
   line-height: 1;
   color: var(--gold-light);
 }
 .mobile-head .cd .l {
-  font-size: 9px;
-  letter-spacing: 0.2em;
+  font-size: 8px;
+  letter-spacing: 0.25em;
   color: var(--cream-faint);
   text-transform: uppercase;
+  margin-top: 1px;
 }
 
 .bottom-nav {
   display: none;
   position: fixed; bottom: 0; left: 0; right: 0;
   z-index: 40;
-  padding: 8px 12px;
-  padding-bottom: calc(8px + var(--safe-bot));
-  background: rgba(10,15,7,0.75);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border-top: 1px solid rgba(245,236,208,0.06);
+  padding: 6px 8px;
+  padding-bottom: calc(6px + var(--safe-bot));
+  background: rgba(10,15,7,0.78);
+  backdrop-filter: blur(22px) saturate(170%);
+  -webkit-backdrop-filter: blur(22px) saturate(170%);
+  border-top: 1px solid rgba(245,236,208,0.05);
   justify-content: space-around;
 }
 .bn-item {
   flex: 1;
-  display: flex; flex-direction: column; align-items: center; gap: 3px;
-  padding: 8px 4px;
-  border-radius: 12px;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: 6px 3px;
+  border-radius: 10px;
   cursor: pointer;
   color: var(--cream-faint);
   font-size: 10px;
@@ -1138,143 +940,227 @@ h3 { font-size: 18px; }
   background: transparent;
   border: none;
   font-family: inherit;
-  transition: all 0.3s var(--ease-out);
+  transition: all 0.25s var(--ease-out);
 }
-.bn-item.active {
-  color: var(--olive-glow);
-}
-.bn-item.active .ic {
-  background: linear-gradient(135deg, rgba(168,184,90,0.25), rgba(74,93,32,0.1));
-  box-shadow: inset 0 1px 0 rgba(245,236,208,0.15);
-}
-.bn-item .ic {
-  width: 32px; height: 28px;
-  border-radius: 9px;
+.bn-item.active { color: var(--olive-glow); }
+.bn-item .ic-wrap {
+  width: 28px; height: 24px;
+  border-radius: 8px;
   display: inline-flex; align-items: center; justify-content: center;
-  font-size: 15px;
-  transition: all 0.3s var(--ease-out);
+  transition: all 0.25s var(--ease-out);
+}
+.bn-item.active .ic-wrap {
+  background: linear-gradient(135deg, rgba(168,184,90,0.22), rgba(74,93,32,0.08));
+  box-shadow: inset 0 1px 0 rgba(245,236,208,0.12);
 }
 
-/* ============================================
-   RESPONSIVE
-   ============================================ */
+/* ============================================================
+   MODAL (Settings)
+   ============================================================ */
+.modal-bd {
+  position: fixed; inset: 0;
+  background: rgba(6,9,4,0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 200;
+  display: none;
+  align-items: center; justify-content: center;
+  padding: 16px;
+  padding-top: calc(16px + var(--safe-top));
+  padding-bottom: calc(16px + var(--safe-bot));
+  animation: fadeIn 0.25s var(--ease-out);
+}
+.modal-bd.show { display: flex; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.modal {
+  width: 100%; max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 20px;
+  animation: modalIn 0.35s var(--ease-out);
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.94) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.modal h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.field { margin-bottom: 14px; }
+.modal-actions {
+  display: flex; gap: 8px;
+  margin-top: 16px;
+}
+.modal-actions .btn { flex: 1; padding: 11px; }
+
+/* ============================================================
+   RESPONSIVE — mobile fix
+   ============================================================ */
 @media (max-width: 900px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .rings-row { grid-template-columns: 1fr; }
-  .two-col { grid-template-columns: 1fr; }
+  .rings-row { grid-template-columns: 1fr 1fr 1fr; }
 }
 
 @media (max-width: 680px) {
+  body { font-size: 13px; }
   .sidebar { display: none; }
   .mobile-head { display: flex; }
   .bottom-nav { display: flex; }
   .main {
-    padding: 16px;
-    padding-bottom: calc(90px + var(--safe-bot));
-    padding-top: 16px;
+    padding: 12px;
+    padding-bottom: calc(80px + var(--safe-bot));
+    padding-top: 12px;
   }
   .topbar { display: none; }
+
   .hero {
     grid-template-columns: 1fr;
     text-align: center;
-    padding: 24px 20px;
-    gap: 20px;
+    padding: 18px 16px;
+    gap: 14px;
   }
-  .hero-couple { font-size: 40px; }
-  .hero-text .quote { margin: 0 auto 16px; font-size: 14px; }
-  .hero-meta { justify-content: center; flex-wrap: wrap; font-size: 15px; }
-  .ring-wrap { width: 140px; height: 140px; margin: 0 auto; }
-  .ring-center .n { font-size: 42px; }
-  .stats-grid { gap: 10px; }
-  .stat { padding: 14px; }
-  .stat-value { font-size: 24px; }
-  .summary-strip { grid-template-columns: 1fr 1fr; gap: 10px; padding: 14px 16px; }
-  .ss-item .v { font-size: 20px; }
-  .ss-divider { display: none; }
-  .exp-card { padding: 12px 14px; gap: 10px; }
-  .exp-name { font-size: 16px; }
-  .exp-amount { font-size: 18px; }
-  .exp-avatar { width: 38px; height: 38px; font-size: 15px; }
-  .fab { right: 18px; bottom: calc(80px + var(--safe-bot)); width: 54px; height: 54px; font-size: 24px; }
+  .hero-text .quote { font-size: 12px; margin-bottom: 8px; }
+  .hero-couple { font-size: 26px; margin-bottom: 6px; }
+  .hero-couple .sep { font-size: 19px; vertical-align: 2px; }
+  .hero-meta { justify-content: center; font-size: 13px; gap: 8px; }
+  .hero-meta .pill { font-size: 11px; padding: 1px 9px; }
+  .ring-wrap { width: 96px; height: 96px; margin: 0 auto; }
+  .ring-center .n { font-size: 26px; }
+  .ring-center .l { font-size: 7px; }
+
+  .stats-grid { gap: 8px; }
+  .stat { padding: 11px 12px; }
+  .stat-head { margin-bottom: 6px; gap: 6px; }
+  .stat-label { font-size: 9px; letter-spacing: 0.15em; }
+  .stat-value { font-size: 17px; letter-spacing: -0.2px; }
+  .stat-value .u { font-size: 11px; }
+  .stat-sub { font-size: 10px; margin-top: 3px; }
+
+  .rings-row { gap: 8px; }
+  .ring-card { padding: 10px; flex-direction: column; gap: 8px; text-align: center; }
+  .ring-mini { width: 56px; height: 56px; }
+  .ring-mini .pct { font-size: 15px; }
+  .ring-info .ttl { font-size: 13px; }
+  .ring-info .det { font-size: 10px; }
+
+  .day-expense-list { padding: 14px 14px; }
+  .section-head h2 { font-size: 16px; }
+  .dex-amount { font-size: 14px; }
+  .dex-name { font-size: 12px; }
+  .dex-count { font-size: 9px; }
+
+  /* Expense */
+  .summary-strip { padding: 12px 14px; gap: 8px; }
+  .ss-item .v { font-size: 15px; }
+  .ss-item .v .u { font-size: 10px; }
+  .ss-item .l { font-size: 8px; }
+  .ss-divider { height: 24px; }
+  .day-tab { padding: 7px 11px; font-size: 11px; }
+  .chip { padding: 5px 10px; font-size: 10px; }
+
+  .exp-card { padding: 11px 12px; gap: 10px; }
+  .exp-avatar { width: 34px; height: 34px; font-size: 13px; }
+  .exp-name { font-size: 14px; }
+  .exp-meta { font-size: 10px; gap: 4px; }
+  .exp-amount { font-size: 14px; }
+  .exp-amount .u { font-size: 10px; }
+  .status-pill { font-size: 9px; padding: 1px 7px; }
+
+  .fab {
+    right: 14px;
+    bottom: calc(70px + var(--safe-bot));
+    width: 46px; height: 46px;
+  }
+  .fab .ic { width: 18px; height: 18px; }
 }
 
-/* Hide elements helper */
 .hidden { display: none !important; }
-
-/* Selection */
 ::selection { background: rgba(168,184,90,0.4); color: var(--cream); }
-
-/* Scrollbar */
-::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(245,236,208,0.1); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(245,236,208,0.2); }
+::-webkit-scrollbar-thumb { background: rgba(245,236,208,0.08); border-radius: 3px; }
 
 /* Toast */
 .toast {
   position: fixed;
   bottom: calc(20px + var(--safe-bot));
   left: 50%;
-  transform: translateX(-50%) translateY(100px);
-  padding: 12px 22px;
-  border-radius: 14px;
-  font-size: 14px;
-  z-index: 200;
+  transform: translateX(-50%) translateY(80px);
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-size: 13px;
+  z-index: 250;
   opacity: 0;
-  transition: all 0.4s var(--ease-out);
+  transition: all 0.35s var(--ease-out);
   pointer-events: none;
   font-weight: 500;
+  max-width: calc(100vw - 40px);
 }
-.toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-@media (max-width: 680px) {
-  .toast { bottom: calc(90px + var(--safe-bot)); }
-}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+@media (max-width: 680px) { .toast { bottom: calc(82px + var(--safe-bot)); } }
 
 </style>
 </head>
 <body>
 <div class="grain"></div>
 
-<!-- SVG Gradients for rings -->
+<!-- SVG defs -->
 <svg width="0" height="0" style="position: absolute;">
   <defs>
     <linearGradient id="ring-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#c9d575"/>
-      <stop offset="50%" stop-color="#a8b85a"/>
-      <stop offset="100%" stop-color="#c9a961"/>
+      <stop offset="0%" stop-color="#c9d575"/><stop offset="60%" stop-color="#a8b85a"/><stop offset="100%" stop-color="#c9a961"/>
     </linearGradient>
     <linearGradient id="ring-grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#8fb84a"/>
-      <stop offset="100%" stop-color="#6b8338"/>
+      <stop offset="0%" stop-color="#8fb84a"/><stop offset="100%" stop-color="#6b8338"/>
     </linearGradient>
     <linearGradient id="ring-grad3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#e6c989"/>
-      <stop offset="100%" stop-color="#c9a961"/>
+      <stop offset="0%" stop-color="#e6c989"/><stop offset="100%" stop-color="#c9a961"/>
     </linearGradient>
+
+    <!-- Icon symbols (Phosphor thin style) -->
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1v-9.5z"/></symbol>
+    <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9h4.5a2 2 0 0 1 0 4H9m0 0h5a2 2 0 0 1 0 4H9V7h3"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3 7v12a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H5a2 2 0 0 1 0-4h13"/><circle cx="17" cy="14" r="1"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><path d="M3 9h18v3H3zm2 3v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8M12 9V21M8.5 9C7 9 6 8 6 6.5S7 4 8.5 4 12 6 12 9c0-3 2-5 3.5-5S18 5 18 6.5 17 9 15.5 9"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8"/><path d="M14 7h7v7"/></symbol>
+    <symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M6 3h12M6 21h12M7 3v3a5 5 0 0 0 10 0V3M7 21v-3a5 5 0 0 1 10 0v3"/></symbol>
+    <symbol id="i-stack" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5z"/><path d="m3 13 9 5 9-5M3 18l9 5 9-5"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></symbol>
   </defs>
 </svg>
 
-<!-- ============================================
+<!-- ============================================================
      LOGIN
-     ============================================ -->
+     ============================================================ -->
 <div class="login" id="loginScreen">
   <div class="login-inner">
     <div class="login-logo-wrap">
-      <div class="logo-mark login-logo"><span>kt</span></div>
+      <img src="logo.png" class="logo-img login-logo" alt="KT"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"/>
+      <div class="logo-fallback login-logo-fb"><span>kt</span></div>
     </div>
     <div class="login-title">
       <div class="login-couple">Khanh <span class="sep">❦</span> Tú</div>
-      <div class="login-subtitle sc">Wedding · Planner</div>
-      <div class="login-date">13 · 09 · 2026 <span class="countdown" id="loginCountdown">485 ngày</span></div>
+      <div class="login-subtitle">Wedding · Planner</div>
+      <div class="login-date">13 · 09 · 2026 <span class="cd" id="loginCountdown">485 ngày</span></div>
     </div>
     <div class="glass login-card">
       <div class="label">Đăng nhập quản trị</div>
       <input type="password" class="input" id="loginPass" placeholder="Mật khẩu" autocomplete="off"/>
       <div class="login-actions">
-        <button class="btn btn-primary" onclick="doLogin()" style="width:100%; padding: 14px;">Đăng nhập</button>
+        <button class="btn btn-primary" onclick="doLogin()" style="width:100%; padding: 12px;">Đăng nhập</button>
       </div>
       <div class="login-readonly">
         <button onclick="enterReadonly()">Xem không đăng nhập →</button>
@@ -1283,16 +1169,18 @@ h3 { font-size: 18px; }
   </div>
 </div>
 
-<!-- ============================================
+<!-- ============================================================
      APP
-     ============================================ -->
+     ============================================================ -->
 <div class="app" id="app">
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="sidebar-head">
-      <div class="logo-mark"><span>kt</span></div>
+      <img src="logo.png" class="logo-img" alt="KT"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"/>
+      <div class="logo-fallback"><span>kt</span></div>
       <div>
-        <div class="title">Khanh <span style="color:var(--gold)">❦</span> Tú</div>
+        <div class="title">Khanh <span class="sep">❦</span> Tú</div>
         <div class="sub">Wedding Planner</div>
       </div>
     </div>
@@ -1300,31 +1188,33 @@ h3 { font-size: 18px; }
     <div class="glass sidebar-countdown">
       <div class="days gradient-cream num" id="sidebarDays">485</div>
       <div class="label-c">ngày còn lại</div>
-      <div class="date">13 · 09 · 2026</div>
+      <div class="date" id="sidebarDate">13 · 09 · 2026</div>
     </div>
 
     <nav class="nav">
-      <a class="nav-item active" data-page="dashboard"><span class="ic">◆</span> Tổng quan</a>
-      <a class="nav-item" data-page="expense"><span class="ic">◇</span> Chi tiêu</a>
-      <a class="nav-item" data-page="fund"><span class="ic">◈</span> Quỹ tiền</a>
-      <a class="nav-item" data-page="gift"><span class="ic">❦</span> Tiền mừng</a>
-      <a class="nav-item" data-page="todo"><span class="ic">✓</span> Việc cần làm</a>
-      <a class="nav-item" data-page="contact"><span class="ic">☎</span> Liên hệ</a>
-      <a class="nav-item" data-page="timeline"><span class="ic">✦</span> Lịch trình</a>
+      <a class="nav-item active" data-page="dashboard"><svg class="ic"><use href="#i-home"/></svg> Tổng quan</a>
+      <a class="nav-item" data-page="expense"><svg class="ic"><use href="#i-coin"/></svg> Chi tiêu</a>
+      <a class="nav-item" data-page="fund"><svg class="ic"><use href="#i-wallet"/></svg> Quỹ tiền</a>
+      <a class="nav-item" data-page="gift"><svg class="ic"><use href="#i-gift"/></svg> Tiền mừng</a>
+      <a class="nav-item" data-page="todo"><svg class="ic"><use href="#i-check"/></svg> Việc cần làm</a>
+      <a class="nav-item" data-page="contact"><svg class="ic"><use href="#i-phone"/></svg> Liên hệ</a>
+      <a class="nav-item" data-page="timeline"><svg class="ic"><use href="#i-calendar"/></svg> Lịch trình</a>
     </nav>
 
     <div class="sidebar-foot">
       <span class="role-pill"><span class="dot"></span> Admin</span>
-      <button class="btn-ghost btn" style="padding: 6px 10px; font-size: 12px;" onclick="logout()">Thoát</button>
+      <button class="btn btn-ghost btn-icon" title="Cài đặt" onclick="openSettings()"><svg class="ic ic-md"><use href="#i-settings"/></svg></button>
     </div>
   </aside>
 
   <!-- Mobile Header -->
   <div class="mobile-head">
-    <div class="logo-mark"><span>kt</span></div>
+    <img src="logo.png" class="logo-img" alt="KT"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"/>
+    <div class="logo-fallback"><span>kt</span></div>
     <div class="titles">
-      <div class="t1">Khanh <span style="color:var(--gold)">❦</span> Tú</div>
-      <div class="t2">13 · 09 · 2026</div>
+      <div class="t1">Khanh <span class="sep">❦</span> Tú</div>
+      <div class="t2" id="mobileDate">13 · 09 · 2026</div>
     </div>
     <div class="cd">
       <div class="n num" id="mobileDays">485</div>
@@ -1332,7 +1222,7 @@ h3 { font-size: 18px; }
     </div>
   </div>
 
-  <!-- Main -->
+  <!-- MAIN -->
   <main class="main">
     <div class="topbar">
       <div class="topbar-left">
@@ -1340,30 +1230,30 @@ h3 { font-size: 18px; }
         <h1 id="pageTitle">Tổng quan</h1>
       </div>
       <div class="topbar-right">
-        <button class="btn btn-ghost btn-icon" title="Cài đặt">⚙</button>
+        <button class="btn btn-ghost btn-icon" title="Cài đặt" onclick="openSettings()"><svg class="ic ic-md"><use href="#i-settings"/></svg></button>
       </div>
     </div>
 
-    <!-- ============ DASHBOARD ============ -->
+    <!-- ===== DASHBOARD ===== -->
     <div class="page" id="page-dashboard">
       <!-- Hero -->
       <div class="glass hero">
         <div class="hero-text">
-          <div class="quote">Hai trái tim · Một hành trình · Vĩnh viễn một mái nhà</div>
+          <div class="quote">Hai trái tim · một hành trình · một mái nhà</div>
           <div class="hero-couple">Khanh <span class="sep">❦</span> Tú</div>
           <div class="hero-meta">
-            <span>Chủ nhật, 13 tháng 09 năm 2026</span>
-            <span class="pill">Còn 485 ngày</span>
+            <span id="heroDate">Chủ nhật, 13.09.2026</span>
+            <span class="pill" id="heroCountdown">Còn 485 ngày</span>
           </div>
         </div>
         <div class="ring-wrap">
-          <svg width="180" height="180" viewBox="0 0 180 180">
-            <circle class="ring-bg" cx="90" cy="90" r="78" stroke-width="8"/>
-            <circle class="ring-fg" cx="90" cy="90" r="78" stroke-width="8"
-                    stroke-dasharray="490" stroke-dashoffset="98" id="heroRing"/>
+          <svg width="130" height="130" viewBox="0 0 130 130">
+            <circle class="ring-bg" cx="65" cy="65" r="56" stroke-width="6"/>
+            <circle class="ring-fg" cx="65" cy="65" r="56" stroke-width="6"
+                    stroke-dasharray="352" stroke-dashoffset="70"/>
           </svg>
           <div class="ring-center">
-            <div class="n gradient-cream num">485</div>
+            <div class="n gradient-cream num" id="heroRingDays">485</div>
             <div class="l">days to go</div>
           </div>
         </div>
@@ -1373,173 +1263,82 @@ h3 { font-size: 18px; }
       <div class="stats-grid">
         <div class="glass stat">
           <div class="stat-head">
-            <div class="stat-ic">💰</div>
+            <svg class="ic ic-sm"><use href="#i-wallet"/></svg>
             <span class="stat-label">Tổng quỹ</span>
           </div>
-          <div class="stat-value gradient-cream num">320.000.000<span style="font-size:18px;color:var(--cream-dim)">đ</span></div>
+          <div class="stat-value num">320<span class="u">tr</span></div>
           <div class="stat-sub">4 nguồn quỹ</div>
         </div>
         <div class="glass stat">
           <div class="stat-head">
-            <div class="stat-ic">💎</div>
+            <svg class="ic ic-sm"><use href="#i-coin"/></svg>
             <span class="stat-label">Đã chi · cọc</span>
           </div>
-          <div class="stat-value gradient-gold num">128.500.000<span style="font-size:18px;color:var(--cream-dim)">đ</span></div>
+          <div class="stat-value num gradient-gold">128,5<span class="u">tr</span></div>
           <div class="stat-sub">40% tổng quỹ</div>
         </div>
         <div class="glass stat">
           <div class="stat-head">
-            <div class="stat-ic">⏳</div>
+            <svg class="ic ic-sm"><use href="#i-hourglass"/></svg>
             <span class="stat-label">Còn phải trả</span>
           </div>
-          <div class="stat-value num" style="color:var(--warning)">72.000.000<span style="font-size:18px;color:var(--cream-dim)">đ</span></div>
+          <div class="stat-value num" style="color:var(--warning)">72<span class="u">tr</span></div>
           <div class="stat-sub">8 hạng mục</div>
         </div>
         <div class="glass stat">
           <div class="stat-head">
-            <div class="stat-ic">📊</div>
-            <span class="stat-label">Tổng chi tiêu</span>
+            <svg class="ic ic-sm"><use href="#i-stack"/></svg>
+            <span class="stat-label">Tổng chi</span>
           </div>
-          <div class="stat-value gradient-olive num">200.500.000<span style="font-size:18px;color:var(--cream-dim)">đ</span></div>
+          <div class="stat-value num">200,5<span class="u">tr</span></div>
           <div class="stat-sub">22 hạng mục</div>
         </div>
       </div>
 
-      <!-- Progress Rings -->
+      <!-- Rings -->
       <div class="rings-row">
         <div class="glass ring-card">
           <div class="ring-mini">
-            <svg width="90" height="90" viewBox="0 0 90 90">
-              <circle cx="45" cy="45" r="38" fill="none" stroke="rgba(245,236,208,0.08)" stroke-width="6"/>
-              <circle cx="45" cy="45" r="38" fill="none" stroke="url(#ring-grad)" stroke-width="6" stroke-linecap="round" stroke-dasharray="239" stroke-dashoffset="143"/>
+            <svg width="64" height="64" viewBox="0 0 64 64">
+              <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(245,236,208,0.07)" stroke-width="5"/>
+              <circle cx="32" cy="32" r="26" fill="none" stroke="url(#ring-grad)" stroke-width="5" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="98"/>
             </svg>
             <div class="pct gradient-cream num">40%</div>
           </div>
           <div class="ring-info">
             <div class="ttl">Thanh toán</div>
-            <div class="det">128.5M / 320M đ</div>
+            <div class="det">128,5 / 320 tr</div>
           </div>
         </div>
         <div class="glass ring-card">
           <div class="ring-mini">
-            <svg width="90" height="90" viewBox="0 0 90 90">
-              <circle cx="45" cy="45" r="38" fill="none" stroke="rgba(245,236,208,0.08)" stroke-width="6"/>
-              <circle cx="45" cy="45" r="38" fill="none" stroke="url(#ring-grad2)" stroke-width="6" stroke-linecap="round" stroke-dasharray="239" stroke-dashoffset="91"/>
+            <svg width="64" height="64" viewBox="0 0 64 64">
+              <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(245,236,208,0.07)" stroke-width="5"/>
+              <circle cx="32" cy="32" r="26" fill="none" stroke="url(#ring-grad2)" stroke-width="5" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="62"/>
             </svg>
             <div class="pct gradient-cream num">62%</div>
           </div>
           <div class="ring-info">
-            <div class="ttl">Việc cần làm</div>
-            <div class="det">8 / 13 hoàn tất</div>
+            <div class="ttl">Việc làm</div>
+            <div class="det">8 / 13 mục</div>
           </div>
         </div>
         <div class="glass ring-card">
           <div class="ring-mini">
-            <svg width="90" height="90" viewBox="0 0 90 90">
-              <circle cx="45" cy="45" r="38" fill="none" stroke="rgba(245,236,208,0.08)" stroke-width="6"/>
-              <circle cx="45" cy="45" r="38" fill="none" stroke="url(#ring-grad3)" stroke-width="6" stroke-linecap="round" stroke-dasharray="239" stroke-dashoffset="60"/>
+            <svg width="64" height="64" viewBox="0 0 64 64">
+              <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(245,236,208,0.07)" stroke-width="5"/>
+              <circle cx="32" cy="32" r="26" fill="none" stroke="url(#ring-grad3)" stroke-width="5" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="41"/>
             </svg>
             <div class="pct gradient-cream num">75%</div>
           </div>
           <div class="ring-info">
-            <div class="ttl">Khách xác nhận</div>
-            <div class="det">90 / 120 khách</div>
+            <div class="ttl">Khách dự</div>
+            <div class="det">90 / 120</div>
           </div>
         </div>
       </div>
 
-      <!-- Two col: Activity + Quick actions -->
-      <div class="two-col">
-        <div class="glass activity">
-          <div class="section-head">
-            <h2>Hoạt động gần đây</h2>
-            <span class="ornament">✦ ✦ ✦</span>
-          </div>
-          <div class="act-item">
-            <div class="act-ic">💎</div>
-            <div class="act-body">
-              <div class="t">Đặt cọc <strong>Nhà hàng Riverside</strong></div>
-              <div class="s">30.000.000đ · Ngày đám cưới nhà hàng</div>
-            </div>
-            <div class="act-time">2 giờ trước</div>
-          </div>
-          <div class="act-item">
-            <div class="act-ic">❦</div>
-            <div class="act-body">
-              <div class="t">Khách <strong>Anh Minh & chị Hằng</strong> đã mừng tiền</div>
-              <div class="s">2.000.000đ · Bàn họ hàng</div>
-            </div>
-            <div class="act-time">Hôm qua</div>
-          </div>
-          <div class="act-item">
-            <div class="act-ic">✓</div>
-            <div class="act-body">
-              <div class="t">Hoàn tất <strong>Chốt makeup artist</strong></div>
-              <div class="s">Việc cần làm · Quá hạn 0 ngày</div>
-            </div>
-            <div class="act-time">Hôm qua</div>
-          </div>
-          <div class="act-item">
-            <div class="act-ic">☎</div>
-            <div class="act-body">
-              <div class="t">Thêm liên hệ <strong>Studio Memo</strong></div>
-              <div class="s">Quay phim · 0901 234 567</div>
-            </div>
-            <div class="act-time">2 ngày trước</div>
-          </div>
-          <div class="act-item">
-            <div class="act-ic">◇</div>
-            <div class="act-body">
-              <div class="t">Thêm hạng mục <strong>Hoa cài áo</strong></div>
-              <div class="s">1.200.000đ · Ngày rước dâu</div>
-            </div>
-            <div class="act-time">3 ngày trước</div>
-          </div>
-        </div>
-
-        <div class="glass quick-actions">
-          <div class="section-head">
-            <h2>Thao tác nhanh</h2>
-            <span class="ornament">✦</span>
-          </div>
-          <div class="qa-grid">
-            <button class="qa-btn" onclick="goto('expense')">
-              <div class="qa-ic">+</div>
-              <div class="qa-body">
-                <div class="t">Thêm hạng mục</div>
-                <div class="d">Chi tiêu mới</div>
-              </div>
-              <span class="arrow">→</span>
-            </button>
-            <button class="qa-btn" onclick="goto('gift')">
-              <div class="qa-ic">❦</div>
-              <div class="qa-body">
-                <div class="t">Thêm khách</div>
-                <div class="d">Vào danh sách mừng</div>
-              </div>
-              <span class="arrow">→</span>
-            </button>
-            <button class="qa-btn" onclick="goto('todo')">
-              <div class="qa-ic">✓</div>
-              <div class="qa-body">
-                <div class="t">Thêm việc cần làm</div>
-                <div class="d">Checklist</div>
-              </div>
-              <span class="arrow">→</span>
-            </button>
-            <button class="qa-btn" onclick="goto('contact')">
-              <div class="qa-ic">☎</div>
-              <div class="qa-body">
-                <div class="t">Thêm liên hệ</div>
-                <div class="d">Nhà cung cấp</div>
-              </div>
-              <span class="arrow">→</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Day expense breakdown -->
+      <!-- Day breakdown -->
       <div class="glass day-expense-list">
         <div class="section-head">
           <h2>Chi tiêu theo ngày</h2>
@@ -1553,7 +1352,7 @@ h3 { font-size: 18px; }
               <div class="dex-count">8 hạng mục</div>
             </div>
           </div>
-          <div class="dex-amount gradient-cream num">45.500.000đ</div>
+          <div class="dex-amount num">45,5<span class="u">tr</span></div>
         </div>
         <div class="dex-row">
           <div class="dex-left">
@@ -1563,7 +1362,7 @@ h3 { font-size: 18px; }
               <div class="dex-count">6 hạng mục</div>
             </div>
           </div>
-          <div class="dex-amount gradient-cream num">62.000.000đ</div>
+          <div class="dex-amount num">62<span class="u">tr</span></div>
         </div>
         <div class="dex-row">
           <div class="dex-left">
@@ -1573,34 +1372,34 @@ h3 { font-size: 18px; }
               <div class="dex-count">8 hạng mục</div>
             </div>
           </div>
-          <div class="dex-amount gradient-cream num">93.000.000đ</div>
+          <div class="dex-amount num">93<span class="u">tr</span></div>
         </div>
       </div>
     </div>
 
-    <!-- ============ EXPENSE ============ -->
+    <!-- ===== EXPENSE ===== -->
     <div class="page hidden" id="page-expense">
       <div class="day-tabs">
         <button class="day-tab active">Tất cả</button>
-        <button class="day-tab">Trước đám cưới</button>
-        <button class="day-tab">Ngày rước dâu</button>
-        <button class="day-tab">Đám cưới nhà hàng</button>
+        <button class="day-tab">Trước cưới</button>
+        <button class="day-tab">Rước dâu</button>
+        <button class="day-tab">Nhà hàng</button>
       </div>
 
       <div class="glass summary-strip">
         <div class="ss-item">
-          <div class="l">Tổng chi tiêu</div>
-          <div class="v gradient-cream num">200.500.000đ</div>
+          <div class="l">Tổng chi</div>
+          <div class="v num">200,5<span class="u">tr</span></div>
         </div>
         <div class="ss-divider"></div>
         <div class="ss-item">
-          <div class="l">Đã thanh toán · cọc</div>
-          <div class="v gradient-gold num">128.500.000đ</div>
+          <div class="l">Đã trả · cọc</div>
+          <div class="v num gradient-gold">128,5<span class="u">tr</span></div>
         </div>
         <div class="ss-divider"></div>
         <div class="ss-item">
           <div class="l">Còn phải trả</div>
-          <div class="v num" style="color:var(--warning)">72.000.000đ</div>
+          <div class="v num" style="color:var(--warning)">72<span class="u">tr</span></div>
         </div>
       </div>
 
@@ -1619,14 +1418,14 @@ h3 { font-size: 18px; }
             <div class="exp-meta">
               <span>30 bàn × 5tr</span>
               <span class="sep-dot">·</span>
-              <a href="tel:0909123456">📞 0909 123 456</a>
+              <a href="tel:0909123456"><svg class="ic ic-sm"><use href="#i-phone"/></svg> 0909 123 456</a>
               <span class="sep-dot">·</span>
-              <span>Đám cưới nhà hàng</span>
+              <span>Nhà hàng</span>
             </div>
           </div>
           <div class="exp-right">
-            <div class="exp-amount gradient-cream num">150.000.000đ</div>
-            <div class="status-pill status-deposit"><span class="d"></span> Đã cọc 30tr</div>
+            <div class="exp-amount num">150<span class="u">tr</span></div>
+            <div class="status-pill status-deposit"><span class="d"></span>Cọc 30tr</div>
           </div>
         </div>
 
@@ -1635,16 +1434,16 @@ h3 { font-size: 18px; }
           <div class="exp-body">
             <div class="exp-name">Studio Memo</div>
             <div class="exp-meta">
-              <span>Chụp ảnh + Quay phim</span>
+              <span>Chụp + Quay</span>
               <span class="sep-dot">·</span>
-              <a href="tel:0901234567">📞 0901 234 567</a>
+              <a href="tel:0901234567"><svg class="ic ic-sm"><use href="#i-phone"/></svg> 0901 234 567</a>
               <span class="sep-dot">·</span>
-              <span>Trước đám cưới</span>
+              <span>Trước cưới</span>
             </div>
           </div>
           <div class="exp-right">
-            <div class="exp-amount gradient-cream num">25.000.000đ</div>
-            <div class="status-pill status-done"><span class="d"></span> Hoàn tất</div>
+            <div class="exp-amount num">25<span class="u">tr</span></div>
+            <div class="status-pill status-done"><span class="d"></span>Hoàn tất</div>
           </div>
         </div>
 
@@ -1655,14 +1454,14 @@ h3 { font-size: 18px; }
             <div class="exp-meta">
               <span>2 váy</span>
               <span class="sep-dot">·</span>
-              <a href="tel:0912345678">📞 0912 345 678</a>
+              <a href="tel:0912345678"><svg class="ic ic-sm"><use href="#i-phone"/></svg> 0912 345 678</a>
               <span class="sep-dot">·</span>
-              <span>Trước đám cưới</span>
+              <span>Trước cưới</span>
             </div>
           </div>
           <div class="exp-right">
-            <div class="exp-amount gradient-cream num">18.000.000đ</div>
-            <div class="status-pill status-deposit"><span class="d"></span> Đã cọc 5tr</div>
+            <div class="exp-amount num">18<span class="u">tr</span></div>
+            <div class="status-pill status-deposit"><span class="d"></span>Cọc 5tr</div>
           </div>
         </div>
 
@@ -1673,50 +1472,50 @@ h3 { font-size: 18px; }
             <div class="exp-meta">
               <span>2 buổi</span>
               <span class="sep-dot">·</span>
-              <a href="tel:0987654321">📞 0987 654 321</a>
+              <a href="tel:0987654321"><svg class="ic ic-sm"><use href="#i-phone"/></svg> 0987 654 321</a>
               <span class="sep-dot">·</span>
-              <span>Trước đám cưới</span>
+              <span>Trước cưới</span>
             </div>
           </div>
           <div class="exp-right">
-            <div class="exp-amount gradient-cream num">8.000.000đ</div>
-            <div class="status-pill status-done"><span class="d"></span> Hoàn tất</div>
+            <div class="exp-amount num">8<span class="u">tr</span></div>
+            <div class="status-pill status-done"><span class="d"></span>Hoàn tất</div>
           </div>
         </div>
 
         <div class="glass exp-card">
           <div class="exp-avatar">HC</div>
           <div class="exp-body">
-            <div class="exp-name">Hoa cưới · Trang trí cổng</div>
+            <div class="exp-name">Hoa cưới · Trang trí</div>
             <div class="exp-meta">
               <span>Florist Bloom</span>
               <span class="sep-dot">·</span>
-              <a href="tel:0976543210">📞 0976 543 210</a>
+              <a href="tel:0976543210"><svg class="ic ic-sm"><use href="#i-phone"/></svg> 0976 543 210</a>
               <span class="sep-dot">·</span>
-              <span>Ngày rước dâu</span>
+              <span>Rước dâu</span>
             </div>
           </div>
           <div class="exp-right">
-            <div class="exp-amount gradient-cream num">12.500.000đ</div>
-            <div class="status-pill status-pending"><span class="d"></span> Chưa đặt</div>
+            <div class="exp-amount num">12,5<span class="u">tr</span></div>
+            <div class="status-pill status-pending"><span class="d"></span>Chưa đặt</div>
           </div>
         </div>
 
         <div class="glass exp-card">
-          <div class="exp-avatar">XR</div>
+          <div class="exp-avatar">XH</div>
           <div class="exp-body">
             <div class="exp-name">Xe hoa rước dâu</div>
             <div class="exp-meta">
-              <span>Mercedes E300 trắng</span>
+              <span>Mercedes E300</span>
               <span class="sep-dot">·</span>
-              <a href="tel:0934567890">📞 0934 567 890</a>
+              <a href="tel:0934567890"><svg class="ic ic-sm"><use href="#i-phone"/></svg> 0934 567 890</a>
               <span class="sep-dot">·</span>
-              <span>Ngày rước dâu</span>
+              <span>Rước dâu</span>
             </div>
           </div>
           <div class="exp-right">
-            <div class="exp-amount gradient-cream num">6.000.000đ</div>
-            <div class="status-pill status-done"><span class="d"></span> Hoàn tất</div>
+            <div class="exp-amount num">6<span class="u">tr</span></div>
+            <div class="status-pill status-done"><span class="d"></span>Hoàn tất</div>
           </div>
         </div>
 
@@ -1725,98 +1524,135 @@ h3 { font-size: 18px; }
           <div class="exp-body">
             <div class="exp-name">Nhẫn cưới</div>
             <div class="exp-meta">
-              <span>Bảo Tú Nguyên · Vàng 18K</span>
+              <span>Bảo Tú Nguyên · 18K</span>
               <span class="sep-dot">·</span>
-              <a href="tel:0945678901">📞 0945 678 901</a>
+              <a href="tel:0945678901"><svg class="ic ic-sm"><use href="#i-phone"/></svg> 0945 678 901</a>
               <span class="sep-dot">·</span>
-              <span>Trước đám cưới</span>
+              <span>Trước cưới</span>
             </div>
           </div>
           <div class="exp-right">
-            <div class="exp-amount gradient-cream num">14.500.000đ</div>
-            <div class="status-pill status-done"><span class="d"></span> Hoàn tất</div>
+            <div class="exp-amount num">14,5<span class="u">tr</span></div>
+            <div class="status-pill status-done"><span class="d"></span>Hoàn tất</div>
           </div>
         </div>
 
         <div class="glass exp-card">
           <div class="exp-avatar">TC</div>
           <div class="exp-body">
-            <div class="exp-name">Thiệp cưới in</div>
+            <div class="exp-name">Thiệp cưới</div>
             <div class="exp-meta">
               <span>150 thiệp · Letterpress</span>
               <span class="sep-dot">·</span>
-              <a href="tel:0923456789">📞 0923 456 789</a>
+              <a href="tel:0923456789"><svg class="ic ic-sm"><use href="#i-phone"/></svg> 0923 456 789</a>
               <span class="sep-dot">·</span>
-              <span>Trước đám cưới</span>
+              <span>Trước cưới</span>
             </div>
           </div>
           <div class="exp-right">
-            <div class="exp-amount gradient-cream num">3.500.000đ</div>
-            <div class="status-pill status-pending"><span class="d"></span> Chưa đặt</div>
+            <div class="exp-amount num">3,5<span class="u">tr</span></div>
+            <div class="status-pill status-pending"><span class="d"></span>Chưa đặt</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ============ PLACEHOLDER PAGES ============ -->
-    <div class="page hidden" id="page-fund">
-      <div class="glass" style="padding: 40px; text-align: center;">
-        <div style="font-size: 48px; margin-bottom: 12px; opacity: 0.5;">◈</div>
-        <h2 style="font-style: italic;">Quỹ tiền</h2>
-        <p class="text-dim" style="margin-top: 8px;">Trang này sẽ được hoàn thiện ở bản full build</p>
-      </div>
-    </div>
-    <div class="page hidden" id="page-gift">
-      <div class="glass" style="padding: 40px; text-align: center;">
-        <div style="font-size: 48px; margin-bottom: 12px; opacity: 0.5;">❦</div>
-        <h2 style="font-style: italic;">Tiền mừng</h2>
-        <p class="text-dim" style="margin-top: 8px;">Trang này sẽ được hoàn thiện ở bản full build</p>
-      </div>
-    </div>
-    <div class="page hidden" id="page-todo">
-      <div class="glass" style="padding: 40px; text-align: center;">
-        <div style="font-size: 48px; margin-bottom: 12px; opacity: 0.5;">✓</div>
-        <h2 style="font-style: italic;">Việc cần làm</h2>
-        <p class="text-dim" style="margin-top: 8px;">Trang này sẽ được hoàn thiện ở bản full build</p>
-      </div>
-    </div>
-    <div class="page hidden" id="page-contact">
-      <div class="glass" style="padding: 40px; text-align: center;">
-        <div style="font-size: 48px; margin-bottom: 12px; opacity: 0.5;">☎</div>
-        <h2 style="font-style: italic;">Liên hệ</h2>
-        <p class="text-dim" style="margin-top: 8px;">Trang này sẽ được hoàn thiện ở bản full build</p>
-      </div>
-    </div>
-    <div class="page hidden" id="page-timeline">
-      <div class="glass" style="padding: 40px; text-align: center;">
-        <div style="font-size: 48px; margin-bottom: 12px; opacity: 0.5;">✦</div>
-        <h2 style="font-style: italic;">Lịch trình ngày cưới</h2>
-        <p class="text-dim" style="margin-top: 8px;">Trang mới · Sẽ được xây dựng ở bản full build</p>
-      </div>
-    </div>
+    <!-- ===== PLACEHOLDER ===== -->
+    <div class="page hidden" id="page-fund"><div class="glass" style="padding:32px;text-align:center;"><svg class="ic ic-lg" style="opacity:0.35;width:36px;height:36px;"><use href="#i-wallet"/></svg><h2 style="font-family:Cormorant Garamond;font-style:italic;font-size:20px;margin-top:8px;">Quỹ tiền</h2><p class="text-dim" style="margin-top:6px;font-size:12px;">Sẽ hoàn thiện ở bản full build</p></div></div>
+    <div class="page hidden" id="page-gift"><div class="glass" style="padding:32px;text-align:center;"><svg class="ic ic-lg" style="opacity:0.35;width:36px;height:36px;"><use href="#i-gift"/></svg><h2 style="font-family:Cormorant Garamond;font-style:italic;font-size:20px;margin-top:8px;">Tiền mừng</h2><p class="text-dim" style="margin-top:6px;font-size:12px;">Sẽ hoàn thiện ở bản full build</p></div></div>
+    <div class="page hidden" id="page-todo"><div class="glass" style="padding:32px;text-align:center;"><svg class="ic ic-lg" style="opacity:0.35;width:36px;height:36px;"><use href="#i-check"/></svg><h2 style="font-family:Cormorant Garamond;font-style:italic;font-size:20px;margin-top:8px;">Việc cần làm</h2><p class="text-dim" style="margin-top:6px;font-size:12px;">Sẽ hoàn thiện ở bản full build</p></div></div>
+    <div class="page hidden" id="page-contact"><div class="glass" style="padding:32px;text-align:center;"><svg class="ic ic-lg" style="opacity:0.35;width:36px;height:36px;"><use href="#i-phone"/></svg><h2 style="font-family:Cormorant Garamond;font-style:italic;font-size:20px;margin-top:8px;">Liên hệ</h2><p class="text-dim" style="margin-top:6px;font-size:12px;">Sẽ hoàn thiện ở bản full build</p></div></div>
+    <div class="page hidden" id="page-timeline"><div class="glass" style="padding:32px;text-align:center;"><svg class="ic ic-lg" style="opacity:0.35;width:36px;height:36px;"><use href="#i-calendar"/></svg><h2 style="font-family:Cormorant Garamond;font-style:italic;font-size:20px;margin-top:8px;">Lịch trình</h2><p class="text-dim" style="margin-top:6px;font-size:12px;">Sẽ hoàn thiện ở bản full build</p></div></div>
   </main>
 
   <!-- FAB -->
-  <button class="fab" id="fab" title="Thêm">+</button>
+  <button class="fab" id="fab" title="Thêm"><svg class="ic ic-md"><use href="#i-plus"/></svg></button>
 </div>
 
 <!-- Bottom nav (mobile) -->
 <div class="bottom-nav" id="bottomNav">
-  <button class="bn-item active" data-page="dashboard"><span class="ic">◆</span>Tổng quan</button>
-  <button class="bn-item" data-page="expense"><span class="ic">◇</span>Chi tiêu</button>
-  <button class="bn-item" data-page="gift"><span class="ic">❦</span>Mừng</button>
-  <button class="bn-item" data-page="todo"><span class="ic">✓</span>Việc</button>
-  <button class="bn-item" data-page="contact"><span class="ic">☎</span>Khác</button>
+  <button class="bn-item active" data-page="dashboard"><span class="ic-wrap"><svg class="ic"><use href="#i-home"/></svg></span>Tổng</button>
+  <button class="bn-item" data-page="expense"><span class="ic-wrap"><svg class="ic"><use href="#i-coin"/></svg></span>Chi</button>
+  <button class="bn-item" data-page="gift"><span class="ic-wrap"><svg class="ic"><use href="#i-gift"/></svg></span>Mừng</button>
+  <button class="bn-item" data-page="todo"><span class="ic-wrap"><svg class="ic"><use href="#i-check"/></svg></span>Việc</button>
+  <button class="bn-item" data-page="more" onclick="openMore()"><span class="ic-wrap"><svg class="ic"><use href="#i-more"/></svg></span>Khác</button>
 </div>
 
-<!-- Toast -->
+<!-- Settings Modal -->
+<div class="modal-bd" id="modalSettings" onclick="if(event.target===this) closeSettings()">
+  <div class="glass modal">
+    <h2>Cài đặt</h2>
+    <div class="field">
+      <label class="label">Ngày cưới</label>
+      <input type="date" class="input" id="setDate" value="2026-09-13"/>
+    </div>
+    <div class="field">
+      <label class="label">Tên cô dâu · chú rể</label>
+      <input type="text" class="input" id="setNames" value="Khanh & Tú"/>
+    </div>
+    <div class="field">
+      <label class="label">Mật khẩu mới (Admin)</label>
+      <input type="password" class="input" placeholder="Để trống nếu không đổi"/>
+    </div>
+    <div style="display:flex;gap:8px;margin-top:6px;">
+      <button class="btn" style="flex:1;" onclick="toast('Demo: chức năng export sẽ có ở bản full')">Export JSON</button>
+      <button class="btn" style="flex:1;" onclick="toast('Demo: chức năng import sẽ có ở bản full')">Import JSON</button>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" onclick="closeSettings()">Hủy</button>
+      <button class="btn btn-primary" onclick="saveSettings()">Lưu</button>
+    </div>
+  </div>
+</div>
+
+<!-- More Modal (mobile) -->
+<div class="modal-bd" id="modalMore" onclick="if(event.target===this) closeMore()">
+  <div class="glass modal" style="max-width:340px;">
+    <h2>Thêm</h2>
+    <div style="display:flex;flex-direction:column;gap:6px;">
+      <button class="qa-more" onclick="goto('fund'); closeMore();"><span class="ic-wrap"><svg class="ic"><use href="#i-wallet"/></svg></span><span>Quỹ tiền</span></button>
+      <button class="qa-more" onclick="goto('contact'); closeMore();"><span class="ic-wrap"><svg class="ic"><use href="#i-phone"/></svg></span><span>Liên hệ</span></button>
+      <button class="qa-more" onclick="goto('timeline'); closeMore();"><span class="ic-wrap"><svg class="ic"><use href="#i-calendar"/></svg></span><span>Lịch trình</span></button>
+      <button class="qa-more" onclick="openSettings(); closeMore();"><span class="ic-wrap"><svg class="ic"><use href="#i-settings"/></svg></span><span>Cài đặt</span></button>
+      <button class="qa-more" onclick="logout(); closeMore();"><span class="ic-wrap"><svg class="ic"><use href="#i-logout"/></svg></span><span>Đăng xuất</span></button>
+    </div>
+    <div class="modal-actions">
+      <button class="btn" style="flex:1;" onclick="closeMore()">Đóng</button>
+    </div>
+  </div>
+</div>
+
+<style>
+.qa-more {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 11px;
+  background: rgba(245,236,208,0.03);
+  border: 1px solid rgba(245,236,208,0.07);
+  color: var(--cream);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  text-align: left;
+  transition: all 0.25s var(--ease-out);
+}
+.qa-more:hover {
+  background: linear-gradient(135deg, rgba(107,131,56,0.18), rgba(74,93,32,0.08));
+  border-color: rgba(168,184,90,0.25);
+}
+.qa-more .ic-wrap {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(168,184,90,0.2), rgba(74,93,32,0.08));
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--olive-glow);
+}
+</style>
+
 <div class="toast glass" id="toast"></div>
 
 <script>
-// ============================================
-// PREVIEW DEMO — Logic
-// ============================================
-
 const PAGE_TITLES = {
   dashboard: { title: 'Tổng quan', crumb: 'KT WEDDING · DASHBOARD' },
   expense: { title: 'Chi tiêu', crumb: 'KT WEDDING · EXPENSES' },
@@ -1826,29 +1662,39 @@ const PAGE_TITLES = {
   contact: { title: 'Liên hệ', crumb: 'KT WEDDING · CONTACTS' },
   timeline: { title: 'Lịch trình', crumb: 'KT WEDDING · TIMELINE' }
 };
-
 const FAB_PAGES = ['expense', 'fund', 'gift', 'todo', 'contact'];
-
 let currentPage = 'dashboard';
+let weddingDate = '2026-09-13';
 
-// Countdown
+function fmtDate(iso) {
+  const d = new Date(iso);
+  const dow = ['Chủ nhật','Thứ hai','Thứ ba','Thứ tư','Thứ năm','Thứ sáu','Thứ bảy'][d.getDay()];
+  const dd = String(d.getDate()).padStart(2,'0');
+  const mm = String(d.getMonth()+1).padStart(2,'0');
+  return { full: `${dow}, ${dd}.${mm}.${d.getFullYear()}`, short: `${dd} · ${mm} · ${d.getFullYear()}` };
+}
 function updateCountdown() {
-  const wd = new Date('2026-09-13T00:00:00');
+  const wd = new Date(weddingDate + 'T00:00:00');
   const now = new Date();
   const diff = Math.max(0, Math.ceil((wd - now) / 86400000));
+  const f = fmtDate(weddingDate);
   document.getElementById('sidebarDays').textContent = diff;
+  document.getElementById('sidebarDate').textContent = f.short;
   document.getElementById('mobileDays').textContent = diff;
+  document.getElementById('mobileDate').textContent = f.short;
+  document.getElementById('heroDate').textContent = f.full;
+  document.getElementById('heroCountdown').textContent = 'Còn ' + diff + ' ngày';
+  document.getElementById('heroRingDays').textContent = diff;
   document.getElementById('loginCountdown').textContent = diff + ' ngày';
 }
 updateCountdown();
 
-// Login
 function doLogin() {
   const pass = document.getElementById('loginPass').value.trim();
   if (pass === 'wedding2025' || pass === 'demo' || pass === '') {
     enterApp();
   } else {
-    toast('Mật khẩu chưa đúng · Demo: để trống hoặc "demo"');
+    toast('Demo: gõ "demo" hoặc để trống để vào');
   }
 }
 function enterReadonly() { enterApp(); }
@@ -1863,14 +1709,12 @@ function logout() {
   document.getElementById('loginPass').value = '';
 }
 
-// Navigation
 function goto(page) {
   currentPage = page;
   document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
   const target = document.getElementById('page-' + page);
   if (target) {
     target.classList.remove('hidden');
-    // restart animation
     target.style.animation = 'none';
     target.offsetHeight;
     target.style.animation = '';
@@ -1884,28 +1728,23 @@ function goto(page) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Nav clicks
 document.querySelectorAll('.nav-item, .bn-item').forEach(el => {
   el.addEventListener('click', e => {
     const page = el.dataset.page;
-    if (page) goto(page);
+    if (page && page !== 'more') goto(page);
   });
 });
 
-// FAB
 document.getElementById('fab').addEventListener('click', () => {
-  toast('Đây là demo — chức năng thêm sẽ có ở bản full build ✨');
+  toast('Demo · chức năng thêm sẽ có ở bản full');
 });
 
-// Day tabs
 document.querySelectorAll('.day-tab').forEach(t => {
   t.addEventListener('click', () => {
     document.querySelectorAll('.day-tab').forEach(x => x.classList.remove('active'));
     t.classList.add('active');
   });
 });
-
-// Filter chips
 document.querySelectorAll('.chip').forEach(c => {
   c.addEventListener('click', () => {
     document.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
@@ -1913,24 +1752,36 @@ document.querySelectorAll('.chip').forEach(c => {
   });
 });
 
-// Toast
+function openSettings() {
+  document.getElementById('setDate').value = weddingDate;
+  document.getElementById('modalSettings').classList.add('show');
+}
+function closeSettings() { document.getElementById('modalSettings').classList.remove('show'); }
+function saveSettings() {
+  const d = document.getElementById('setDate').value;
+  if (d) {
+    weddingDate = d;
+    updateCountdown();
+    toast('Đã cập nhật ngày cưới');
+  }
+  closeSettings();
+}
+function openMore() { document.getElementById('modalMore').classList.add('show'); }
+function closeMore() { document.getElementById('modalMore').classList.remove('show'); }
+
 let toastTimer;
 function toast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
 }
 
-// Enter key on login
 document.getElementById('loginPass').addEventListener('keydown', e => {
   if (e.key === 'Enter') doLogin();
 });
-
-// Auto-focus password
-setTimeout(() => document.getElementById('loginPass').focus(), 600);
-
+setTimeout(() => document.getElementById('loginPass').focus(), 500);
 </script>
 </body>
 </html>
