@@ -570,11 +570,11 @@ textarea.input{resize:vertical;min-height:60px}
 </div>
 
 <div class="bottom-nav" id="bottomNav">
-  <button class="bn-item active" data-page="dashboard"><span class="ic-wrap"><svg class="ic"><use href="#i-home"/></svg></span>Tổng</button>
-  <button class="bn-item" data-page="expense"><span class="ic-wrap"><svg class="ic"><use href="#i-coin"/></svg></span>Chi</button>
-  <button class="bn-item" data-page="gift"><span class="ic-wrap"><svg class="ic"><use href="#i-gift"/></svg></span>Mừng</button>
-  <button class="bn-item" data-page="todo"><span class="ic-wrap"><svg class="ic"><use href="#i-check"/></svg></span>Việc</button>
-  <button class="bn-item" onclick="openMore()"><span class="ic-wrap"><svg class="ic"><use href="#i-more"/></svg></span>Khác</button>
+  <button type="button" class="bn-item active" data-page="dashboard"><span class="ic-wrap"><svg class="ic"><use href="#i-home"/></svg></span>Tổng</button>
+  <button type="button" class="bn-item" data-page="expense"><span class="ic-wrap"><svg class="ic"><use href="#i-coin"/></svg></span>Chi</button>
+  <button type="button" class="bn-item" data-page="gift"><span class="ic-wrap"><svg class="ic"><use href="#i-gift"/></svg></span>Mừng</button>
+  <button type="button" class="bn-item" data-page="todo"><span class="ic-wrap"><svg class="ic"><use href="#i-check"/></svg></span>Việc</button>
+  <button type="button" class="bn-item" onclick="event.stopPropagation();openMore();return false"><span class="ic-wrap"><svg class="ic"><use href="#i-more"/></svg></span>Khác</button>
 </div>
 
 <!-- Modals root -->
