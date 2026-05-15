@@ -1426,19 +1426,10 @@ function renderTimeline() {
 // =============================================
 function showModal(html, maxWidth = 480) {
   $('#modalRoot').innerHTML = `
-    <div class="modal-bd" data-modal>
+    <div class="modal-bd show" onmousedown="window._mdStart=event.target" onclick="if(event.target===this&&window._mdStart===this)closeModal()">
       <div class="glass modal" style="max-width:${maxWidth}px">${html}</div>
     </div>
   `;
-  const bd = $('#modalRoot .modal-bd');
-  requestAnimationFrame(() => {
-    bd.classList.add('show');
-    setTimeout(() => {
-      bd.addEventListener('click', function(e) {
-        if (e.target === bd) closeModal();
-      });
-    }, 300);
-  });
 }
   // Delay add 'show' để tránh event đóng ngay
   setTimeout(() => {
