@@ -244,7 +244,7 @@ textarea.input{resize:vertical;min-height:60px}
 .fund-card{padding:14px 16px;display:flex;align-items:center;gap:12px}
 .fund-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--olive-mid),var(--olive-deep));display:inline-flex;align-items:center;justify-content:center;color:var(--cream);flex-shrink:0;box-shadow:inset 0 1px 0 rgba(245,236,208,.12)}
 .fund-body{flex:1;min-width:0}
-.fund-name{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:500;line-height:1.2}
+.fund-name{font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;line-height:1.3;color:var(--cream)}
 .fund-note{font-size:11px;color:var(--cream-faint);margin-top:2px}
 .fund-amt{font-family:'Outfit',sans-serif;font-size:17px;font-weight:600;font-variant-numeric:tabular-nums;display:inline-flex;align-items:baseline;gap:2px}
 .fund-amt .u{font-size:12px;color:var(--cream-soft);opacity:.85}
@@ -252,17 +252,18 @@ textarea.input{resize:vertical;min-height:60px}
 /* Gift table */
 .gift-table{padding:0;overflow:hidden;margin-bottom:12px}
 .gt-head{padding:13px 16px;display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,rgba(107,131,56,.18),rgba(74,93,32,.08));border-bottom:1px solid rgba(245,236,208,.06)}
-.gt-head .name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;font-weight:500;flex:1;display:flex;align-items:center;gap:6px}
+.gt-head .name{font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;flex:1;display:flex;align-items:center;gap:6px;color:var(--cream)}
 .gt-head .stats{font-size:11px;color:var(--cream-dim);display:flex;gap:10px;font-variant-numeric:tabular-nums}
 .gt-head .stats .v{color:var(--gold-light);font-weight:600}
 .gt-body{padding:10px 12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
 .guest-card{padding:10px 12px;display:flex;align-items:center;gap:10px;background:rgba(245,236,208,.02);border:1px solid var(--glass-border);border-radius:10px;transition:all .25s var(--ease-out);cursor:pointer}
 .guest-card:hover{background:rgba(245,236,208,.04);border-color:var(--glass-border-hover)}
-.guest-avatar{width:34px;height:34px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:500;background:linear-gradient(135deg,var(--olive-mid),var(--olive-deep));color:var(--cream);flex-shrink:0;position:relative}
-.guest-avatar.gifted{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg-base)}
+.guest-avatar{width:10px;height:10px;border-radius:50%;flex-shrink:0;align-self:center;margin:0 8px 0 4px;box-shadow:0 0 8px currentColor;background:var(--info);color:var(--info)}
+.guest-avatar.confirmed{background:var(--olive-bright);color:var(--olive-bright)}
+.guest-avatar.gifted{background:var(--gold-light);color:var(--gold-light)}.guest-avatar.gifted{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg-base)}
 .guest-avatar.confirmed{background:linear-gradient(135deg,var(--olive-bright),var(--olive))}
 .guest-info{flex:1;min-width:0}
-.guest-name{font-size:13px;font-weight:500;color:var(--cream);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.guest-name{font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;color:var(--cream);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .guest-note{font-size:10px;color:var(--cream-faint);margin-top:1px}
 .guest-amt{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--gold-light);text-align:right;flex-shrink:0;display:inline-flex;align-items:baseline;gap:1px}
 .guest-amt .u{font-size:10px;opacity:.85}
@@ -293,10 +294,10 @@ textarea.input{resize:vertical;min-height:60px}
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
 .contact-card{padding:14px;display:flex;flex-direction:column;gap:10px}
 .contact-head{display:flex;align-items:flex-start;gap:11px}
-.contact-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--olive-mid),var(--olive-deep));display:inline-flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:18px;color:var(--cream);box-shadow:0 0 0 2px rgba(168,184,90,.2),inset 0 1px 0 rgba(245,236,208,.12);flex-shrink:0;overflow:hidden}
+.contact-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--olive-mid),var(--olive-deep));display:inline-flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:600;font-size:17px;color:var(--cream);box-shadow:0 0 0 2px rgba(168,184,90,.2),inset 0 1px 0 rgba(245,236,208,.12);flex-shrink:0;overflow:hidden}
 .contact-avatar img{width:100%;height:100%;object-fit:cover}
 .contact-info{flex:1;min-width:0}
-.contact-name{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;line-height:1.2}
+.contact-name{font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;line-height:1.3;color:var(--cream)}
 .contact-role{font-size:11px;color:var(--gold-light);text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
 .contact-meta{font-size:12px;color:var(--cream-dim);line-height:1.5}
 .contact-meta a{color:var(--cream-dim);text-decoration:none}
@@ -306,9 +307,9 @@ textarea.input{resize:vertical;min-height:60px}
 
 /* Timeline */
 .tl-event{padding:13px 16px;display:flex;align-items:flex-start;gap:14px}
-.tl-time{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:var(--gold-light);min-width:62px;font-variant-numeric:tabular-nums}
+.tl-time{font-family:'Outfit',sans-serif;font-size:16px;font-weight:600;color:var(--gold-light);min-width:62px;font-variant-numeric:tabular-nums}
 .tl-body{flex:1;min-width:0}
-.tl-name{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:500;color:var(--cream);line-height:1.2}
+.tl-name{font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;color:var(--cream);line-height:1.3}
 .tl-note{font-size:12px;color:var(--cream-dim);margin-top:3px}
 
 /* Empty state */
