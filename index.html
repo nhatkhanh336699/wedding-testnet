@@ -68,7 +68,8 @@ textarea.input{resize:vertical;min-height:60px}
 
 /* LOGIN */
 .login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;padding-top:calc(20px + var(--safe-top));padding-bottom:calc(20px + var(--safe-bot))}
-.login-inner{width:100%;max-width:360px;display:flex;flex-direction:column;align-items:center;gap:18px;animation:fadeUp .7s var(--ease-out)}
+.login-inner{width:100%;max-width:380px;padding:28px 24px;display:flex;flex-direction:column;align-items:center;gap:16px;animation:fadeUp .7s var(--ease-out)}
+.login-form{width:100%;display:flex;flex-direction:column}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px);filter:blur(6px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
 .login-logo-wrap{position:relative;width:72px;height:72px}
 .login-logo-wrap::before{content:'';position:absolute;inset:-14px;background:radial-gradient(circle,rgba(168,184,90,.3),transparent 65%);filter:blur(14px);animation:pulse 4s ease-in-out infinite}
@@ -215,6 +216,7 @@ textarea.input{resize:vertical;min-height:60px}
 .exp-card{padding:13px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all .25s var(--ease-out)}
 .exp-card:hover{border-color:var(--glass-border-hover);transform:translateY(-1px)}
 .exp-avatar{width:38px;height:38px;flex-shrink:0;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:500;background:linear-gradient(135deg,var(--olive-mid),var(--olive-deep));color:var(--cream);box-shadow:inset 0 1px 0 rgba(245,236,208,.12);letter-spacing:-.5px}
+.exp-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;box-shadow:0 0 8px currentColor;margin:0 8px 0 4px;align-self:center}
 .exp-body{flex:1;min-width:0}
 .exp-name{font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;margin-bottom:3px;line-height:1.3;color:var(--cream)}
 .exp-meta{font-size:12px;color:var(--cream-dim);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
@@ -1071,7 +1073,7 @@ function renderExpense() {
           const statusText = b.status === 'done' ? 'Hoàn tất' : b.status === 'deposit' ? `Cọc ${fmtMoney(b.deposit)}${unitMoney(b.deposit)}` : 'Chưa đặt';
           return `
             <div class="glass exp-card" ${isAdmin?`onclick="openExpenseModal('${id}')"`:''}>
-              <div class="exp-dot" style="background:${getDayColor(b.day)}"></div>.exp-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;box-shadow:0 0 8px currentColor,0 0 12px rgba(168,184,90,.4);align-self:center;margin:0 4px 0 2px}
+              <div class="exp-dot" style="background:${getDayColor(b.day)};color:${getDayColor(b.day)}"></div>
               <div class="exp-body">
                 <div class="exp-name">${esc(b.name||'')}</div>
                 <div class="exp-meta">
