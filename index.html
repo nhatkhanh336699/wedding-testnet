@@ -865,8 +865,7 @@ function renderDashboard() {
   const parts = nm.split(/\s*[&❦]\s*/);
   const nmHtml = parts.length===2 ? `${esc(parts[0])} <span class="sep">❦</span> ${esc(parts[1])}` : esc(nm);
   const days = daysTo(wd);
-  const totalDays = 540; // 1.5y assumed planning period
-  const ringOffset = Math.max(0, 352 - (352 * (totalDays - days) / totalDays));
+ 
 
   const budgets = Object.values(DATA.budget || {});
   const funds = Object.values(DATA.fund || {});
@@ -913,23 +912,17 @@ function renderDashboard() {
 
   return `
     <div class="page">
-      <div class="glass hero">
-        <div class="hero-text">
+<div class="glass hero" style="grid-template-columns:1fr">
+        <div class="hero-text" style="text-align:center">
           <div class="tagline"><span class="dot">✦</span> 10 Years · Since 2016 <span class="dot">✦</span></div>
           <div class="hero-couple">${nmHtml}</div>
-          <div class="hero-meta">
+          <div class="hero-meta" style="justify-content:center">
             <span>${fmtDateFull(wd)}</span>
             <span class="pill">Còn ${days} ngày</span>
           </div>
         </div>
-        <div class="ring-wrap">
-          <svg width="130" height="130" viewBox="0 0 130 130">
-            <circle class="ring-bg" cx="65" cy="65" r="56" stroke-width="6"/>
-            <circle class="ring-fg" cx="65" cy="65" r="56" stroke-width="6" stroke-dasharray="352" stroke-dashoffset="${ringOffset}"/>
-          </svg>
-          <div class="ring-center"><div class="n gradient-cream num">${days}</div><div class="l">days to go</div></div>
-        </div>
       </div>
+ 
 
       <div class="stats-grid">
         <div class="glass stat">
@@ -1429,10 +1422,15 @@ function renderTimeline() {
 // =============================================
 function showModal(html, maxWidth = 480) {
   $('#modalRoot').innerHTML = `
-    <div class="modal-bd show" onclick="if(event.target===this) closeModal()">
+    <div class="modal-bd" onclick="if(event.target===this) closeModal()">
       <div class="glass modal" style="max-width:${maxWidth}px">${html}</div>
     </div>
   `;
+  // Delay add 'show' để tránh event đóng ngay
+  setTimeout(() => {
+    const bd = $('#modalRoot .modal-bd');
+    if (bd) bd.classList.add('show');
+  }, 50);
 }
 window.closeModal = function() {
   const bd = $('#modalRoot .modal-bd');
