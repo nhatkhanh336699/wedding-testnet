@@ -11,12 +11,8 @@
 <title>KT Wedding · Khanh & Tú</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-/* ============================================================
-   KT WEDDING PLANNER v2.1 — Refined Liquid Olive
-   Preview Demo · Compact · Tinh tế
-   ============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -29,12 +25,9 @@
   --cream-soft: #e8dfc0;
   --cream-dim: rgba(245,236,208,0.62);
   --cream-faint: rgba(245,236,208,0.38);
-  --cream-ghost: rgba(245,236,208,0.12);
   --gold: #c9a961;
   --gold-light: #e6c989;
-  --gold-dark: #8b7340;
   --bg-base: #0a0f07;
-  --bg-deep: #060904;
   --success: #8fb84a;
   --warning: #d4a942;
   --danger: #c96b5a;
@@ -43,9 +36,7 @@
   --glass-border: rgba(245,236,208,0.09);
   --glass-border-hover: rgba(245,236,208,0.16);
   --glass-blur: blur(20px) saturate(160%);
-
   --shadow-card: 0 4px 20px rgba(0,0,0,0.3), inset 0 1px 0 rgba(245,236,208,0.08), inset 0 -1px 0 rgba(0,0,0,0.15);
-  --shadow-elev: 0 12px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(245,236,208,0.12);
 
   --r-sm: 10px; --r-md: 14px; --r-lg: 18px;
   --safe-top: env(safe-area-inset-top);
@@ -54,7 +45,6 @@
 }
 
 html, body {
-  height: 100%;
   background: var(--bg-base);
   color: var(--cream);
   font-family: 'Outfit', system-ui, -apple-system, sans-serif;
@@ -63,15 +53,14 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
+  width: 100%;
 }
-
 body {
   min-height: 100vh;
-  padding-top: var(--safe-top);
   position: relative;
+  margin: 0;
 }
 
-/* === AURORA BG === */
 body::before {
   content: '';
   position: fixed; inset: -20%;
@@ -99,13 +88,6 @@ body::after {
   66% { transform: rotate(-4deg) scale(0.96); }
 }
 
-.grain {
-  position: fixed; inset: 0; pointer-events: none; z-index: 100;
-  opacity: 0.02; mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-/* === GLASS === */
 .glass {
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
@@ -125,9 +107,7 @@ body::after {
 }
 .glass:hover::before { opacity: 1; }
 
-/* === Typography helpers === */
 .serif { font-family: 'Cormorant Garamond', serif; }
-.italic { font-style: italic; }
 .num { font-variant-numeric: tabular-nums; font-feature-settings: 'tnum'; }
 .gradient-cream {
   background: linear-gradient(135deg, #faf3dc, #f5ecd0 50%, #d4c89a);
@@ -140,25 +120,20 @@ body::after {
   -webkit-text-fill-color: transparent;
 }
 .text-dim { color: var(--cream-dim); }
-.text-faint { color: var(--cream-faint); }
-.text-gold { color: var(--gold-light); }
 
-/* === SVG ICON STYLE (Phosphor thin 1px) === */
 .ic {
   display: inline-flex;
   width: 18px; height: 18px;
   stroke: currentColor;
   fill: none;
-  stroke-width: 1;
+  stroke-width: 1.2;
   stroke-linecap: round;
   stroke-linejoin: round;
   flex-shrink: 0;
 }
 .ic-sm { width: 14px; height: 14px; }
 .ic-md { width: 20px; height: 20px; }
-.ic-lg { width: 24px; height: 24px; }
 
-/* === LOGO IMG === */
 .logo-img {
   display: block;
   border-radius: 10px;
@@ -174,36 +149,28 @@ body::after {
   font-weight: 500;
   color: var(--cream);
   letter-spacing: -1px;
-  box-shadow: 0 2px 10px rgba(45,58,22,0.4), inset 0 1px 0 rgba(245,236,208,0.18);
 }
 
-/* === BUTTONS === */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   padding: 10px 16px;
   border: 1px solid var(--glass-border);
   border-radius: 11px;
-  font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 500;
+  font-family: inherit; font-size: 13px; font-weight: 500;
   color: var(--cream); cursor: pointer;
   background: rgba(245,236,208,0.04);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   transition: all 0.25s var(--ease-out);
   user-select: none;
 }
-.btn:hover { border-color: var(--glass-border-hover); background: rgba(245,236,208,0.07); }
 .btn:active { transform: scale(0.98); }
 .btn-primary {
   background: linear-gradient(135deg, var(--olive-mid), var(--olive));
   border-color: rgba(201,213,117,0.25);
   box-shadow: 0 3px 12px rgba(107,131,56,0.25), inset 0 1px 0 rgba(245,236,208,0.15);
 }
-.btn-primary:hover { background: linear-gradient(135deg, var(--olive-bright), var(--olive-mid)); }
 .btn-ghost { background: transparent; border-color: transparent; color: var(--cream-dim); }
-.btn-ghost:hover { color: var(--cream); background: rgba(245,236,208,0.04); }
 .btn-icon { width: 36px; height: 36px; padding: 0; border-radius: 10px; }
 
-/* === FORM === */
 .input {
   width: 100%;
   padding: 11px 14px;
@@ -213,13 +180,10 @@ body::after {
   color: var(--cream);
   font-family: inherit; font-size: 14px;
   transition: all 0.25s var(--ease-out);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 }
 .input:focus {
   outline: none;
   border-color: var(--olive-bright);
-  background: rgba(13,19,10,0.6);
   box-shadow: 0 0 0 3px rgba(168,184,90,0.1);
 }
 .input::placeholder { color: var(--cream-faint); }
@@ -231,9 +195,7 @@ body::after {
   margin-bottom: 6px;
 }
 
-/* ============================================================
-   LOGIN
-   ============================================================ */
+/* ===== LOGIN ===== */
 .login {
   min-height: 100vh;
   display: flex; align-items: center; justify-content: center;
@@ -244,42 +206,35 @@ body::after {
 .login-inner {
   width: 100%; max-width: 360px;
   display: flex; flex-direction: column; align-items: center;
-  gap: 20px;
+  gap: 18px;
   animation: fadeUp 0.7s var(--ease-out);
 }
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); filter: blur(6px); }
   to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
-.login-logo-wrap {
-  position: relative;
-  width: 76px; height: 76px;
-}
+.login-logo-wrap { position: relative; width: 72px; height: 72px; }
 .login-logo-wrap::before {
   content: '';
-  position: absolute; inset: -16px;
+  position: absolute; inset: -14px;
   background: radial-gradient(circle, rgba(168,184,90,0.3), transparent 65%);
-  filter: blur(16px);
+  filter: blur(14px);
   animation: pulse 4s ease-in-out infinite;
 }
 @keyframes pulse {
   0%, 100% { opacity: 0.5; transform: scale(1); }
   50% { opacity: 0.9; transform: scale(1.08); }
 }
-.login-logo, .login-logo-fb { width: 76px; height: 76px; font-size: 38px; border-radius: 18px; position: relative; }
+.login-logo, .login-logo-fb { width: 72px; height: 72px; font-size: 36px; border-radius: 18px; position: relative; }
 .login-title { text-align: center; }
 .login-couple {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 500;
   line-height: 1.1;
 }
-.login-couple .sep {
-  color: var(--gold); margin: 0 4px;
-  font-size: 22px; font-style: normal;
-  vertical-align: 1px;
-}
+.login-couple .sep { color: var(--gold); margin: 0 3px; font-size: 20px; font-style: normal; vertical-align: 1px; }
 .login-subtitle {
   display: flex; align-items: center; justify-content: center; gap: 10px;
   margin-top: 8px;
@@ -289,13 +244,13 @@ body::after {
   text-transform: uppercase;
 }
 .login-subtitle::before, .login-subtitle::after {
-  content: ''; height: 1px; width: 30px;
+  content: ''; height: 1px; width: 28px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 .login-date {
   margin-top: 10px;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--gold-light);
 }
 .login-date .cd {
@@ -304,9 +259,9 @@ body::after {
   background: rgba(201,169,97,0.1);
   border: 1px solid rgba(201,169,97,0.22);
   border-radius: 99px;
-  font-size: 12px;
+  font-size: 11px;
 }
-.login-card { width: 100%; padding: 20px; }
+.login-card { width: 100%; padding: 18px; }
 .login-card .label { text-align: center; margin-bottom: 10px; }
 .login-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
 .login-readonly { margin-top: 4px; text-align: center; }
@@ -315,17 +270,13 @@ body::after {
   color: var(--cream-faint); font-size: 12px;
   cursor: pointer; padding: 6px 12px;
   font-family: inherit;
-  transition: color 0.25s var(--ease-out);
+  transition: color 0.25s;
 }
-.login-readonly button:hover { color: var(--cream-dim); }
 
-/* ============================================================
-   APP SHELL
-   ============================================================ */
-.app { display: none; min-height: 100vh; }
-.app.active { display: flex; }
+/* ===== APP SHELL — DESKTOP ===== */
+.app { display: none; }
+.app.active { display: flex; min-height: 100vh; }
 
-/* SIDEBAR (desktop) */
 .sidebar {
   width: 232px;
   flex-shrink: 0;
@@ -363,15 +314,10 @@ body::after {
   text-transform: uppercase;
 }
 
-.sidebar-countdown {
-  padding: 14px;
-  text-align: center;
-}
+.sidebar-countdown { padding: 14px; text-align: center; }
 .sidebar-countdown .days {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 30px;
-  font-weight: 500;
-  line-height: 1;
+  font-size: 30px; font-weight: 500; line-height: 1;
 }
 .sidebar-countdown .label-c {
   font-size: 9px;
@@ -416,7 +362,6 @@ body::after {
   background: linear-gradient(180deg, var(--olive-glow), var(--gold));
   border-radius: 0 2px 2px 0;
 }
-
 .sidebar-foot {
   padding: 8px 6px;
   display: flex; align-items: center; justify-content: space-between;
@@ -440,13 +385,13 @@ body::after {
   box-shadow: 0 0 5px var(--olive-glow);
 }
 
-/* MAIN */
 .main {
   flex: 1;
   padding: 18px 24px;
   padding-top: calc(16px + var(--safe-top));
   min-height: 100vh;
   overflow-x: hidden;
+  min-width: 0;
 }
 .topbar {
   display: flex; align-items: center; justify-content: space-between;
@@ -470,16 +415,15 @@ body::after {
 }
 .topbar-right { display: flex; align-items: center; gap: 6px; }
 
-/* ============================================================
-   PAGE
-   ============================================================ */
-.page { animation: pageEnter 0.45s var(--ease-out); }
+.mobile-head, .bottom-nav { display: none; }
+
+.page { animation: pageEnter 0.4s var(--ease-out); }
 @keyframes pageEnter {
   from { opacity: 0; transform: translateY(8px); filter: blur(4px); }
   to { opacity: 1; transform: translateY(0); filter: blur(0); }
 }
 
-/* HERO (desktop) */
+/* HERO desktop */
 .hero {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -488,13 +432,21 @@ body::after {
   padding: 22px 26px;
   margin-bottom: 14px;
 }
-.hero-text .quote {
+.hero-text .journey {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 13px;
-  color: var(--cream-dim);
+  color: var(--gold-light);
   margin-bottom: 10px;
+  padding: 3px 12px;
+  background: rgba(201,169,97,0.08);
+  border: 1px solid rgba(201,169,97,0.2);
+  border-radius: 99px;
 }
+.hero-text .journey .dot { color: var(--gold); }
 .hero-couple {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
@@ -503,10 +455,7 @@ body::after {
   line-height: 1;
   margin-bottom: 8px;
 }
-.hero-couple .sep {
-  color: var(--gold); font-size: 24px; font-style: normal;
-  margin: 0 6px; vertical-align: 3px;
-}
+.hero-couple .sep { color: var(--gold); font-size: 24px; font-style: normal; margin: 0 6px; vertical-align: 3px; }
 .hero-meta {
   display: flex; align-items: center; gap: 12px;
   font-family: 'Cormorant Garamond', serif;
@@ -523,7 +472,6 @@ body::after {
   font-size: 12px;
 }
 
-/* Countdown Ring */
 .ring-wrap { position: relative; width: 130px; height: 130px; }
 .ring-wrap svg { transform: rotate(-90deg); }
 .ring-bg { stroke: rgba(245,236,208,0.07); fill: none; }
@@ -541,9 +489,7 @@ body::after {
 }
 .ring-center .n {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 38px;
-  font-weight: 500;
-  line-height: 1;
+  font-size: 38px; font-weight: 500; line-height: 1;
 }
 .ring-center .l {
   font-size: 8px;
@@ -553,41 +499,39 @@ body::after {
   margin-top: 3px;
 }
 
-/* STATS GRID */
+/* STATS */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   margin-bottom: 14px;
 }
-.stat {
-  padding: 14px 16px;
-  position: relative;
-}
+.stat { padding: 14px 16px; }
 .stat-head {
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; gap: 7px;
   margin-bottom: 8px;
   color: var(--cream-dim);
 }
 .stat-label {
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: 11px;
   font-weight: 500;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 .stat-value {
   font-family: 'Outfit', sans-serif;
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.3px;
   color: var(--cream);
+  display: flex; align-items: baseline; gap: 3px;
 }
 .stat-value .u {
-  font-size: 13px;
-  color: var(--cream-dim);
-  font-weight: 400;
-  margin-left: 2px;
+  font-size: 15px;
+  color: var(--cream-soft);
+  font-weight: 600;
+  opacity: 0.85;
 }
 .stat-sub {
   font-size: 11px;
@@ -595,7 +539,7 @@ body::after {
   margin-top: 4px;
 }
 
-/* RINGS ROW */
+/* RINGS row */
 .rings-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -630,9 +574,10 @@ body::after {
   font-size: 11px;
   color: var(--cream-dim);
   font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
-/* DAY EXPENSE */
+/* Day expense */
 .day-expense-list { padding: 16px 18px; }
 .section-head {
   display: flex; align-items: center; justify-content: space-between;
@@ -654,28 +599,30 @@ body::after {
   display: flex; align-items: center; justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px solid rgba(245,236,208,0.05);
+  gap: 10px;
 }
 .dex-row:last-child { border-bottom: none; padding-bottom: 2px; }
 .dex-row:first-child { padding-top: 2px; }
-.dex-left { display: flex; align-items: center; gap: 10px; }
+.dex-left { display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1; }
 .dex-dot {
   width: 6px; height: 6px; border-radius: 50%;
   box-shadow: 0 0 6px currentColor;
+  flex-shrink: 0;
 }
 .dex-name { font-size: 13px; }
 .dex-count { font-size: 10px; color: var(--cream-faint); margin-top: 1px; }
 .dex-amount {
   font-family: 'Outfit', sans-serif;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
   color: var(--cream);
+  display: inline-flex; align-items: baseline; gap: 2px;
+  white-space: nowrap;
 }
-.dex-amount .u { font-size: 11px; color: var(--cream-dim); margin-left: 1px; }
+.dex-amount .u { font-size: 12px; color: var(--cream-soft); opacity: 0.85; }
 
-/* ============================================================
-   EXPENSE PAGE
-   ============================================================ */
+/* ===== EXPENSE PAGE ===== */
 .day-tabs {
   display: flex; gap: 4px;
   margin-bottom: 12px;
@@ -702,7 +649,6 @@ body::after {
   font-family: inherit;
   white-space: nowrap;
 }
-.day-tab:hover { color: var(--cream); }
 .day-tab.active {
   background: linear-gradient(135deg, var(--olive-mid), var(--olive));
   color: var(--cream);
@@ -719,21 +665,25 @@ body::after {
   align-items: center;
 }
 .ss-item .l {
-  font-size: 9px;
-  letter-spacing: 0.2em;
+  font-size: 10px;
   color: var(--cream-dim);
-  text-transform: uppercase;
   font-weight: 500;
   margin-bottom: 3px;
 }
 .ss-item .v {
   font-family: 'Outfit', sans-serif;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
   line-height: 1.1;
+  display: inline-flex; align-items: baseline; gap: 2px;
 }
-.ss-item .v .u { font-size: 12px; color: var(--cream-dim); margin-left: 1px; }
+.ss-item .v .u {
+  font-size: 13px;
+  color: var(--cream-soft);
+  opacity: 0.85;
+  font-weight: 600;
+}
 .ss-divider {
   width: 1px;
   height: 30px;
@@ -758,7 +708,6 @@ body::after {
   font-family: inherit;
   display: inline-flex; align-items: center; gap: 5px;
 }
-.chip:hover { color: var(--cream); }
 .chip.active {
   background: rgba(168,184,90,0.16);
   border-color: rgba(168,184,90,0.35);
@@ -771,7 +720,6 @@ body::after {
   font-size: 9px;
 }
 
-/* Expense card */
 .exp-list { display: flex; flex-direction: column; gap: 8px; }
 .exp-card {
   padding: 13px 16px;
@@ -809,21 +757,22 @@ body::after {
   flex-wrap: wrap;
 }
 .exp-meta a { color: var(--cream-dim); text-decoration: none; display: inline-flex; align-items: center; gap: 3px; }
-.exp-meta a:hover { color: var(--olive-glow); }
 .exp-meta .sep-dot { color: var(--cream-faint); }
 
 .exp-right {
   text-align: right;
   display: flex; flex-direction: column; align-items: flex-end; gap: 4px;
+  flex-shrink: 0;
 }
 .exp-amount {
   font-family: 'Outfit', sans-serif;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
   line-height: 1;
+  display: inline-flex; align-items: baseline; gap: 2px;
 }
-.exp-amount .u { font-size: 11px; color: var(--cream-dim); margin-left: 1px; }
+.exp-amount .u { font-size: 12px; color: var(--cream-soft); opacity: 0.85; }
 
 .status-pill {
   display: inline-flex; align-items: center; gap: 4px;
@@ -841,7 +790,6 @@ body::after {
 .status-pending { background: rgba(201,107,90,0.1); border: 1px solid rgba(201,107,90,0.28); color: var(--danger); }
 .status-pending .d { background: var(--danger); box-shadow: 0 0 4px var(--danger); }
 
-/* FAB */
 .fab {
   position: fixed;
   right: 22px;
@@ -865,98 +813,7 @@ body::after {
   to { transform: scale(1); opacity: 1; }
 }
 
-/* ============================================================
-   MOBILE
-   ============================================================ */
-.mobile-head {
-  display: none;
-  align-items: center; gap: 10px;
-  padding: 10px 14px;
-  padding-top: calc(8px + var(--safe-top));
-  position: sticky; top: 0; z-index: 40;
-  background: rgba(10,15,7,0.72);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border-bottom: 1px solid rgba(245,236,208,0.05);
-}
-.mobile-head .logo-img, .mobile-head .logo-fallback {
-  width: 32px; height: 32px; font-size: 15px;
-}
-.mobile-head .titles { flex: 1; min-width: 0; }
-.mobile-head .titles .t1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 17px;
-  font-weight: 500;
-  line-height: 1;
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-.mobile-head .titles .t1 .sep { color: var(--gold); margin: 0 2px; font-style: normal; }
-.mobile-head .titles .t2 {
-  font-size: 10px;
-  color: var(--cream-faint);
-  font-family: 'Cormorant Garamond', serif;
-  margin-top: 1px;
-}
-.mobile-head .cd {
-  text-align: right;
-  padding-left: 6px;
-}
-.mobile-head .cd .n {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px; font-weight: 500;
-  line-height: 1;
-  color: var(--gold-light);
-}
-.mobile-head .cd .l {
-  font-size: 8px;
-  letter-spacing: 0.25em;
-  color: var(--cream-faint);
-  text-transform: uppercase;
-  margin-top: 1px;
-}
-
-.bottom-nav {
-  display: none;
-  position: fixed; bottom: 0; left: 0; right: 0;
-  z-index: 40;
-  padding: 6px 8px;
-  padding-bottom: calc(6px + var(--safe-bot));
-  background: rgba(10,15,7,0.78);
-  backdrop-filter: blur(22px) saturate(170%);
-  -webkit-backdrop-filter: blur(22px) saturate(170%);
-  border-top: 1px solid rgba(245,236,208,0.05);
-  justify-content: space-around;
-}
-.bn-item {
-  flex: 1;
-  display: flex; flex-direction: column; align-items: center; gap: 2px;
-  padding: 6px 3px;
-  border-radius: 10px;
-  cursor: pointer;
-  color: var(--cream-faint);
-  font-size: 10px;
-  font-weight: 500;
-  background: transparent;
-  border: none;
-  font-family: inherit;
-  transition: all 0.25s var(--ease-out);
-}
-.bn-item.active { color: var(--olive-glow); }
-.bn-item .ic-wrap {
-  width: 28px; height: 24px;
-  border-radius: 8px;
-  display: inline-flex; align-items: center; justify-content: center;
-  transition: all 0.25s var(--ease-out);
-}
-.bn-item.active .ic-wrap {
-  background: linear-gradient(135deg, rgba(168,184,90,0.22), rgba(74,93,32,0.08));
-  box-shadow: inset 0 1px 0 rgba(245,236,208,0.12);
-}
-
-/* ============================================================
-   MODAL (Settings)
-   ============================================================ */
+/* Modal */
 .modal-bd {
   position: fixed; inset: 0;
   background: rgba(6,9,4,0.65);
@@ -968,9 +825,8 @@ body::after {
   padding: 16px;
   padding-top: calc(16px + var(--safe-top));
   padding-bottom: calc(16px + var(--safe-bot));
-  animation: fadeIn 0.25s var(--ease-out);
 }
-.modal-bd.show { display: flex; }
+.modal-bd.show { display: flex; animation: fadeIn 0.25s var(--ease-out); }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .modal {
   width: 100%; max-width: 420px;
@@ -997,94 +853,37 @@ body::after {
 }
 .modal-actions .btn { flex: 1; padding: 11px; }
 
-/* ============================================================
-   RESPONSIVE — mobile fix
-   ============================================================ */
-@media (max-width: 900px) {
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .rings-row { grid-template-columns: 1fr 1fr 1fr; }
+.qa-more {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 11px;
+  background: rgba(245,236,208,0.03);
+  border: 1px solid rgba(245,236,208,0.07);
+  color: var(--cream);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  text-align: left;
+  transition: all 0.25s var(--ease-out);
 }
-
-@media (max-width: 680px) {
-  body { font-size: 13px; }
-  .sidebar { display: none; }
-  .mobile-head { display: flex; }
-  .bottom-nav { display: flex; }
-  .main {
-    padding: 12px;
-    padding-bottom: calc(80px + var(--safe-bot));
-    padding-top: 12px;
-  }
-  .topbar { display: none; }
-
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-    padding: 18px 16px;
-    gap: 14px;
-  }
-  .hero-text .quote { font-size: 12px; margin-bottom: 8px; }
-  .hero-couple { font-size: 26px; margin-bottom: 6px; }
-  .hero-couple .sep { font-size: 19px; vertical-align: 2px; }
-  .hero-meta { justify-content: center; font-size: 13px; gap: 8px; }
-  .hero-meta .pill { font-size: 11px; padding: 1px 9px; }
-  .ring-wrap { width: 96px; height: 96px; margin: 0 auto; }
-  .ring-center .n { font-size: 26px; }
-  .ring-center .l { font-size: 7px; }
-
-  .stats-grid { gap: 8px; }
-  .stat { padding: 11px 12px; }
-  .stat-head { margin-bottom: 6px; gap: 6px; }
-  .stat-label { font-size: 9px; letter-spacing: 0.15em; }
-  .stat-value { font-size: 17px; letter-spacing: -0.2px; }
-  .stat-value .u { font-size: 11px; }
-  .stat-sub { font-size: 10px; margin-top: 3px; }
-
-  .rings-row { gap: 8px; }
-  .ring-card { padding: 10px; flex-direction: column; gap: 8px; text-align: center; }
-  .ring-mini { width: 56px; height: 56px; }
-  .ring-mini .pct { font-size: 15px; }
-  .ring-info .ttl { font-size: 13px; }
-  .ring-info .det { font-size: 10px; }
-
-  .day-expense-list { padding: 14px 14px; }
-  .section-head h2 { font-size: 16px; }
-  .dex-amount { font-size: 14px; }
-  .dex-name { font-size: 12px; }
-  .dex-count { font-size: 9px; }
-
-  /* Expense */
-  .summary-strip { padding: 12px 14px; gap: 8px; }
-  .ss-item .v { font-size: 15px; }
-  .ss-item .v .u { font-size: 10px; }
-  .ss-item .l { font-size: 8px; }
-  .ss-divider { height: 24px; }
-  .day-tab { padding: 7px 11px; font-size: 11px; }
-  .chip { padding: 5px 10px; font-size: 10px; }
-
-  .exp-card { padding: 11px 12px; gap: 10px; }
-  .exp-avatar { width: 34px; height: 34px; font-size: 13px; }
-  .exp-name { font-size: 14px; }
-  .exp-meta { font-size: 10px; gap: 4px; }
-  .exp-amount { font-size: 14px; }
-  .exp-amount .u { font-size: 10px; }
-  .status-pill { font-size: 9px; padding: 1px 7px; }
-
-  .fab {
-    right: 14px;
-    bottom: calc(70px + var(--safe-bot));
-    width: 46px; height: 46px;
-  }
-  .fab .ic { width: 18px; height: 18px; }
+.qa-more:hover {
+  background: linear-gradient(135deg, rgba(107,131,56,0.18), rgba(74,93,32,0.08));
+  border-color: rgba(168,184,90,0.25);
+}
+.qa-more .ic-wrap {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(168,184,90,0.2), rgba(74,93,32,0.08));
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--olive-glow);
 }
 
 .hidden { display: none !important; }
 ::selection { background: rgba(168,184,90,0.4); color: var(--cream); }
 ::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(245,236,208,0.08); border-radius: 3px; }
 
-/* Toast */
 .toast {
   position: fixed;
   bottom: calc(20px + var(--safe-bot));
@@ -1101,14 +900,204 @@ body::after {
   max-width: calc(100vw - 40px);
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-@media (max-width: 680px) { .toast { bottom: calc(82px + var(--safe-bot)); } }
 
+/* =================================================
+   MOBILE — FIX BUG LAYOUT
+   ================================================= */
+@media (max-width: 720px) {
+  body { font-size: 13px; }
+
+  /* CỰC QUAN TRỌNG: tắt flex, dùng block */
+  .app.active {
+    display: block;
+    min-height: 100vh;
+  }
+  .sidebar { display: none !important; }
+
+  .mobile-head {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 14px;
+    padding-top: calc(8px + var(--safe-top));
+    position: sticky; top: 0; z-index: 40;
+    background: rgba(10,15,7,0.75);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    border-bottom: 1px solid rgba(245,236,208,0.05);
+  }
+  .mobile-head .logo-img,
+  .mobile-head .logo-fallback {
+    width: 32px; height: 32px; font-size: 15px; flex-shrink: 0;
+  }
+  .mobile-head .titles { flex: 1; min-width: 0; }
+  .mobile-head .titles .t1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .mobile-head .titles .t1 .sep {
+    color: var(--gold); margin: 0 2px; font-style: normal;
+  }
+  .mobile-head .titles .t2 {
+    font-size: 10px;
+    color: var(--cream-faint);
+    font-family: 'Cormorant Garamond', serif;
+    margin-top: 1px;
+  }
+  .mobile-head .cd { text-align: right; padding-left: 4px; flex-shrink: 0; }
+  .mobile-head .cd .n {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 500;
+    line-height: 1;
+    color: var(--gold-light);
+  }
+  .mobile-head .cd .l {
+    font-size: 8px;
+    letter-spacing: 0.25em;
+    color: var(--cream-faint);
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+
+  .main {
+    width: 100%;
+    padding: 14px 14px;
+    padding-bottom: calc(80px + var(--safe-bot));
+    padding-top: 14px;
+    min-height: auto;
+  }
+  .topbar { display: none; }
+
+  .bottom-nav {
+    display: flex !important;
+    position: fixed; bottom: 0; left: 0; right: 0;
+    z-index: 40;
+    padding: 6px 8px;
+    padding-bottom: calc(6px + var(--safe-bot));
+    background: rgba(10,15,7,0.78);
+    backdrop-filter: blur(22px) saturate(170%);
+    -webkit-backdrop-filter: blur(22px) saturate(170%);
+    border-top: 1px solid rgba(245,236,208,0.05);
+    justify-content: space-around;
+  }
+  .bn-item {
+    flex: 1;
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    padding: 6px 3px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--cream-faint);
+    font-size: 10px;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    transition: all 0.25s var(--ease-out);
+  }
+  .bn-item.active { color: var(--olive-glow); }
+  .bn-item .ic-wrap {
+    width: 30px; height: 26px;
+    border-radius: 8px;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: all 0.25s var(--ease-out);
+  }
+  .bn-item.active .ic-wrap {
+    background: linear-gradient(135deg, rgba(168,184,90,0.22), rgba(74,93,32,0.08));
+    box-shadow: inset 0 1px 0 rgba(245,236,208,0.12);
+  }
+
+  /* HERO mobile */
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 18px 16px;
+    gap: 14px;
+  }
+  .hero-text .journey { font-size: 12px; margin-bottom: 8px; padding: 3px 10px; }
+  .hero-couple { font-size: 28px; margin-bottom: 6px; }
+  .hero-couple .sep { font-size: 21px; vertical-align: 2px; }
+  .hero-meta { justify-content: center; font-size: 13px; gap: 8px; }
+  .hero-meta .pill { font-size: 11px; padding: 1px 9px; }
+  .ring-wrap { width: 110px; height: 110px; margin: 0 auto; }
+  .ring-center .n { font-size: 30px; }
+  .ring-center .l { font-size: 7px; }
+
+  /* STATS — 2x2 grid CHẶT */
+  .stats-grid { gap: 8px; grid-template-columns: 1fr 1fr; }
+  .stat { padding: 11px 12px; }
+  .stat-head { margin-bottom: 6px; gap: 6px; }
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--cream-dim);
+    font-weight: 500;
+  }
+  .stat-value {
+    font-size: 19px;
+    letter-spacing: -0.2px;
+    font-weight: 600;
+  }
+  .stat-value .u {
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0.9;
+  }
+  .stat-sub { font-size: 10px; margin-top: 3px; }
+
+  /* RINGS — vertical text */
+  .rings-row { gap: 8px; }
+  .ring-card { padding: 12px 8px; flex-direction: column; gap: 6px; text-align: center; }
+  .ring-mini { width: 54px; height: 54px; }
+  .ring-mini .pct { font-size: 15px; }
+  .ring-info .ttl { font-size: 12px; margin-bottom: 0; }
+  .ring-info .det { font-size: 10px; white-space: normal; }
+
+  .day-expense-list { padding: 14px; }
+  .section-head h2 { font-size: 16px; }
+  .section-head .ornament { font-size: 8px; }
+  .dex-amount { font-size: 14px; }
+  .dex-amount .u { font-size: 11px; }
+  .dex-name { font-size: 12px; }
+  .dex-count { font-size: 9px; }
+
+  /* EXPENSE */
+  .summary-strip { padding: 12px 14px; gap: 8px; }
+  .ss-item .v { font-size: 15px; }
+  .ss-item .v .u { font-size: 11px; }
+  .ss-item .l { font-size: 9px; }
+  .ss-divider { height: 24px; }
+  .day-tab { padding: 7px 11px; font-size: 11px; }
+  .chip { padding: 5px 10px; font-size: 10px; }
+
+  .exp-card { padding: 11px 12px; gap: 10px; }
+  .exp-avatar { width: 34px; height: 34px; font-size: 13px; }
+  .exp-name { font-size: 14px; }
+  .exp-meta { font-size: 10px; gap: 4px; }
+  .exp-amount { font-size: 14px; }
+  .exp-amount .u { font-size: 11px; }
+  .status-pill { font-size: 9px; padding: 1px 7px; }
+
+  .fab {
+    right: 14px;
+    bottom: calc(74px + var(--safe-bot));
+    width: 46px; height: 46px;
+  }
+}
+
+/* tablet */
+@media (min-width: 721px) and (max-width: 980px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
 </style>
 </head>
 <body>
-<div class="grain"></div>
 
-<!-- SVG defs -->
 <svg width="0" height="0" style="position: absolute;">
   <defs>
     <linearGradient id="ring-grad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -1120,8 +1109,6 @@ body::after {
     <linearGradient id="ring-grad3" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#e6c989"/><stop offset="100%" stop-color="#c9a961"/>
     </linearGradient>
-
-    <!-- Icon symbols (Phosphor thin style) -->
     <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1v-9.5z"/></symbol>
     <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9h4.5a2 2 0 0 1 0 4H9m0 0h5a2 2 0 0 1 0 4H9V7h3"/></symbol>
     <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3 7v12a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H5a2 2 0 0 1 0-4h13"/><circle cx="17" cy="14" r="1"/></symbol>
@@ -1132,18 +1119,13 @@ body::after {
     <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3h.1a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></symbol>
     <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
     <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
-    <symbol id="i-trend" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8"/><path d="M14 7h7v7"/></symbol>
     <symbol id="i-hourglass" viewBox="0 0 24 24"><path d="M6 3h12M6 21h12M7 3v3a5 5 0 0 0 10 0V3M7 21v-3a5 5 0 0 1 10 0v3"/></symbol>
     <symbol id="i-stack" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5z"/><path d="m3 13 9 5 9-5M3 18l9 5 9-5"/></symbol>
     <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
-    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></symbol>
-    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></symbol>
   </defs>
 </svg>
 
-<!-- ============================================================
-     LOGIN
-     ============================================================ -->
+<!-- LOGIN -->
 <div class="login" id="loginScreen">
   <div class="login-inner">
     <div class="login-logo-wrap">
@@ -1163,17 +1145,15 @@ body::after {
         <button class="btn btn-primary" onclick="doLogin()" style="width:100%; padding: 12px;">Đăng nhập</button>
       </div>
       <div class="login-readonly">
-        <button onclick="enterReadonly()">Xem không đăng nhập →</button>
+        <button onclick="enterApp()">Xem không đăng nhập →</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ============================================================
-     APP
-     ============================================================ -->
+<!-- APP -->
 <div class="app" id="app">
-  <!-- Sidebar -->
+  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar-head">
       <img src="logo.png" class="logo-img" alt="KT"
@@ -1184,13 +1164,11 @@ body::after {
         <div class="sub">Wedding Planner</div>
       </div>
     </div>
-
     <div class="glass sidebar-countdown">
       <div class="days gradient-cream num" id="sidebarDays">485</div>
       <div class="label-c">ngày còn lại</div>
       <div class="date" id="sidebarDate">13 · 09 · 2026</div>
     </div>
-
     <nav class="nav">
       <a class="nav-item active" data-page="dashboard"><svg class="ic"><use href="#i-home"/></svg> Tổng quan</a>
       <a class="nav-item" data-page="expense"><svg class="ic"><use href="#i-coin"/></svg> Chi tiêu</a>
@@ -1200,14 +1178,13 @@ body::after {
       <a class="nav-item" data-page="contact"><svg class="ic"><use href="#i-phone"/></svg> Liên hệ</a>
       <a class="nav-item" data-page="timeline"><svg class="ic"><use href="#i-calendar"/></svg> Lịch trình</a>
     </nav>
-
     <div class="sidebar-foot">
       <span class="role-pill"><span class="dot"></span> Admin</span>
       <button class="btn btn-ghost btn-icon" title="Cài đặt" onclick="openSettings()"><svg class="ic ic-md"><use href="#i-settings"/></svg></button>
     </div>
   </aside>
 
-  <!-- Mobile Header -->
+  <!-- MOBILE HEAD -->
   <div class="mobile-head">
     <img src="logo.png" class="logo-img" alt="KT"
          onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"/>
@@ -1230,16 +1207,15 @@ body::after {
         <h1 id="pageTitle">Tổng quan</h1>
       </div>
       <div class="topbar-right">
-        <button class="btn btn-ghost btn-icon" title="Cài đặt" onclick="openSettings()"><svg class="ic ic-md"><use href="#i-settings"/></svg></button>
+        <button class="btn btn-ghost btn-icon" onclick="openSettings()"><svg class="ic ic-md"><use href="#i-settings"/></svg></button>
       </div>
     </div>
 
-    <!-- ===== DASHBOARD ===== -->
+    <!-- DASHBOARD -->
     <div class="page" id="page-dashboard">
-      <!-- Hero -->
       <div class="glass hero">
         <div class="hero-text">
-          <div class="quote">Hai trái tim · một hành trình · một mái nhà</div>
+          <div class="journey"><span class="dot">✦</span> Mười năm cùng nhau <span class="dot">·</span> trọn đời bên nhau <span class="dot">✦</span></div>
           <div class="hero-couple">Khanh <span class="sep">❦</span> Tú</div>
           <div class="hero-meta">
             <span id="heroDate">Chủ nhật, 13.09.2026</span>
@@ -1259,7 +1235,6 @@ body::after {
         </div>
       </div>
 
-      <!-- Stats -->
       <div class="stats-grid">
         <div class="glass stat">
           <div class="stat-head">
@@ -1295,11 +1270,10 @@ body::after {
         </div>
       </div>
 
-      <!-- Rings -->
       <div class="rings-row">
         <div class="glass ring-card">
           <div class="ring-mini">
-            <svg width="64" height="64" viewBox="0 0 64 64">
+            <svg width="54" height="54" viewBox="0 0 64 64">
               <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(245,236,208,0.07)" stroke-width="5"/>
               <circle cx="32" cy="32" r="26" fill="none" stroke="url(#ring-grad)" stroke-width="5" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="98"/>
             </svg>
@@ -1307,12 +1281,12 @@ body::after {
           </div>
           <div class="ring-info">
             <div class="ttl">Thanh toán</div>
-            <div class="det">128,5 / 320 tr</div>
+            <div class="det">128,5tr ∕ 320tr</div>
           </div>
         </div>
         <div class="glass ring-card">
           <div class="ring-mini">
-            <svg width="64" height="64" viewBox="0 0 64 64">
+            <svg width="54" height="54" viewBox="0 0 64 64">
               <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(245,236,208,0.07)" stroke-width="5"/>
               <circle cx="32" cy="32" r="26" fill="none" stroke="url(#ring-grad2)" stroke-width="5" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="62"/>
             </svg>
@@ -1320,12 +1294,12 @@ body::after {
           </div>
           <div class="ring-info">
             <div class="ttl">Việc làm</div>
-            <div class="det">8 / 13 mục</div>
+            <div class="det">8 ∕ 13 mục</div>
           </div>
         </div>
         <div class="glass ring-card">
           <div class="ring-mini">
-            <svg width="64" height="64" viewBox="0 0 64 64">
+            <svg width="54" height="54" viewBox="0 0 64 64">
               <circle cx="32" cy="32" r="26" fill="none" stroke="rgba(245,236,208,0.07)" stroke-width="5"/>
               <circle cx="32" cy="32" r="26" fill="none" stroke="url(#ring-grad3)" stroke-width="5" stroke-linecap="round" stroke-dasharray="163" stroke-dashoffset="41"/>
             </svg>
@@ -1333,12 +1307,11 @@ body::after {
           </div>
           <div class="ring-info">
             <div class="ttl">Khách dự</div>
-            <div class="det">90 / 120</div>
+            <div class="det">90 ∕ 120</div>
           </div>
         </div>
       </div>
 
-      <!-- Day breakdown -->
       <div class="glass day-expense-list">
         <div class="section-head">
           <h2>Chi tiêu theo ngày</h2>
@@ -1377,7 +1350,7 @@ body::after {
       </div>
     </div>
 
-    <!-- ===== EXPENSE ===== -->
+    <!-- EXPENSE -->
     <div class="page hidden" id="page-expense">
       <div class="day-tabs">
         <button class="day-tab active">Tất cả</button>
@@ -1385,7 +1358,6 @@ body::after {
         <button class="day-tab">Rước dâu</button>
         <button class="day-tab">Nhà hàng</button>
       </div>
-
       <div class="glass summary-strip">
         <div class="ss-item">
           <div class="l">Tổng chi</div>
@@ -1402,14 +1374,12 @@ body::after {
           <div class="v num" style="color:var(--warning)">72<span class="u">tr</span></div>
         </div>
       </div>
-
       <div class="filter-chips">
         <button class="chip active">Tất cả <span class="ct">22</span></button>
         <button class="chip">Hoàn tất <span class="ct">9</span></button>
         <button class="chip">Đã cọc <span class="ct">5</span></button>
         <button class="chip">Chưa đặt <span class="ct">8</span></button>
       </div>
-
       <div class="exp-list">
         <div class="glass exp-card">
           <div class="exp-avatar">NH</div>
@@ -1419,8 +1389,6 @@ body::after {
               <span>30 bàn × 5tr</span>
               <span class="sep-dot">·</span>
               <a href="tel:0909123456"><svg class="ic ic-sm"><use href="#i-phone"/></svg> 0909 123 456</a>
-              <span class="sep-dot">·</span>
-              <span>Nhà hàng</span>
             </div>
           </div>
           <div class="exp-right">
@@ -1428,7 +1396,6 @@ body::after {
             <div class="status-pill status-deposit"><span class="d"></span>Cọc 30tr</div>
           </div>
         </div>
-
         <div class="glass exp-card">
           <div class="exp-avatar">SM</div>
           <div class="exp-body">
@@ -1437,8 +1404,6 @@ body::after {
               <span>Chụp + Quay</span>
               <span class="sep-dot">·</span>
               <a href="tel:0901234567"><svg class="ic ic-sm"><use href="#i-phone"/></svg> 0901 234 567</a>
-              <span class="sep-dot">·</span>
-              <span>Trước cưới</span>
             </div>
           </div>
           <div class="exp-right">
@@ -1446,7 +1411,6 @@ body::after {
             <div class="status-pill status-done"><span class="d"></span>Hoàn tất</div>
           </div>
         </div>
-
         <div class="glass exp-card">
           <div class="exp-avatar">VL</div>
           <div class="exp-body">
@@ -1455,8 +1419,6 @@ body::after {
               <span>2 váy</span>
               <span class="sep-dot">·</span>
               <a href="tel:0912345678"><svg class="ic ic-sm"><use href="#i-phone"/></svg> 0912 345 678</a>
-              <span class="sep-dot">·</span>
-              <span>Trước cưới</span>
             </div>
           </div>
           <div class="exp-right">
@@ -1464,7 +1426,6 @@ body::after {
             <div class="status-pill status-deposit"><span class="d"></span>Cọc 5tr</div>
           </div>
         </div>
-
         <div class="glass exp-card">
           <div class="exp-avatar">MK</div>
           <div class="exp-body">
@@ -1473,8 +1434,6 @@ body::after {
               <span>2 buổi</span>
               <span class="sep-dot">·</span>
               <a href="tel:0987654321"><svg class="ic ic-sm"><use href="#i-phone"/></svg> 0987 654 321</a>
-              <span class="sep-dot">·</span>
-              <span>Trước cưới</span>
             </div>
           </div>
           <div class="exp-right">
@@ -1482,7 +1441,6 @@ body::after {
             <div class="status-pill status-done"><span class="d"></span>Hoàn tất</div>
           </div>
         </div>
-
         <div class="glass exp-card">
           <div class="exp-avatar">HC</div>
           <div class="exp-body">
@@ -1491,8 +1449,6 @@ body::after {
               <span>Florist Bloom</span>
               <span class="sep-dot">·</span>
               <a href="tel:0976543210"><svg class="ic ic-sm"><use href="#i-phone"/></svg> 0976 543 210</a>
-              <span class="sep-dot">·</span>
-              <span>Rước dâu</span>
             </div>
           </div>
           <div class="exp-right">
@@ -1500,7 +1456,6 @@ body::after {
             <div class="status-pill status-pending"><span class="d"></span>Chưa đặt</div>
           </div>
         </div>
-
         <div class="glass exp-card">
           <div class="exp-avatar">XH</div>
           <div class="exp-body">
@@ -1509,8 +1464,6 @@ body::after {
               <span>Mercedes E300</span>
               <span class="sep-dot">·</span>
               <a href="tel:0934567890"><svg class="ic ic-sm"><use href="#i-phone"/></svg> 0934 567 890</a>
-              <span class="sep-dot">·</span>
-              <span>Rước dâu</span>
             </div>
           </div>
           <div class="exp-right">
@@ -1518,17 +1471,14 @@ body::after {
             <div class="status-pill status-done"><span class="d"></span>Hoàn tất</div>
           </div>
         </div>
-
         <div class="glass exp-card">
           <div class="exp-avatar">NC</div>
           <div class="exp-body">
             <div class="exp-name">Nhẫn cưới</div>
             <div class="exp-meta">
-              <span>Bảo Tú Nguyên · 18K</span>
+              <span>Bảo Tú Nguyên</span>
               <span class="sep-dot">·</span>
               <a href="tel:0945678901"><svg class="ic ic-sm"><use href="#i-phone"/></svg> 0945 678 901</a>
-              <span class="sep-dot">·</span>
-              <span>Trước cưới</span>
             </div>
           </div>
           <div class="exp-right">
@@ -1536,17 +1486,14 @@ body::after {
             <div class="status-pill status-done"><span class="d"></span>Hoàn tất</div>
           </div>
         </div>
-
         <div class="glass exp-card">
           <div class="exp-avatar">TC</div>
           <div class="exp-body">
             <div class="exp-name">Thiệp cưới</div>
             <div class="exp-meta">
-              <span>150 thiệp · Letterpress</span>
+              <span>150 thiệp</span>
               <span class="sep-dot">·</span>
               <a href="tel:0923456789"><svg class="ic ic-sm"><use href="#i-phone"/></svg> 0923 456 789</a>
-              <span class="sep-dot">·</span>
-              <span>Trước cưới</span>
             </div>
           </div>
           <div class="exp-right">
@@ -1557,28 +1504,24 @@ body::after {
       </div>
     </div>
 
-    <!-- ===== PLACEHOLDER ===== -->
-    <div class="page hidden" id="page-fund"><div class="glass" style="padding:32px;text-align:center;"><svg class="ic ic-lg" style="opacity:0.35;width:36px;height:36px;"><use href="#i-wallet"/></svg><h2 style="font-family:Cormorant Garamond;font-style:italic;font-size:20px;margin-top:8px;">Quỹ tiền</h2><p class="text-dim" style="margin-top:6px;font-size:12px;">Sẽ hoàn thiện ở bản full build</p></div></div>
-    <div class="page hidden" id="page-gift"><div class="glass" style="padding:32px;text-align:center;"><svg class="ic ic-lg" style="opacity:0.35;width:36px;height:36px;"><use href="#i-gift"/></svg><h2 style="font-family:Cormorant Garamond;font-style:italic;font-size:20px;margin-top:8px;">Tiền mừng</h2><p class="text-dim" style="margin-top:6px;font-size:12px;">Sẽ hoàn thiện ở bản full build</p></div></div>
-    <div class="page hidden" id="page-todo"><div class="glass" style="padding:32px;text-align:center;"><svg class="ic ic-lg" style="opacity:0.35;width:36px;height:36px;"><use href="#i-check"/></svg><h2 style="font-family:Cormorant Garamond;font-style:italic;font-size:20px;margin-top:8px;">Việc cần làm</h2><p class="text-dim" style="margin-top:6px;font-size:12px;">Sẽ hoàn thiện ở bản full build</p></div></div>
-    <div class="page hidden" id="page-contact"><div class="glass" style="padding:32px;text-align:center;"><svg class="ic ic-lg" style="opacity:0.35;width:36px;height:36px;"><use href="#i-phone"/></svg><h2 style="font-family:Cormorant Garamond;font-style:italic;font-size:20px;margin-top:8px;">Liên hệ</h2><p class="text-dim" style="margin-top:6px;font-size:12px;">Sẽ hoàn thiện ở bản full build</p></div></div>
-    <div class="page hidden" id="page-timeline"><div class="glass" style="padding:32px;text-align:center;"><svg class="ic ic-lg" style="opacity:0.35;width:36px;height:36px;"><use href="#i-calendar"/></svg><h2 style="font-family:Cormorant Garamond;font-style:italic;font-size:20px;margin-top:8px;">Lịch trình</h2><p class="text-dim" style="margin-top:6px;font-size:12px;">Sẽ hoàn thiện ở bản full build</p></div></div>
+    <div class="page hidden" id="page-fund"><div class="glass" style="padding:32px;text-align:center;"><svg class="ic" style="opacity:0.35;width:36px;height:36px;"><use href="#i-wallet"/></svg><h2 style="font-family:Cormorant Garamond;font-style:italic;font-size:20px;margin-top:8px;">Quỹ tiền</h2><p class="text-dim" style="margin-top:6px;font-size:12px;">Sẽ hoàn thiện ở bản full build</p></div></div>
+    <div class="page hidden" id="page-gift"><div class="glass" style="padding:32px;text-align:center;"><svg class="ic" style="opacity:0.35;width:36px;height:36px;"><use href="#i-gift"/></svg><h2 style="font-family:Cormorant Garamond;font-style:italic;font-size:20px;margin-top:8px;">Tiền mừng</h2><p class="text-dim" style="margin-top:6px;font-size:12px;">Sẽ hoàn thiện ở bản full build</p></div></div>
+    <div class="page hidden" id="page-todo"><div class="glass" style="padding:32px;text-align:center;"><svg class="ic" style="opacity:0.35;width:36px;height:36px;"><use href="#i-check"/></svg><h2 style="font-family:Cormorant Garamond;font-style:italic;font-size:20px;margin-top:8px;">Việc cần làm</h2><p class="text-dim" style="margin-top:6px;font-size:12px;">Sẽ hoàn thiện ở bản full build</p></div></div>
+    <div class="page hidden" id="page-contact"><div class="glass" style="padding:32px;text-align:center;"><svg class="ic" style="opacity:0.35;width:36px;height:36px;"><use href="#i-phone"/></svg><h2 style="font-family:Cormorant Garamond;font-style:italic;font-size:20px;margin-top:8px;">Liên hệ</h2><p class="text-dim" style="margin-top:6px;font-size:12px;">Sẽ hoàn thiện ở bản full build</p></div></div>
+    <div class="page hidden" id="page-timeline"><div class="glass" style="padding:32px;text-align:center;"><svg class="ic" style="opacity:0.35;width:36px;height:36px;"><use href="#i-calendar"/></svg><h2 style="font-family:Cormorant Garamond;font-style:italic;font-size:20px;margin-top:8px;">Lịch trình</h2><p class="text-dim" style="margin-top:6px;font-size:12px;">Sẽ hoàn thiện ở bản full build</p></div></div>
   </main>
 
-  <!-- FAB -->
-  <button class="fab" id="fab" title="Thêm"><svg class="ic ic-md"><use href="#i-plus"/></svg></button>
+  <button class="fab" id="fab"><svg class="ic ic-md"><use href="#i-plus"/></svg></button>
 </div>
 
-<!-- Bottom nav (mobile) -->
 <div class="bottom-nav" id="bottomNav">
   <button class="bn-item active" data-page="dashboard"><span class="ic-wrap"><svg class="ic"><use href="#i-home"/></svg></span>Tổng</button>
   <button class="bn-item" data-page="expense"><span class="ic-wrap"><svg class="ic"><use href="#i-coin"/></svg></span>Chi</button>
   <button class="bn-item" data-page="gift"><span class="ic-wrap"><svg class="ic"><use href="#i-gift"/></svg></span>Mừng</button>
   <button class="bn-item" data-page="todo"><span class="ic-wrap"><svg class="ic"><use href="#i-check"/></svg></span>Việc</button>
-  <button class="bn-item" data-page="more" onclick="openMore()"><span class="ic-wrap"><svg class="ic"><use href="#i-more"/></svg></span>Khác</button>
+  <button class="bn-item" onclick="openMore()"><span class="ic-wrap"><svg class="ic"><use href="#i-more"/></svg></span>Khác</button>
 </div>
 
-<!-- Settings Modal -->
 <div class="modal-bd" id="modalSettings" onclick="if(event.target===this) closeSettings()">
   <div class="glass modal">
     <h2>Cài đặt</h2>
@@ -1595,8 +1538,8 @@ body::after {
       <input type="password" class="input" placeholder="Để trống nếu không đổi"/>
     </div>
     <div style="display:flex;gap:8px;margin-top:6px;">
-      <button class="btn" style="flex:1;" onclick="toast('Demo: chức năng export sẽ có ở bản full')">Export JSON</button>
-      <button class="btn" style="flex:1;" onclick="toast('Demo: chức năng import sẽ có ở bản full')">Import JSON</button>
+      <button class="btn" style="flex:1;" onclick="toast('Demo · sẽ có ở bản full')">Export JSON</button>
+      <button class="btn" style="flex:1;" onclick="toast('Demo · sẽ có ở bản full')">Import JSON</button>
     </div>
     <div class="modal-actions">
       <button class="btn" onclick="closeSettings()">Hủy</button>
@@ -1605,7 +1548,6 @@ body::after {
   </div>
 </div>
 
-<!-- More Modal (mobile) -->
 <div class="modal-bd" id="modalMore" onclick="if(event.target===this) closeMore()">
   <div class="glass modal" style="max-width:340px;">
     <h2>Thêm</h2>
@@ -1622,34 +1564,6 @@ body::after {
   </div>
 </div>
 
-<style>
-.qa-more {
-  display: flex; align-items: center; gap: 12px;
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 11px;
-  background: rgba(245,236,208,0.03);
-  border: 1px solid rgba(245,236,208,0.07);
-  color: var(--cream);
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 13px;
-  text-align: left;
-  transition: all 0.25s var(--ease-out);
-}
-.qa-more:hover {
-  background: linear-gradient(135deg, rgba(107,131,56,0.18), rgba(74,93,32,0.08));
-  border-color: rgba(168,184,90,0.25);
-}
-.qa-more .ic-wrap {
-  width: 30px; height: 30px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, rgba(168,184,90,0.2), rgba(74,93,32,0.08));
-  display: inline-flex; align-items: center; justify-content: center;
-  color: var(--olive-glow);
-}
-</style>
-
 <div class="toast glass" id="toast"></div>
 
 <script>
@@ -1663,7 +1577,6 @@ const PAGE_TITLES = {
   timeline: { title: 'Lịch trình', crumb: 'KT WEDDING · TIMELINE' }
 };
 const FAB_PAGES = ['expense', 'fund', 'gift', 'todo', 'contact'];
-let currentPage = 'dashboard';
 let weddingDate = '2026-09-13';
 
 function fmtDate(iso) {
@@ -1694,10 +1607,9 @@ function doLogin() {
   if (pass === 'wedding2025' || pass === 'demo' || pass === '') {
     enterApp();
   } else {
-    toast('Demo: gõ "demo" hoặc để trống để vào');
+    toast('Demo · gõ "demo" hoặc để trống');
   }
 }
-function enterReadonly() { enterApp(); }
 function enterApp() {
   document.getElementById('loginScreen').style.display = 'none';
   document.getElementById('app').classList.add('active');
@@ -1708,9 +1620,7 @@ function logout() {
   document.getElementById('loginScreen').style.display = 'flex';
   document.getElementById('loginPass').value = '';
 }
-
 function goto(page) {
-  currentPage = page;
   document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
   const target = document.getElementById('page-' + page);
   if (target) {
@@ -1727,18 +1637,13 @@ function goto(page) {
   document.getElementById('fab').classList.toggle('show', FAB_PAGES.includes(page));
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
 document.querySelectorAll('.nav-item, .bn-item').forEach(el => {
-  el.addEventListener('click', e => {
+  el.addEventListener('click', () => {
     const page = el.dataset.page;
-    if (page && page !== 'more') goto(page);
+    if (page) goto(page);
   });
 });
-
-document.getElementById('fab').addEventListener('click', () => {
-  toast('Demo · chức năng thêm sẽ có ở bản full');
-});
-
+document.getElementById('fab').addEventListener('click', () => toast('Demo · sẽ có ở bản full'));
 document.querySelectorAll('.day-tab').forEach(t => {
   t.addEventListener('click', () => {
     document.querySelectorAll('.day-tab').forEach(x => x.classList.remove('active'));
@@ -1751,7 +1656,6 @@ document.querySelectorAll('.chip').forEach(c => {
     c.classList.add('active');
   });
 });
-
 function openSettings() {
   document.getElementById('setDate').value = weddingDate;
   document.getElementById('modalSettings').classList.add('show');
@@ -1777,7 +1681,6 @@ function toast(msg) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
 }
-
 document.getElementById('loginPass').addEventListener('keydown', e => {
   if (e.key === 'Enter') doLogin();
 });
