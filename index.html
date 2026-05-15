@@ -68,26 +68,22 @@ textarea.input{resize:vertical;min-height:60px}
 
 /* LOGIN */
 .login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;padding-top:calc(20px + var(--safe-top));padding-bottom:calc(20px + var(--safe-bot))}
-.login-inner{width:100%;max-width:380px;padding:28px 24px;display:flex;flex-direction:column;align-items:center;gap:16px;animation:fadeUp .7s var(--ease-out)}
-.login-form{width:100%;display:flex;flex-direction:column}
+.login-inner{width:100%;max-width:380px;padding:26px 22px;display:flex;flex-direction:column;align-items:center;gap:16px;animation:fadeUp .7s var(--ease-out)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px);filter:blur(6px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
 .login-logo-wrap{position:relative;width:72px;height:72px}
 .login-logo-wrap::before{content:'';position:absolute;inset:-14px;background:radial-gradient(circle,rgba(168,184,90,.3),transparent 65%);filter:blur(14px);animation:pulse 4s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.9;transform:scale(1.08)}}
 .login-logo,.login-logo-fb{width:72px;height:72px;font-size:36px;border-radius:18px;position:relative}
 .login-title{text-align:center}
-.login-couple{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;font-weight:500;line-height:1.1}
-.login-couple .sep{color:var(--gold);margin:0 3px;font-size:20px;font-style:normal;vertical-align:1px}
+.login-couple{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;font-weight:500;line-height:1.1}
+.login-couple .sep{color:var(--gold);margin:0 3px;font-size:22px;font-style:normal;vertical-align:1px}
 .login-tagline{margin-top:6px;font-size:9px;font-weight:600;letter-spacing:.32em;color:var(--gold-light);text-transform:uppercase}
 .login-subtitle{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:6px;color:var(--cream-faint);font-size:9px;font-weight:500;letter-spacing:.3em;text-transform:uppercase}
 .login-subtitle::before,.login-subtitle::after{content:'';height:1px;width:28px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.login-date{margin-top:10px;font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold-light)}
+.login-date{margin-top:10px;font-family:'Outfit',sans-serif;font-size:13px;color:var(--gold-light);font-weight:500}
 .login-date .cd{display:inline-block;margin-left:4px;padding:1px 9px;background:rgba(201,169,97,.1);border:1px solid rgba(201,169,97,.22);border-radius:99px;font-size:11px}
-.login-card{width:100%;padding:18px}
-.login-card .label{text-align:center;margin-bottom:10px}
-.login-actions{display:flex;flex-direction:column;gap:10px;margin-top:6px}
-.login-readonly{margin-top:4px;text-align:center}
-.login-readonly button{background:none;border:none;color:var(--cream-faint);font-size:12px;cursor:pointer;padding:6px 12px;font-family:inherit}
+.login-form{width:100%;display:flex;flex-direction:column}
+.login-form .label{text-align:center;margin-bottom:10px}
 
 /* APP */
 .app{display:none}
@@ -100,15 +96,15 @@ textarea.input{resize:vertical;min-height:60px}
 .sidebar-head .title .sep{color:var(--gold);margin:0 2px;font-style:normal}
 .sidebar-head .sub{font-size:8px;letter-spacing:.25em;color:var(--cream-faint);margin-top:3px;text-transform:uppercase}
 .sidebar-countdown{padding:14px;text-align:center}
-.sidebar-countdown .days{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:500;line-height:1}
+.sidebar-countdown .days{font-family:'Outfit',sans-serif;font-size:28px;font-weight:600;line-height:1;letter-spacing:-.5px}
 .sidebar-countdown .label-c{font-size:9px;letter-spacing:.25em;color:var(--cream-dim);margin-top:4px;text-transform:uppercase}
-.sidebar-countdown .date{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold-light);margin-top:8px;padding-top:8px;border-top:1px solid rgba(245,236,208,.06)}
+.sidebar-countdown .date{font-family:'Outfit',sans-serif;font-size:12px;color:var(--gold-light);margin-top:8px;padding-top:8px;border-top:1px solid rgba(245,236,208,.06);font-weight:500}
 .nav{display:flex;flex-direction:column;gap:1px;flex:1}
 .nav-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;color:var(--cream-dim);text-decoration:none;font-size:13px;font-weight:500;cursor:pointer;transition:all .25s var(--ease-out);border:1px solid transparent;position:relative}
 .nav-item:hover{color:var(--cream);background:rgba(245,236,208,.03)}
 .nav-item.active{background:linear-gradient(135deg,rgba(107,131,56,.22),rgba(74,93,32,.1));color:var(--cream);border-color:rgba(168,184,90,.2)}
 .nav-item.active::before{content:'';position:absolute;left:-12px;top:50%;transform:translateY(-50%);width:2px;height:16px;background:linear-gradient(180deg,var(--olive-glow),var(--gold));border-radius:0 2px 2px 0}
-.sidebar-foot{padding:8px 6px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.sidebar-foot{padding:8px 6px;display:flex;align-items:center;justify-content:space-between;gap:6px}
 .role-pill{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;background:rgba(168,184,90,.13);border:1px solid rgba(168,184,90,.25);border-radius:99px;font-size:10px;color:var(--olive-glow);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
 .role-pill .dot{width:5px;height:5px;border-radius:50%;background:var(--olive-glow);box-shadow:0 0 5px var(--olive-glow)}
 .role-pill.readonly{background:rgba(212,169,66,.13);border-color:rgba(212,169,66,.25);color:var(--warning)}
@@ -116,8 +112,8 @@ textarea.input{resize:vertical;min-height:60px}
 
 .main{flex:1;padding:18px 24px;padding-top:calc(16px + var(--safe-top));min-height:100vh;overflow-x:hidden;min-width:0}
 .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;gap:10px}
-.topbar-left h1{font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;font-weight:500;color:var(--cream);line-height:1.1}
-.topbar-left .crumb{font-size:9px;letter-spacing:.28em;color:var(--cream-faint);text-transform:uppercase;margin-bottom:2px}
+.topbar-left h1{font-family:'Outfit',sans-serif;font-size:22px;font-weight:600;color:var(--cream);line-height:1.1;letter-spacing:-.3px}
+.topbar-left .crumb{font-size:9px;letter-spacing:.28em;color:var(--cream-faint);text-transform:uppercase;margin-bottom:3px}
 .topbar-right{display:flex;align-items:center;gap:6px}
 .mobile-head,.bottom-nav{display:none}
 
@@ -128,35 +124,28 @@ textarea.input{resize:vertical;min-height:60px}
 @keyframes pageEnter{from{opacity:0;transform:translateY(8px);filter:blur(4px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
 
 /* HERO */
-.hero{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:22px 26px;margin-bottom:14px}
+.hero{padding:22px 26px;margin-bottom:14px;text-align:center}
 .hero-text .tagline{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-size:10px;font-weight:600;color:var(--gold-light);margin-bottom:12px;padding:4px 14px;background:rgba(201,169,97,.08);border:1px solid rgba(201,169,97,.22);border-radius:99px;letter-spacing:.28em;text-transform:uppercase}
 .hero-text .tagline .dot{color:var(--gold)}
-.hero-couple{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px;font-weight:500;line-height:1;margin-bottom:8px}
+.hero-couple{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px;font-weight:500;line-height:1;margin-bottom:10px}
 .hero-couple .sep{color:var(--gold);font-size:24px;font-style:normal;margin:0 6px;vertical-align:3px}
-.hero-meta{display:flex;align-items:center;gap:12px;font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--cream-dim);flex-wrap:wrap}
-.hero-meta .pill{padding:2px 11px;background:rgba(201,169,97,.1);border:1px solid rgba(201,169,97,.22);border-radius:99px;color:var(--gold-light);font-size:12px;font-family:'Outfit',sans-serif}
-.ring-wrap{position:relative;width:130px;height:130px}
-.ring-wrap svg{transform:rotate(-90deg)}
-.ring-bg{stroke:rgba(245,236,208,.07);fill:none}
-.ring-fg{fill:none;stroke:url(#ring-grad);stroke-linecap:round;filter:drop-shadow(0 0 6px rgba(168,184,90,.45));transition:stroke-dashoffset 1.2s var(--ease-out)}
-.ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.ring-center .n{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:500;line-height:1}
-.ring-center .l{font-size:8px;letter-spacing:.3em;color:var(--cream-dim);text-transform:uppercase;margin-top:3px}
+.hero-meta{display:flex;align-items:center;justify-content:center;gap:12px;font-family:'Outfit',sans-serif;font-size:14px;color:var(--cream-dim);flex-wrap:wrap;font-weight:500}
+.hero-meta .pill{padding:3px 12px;background:rgba(201,169,97,.1);border:1px solid rgba(201,169,97,.22);border-radius:99px;color:var(--gold-light);font-size:12px}
 
 /* STATS */
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
 .stat{padding:14px 16px}
 .stat-head{display:flex;align-items:center;gap:7px;margin-bottom:8px;color:var(--cream-dim)}
-.stat-label{font-size:11px;font-weight:500;white-space:nowrap;letter-spacing:.02em}
+.stat-label{font-size:12px;font-weight:500;white-space:nowrap;letter-spacing:.02em}
 .stat-value{font-family:'Outfit',sans-serif;font-size:22px;font-weight:600;line-height:1.1;letter-spacing:-.3px;color:var(--cream);display:flex;align-items:baseline;gap:3px}
-.stat-value .u{font-size:15px;color:var(--cream-soft);font-weight:600;opacity:.85}
+.stat-value .u{font-size:14px;color:var(--cream-soft);font-weight:600;opacity:.85}
 .stat-sub{font-size:11px;color:var(--cream-faint);margin-top:4px}
 
-/* PROGRESS BARS (linear) — replace 3 rings */
+/* PROGRESS BARS */
 .progress-section{margin-bottom:14px}
 .pb-wrap{padding:18px 22px}
 .pb-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.pb-head h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;font-weight:500}
+.pb-head h2{font-family:'Outfit',sans-serif;font-size:16px;font-weight:600;color:var(--cream)}
 .pb-head .ornament{color:var(--gold);font-size:10px;letter-spacing:.4em;opacity:.7}
 .pb-item{margin-bottom:14px}
 .pb-item:last-child{margin-bottom:0}
@@ -179,7 +168,7 @@ textarea.input{resize:vertical;min-height:60px}
 .dex-left{display:flex;align-items:center;gap:10px;min-width:0;flex:1}
 .dex-dot{width:8px;height:8px;border-radius:50%;box-shadow:0 0 6px currentColor;flex-shrink:0}
 .dex-info{min-width:0}
-.dex-name{font-size:14px;color:var(--cream)}
+.dex-name{font-family:'Outfit',sans-serif;font-size:14px;color:var(--cream);font-weight:500}
 .dex-count{font-size:11px;color:var(--cream-faint);margin-top:1px}
 .dex-right{text-align:right;flex-shrink:0}
 .dex-total{font-family:'Outfit',sans-serif;font-size:17px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--cream);display:inline-flex;align-items:baseline;gap:2px}
@@ -187,7 +176,7 @@ textarea.input{resize:vertical;min-height:60px}
 .dex-rem{font-size:10px;color:var(--warning);margin-top:2px;font-variant-numeric:tabular-nums}
 .dex-rem.done{color:var(--success)}
 
-/* DAY TABS w/ manage */
+/* DAY TABS */
 .day-tabs-wrap{display:flex;gap:8px;align-items:stretch;margin-bottom:12px}
 .day-tabs{flex:1;display:flex;gap:4px;padding:4px;background:rgba(13,19,10,.35);border:1px solid var(--glass-border);border-radius:12px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);overflow-x:auto;scrollbar-width:none}
 .day-tabs::-webkit-scrollbar{display:none}
@@ -197,7 +186,7 @@ textarea.input{resize:vertical;min-height:60px}
 .day-manage-btn{flex-shrink:0;padding:0 12px;background:rgba(13,19,10,.35);border:1px solid var(--glass-border);border-radius:12px;color:var(--cream-dim);cursor:pointer;display:inline-flex;align-items:center;gap:4px;font-size:11px;font-family:inherit;font-weight:500;transition:all .25s var(--ease-out)}
 .day-manage-btn:hover{color:var(--cream);border-color:var(--glass-border-hover)}
 
-/* Summary strip — 3 ô đều */
+/* Summary strip */
 .summary-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
 .ss-item{padding:14px 16px;text-align:center}
 .ss-item .l{font-size:10px;color:var(--cream-dim);font-weight:500;margin-bottom:5px;text-transform:uppercase;letter-spacing:.08em}
@@ -215,8 +204,7 @@ textarea.input{resize:vertical;min-height:60px}
 .list{display:flex;flex-direction:column;gap:8px}
 .exp-card{padding:13px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all .25s var(--ease-out)}
 .exp-card:hover{border-color:var(--glass-border-hover);transform:translateY(-1px)}
-.exp-avatar{width:38px;height:38px;flex-shrink:0;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:500;background:linear-gradient(135deg,var(--olive-mid),var(--olive-deep));color:var(--cream);box-shadow:inset 0 1px 0 rgba(245,236,208,.12);letter-spacing:-.5px}
-.exp-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;box-shadow:0 0 8px currentColor;margin:0 8px 0 4px;align-self:center}
+.exp-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;box-shadow:0 0 8px currentColor;margin:0 6px 0 2px;align-self:center}
 .exp-body{flex:1;min-width:0}
 .exp-name{font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;margin-bottom:3px;line-height:1.3;color:var(--cream)}
 .exp-meta{font-size:12px;color:var(--cream-dim);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
@@ -233,19 +221,13 @@ textarea.input{resize:vertical;min-height:60px}
 .status-deposit .d{background:var(--warning);box-shadow:0 0 4px var(--warning)}
 .status-pending{background:rgba(201,107,90,.1);border:1px solid rgba(201,107,90,.28);color:var(--danger)}
 .status-pending .d{background:var(--danger);box-shadow:0 0 4px var(--danger)}
-.status-invited{background:rgba(122,154,142,.1);border:1px solid rgba(122,154,142,.28);color:var(--info)}
-.status-invited .d{background:var(--info);box-shadow:0 0 4px var(--info)}
-.status-confirmed{background:rgba(143,184,74,.1);border:1px solid rgba(143,184,74,.28);color:var(--success)}
-.status-confirmed .d{background:var(--success);box-shadow:0 0 4px var(--success)}
-.status-gifted{background:rgba(201,169,97,.1);border:1px solid rgba(201,169,97,.28);color:var(--gold-light)}
-.status-gifted .d{background:var(--gold-light);box-shadow:0 0 4px var(--gold-light)}
 
 /* Fund card */
-.fund-card{padding:14px 16px;display:flex;align-items:center;gap:12px}
-.fund-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--olive-mid),var(--olive-deep));display:inline-flex;align-items:center;justify-content:center;color:var(--cream);flex-shrink:0;box-shadow:inset 0 1px 0 rgba(245,236,208,.12)}
+.fund-card{padding:13px 16px;display:flex;align-items:center;gap:12px}
+.fund-dot{width:10px;height:10px;border-radius:50%;background:var(--olive-bright);color:var(--olive-bright);box-shadow:0 0 8px currentColor;flex-shrink:0;margin:0 6px 0 2px}
 .fund-body{flex:1;min-width:0}
 .fund-name{font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;line-height:1.3;color:var(--cream)}
-.fund-note{font-size:11px;color:var(--cream-faint);margin-top:2px}
+.fund-note{font-size:12px;color:var(--cream-dim);margin-top:2px}
 .fund-amt{font-family:'Outfit',sans-serif;font-size:17px;font-weight:600;font-variant-numeric:tabular-nums;display:inline-flex;align-items:baseline;gap:2px}
 .fund-amt .u{font-size:12px;color:var(--cream-soft);opacity:.85}
 
@@ -253,18 +235,17 @@ textarea.input{resize:vertical;min-height:60px}
 .gift-table{padding:0;overflow:hidden;margin-bottom:12px}
 .gt-head{padding:13px 16px;display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,rgba(107,131,56,.18),rgba(74,93,32,.08));border-bottom:1px solid rgba(245,236,208,.06)}
 .gt-head .name{font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;flex:1;display:flex;align-items:center;gap:6px;color:var(--cream)}
-.gt-head .stats{font-size:11px;color:var(--cream-dim);display:flex;gap:10px;font-variant-numeric:tabular-nums}
+.gt-head .stats{font-size:11px;color:var(--cream-dim);display:flex;gap:10px;font-variant-numeric:tabular-nums;flex-wrap:wrap;justify-content:flex-end}
 .gt-head .stats .v{color:var(--gold-light);font-weight:600}
-.gt-body{padding:10px 12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
-.guest-card{padding:10px 12px;display:flex;align-items:center;gap:10px;background:rgba(245,236,208,.02);border:1px solid var(--glass-border);border-radius:10px;transition:all .25s var(--ease-out);cursor:pointer}
+.gt-body{padding:8px 12px 12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px}
+.guest-card{padding:9px 12px;display:flex;align-items:center;gap:8px;background:rgba(245,236,208,.02);border:1px solid var(--glass-border);border-radius:10px;transition:all .25s var(--ease-out);cursor:pointer}
 .guest-card:hover{background:rgba(245,236,208,.04);border-color:var(--glass-border-hover)}
-.guest-avatar{width:10px;height:10px;border-radius:50%;flex-shrink:0;align-self:center;margin:0 8px 0 4px;box-shadow:0 0 8px currentColor;background:var(--info);color:var(--info)}
-.guest-avatar.confirmed{background:var(--olive-bright);color:var(--olive-bright)}
-.guest-avatar.gifted{background:var(--gold-light);color:var(--gold-light)}.guest-avatar.gifted{background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--bg-base)}
-.guest-avatar.confirmed{background:linear-gradient(135deg,var(--olive-bright),var(--olive))}
+.guest-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;background:var(--info);color:var(--info);box-shadow:0 0 6px currentColor;margin:0 4px 0 2px}
+.guest-dot.confirmed{background:var(--olive-bright);color:var(--olive-bright)}
+.guest-dot.gifted{background:var(--gold-light);color:var(--gold-light)}
 .guest-info{flex:1;min-width:0}
 .guest-name{font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;color:var(--cream);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.guest-note{font-size:10px;color:var(--cream-faint);margin-top:1px}
+.guest-note{font-size:11px;color:var(--cream-faint);margin-top:1px}
 .guest-amt{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--gold-light);text-align:right;flex-shrink:0;display:inline-flex;align-items:baseline;gap:1px}
 .guest-amt .u{font-size:10px;opacity:.85}
 
@@ -279,14 +260,15 @@ textarea.input{resize:vertical;min-height:60px}
 .todo-check.done{background:linear-gradient(135deg,var(--olive-bright),var(--olive-mid));border-color:var(--olive-bright);box-shadow:0 0 8px rgba(168,184,90,.3)}
 .todo-check.done::after{content:'';width:10px;height:6px;border-left:1.8px solid var(--cream);border-bottom:1.8px solid var(--cream);transform:rotate(-45deg) translate(1px,-1px)}
 .todo-body{flex:1;min-width:0}
-.todo-text{font-size:14px;color:var(--cream);line-height:1.3;transition:all .3s var(--ease-out)}
+.todo-text{font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;color:var(--cream);line-height:1.3;transition:all .3s var(--ease-out)}
 .todo-text.done{text-decoration:line-through;color:var(--cream-faint)}
 .todo-deadline{font-size:11px;color:var(--cream-faint);margin-top:2px;display:inline-flex;align-items:center;gap:4px}
 .todo-deadline.overdue{color:var(--danger)}
 .todo-deadline.soon{color:var(--warning)}
 .todo-actions{display:flex;gap:4px;opacity:0;transition:opacity .2s}
 .todo-item:hover .todo-actions{opacity:1}
-.btn-mini{width:26px;height:26px;padding:0;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;background:rgba(245,236,208,.04);border:1px solid var(--glass-border);color:var(--cream-dim);cursor:pointer;transition:all .2s}
+@media (hover:none){.todo-actions{opacity:1}}
+.btn-mini{width:26px;height:26px;padding:0;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;background:rgba(245,236,208,.04);border:1px solid var(--glass-border);color:var(--cream-dim);cursor:pointer;transition:all .2s;font-family:inherit}
 .btn-mini:hover{color:var(--cream);background:rgba(245,236,208,.08)}
 .btn-mini.danger:hover{color:var(--danger);border-color:rgba(201,107,90,.3)}
 
@@ -294,19 +276,23 @@ textarea.input{resize:vertical;min-height:60px}
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
 .contact-card{padding:14px;display:flex;flex-direction:column;gap:10px}
 .contact-head{display:flex;align-items:flex-start;gap:11px}
-.contact-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--olive-mid),var(--olive-deep));display:inline-flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-weight:600;font-size:17px;color:var(--cream);box-shadow:0 0 0 2px rgba(168,184,90,.2),inset 0 1px 0 rgba(245,236,208,.12);flex-shrink:0;overflow:hidden}
-.contact-avatar img{width:100%;height:100%;object-fit:cover}
+.contact-dot{width:10px;height:10px;border-radius:50%;background:var(--olive-bright);color:var(--olive-bright);box-shadow:0 0 8px currentColor;flex-shrink:0;margin:8px 0 0 4px}
+.contact-thumb{width:42px;height:42px;border-radius:10px;overflow:hidden;flex-shrink:0;cursor:pointer;border:1px solid var(--glass-border)}
+.contact-thumb img{width:100%;height:100%;object-fit:cover}
 .contact-info{flex:1;min-width:0}
 .contact-name{font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;line-height:1.3;color:var(--cream)}
-.contact-role{font-size:11px;color:var(--gold-light);text-transform:uppercase;letter-spacing:.1em;margin-top:2px}
+.contact-role{font-size:11px;color:var(--gold-light);text-transform:uppercase;letter-spacing:.1em;margin-top:2px;font-weight:500}
 .contact-meta{font-size:12px;color:var(--cream-dim);line-height:1.5}
 .contact-meta a{color:var(--cream-dim);text-decoration:none}
 .contact-actions{display:flex;gap:6px;flex-wrap:wrap}
 .contact-btn{flex:1;padding:7px 10px;border-radius:9px;background:rgba(245,236,208,.04);border:1px solid var(--glass-border);color:var(--cream);font-size:11px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:5px;text-decoration:none;font-family:inherit;transition:all .2s}
 .contact-btn:hover{background:rgba(168,184,90,.12);border-color:rgba(168,184,90,.3);color:var(--olive-glow)}
+.contact-head-actions{display:flex;gap:4px;opacity:.4;transition:opacity .2s}
+.contact-card:hover .contact-head-actions{opacity:1}
+@media (hover:none){.contact-head-actions{opacity:1}}
 
 /* Timeline */
-.tl-event{padding:13px 16px;display:flex;align-items:flex-start;gap:14px}
+.tl-event{padding:13px 16px;display:flex;align-items:flex-start;gap:14px;cursor:pointer}
 .tl-time{font-family:'Outfit',sans-serif;font-size:16px;font-weight:600;color:var(--gold-light);min-width:62px;font-variant-numeric:tabular-nums}
 .tl-body{flex:1;min-width:0}
 .tl-name{font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;color:var(--cream);line-height:1.3}
@@ -315,7 +301,7 @@ textarea.input{resize:vertical;min-height:60px}
 /* Empty state */
 .empty{padding:40px 20px;text-align:center}
 .empty .ic-big{width:42px;height:42px;opacity:.3;margin-bottom:10px}
-.empty h3{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;margin-bottom:6px;color:var(--cream-dim)}
+.empty h3{font-family:'Outfit',sans-serif;font-weight:500;font-size:15px;margin-bottom:6px;color:var(--cream-dim)}
 .empty p{font-size:12px;color:var(--cream-faint)}
 
 /* FAB */
@@ -330,7 +316,7 @@ textarea.input{resize:vertical;min-height:60px}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .modal{width:100%;max-width:480px;max-height:90vh;overflow-y:auto;padding:20px;animation:modalIn .35s var(--ease-out)}
 @keyframes modalIn{from{opacity:0;transform:scale(.94) translateY(8px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.modal h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;margin-bottom:16px;text-align:center}
+.modal h2{font-family:'Outfit',sans-serif;font-size:18px;font-weight:600;margin-bottom:16px;text-align:center;color:var(--cream)}
 .field{margin-bottom:12px}
 .modal-actions{display:flex;gap:8px;margin-top:16px}
 .modal-actions .btn{flex:1;padding:11px}
@@ -339,10 +325,9 @@ textarea.input{resize:vertical;min-height:60px}
 .qa-more:hover{background:linear-gradient(135deg,rgba(107,131,56,.18),rgba(74,93,32,.08));border-color:rgba(168,184,90,.25)}
 .qa-more .ic-wrap{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,rgba(168,184,90,.2),rgba(74,93,32,.08));display:inline-flex;align-items:center;justify-content:center;color:var(--olive-glow)}
 
-/* Day management modal */
 .day-mgr-item{display:flex;align-items:center;gap:8px;padding:10px 12px;background:rgba(245,236,208,.03);border:1px solid var(--glass-border);border-radius:10px;margin-bottom:6px}
 .day-mgr-color{width:18px;height:18px;border-radius:50%;flex-shrink:0;cursor:pointer;border:2px solid transparent;box-shadow:0 0 0 1px rgba(245,236,208,.1)}
-.day-mgr-name{flex:1;background:transparent;border:none;color:var(--cream);font-family:inherit;font-size:13px;padding:4px}
+.day-mgr-name{flex:1;background:transparent;border:none;color:var(--cream);font-family:inherit;font-size:13px;padding:4px;font-weight:500}
 .day-mgr-name:focus{outline:none;color:var(--olive-glow)}
 .day-mgr-actions{display:flex;gap:3px}
 
@@ -355,12 +340,11 @@ textarea.input{resize:vertical;min-height:60px}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .toast.error{background:linear-gradient(135deg,rgba(201,107,90,.2),rgba(201,107,90,.1));border-color:rgba(201,107,90,.4);color:#f0b8ae}
 
-/* Image lightbox */
 .lightbox{position:fixed;inset:0;background:rgba(6,9,4,.92);z-index:300;display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out}
 .lightbox.show{display:flex;animation:fadeIn .2s}
 .lightbox img{max-width:100%;max-height:100%;border-radius:12px}
 
-/* ============ MOBILE ============ */
+/* MOBILE */
 @media (max-width:720px){
   body{font-size:13px}
   .app.active{display:block;min-height:100vh}
@@ -370,9 +354,9 @@ textarea.input{resize:vertical;min-height:60px}
   .mobile-head .titles{flex:1;min-width:0}
   .mobile-head .titles .t1{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;font-weight:500;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .mobile-head .titles .t1 .sep{color:var(--gold);margin:0 2px;font-style:normal}
-  .mobile-head .titles .t2{font-size:10px;color:var(--cream-faint);font-family:'Cormorant Garamond',serif;margin-top:1px}
+  .mobile-head .titles .t2{font-family:'Outfit',sans-serif;font-size:10px;color:var(--cream-faint);margin-top:1px;font-weight:500}
   .mobile-head .cd{text-align:right;padding-left:4px;flex-shrink:0}
-  .mobile-head .cd .n{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;line-height:1;color:var(--gold-light)}
+  .mobile-head .cd .n{font-family:'Outfit',sans-serif;font-size:17px;font-weight:600;line-height:1;color:var(--gold-light)}
   .mobile-head .cd .l{font-size:8px;letter-spacing:.25em;color:var(--cream-faint);text-transform:uppercase;margin-top:1px}
   .main{width:100%;padding:14px;padding-bottom:calc(80px + var(--safe-bot));padding-top:14px;min-height:auto}
   .topbar{display:none}
@@ -382,25 +366,23 @@ textarea.input{resize:vertical;min-height:60px}
   .bn-item .ic-wrap{width:30px;height:26px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;transition:all .25s var(--ease-out)}
   .bn-item.active .ic-wrap{background:linear-gradient(135deg,rgba(168,184,90,.22),rgba(74,93,32,.08));box-shadow:inset 0 1px 0 rgba(245,236,208,.12)}
 
-  .hero{grid-template-columns:1fr;text-align:center;padding:18px 16px;gap:14px}
+  .hero{padding:18px 16px}
   .hero-text .tagline{font-size:9px;margin-bottom:10px;padding:3px 12px;letter-spacing:.22em}
-  .hero-couple{font-size:28px;margin-bottom:6px}
+  .hero-couple{font-size:28px;margin-bottom:8px}
   .hero-couple .sep{font-size:21px;vertical-align:2px}
-  .hero-meta{justify-content:center;font-size:13px;gap:8px}
-  .hero-meta .pill{font-size:11px;padding:1px 9px}
-  .ring-wrap{width:110px;height:110px;margin:0 auto}
-  .ring-center .n{font-size:30px}.ring-center .l{font-size:7px}
+  .hero-meta{font-size:13px;gap:8px}
+  .hero-meta .pill{font-size:11px;padding:2px 10px}
 
   .stats-grid{gap:8px;grid-template-columns:1fr 1fr}
   .stat{padding:11px 12px}
   .stat-head{margin-bottom:6px;gap:6px}
   .stat-label{font-size:11px;letter-spacing:0;text-transform:none;color:var(--cream-dim);font-weight:500}
-  .stat-value{font-size:19px;letter-spacing:-.2px;font-weight:600}
+  .stat-value{font-size:18px;letter-spacing:-.2px;font-weight:600}
   .stat-value .u{font-size:13px;font-weight:600;opacity:.9}
   .stat-sub{font-size:10px;margin-top:3px}
 
   .pb-wrap{padding:14px 16px}
-  .pb-head h2{font-size:16px}
+  .pb-head h2{font-size:15px}
   .pb-row{font-size:12px}
   .pb-row .lbl{gap:6px}
   .pb-row .lbl .det{font-size:10px}
@@ -420,20 +402,28 @@ textarea.input{resize:vertical;min-height:60px}
   .chip{padding:5px 10px;font-size:10px}
 
   .exp-card{padding:11px 12px;gap:10px}
-  .exp-avatar{width:34px;height:34px;font-size:13px}
-  .exp-name{font-size:14px;font-weight:600}.exp-meta{font-size:12px;gap:5px;color:var(--cream-dim)}
+  .exp-name{font-size:14px;font-weight:600}
+  .exp-meta{font-size:11px;gap:5px}
   .exp-amount{font-size:14px}.exp-amount .u{font-size:11px}
   .status-pill{font-size:9px;padding:1px 7px}
 
   .gt-body{grid-template-columns:1fr}
-  .gt-head .name{font-size:15px}.gt-head .stats{font-size:10px;gap:8px}
+  .gt-head{flex-wrap:wrap}
+  .gt-head .name{font-size:14px}
+  .gt-head .stats{font-size:10px;gap:8px;width:100%}
 
-  .fund-card{padding:12px 14px}
-  .fund-name{font-size:15px}.fund-amt{font-size:15px}.fund-amt .u{font-size:11px}
+  .fund-card{padding:11px 12px}
+  .fund-name{font-size:14px}.fund-amt{font-size:15px}.fund-amt .u{font-size:11px}
 
   .contact-grid{grid-template-columns:1fr}
 
+  .tl-time{font-size:15px;min-width:54px}
+  .tl-name{font-size:14px}
+
   .fab{right:14px;bottom:calc(74px + var(--safe-bot));width:46px;height:46px}
+
+  .modal{padding:18px}
+  .modal h2{font-size:17px;margin-bottom:14px}
 }
 @media (min-width:721px) and (max-width:980px){
   .stats-grid{grid-template-columns:repeat(2,1fr)}
@@ -444,9 +434,6 @@ textarea.input{resize:vertical;min-height:60px}
 
 <svg width="0" height="0" style="position:absolute">
 <defs>
-<linearGradient id="ring-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-<stop offset="0%" stop-color="#c9d575"/><stop offset="60%" stop-color="#a8b85a"/><stop offset="100%" stop-color="#c9a961"/>
-</linearGradient>
 <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1v-9.5z"/></symbol>
 <symbol id="i-coin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9h4.5a2 2 0 0 1 0 4H9m0 0h5a2 2 0 0 1 0 4H9V7h3"/></symbol>
 <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M3 7v12a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H5a2 2 0 0 1 0-4h13"/><circle cx="17" cy="14" r="1"/></symbol>
@@ -465,14 +452,10 @@ textarea.input{resize:vertical;min-height:60px}
 <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
 <symbol id="i-msg" viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></symbol>
 <symbol id="i-mappin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
-<symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></symbol>
-<symbol id="i-arrow-l" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
-<symbol id="i-arrow-r" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
 <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></symbol>
 <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
 <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
 <symbol id="i-eye" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
-<symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M10.85 12.15 19 4M18 5l3 3M15 8l3 3"/></symbol>
 <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
 <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></symbol>
 <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
@@ -490,13 +473,13 @@ textarea.input{resize:vertical;min-height:60px}
       <div class="login-couple">Khanh <span class="sep">❦</span> Tú</div>
       <div class="login-tagline">10 Years · Since 2016</div>
       <div class="login-subtitle">Wedding · Planner</div>
-      <div class="login-date" id="loginDateLine">13 · 09 · 2026 <span class="cd" id="loginCountdown">— ngày</span></div>
+      <div class="login-date" id="loginDateLine">— · — · —</div>
     </div>
     <div class="login-form">
-      <div class="label">Đăng nhập quản trị</div>
+      <div class="label" style="text-align:center;margin-bottom:10px">Đăng nhập quản trị</div>
       <input type="password" class="input" id="loginPass" placeholder="Mật khẩu" autocomplete="off"/>
-      <button class="btn btn-primary" onclick="doLogin()" style="width:100%;padding:12px;margin-top:10px">Đăng nhập</button>
-      <button class="btn" onclick="enterReadonly()" style="width:100%;padding:12px;margin-top:8px">
+      <button type="button" class="btn btn-primary" id="btnLogin" style="width:100%;padding:12px;margin-top:10px">Đăng nhập</button>
+      <button type="button" class="btn" id="btnReadonly" style="width:100%;padding:11px;margin-top:8px;gap:8px">
         <svg class="ic ic-sm"><use href="#i-eye"/></svg> Xem không cần đăng nhập
       </button>
     </div>
@@ -529,12 +512,12 @@ textarea.input{resize:vertical;min-height:60px}
       <a class="nav-item" data-page="timeline"><svg class="ic"><use href="#i-calendar"/></svg> Lịch trình</a>
     </nav>
     <div class="sidebar-foot">
-  <span class="role-pill" id="rolePill"><span class="dot"></span> Admin</span>
-  <div style="display:flex;gap:4px">
-    <button class="btn btn-ghost btn-icon" onclick="openSettings()" title="Cài đặt"><svg class="ic ic-md"><use href="#i-settings"/></svg></button>
-    <button class="btn btn-ghost btn-icon" onclick="logout()" title="Đăng xuất"><svg class="ic ic-md"><use href="#i-logout"/></svg></button>
-  </div>
-</div>
+      <span class="role-pill" id="rolePill"><span class="dot"></span> Admin</span>
+      <div style="display:flex;gap:4px">
+        <button type="button" class="btn btn-ghost btn-icon" id="btnSettingsSide" title="Cài đặt"><svg class="ic ic-md"><use href="#i-settings"/></svg></button>
+        <button type="button" class="btn btn-ghost btn-icon" id="btnLogoutSide" title="Đăng xuất"><svg class="ic ic-md"><use href="#i-logout"/></svg></button>
+      </div>
+    </div>
   </aside>
 
   <div class="mobile-head">
@@ -557,20 +540,19 @@ textarea.input{resize:vertical;min-height:60px}
         <h1 id="pageTitle">Tổng quan</h1>
       </div>
       <div class="topbar-right">
-        <button class="btn btn-ghost btn-icon" onclick="openSettings()"><svg class="ic ic-md"><use href="#i-settings"/></svg></button>
+        <button type="button" class="btn btn-ghost btn-icon" id="btnSettingsTop"><svg class="ic ic-md"><use href="#i-settings"/></svg></button>
       </div>
     </div>
 
     <div class="readonly-banner hidden" id="readonlyBanner">
       <svg class="ic"><use href="#i-eye"/></svg> Chế độ chỉ xem · không thể chỉnh sửa
-      <button onclick="showLogin()">Đăng nhập</button>
+      <button type="button" id="btnGoLogin">Đăng nhập</button>
     </div>
 
-    <!-- Pages render in JS -->
     <div id="pageRoot"></div>
   </main>
 
-  <button class="fab" id="fab" onclick="fabClick()"><svg class="ic ic-md"><use href="#i-plus"/></svg></button>
+  <button type="button" class="fab" id="fab"><svg class="ic ic-md"><use href="#i-plus"/></svg></button>
 </div>
 
 <div class="bottom-nav" id="bottomNav">
@@ -578,14 +560,12 @@ textarea.input{resize:vertical;min-height:60px}
   <button type="button" class="bn-item" data-page="expense"><span class="ic-wrap"><svg class="ic"><use href="#i-coin"/></svg></span>Chi</button>
   <button type="button" class="bn-item" data-page="gift"><span class="ic-wrap"><svg class="ic"><use href="#i-gift"/></svg></span>Mừng</button>
   <button type="button" class="bn-item" data-page="todo"><span class="ic-wrap"><svg class="ic"><use href="#i-check"/></svg></span>Việc</button>
-  <button type="button" class="bn-item" onclick="event.stopPropagation();openMore();return false"><span class="ic-wrap"><svg class="ic"><use href="#i-more"/></svg></span>Khác</button>
+  <button type="button" class="bn-item" id="btnMore"><span class="ic-wrap"><svg class="ic"><use href="#i-more"/></svg></span>Khác</button>
 </div>
 
-<!-- Modals root -->
 <div id="modalRoot"></div>
-
 <div class="toast glass" id="toast"></div>
-<div class="lightbox" id="lightbox" onclick="this.classList.remove('show')"><img id="lightboxImg" alt=""/></div>
+<div class="lightbox" id="lightbox"><img id="lightboxImg" alt=""/></div>
 
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
@@ -600,17 +580,18 @@ const firebaseConfig = {
   appId: "1:493056327981:web:aa8acc5a9ae338502753a4",
   databaseURL: "https://wedding-a56f3-default-rtdb.asia-southeast1.firebasedatabase.app"
 };
-const app = initializeApp(firebaseConfig);
-const db = getDatabase(app);
-
-window.fb = { db, ref, onValue, set, push, update, remove, get };
-window.dispatchEvent(new Event('fb-ready'));
+try {
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  window.fb = { db, ref, onValue, set, push, update, remove, get };
+  window.dispatchEvent(new Event('fb-ready'));
+} catch(e) { console.error('Firebase init error:', e); }
 </script>
 
 <script>
-// =============================================
-// STATE
-// =============================================
+'use strict';
+
+// ============== STATE ==============
 const SK = 'wap_role_v4';
 const DEFAULT_DAYS = {
   pre: { name: 'Trước đám cưới', color: '#8fb84a', order: 0 },
@@ -622,1360 +603,20 @@ const STATIC_TODOS = {
   c4:'Đặt nhiếp ảnh · quay phim',c5:'Mua nhẫn cưới',c6:'Đặt váy cưới · vest',
   c7:'In thiệp cưới',c8:'Đặt xe hoa',c9:'Đặt hoa cưới · trang trí',c10:'Lên danh sách khách mời'
 };
+const COLORS = ['#8fb84a','#c9a961','#a8b85a','#7a9a8e','#d4a942','#c96b5a','#6b8338','#e6c989'];
 
 let role = null;
 let currentPage = 'dashboard';
 let currentDay = 'all';
 let currentFilter = 'all';
-let DATA = { config:{}, budget:{}, fund:{}, gift_tables:{}, gift_guests:{}, contacts:{}, checklist:{} };
+let DATA = { config:{}, budget:{}, fund:{}, gift_tables:{}, gift_guests:{}, contacts:{}, checklist:{}, timeline:{} };
 let editingId = null;
-let editingType = null;
 let pendingImg = '';
 let giftSearch = '';
 let fbReady = false;
 
 const FAB_PAGES = ['expense','fund','gift','todo','contact','timeline'];
 
-// =============================================
-// UTILS
-// =============================================
+// ============== UTILS ==============
 const $ = s => document.querySelector(s);
-const $$ = s => document.querySelectorAll(s);
-const esc = s => String(s==null?'':s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-
-function fmtMoney(n) {
-  if (n == null || isNaN(n)) return '0';
-  n = Number(n);
-  if (n === 0) return '0';
-  const abs = Math.abs(n);
-  if (abs >= 1e9) return (n/1e9).toFixed(abs >= 1e10 ? 1 : 2).replace(/\.?0+$/,'').replace('.',',');
-  if (abs >= 1e6) return (n/1e6).toFixed(abs >= 1e8 ? 0 : 1).replace(/\.?0+$/,'').replace('.',',');
-  if (abs >= 1e3) return Math.round(n/1e3) + 'k';
-  return String(n);
-}
-function unitMoney(n) {
-  if (n == null || isNaN(n)) return 'đ';
-  const abs = Math.abs(Number(n));
-  if (abs >= 1e9) return abs >= 1e10 ? 'tỷ' : 'tỷ';
-  if (abs >= 1e6) return 'tr';
-  if (abs >= 1e3) return '';
-  return 'đ';
-}
-function moneyHtml(n, cls='') {
-  return `<span class="num ${cls}">${fmtMoney(n)}<span class="u"> ${unitMoney(n)}</span></span>`;
-}
-function parseMoney(s) {
-  if (!s) return 0;
-  s = String(s).replace(/[^\d.,-]/g,'').replace(/\./g,'').replace(',','.');
-  return Math.round(parseFloat(s)||0);
-}
-function fmtDateFull(iso) {
-  if (!iso) return '';
-  const d = new Date(iso);
-  if (isNaN(d)) return '';
-  const dow = ['Chủ nhật','Thứ hai','Thứ ba','Thứ tư','Thứ năm','Thứ sáu','Thứ bảy'][d.getDay()];
-  return `${dow}, ${String(d.getDate()).padStart(2,'0')}.${String(d.getMonth()+1).padStart(2,'0')}.${d.getFullYear()}`;
-}
-function fmtDateShort(iso) {
-  if (!iso) return '— · — · —';
-  const d = new Date(iso); if (isNaN(d)) return '';
-  return `${String(d.getDate()).padStart(2,'0')} · ${String(d.getMonth()+1).padStart(2,'0')} · ${d.getFullYear()}`;
-}
-function daysTo(iso) {
-  if (!iso) return 0;
-  return Math.max(0, Math.ceil((new Date(iso+'T00:00:00') - new Date()) / 86400000));
-}
-function relativeDeadline(iso) {
-  if (!iso) return null;
-  const d = new Date(iso+'T00:00:00');
-  const today = new Date(); today.setHours(0,0,0,0);
-  const diff = Math.round((d - today) / 86400000);
-  if (diff < 0) return { txt: `Quá hạn ${-diff} ngày`, cls: 'overdue' };
-  if (diff === 0) return { txt: 'Hôm nay', cls: 'overdue' };
-  if (diff <= 7) return { txt: `Còn ${diff} ngày`, cls: 'soon' };
-  return { txt: `Còn ${diff} ngày`, cls: '' };
-}
-function initials(s) {
-  if (!s) return '?';
-  return s.trim().split(/\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase();
-}
-function getDaysSorted() {
-  const days = DATA.config?.days || DEFAULT_DAYS;
-  return Object.entries(days).sort((a,b) => (a[1].order||0) - (b[1].order||0));
-}
-function getDayName(id) {
-  const days = DATA.config?.days || DEFAULT_DAYS;
-  return days[id]?.name || id;
-}
-function getDayColor(id) {
-  const days = DATA.config?.days || DEFAULT_DAYS;
-  return days[id]?.color || '#a8b85a';
-}
-
-// =============================================
-// FIREBASE
-// =============================================
-function initFirebase() {
-  if (!window.fb) { setTimeout(initFirebase, 50); return; }
-  fbReady = true;
-  const { db, ref, onValue } = window.fb;
-  ['config','budget','fund','gift_tables','gift_guests','contacts','checklist','timeline'].forEach(k => {
-    onValue(ref(db, k), snap => {
-      DATA[k] = snap.val() || {};
-      if (k === 'config') {
-        // Ensure defaults
-        if (!DATA.config.wedding) DATA.config.wedding = { date: '2026-09-13', name: 'Khanh & Tú' };
-        if (!DATA.config.days) DATA.config.days = DEFAULT_DAYS;
-        if (!DATA.config.passwords) DATA.config.passwords = { admin: 'wedding2025', super: '999999' };
-        updateHeader();
-      }
-      if (role) render();
-    });
-  });
-}
-window.addEventListener('fb-ready', initFirebase);
-setTimeout(initFirebase, 100);
-
-// =============================================
-// HEADER UPDATE
-// =============================================
-function updateHeader() {
-  const wd = DATA.config?.wedding?.date || '2026-09-13';
-  const nm = DATA.config?.wedding?.name || 'Khanh & Tú';
-  const parts = nm.split(/\s*[&❦]\s*/);
-  const nmHtml = parts.length===2 ? `${esc(parts[0])} <span class="sep">❦</span> ${esc(parts[1])}` : esc(nm);
-  const days = daysTo(wd);
-  const short = fmtDateShort(wd);
-  $('#sideName').innerHTML = nmHtml;
-  $('#sidebarDays').textContent = days;
-  $('#sidebarDate').textContent = short;
-  $('#mobileName').innerHTML = nmHtml;
-  $('#mobileDate').textContent = short;
-  $('#mobileDays').textContent = days;
-  $('#loginDateLine').innerHTML = `${short} <span class="cd">${days} ngày</span>`;
-  $('#loginCountdown').textContent = days + ' ngày';
-}
-
-// =============================================
-// LOGIN
-// =============================================
-window.doLogin = function() {
-  const pass = $('#loginPass').value.trim();
-  if (!pass) return toast('Vui lòng nhập mật khẩu', 'error');
-  const adminPw = DATA.config?.passwords?.admin || 'wedding2025';
-  const superPw = DATA.config?.passwords?.super || '999999';
-  if (pass === adminPw) { role = 'admin'; localStorage.setItem(SK, role); enterApp(); }
-  else if (pass === superPw) { role = 'super'; localStorage.setItem(SK, role); enterApp(); }
-  else toast('Mật khẩu không đúng', 'error');
-};
-window.enterReadonly = function() { role = 'readonly'; localStorage.setItem(SK, role); enterApp(); };
-window.showLogin = function() {
-  $('#app').classList.remove('active');
-  $('#loginScreen').style.display = 'flex';
-  $('#loginPass').value = '';
-  setTimeout(()=>$('#loginPass').focus(), 200);
-};
-window.logout = function() { localStorage.removeItem(SK); role = null; showLogin(); };
-
-function enterApp() {
-  $('#loginScreen').style.display = 'none';
-  $('#app').classList.add('active');
-  updateRoleUI();
-  goto('dashboard');
-}
-function updateRoleUI() {
-  const isRO = role === 'readonly';
-  $('#readonlyBanner').classList.toggle('hidden', !isRO);
-  const pill = $('#rolePill');
-  if (isRO) {
-    pill.className = 'role-pill readonly';
-    pill.innerHTML = '<span class="dot"></span> Chỉ xem';
-  } else {
-    pill.className = 'role-pill';
-    pill.innerHTML = `<span class="dot"></span> ${role === 'super' ? 'Super' : 'Admin'}`;
-  }
-}
-
-// Restore session
-const saved = localStorage.getItem(SK);
-if (saved) { role = saved; setTimeout(enterApp, 200); }
-else setTimeout(()=>$('#loginPass').focus(), 400);
-
-// =============================================
-// NAVIGATION
-// =============================================
-window.goto = function(page) {
-  currentPage = page;
-  $$('.nav-item').forEach(n => n.classList.toggle('active', n.dataset.page === page));
-  $$('.bn-item').forEach(n => n.classList.toggle('active', n.dataset.page === page));
-  const titles = {
-    dashboard:['Tổng quan','DASHBOARD'], expense:['Chi tiêu','EXPENSES'],
-    fund:['Quỹ tiền','FUND'], gift:['Tiền mừng','GIFTS'],
-    todo:['Việc cần làm','TO-DO'], contact:['Liên hệ','CONTACTS'],
-    timeline:['Lịch trình','TIMELINE']
-  };
-  const [t,c] = titles[page] || ['',''];
-  $('#pageTitle').textContent = t;
-  $('#crumb').textContent = `KT WEDDING · ${c}`;
-  $('#fab').classList.toggle('show', FAB_PAGES.includes(page) && role !== 'readonly');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  render();
-};
-$$('.nav-item, .bn-item').forEach(el => {
-  el.addEventListener('click', () => { const p = el.dataset.page; if (p) goto(p); });
-});
-window.fabClick = function() {
-  if (role === 'readonly') return toast('Chế độ chỉ xem', 'error');
-  if (currentPage === 'expense') openExpenseModal();
-  else if (currentPage === 'fund') openFundModal();
-  else if (currentPage === 'gift') openGiftTableModal();
-  else if (currentPage === 'todo') openTodoModal();
-  else if (currentPage === 'contact') openContactModal();
-  else if (currentPage === 'timeline') openTimelineModal();
-};
-window.openMore = function() {
-  showModal(`
-    <h2>Thêm</h2>
-    <div style="display:flex;flex-direction:column;gap:6px">
-      <button class="qa-more" onclick="goto('fund');closeModal()"><span class="ic-wrap"><svg class="ic"><use href="#i-wallet"/></svg></span><span>Quỹ tiền</span></button>
-      <button class="qa-more" onclick="goto('contact');closeModal()"><span class="ic-wrap"><svg class="ic"><use href="#i-phone"/></svg></span><span>Liên hệ</span></button>
-      <button class="qa-more" onclick="goto('timeline');closeModal()"><span class="ic-wrap"><svg class="ic"><use href="#i-calendar"/></svg></span><span>Lịch trình</span></button>
-      <button class="qa-more" onclick="openSettings();closeModal()"><span class="ic-wrap"><svg class="ic"><use href="#i-settings"/></svg></span><span>Cài đặt</span></button>
-      <button class="qa-more" onclick="logout();closeModal()"><span class="ic-wrap"><svg class="ic"><use href="#i-logout"/></svg></span><span>Đăng xuất</span></button>
-    </div>
-    <div class="modal-actions"><button class="btn" style="flex:1" onclick="closeModal()">Đóng</button></div>
-  `, 340);
-};
-
-// =============================================
-// RENDER
-// =============================================
-function render() {
-  if (!role) return;
-  const root = $('#pageRoot');
-  if (currentPage === 'dashboard') root.innerHTML = renderDashboard();
-  else if (currentPage === 'expense') root.innerHTML = renderExpense();
-  else if (currentPage === 'fund') root.innerHTML = renderFund();
-  else if (currentPage === 'gift') root.innerHTML = renderGift();
-  else if (currentPage === 'todo') root.innerHTML = renderTodo();
-  else if (currentPage === 'contact') root.innerHTML = renderContact();
-  else if (currentPage === 'timeline') root.innerHTML = renderTimeline();
-}
-
-// ----- DASHBOARD -----
-function renderDashboard() {
-  const wd = DATA.config?.wedding?.date || '2026-09-13';
-  const nm = DATA.config?.wedding?.name || 'Khanh & Tú';
-  const parts = nm.split(/\s*[&❦]\s*/);
-  const nmHtml = parts.length===2 ? `${esc(parts[0])} <span class="sep">❦</span> ${esc(parts[1])}` : esc(nm);
-  const days = daysTo(wd);
- 
-
-  const budgets = Object.values(DATA.budget || {});
-  const funds = Object.values(DATA.fund || {});
-  const guests = Object.values(DATA.gift_guests || {});
-  const checklist = DATA.checklist || {};
-
-  const totalFund = funds.reduce((a,x)=>a+(Number(x.amount)||0), 0);
-  const totalSpent = budgets.reduce((a,x)=>a+((Number(x.deposit)||0) + (x.status==='done' ? (Number(x.total)||0)-(Number(x.deposit)||0) : 0)), 0);
-  const totalAll = budgets.reduce((a,x)=>a+(Number(x.total)||0), 0);
-  const remain = budgets.filter(b=>b.status!=='done').reduce((a,x)=>a+((Number(x.total)||0)-(Number(x.deposit)||0)), 0);
-
-  // Progress
-  const payPct = totalAll > 0 ? Math.round(totalSpent/totalAll*100) : 0;
-  const staticDone = Object.keys(STATIC_TODOS).filter(k => {
-    const v = checklist[k];
-    if (v == null) return false;
-    if (typeof v === 'boolean') return v;
-    if (v.deleted) return false;
-    return !!v.done;
-  }).length;
-  const staticTotal = Object.keys(STATIC_TODOS).filter(k => {
-    const v = checklist[k];
-    return !(v && typeof v === 'object' && v.deleted);
-  }).length;
-  const dynItems = Object.entries(checklist).filter(([k,v]) => !k.startsWith('c') || k.length > 3).filter(([k,v]) => v && typeof v === 'object' && !v.deleted);
-  const dynDone = dynItems.filter(([k,v]) => v.done).length;
-  const todoDone = staticDone + dynDone;
-  const todoTotal = staticTotal + dynItems.length;
-  const todoPct = todoTotal > 0 ? Math.round(todoDone/todoTotal*100) : 0;
-
-  const guestTotal = guests.length;
-  const guestConfirm = guests.filter(g => g.status === 'confirmed' || g.status === 'gifted').length;
-  const guestPct = guestTotal > 0 ? Math.round(guestConfirm/guestTotal*100) : 0;
-
-  // Day breakdown
-  const daysSorted = getDaysSorted();
-  const dayBreakdown = daysSorted.map(([id, info]) => {
-    const items = budgets.filter(b => b.day === id);
-    const total = items.reduce((a,x)=>a+(Number(x.total)||0), 0);
-    const paid = items.reduce((a,x)=>a+((Number(x.deposit)||0)+(x.status==='done' ? (Number(x.total)||0)-(Number(x.deposit)||0) : 0)), 0);
-    const rem = total - paid;
-    return { id, info, items, total, paid, rem };
-  }).filter(d => d.items.length > 0 || true);
-
-  return `
-    <div class="page">
-<div class="glass hero" style="grid-template-columns:1fr">
-        <div class="hero-text" style="text-align:center">
-          <div class="tagline"><span class="dot">✦</span> 10 Years · Since 2016 <span class="dot">✦</span></div>
-          <div class="hero-couple">${nmHtml}</div>
-          <div class="hero-meta" style="justify-content:center">
-            <span>${fmtDateFull(wd)}</span>
-            <span class="pill">Còn ${days} ngày</span>
-          </div>
-        </div>
-      </div>
- 
-
-      <div class="stats-grid">
-        <div class="glass stat">
-          <div class="stat-head"><svg class="ic ic-sm"><use href="#i-wallet"/></svg><span class="stat-label">Tổng quỹ</span></div>
-          <div class="stat-value">${moneyHtml(totalFund)}</div>
-          <div class="stat-sub">${funds.length} nguồn quỹ</div>
-        </div>
-        <div class="glass stat">
-          <div class="stat-head"><svg class="ic ic-sm"><use href="#i-coin"/></svg><span class="stat-label">Đã chi · cọc</span></div>
-          <div class="stat-value gradient-gold">${moneyHtml(totalSpent)}</div>
-          <div class="stat-sub">${totalFund>0?Math.round(totalSpent/totalFund*100):0}% tổng quỹ</div>
-        </div>
-        <div class="glass stat">
-          <div class="stat-head"><svg class="ic ic-sm"><use href="#i-hourglass"/></svg><span class="stat-label">Còn phải trả</span></div>
-          <div class="stat-value text-warning">${moneyHtml(remain)}</div>
-          <div class="stat-sub">${budgets.filter(b=>b.status!=='done').length} hạng mục</div>
-        </div>
-        <div class="glass stat">
-          <div class="stat-head"><svg class="ic ic-sm"><use href="#i-stack"/></svg><span class="stat-label">Tổng chi</span></div>
-          <div class="stat-value">${moneyHtml(totalAll)}</div>
-          <div class="stat-sub">${budgets.length} hạng mục</div>
-        </div>
-      </div>
-
-      <div class="glass pb-wrap progress-section">
-        <div class="pb-head">
-          <h2>Tiến trình chuẩn bị</h2>
-          <span class="ornament">✦ ✦ ✦</span>
-        </div>
-        <div class="pb-item">
-          <div class="pb-row">
-            <span class="lbl">Thanh toán <span class="det">${fmtMoney(totalSpent)} / ${fmtMoney(totalAll)} ${unitMoney(totalAll)}</span></span>
-            <span class="pct">${payPct}%</span>
-          </div>
-          <div class="pb-bar"><div class="pb-fill gold" style="width:${payPct}%"></div></div>
-        </div>
-        <div class="pb-item">
-          <div class="pb-row">
-            <span class="lbl">Việc cần làm <span class="det">${todoDone} / ${todoTotal} mục</span></span>
-            <span class="pct">${todoPct}%</span>
-          </div>
-          <div class="pb-bar"><div class="pb-fill green" style="width:${todoPct}%"></div></div>
-        </div>
-        <div class="pb-item">
-          <div class="pb-row">
-            <span class="lbl">Khách xác nhận <span class="det">${guestConfirm} / ${guestTotal} khách</span></span>
-            <span class="pct">${guestPct}%</span>
-          </div>
-          <div class="pb-bar"><div class="pb-fill" style="width:${guestPct}%"></div></div>
-        </div>
-      </div>
-
-      <div class="glass day-breakdown">
-        <div class="pb-head">
-          <h2>Chi tiêu theo ngày</h2>
-          <span class="ornament">✦ ✦ ✦</span>
-        </div>
-        ${dayBreakdown.length === 0 ? '<div class="empty"><h3>Chưa có hạng mục nào</h3></div>' :
-          dayBreakdown.map(d => `
-            <div class="dex-row">
-              <div class="dex-left">
-                <div class="dex-dot" style="color:${d.info.color};background:${d.info.color}"></div>
-                <div class="dex-info">
-                  <div class="dex-name">${esc(d.info.name)}</div>
-                  <div class="dex-count">${d.items.length} hạng mục · đã trả ${fmtMoney(d.paid)}${unitMoney(d.paid)?' '+unitMoney(d.paid):''}</div>
-                </div>
-              </div>
-              <div class="dex-right">
-                <div class="dex-total">${moneyHtml(d.total)}</div>
-                <div class="dex-rem ${d.rem===0?'done':''}">${d.rem===0?'Đã thanh toán đủ':'Còn '+fmtMoney(d.rem)+' '+unitMoney(d.rem)}</div>
-              </div>
-            </div>
-          `).join('')
-        }
-      </div>
-    </div>
-  `;
-}
-
-// ----- EXPENSE -----
-function renderExpense() {
-  const budgets = Object.entries(DATA.budget || {});
-  const daysSorted = getDaysSorted();
-  const isAdmin = role !== 'readonly';
-
-  // Tab data
-  const filtered = budgets.filter(([id, b]) => {
-    if (currentDay !== 'all' && b.day !== currentDay) return false;
-    if (currentFilter === 'done' && b.status !== 'done') return false;
-    if (currentFilter === 'deposit' && b.status !== 'deposit') return false;
-    if (currentFilter === 'pending' && b.status !== 'pending') return false;
-    return true;
-  });
-
-  const dayBudgets = currentDay === 'all' ? budgets : budgets.filter(([id,b]) => b.day === currentDay);
-  const sumTotal = dayBudgets.reduce((a,[,x])=>a+(Number(x.total)||0), 0);
-  const sumPaid = dayBudgets.reduce((a,[,x])=>a+((Number(x.deposit)||0)+(x.status==='done' ? (Number(x.total)||0)-(Number(x.deposit)||0) : 0)), 0);
-  const sumRem = dayBudgets.filter(([,b])=>b.status!=='done').reduce((a,[,x])=>a+((Number(x.total)||0)-(Number(x.deposit)||0)), 0);
-
-  const cntAll = dayBudgets.length;
-  const cntDone = dayBudgets.filter(([,b])=>b.status==='done').length;
-  const cntDep = dayBudgets.filter(([,b])=>b.status==='deposit').length;
-  const cntPend = dayBudgets.filter(([,b])=>b.status==='pending').length;
-
-  return `
-    <div class="page">
-      <div class="day-tabs-wrap">
-        <div class="day-tabs">
-          <button class="day-tab ${currentDay==='all'?'active':''}" onclick="setDay('all')">Tất cả</button>
-          ${daysSorted.map(([id, info]) => `
-            <button class="day-tab ${currentDay===id?'active':''}" onclick="setDay('${id}')">${esc(info.name)}</button>
-          `).join('')}
-        </div>
-        ${isAdmin ? `<button class="day-manage-btn" onclick="openDayManager()"><svg class="ic ic-sm"><use href="#i-settings"/></svg><span style="display:none" class="dlbl">Ngày</span></button>` : ''}
-      </div>
-
-      <div class="summary-strip">
-        <div class="glass ss-item">
-          <div class="l">Tổng chi</div>
-          <div class="v">${moneyHtml(sumTotal)}</div>
-        </div>
-        <div class="glass ss-item">
-          <div class="l">Đã trả · cọc</div>
-          <div class="v gradient-gold">${moneyHtml(sumPaid)}</div>
-        </div>
-        <div class="glass ss-item">
-          <div class="l">Còn phải trả</div>
-          <div class="v text-warning">${moneyHtml(sumRem)}</div>
-        </div>
-      </div>
-
-      <div class="filter-chips">
-        <button class="chip ${currentFilter==='all'?'active':''}" onclick="setFilter('all')">Tất cả <span class="ct">${cntAll}</span></button>
-        <button class="chip ${currentFilter==='done'?'active':''}" onclick="setFilter('done')">Hoàn tất <span class="ct">${cntDone}</span></button>
-        <button class="chip ${currentFilter==='deposit'?'active':''}" onclick="setFilter('deposit')">Đã cọc <span class="ct">${cntDep}</span></button>
-        <button class="chip ${currentFilter==='pending'?'active':''}" onclick="setFilter('pending')">Chưa đặt <span class="ct">${cntPend}</span></button>
-      </div>
-
-      <div class="list">
-        ${filtered.length === 0 ? `
-          <div class="glass empty">
-            <svg class="ic ic-big"><use href="#i-coin"/></svg>
-            <h3>Chưa có hạng mục</h3>
-            <p>${isAdmin ? 'Bấm nút + để thêm' : ''}</p>
-          </div>
-        ` : filtered.map(([id, b]) => {
-          const statusClass = b.status === 'done' ? 'status-done' : b.status === 'deposit' ? 'status-deposit' : 'status-pending';
-          const statusText = b.status === 'done' ? 'Hoàn tất' : b.status === 'deposit' ? `Cọc ${fmtMoney(b.deposit)}${unitMoney(b.deposit)}` : 'Chưa đặt';
-          return `
-            <div class="glass exp-card" ${isAdmin?`onclick="openExpenseModal('${id}')"`:''}>
-              <div class="exp-dot" style="background:${getDayColor(b.day)};color:${getDayColor(b.day)}"></div>
-              <div class="exp-body">
-                <div class="exp-name">${esc(b.name||'')}</div>
-                <div class="exp-meta">
-                  ${b.vendor?`<span>${esc(b.vendor)}</span><span class="sep-dot">·</span>`:''}
-                  ${b.phone?`<a href="tel:${esc(b.phone)}" onclick="event.stopPropagation()"><svg class="ic ic-sm"><use href="#i-phone"/></svg> ${esc(b.phone)}</a>`:''}
-                </div>
-              </div>
-              <div class="exp-right">
-                <div class="exp-amount">${moneyHtml(b.total)}</div>
-                <div class="status-pill ${statusClass}"><span class="d"></span>${statusText}</div>
-              </div>
-            </div>
-          `;
-        }).join('')}
-      </div>
-    </div>
-  `;
-}
-
-window.setDay = function(d) { currentDay = d; render(); };
-window.setFilter = function(f) { currentFilter = f; render(); };
-
-// ----- FUND -----
-function renderFund() {
-  const funds = Object.entries(DATA.fund || {});
-  const budgets = Object.values(DATA.budget || {});
-  const totalFund = funds.reduce((a,[,x])=>a+(Number(x.amount)||0), 0);
-  const totalSpent = budgets.reduce((a,x)=>a+((Number(x.deposit)||0)+(x.status==='done' ? (Number(x.total)||0)-(Number(x.deposit)||0) : 0)), 0);
-  const remain = budgets.filter(b=>b.status!=='done').reduce((a,x)=>a+((Number(x.total)||0)-(Number(x.deposit)||0)), 0);
-  const isAdmin = role !== 'readonly';
-
-  return `
-    <div class="page">
-      <div class="summary-strip">
-        <div class="glass ss-item"><div class="l">Tổng quỹ</div><div class="v">${moneyHtml(totalFund)}</div></div>
-        <div class="glass ss-item"><div class="l">Đã chi · cọc</div><div class="v gradient-gold">${moneyHtml(totalSpent)}</div></div>
-        <div class="glass ss-item"><div class="l">Dự kiến còn</div><div class="v ${(totalFund-totalSpent-remain)<0?'text-danger':'text-success'}">${moneyHtml(totalFund-totalSpent-remain)}</div></div>
-      </div>
-
-      <div class="list">
-        ${funds.length === 0 ? `
-          <div class="glass empty">
-            <svg class="ic ic-big"><use href="#i-wallet"/></svg>
-            <h3>Chưa có nguồn quỹ</h3>
-            <p>${isAdmin?'Bấm + để thêm nguồn quỹ':''}</p>
-          </div>
-        ` : funds.map(([id, f]) => `
-          <div class="glass fund-card" ${isAdmin?`onclick="openFundModal('${id}')"`:''} style="cursor:${isAdmin?'pointer':'default'}">
-            <div class="fund-icon"><svg class="ic"><use href="#i-wallet"/></svg></div>
-            <div class="fund-body">
-              <div class="fund-name">${esc(f.name||'')}</div>
-              ${f.note?`<div class="fund-note">${esc(f.note)}</div>`:''}
-            </div>
-            <div class="fund-amt">${moneyHtml(f.amount)}</div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `;
-}
-
-// ----- GIFT -----
-function renderGift() {
-  const tables = Object.entries(DATA.gift_tables || {});
-  const guests = Object.entries(DATA.gift_guests || {});
-  const isAdmin = role !== 'readonly';
-
-  const totalAmount = guests.reduce((a,[,g])=>a+(Number(g.amount)||0), 0);
-  const totalGuests = guests.length;
-  const cntConfirm = guests.filter(([,g])=>g.status==='confirmed'||g.status==='gifted').length;
-  const cntGift = guests.filter(([,g])=>g.status==='gifted').length;
-
-  const sq = giftSearch.toLowerCase().trim();
-  const filterGuests = (tid) => guests.filter(([id,g]) => {
-    if (g.tableId !== tid) return false;
-    if (sq && !(g.name||'').toLowerCase().includes(sq) && !(g.note||'').toLowerCase().includes(sq)) return false;
-    return true;
-  });
-
-  return `
-    <div class="page">
-      <div class="stats-grid">
-        <div class="glass stat">
-          <div class="stat-head"><svg class="ic ic-sm"><use href="#i-coin"/></svg><span class="stat-label">Tổng tiền</span></div>
-          <div class="stat-value gradient-gold">${moneyHtml(totalAmount)}</div>
-        </div>
-        <div class="glass stat">
-          <div class="stat-head"><svg class="ic ic-sm"><use href="#i-gift"/></svg><span class="stat-label">Tổng khách</span></div>
-          <div class="stat-value num">${totalGuests}</div>
-        </div>
-        <div class="glass stat">
-          <div class="stat-head"><svg class="ic ic-sm"><use href="#i-check"/></svg><span class="stat-label">Xác nhận dự</span></div>
-          <div class="stat-value num text-success">${cntConfirm}</div>
-        </div>
-        <div class="glass stat">
-          <div class="stat-head"><svg class="ic ic-sm"><use href="#i-gift"/></svg><span class="stat-label">Đã mừng</span></div>
-          <div class="stat-value num">${cntGift}</div>
-        </div>
-      </div>
-
-      <div style="margin-bottom:12px;position:relative">
-        <svg class="ic" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--cream-faint);pointer-events:none"><use href="#i-search"/></svg>
-        <input class="input" placeholder="Tìm khách theo tên..." value="${esc(giftSearch)}" oninput="giftSearch=this.value;render()" style="padding-left:38px"/>
-      </div>
-
-      ${tables.length === 0 ? `
-        <div class="glass empty">
-          <svg class="ic ic-big"><use href="#i-gift"/></svg>
-          <h3>Chưa có bàn tiệc</h3>
-          <p>${isAdmin?'Bấm + để thêm bàn':''}</p>
-        </div>
-      ` : tables.map(([tid, t]) => {
-        const tGuests = filterGuests(tid);
-        const tAmt = tGuests.reduce((a,[,g])=>a+(Number(g.amount)||0), 0);
-        const tConfirm = tGuests.filter(([,g])=>g.status==='confirmed'||g.status==='gifted').length;
-        return `
-          <div class="glass gift-table">
-            <div class="gt-head">
-              <div class="name">
-                ${esc(t.name||'Bàn không tên')}
-                ${isAdmin?`<button class="btn-mini" onclick="renameTable('${tid}','${esc(t.name||'').replace(/'/g,'&#39;')}')"><svg class="ic ic-sm"><use href="#i-edit"/></svg></button><button class="btn-mini danger" onclick="deleteTable('${tid}')"><svg class="ic ic-sm"><use href="#i-trash"/></svg></button>`:''}
-              </div>
-              <div class="stats">
-                <span>${tGuests.length} khách</span>
-                <span><span class="v">${tConfirm}</span> xác nhận</span>
-                <span><span class="v">${fmtMoney(tAmt)}${unitMoney(tAmt)?' '+unitMoney(tAmt):''}</span></span>
-              </div>
-            </div>
-            <div class="gt-body">
-              ${tGuests.length === 0 ? '<div style="grid-column:1/-1;text-align:center;padding:14px;color:var(--cream-faint);font-size:12px">Chưa có khách</div>' :
-                tGuests.map(([gid, g]) => {
-                  const stCls = g.status==='gifted'?'gifted':g.status==='confirmed'?'confirmed':'';
-                  return `
-                    <div class="guest-card" ${isAdmin?`onclick="openGuestModal('${gid}')"`:''}>
-                      <div class="guest-avatar ${stCls}"></div>
-                      <div class="guest-info">
-                        <div class="guest-name">${esc(g.name||'')}</div>
-                        <div class="guest-note">${g.status==='gifted'?'Đã mừng':g.status==='confirmed'?'Xác nhận dự':'Đã mời'}${g.giftType?' · '+esc(g.giftType):''}</div>
-                      </div>
-                      ${g.amount?`<div class="guest-amt">${moneyHtml(g.amount)}</div>`:''}
-                    </div>
-                  `;
-                }).join('')
-              }
-              ${isAdmin?`<button class="guest-card" style="border-style:dashed;justify-content:center;color:var(--cream-dim)" onclick="openGuestModal(null,'${tid}')"><svg class="ic ic-sm"><use href="#i-plus"/></svg> Thêm khách</button>`:''}
-            </div>
-          </div>
-        `;
-      }).join('')}
-    </div>
-  `;
-}
-
-// ----- TODO -----
-function renderTodo() {
-  const isAdmin = role !== 'readonly';
-  const items = [];
-  // static
-  Object.entries(STATIC_TODOS).forEach(([k, txt]) => {
-    const v = DATA.checklist?.[k];
-    if (v && typeof v === 'object' && v.deleted) return;
-    const done = v === true || (v && typeof v === 'object' && v.done);
-    const deadline = v && typeof v === 'object' ? v.deadline : null;
-    items.push({ id: k, text: txt, done, deadline, static: true });
-  });
-  // dynamic
-  Object.entries(DATA.checklist || {}).forEach(([k, v]) => {
-    if (k.startsWith('c_')) {
-      if (v && !v.deleted) {
-        items.push({ id: k, text: v.text || '', done: !!v.done, deadline: v.deadline, static: false, order: v.order || 0 });
-      }
-    }
-  });
-
-  const done = items.filter(i => i.done).length;
-  const total = items.length;
-  const pct = total > 0 ? Math.round(done/total*100) : 0;
-
-  // Grouping
-  const today = new Date(); today.setHours(0,0,0,0);
-  const groups = { overdue: [], soon: [], later: [], done: [] };
-  items.forEach(i => {
-    if (i.done) { groups.done.push(i); return; }
-    if (!i.deadline) { groups.later.push(i); return; }
-    const d = new Date(i.deadline+'T00:00:00');
-    const diff = Math.round((d - today)/86400000);
-    if (diff < 0) groups.overdue.push(i);
-    else if (diff <= 7) groups.soon.push(i);
-    else groups.later.push(i);
-  });
-
-  const renderGroup = (title, list, cls='') => list.length === 0 ? '' : `
-    <div class="todo-group-title ${cls}"><span>${title}</span><span class="ct">${list.length}</span></div>
-    <div class="list">
-      ${list.map(i => {
-        const dl = relativeDeadline(i.deadline);
-        return `
-          <div class="glass todo-item">
-            <div class="todo-check ${i.done?'done':''}" ${isAdmin?`onclick="toggleTodo('${i.id}', ${i.static}, ${i.done})"`:''}></div>
-            <div class="todo-body">
-              <div class="todo-text ${i.done?'done':''}">${esc(i.text)}</div>
-              ${i.deadline?`<div class="todo-deadline ${dl?dl.cls:''}"><svg class="ic ic-sm"><use href="#i-clock"/></svg> ${dl?dl.txt:i.deadline}</div>`:''}
-            </div>
-            ${isAdmin?`<div class="todo-actions">
-              <button class="btn-mini" onclick="openTodoModal('${i.id}',${i.static})"><svg class="ic ic-sm"><use href="#i-edit"/></svg></button>
-              <button class="btn-mini danger" onclick="deleteTodo('${i.id}',${i.static})"><svg class="ic ic-sm"><use href="#i-trash"/></svg></button>
-            </div>`:''}
-          </div>
-        `;
-      }).join('')}
-    </div>
-  `;
-
-  return `
-    <div class="page">
-      <div class="glass todo-progress">
-        <div class="pb-row">
-          <span class="lbl">Tiến độ tổng <span class="det">${done} / ${total} hoàn tất</span></span>
-          <span class="pct">${pct}%</span>
-        </div>
-        <div class="pb-bar"><div class="pb-fill green" style="width:${pct}%"></div></div>
-      </div>
-      ${total === 0 ? `<div class="glass empty"><svg class="ic ic-big"><use href="#i-check"/></svg><h3>Chưa có việc cần làm</h3></div>` : `
-        ${renderGroup('🔴 Quá hạn', groups.overdue)}
-        ${renderGroup('🟡 Sắp đến hạn', groups.soon)}
-        ${renderGroup('⚪ Sắp tới', groups.later)}
-        ${renderGroup('✓ Đã hoàn tất', groups.done)}
-      `}
-    </div>
-  `;
-}
-
-window.toggleTodo = async function(id, isStatic, currentDone) {
-  if (role === 'readonly') return;
-  const { db, ref, set, update } = window.fb;
-  const newDone = !currentDone;
-  if (isStatic) {
-    const v = DATA.checklist?.[id];
-    if (v && typeof v === 'object') await update(ref(db, `checklist/${id}`), { done: newDone });
-    else await set(ref(db, `checklist/${id}`), { text: STATIC_TODOS[id], done: newDone });
-  } else {
-    await update(ref(db, `checklist/${id}`), { done: newDone });
-  }
-};
-window.deleteTodo = async function(id, isStatic) {
-  if (role === 'readonly') return;
-  if (!confirm('Xoá việc này?')) return;
-  const { db, ref, set, remove } = window.fb;
-  if (isStatic) await set(ref(db, `checklist/${id}`), { deleted: true });
-  else await remove(ref(db, `checklist/${id}`));
-  toast('Đã xoá');
-};
-
-// ----- CONTACT -----
-function renderContact() {
-  const contacts = Object.entries(DATA.contacts || {});
-  const isAdmin = role !== 'readonly';
-  return `
-    <div class="page">
-      ${contacts.length === 0 ? `
-        <div class="glass empty">
-          <svg class="ic ic-big"><use href="#i-phone"/></svg>
-          <h3>Chưa có liên hệ</h3>
-          <p>${isAdmin?'Bấm + để thêm':''}</p>
-        </div>
-      ` : `
-        <div class="contact-grid">
-          ${contacts.map(([id, c]) => `
-            <div class="glass contact-card">
-              <div class="contact-head">
-                <div class="contact-avatar">
-                  ${c.img?`<img src="${c.img}" alt="" onclick="lightbox('${c.img}')"/>`:esc(initials(c.name))}
-                </div>
-                <div class="contact-info">
-                  <div class="contact-name">${esc(c.name||'')}</div>
-                  ${c.role?`<div class="contact-role">${esc(c.role)}</div>`:''}
-                </div>
-                ${isAdmin?`<div style="display:flex;gap:4px">
-                  <button class="btn-mini" onclick="openContactModal('${id}')"><svg class="ic ic-sm"><use href="#i-edit"/></svg></button>
-                  <button class="btn-mini danger" onclick="deleteContact('${id}')"><svg class="ic ic-sm"><use href="#i-trash"/></svg></button>
-                </div>`:''}
-              </div>
-              ${c.phone||c.addr||c.note?`<div class="contact-meta">
-                ${c.phone?`<div><svg class="ic ic-sm"><use href="#i-phone"/></svg> <a href="tel:${esc(c.phone)}">${esc(c.phone)}</a></div>`:''}
-                ${c.addr?`<div><svg class="ic ic-sm"><use href="#i-mappin"/></svg> ${esc(c.addr)}</div>`:''}
-                ${c.note?`<div style="margin-top:4px;font-style:italic;color:var(--cream-faint)">${esc(c.note)}</div>`:''}
-              </div>`:''}
-              ${c.phone?`<div class="contact-actions">
-                <a class="contact-btn" href="tel:${esc(c.phone)}"><svg class="ic ic-sm"><use href="#i-phone"/></svg> Gọi</a>
-                <a class="contact-btn" href="sms:${esc(c.phone)}"><svg class="ic ic-sm"><use href="#i-msg"/></svg> SMS</a>
-                ${c.addr?`<a class="contact-btn" href="https://maps.google.com/?q=${encodeURIComponent(c.addr)}" target="_blank"><svg class="ic ic-sm"><use href="#i-mappin"/></svg> Maps</a>`:''}
-              </div>`:''}
-            </div>
-          `).join('')}
-        </div>
-      `}
-    </div>
-  `;
-}
-
-window.deleteContact = async function(id) {
-  if (role === 'readonly') return;
-  if (!confirm('Xoá liên hệ này?')) return;
-  await window.fb.remove(window.fb.ref(window.fb.db, `contacts/${id}`));
-  toast('Đã xoá');
-};
-window.lightbox = function(src) {
-  $('#lightboxImg').src = src;
-  $('#lightbox').classList.add('show');
-};
-
-// ----- TIMELINE -----
-function renderTimeline() {
-  const events = Object.entries(DATA.timeline || {}).sort((a,b) => (a[1].time||'').localeCompare(b[1].time||''));
-  const isAdmin = role !== 'readonly';
-  return `
-    <div class="page">
-      <div class="glass" style="padding:18px 22px;margin-bottom:12px">
-        <div class="pb-head">
-          <h2>Lịch trình ngày cưới</h2>
-          <span class="ornament">✦ ✦ ✦</span>
-        </div>
-        <p class="text-dim" style="font-size:12px">Chi tiết các sự kiện trong ngày trọng đại</p>
-      </div>
-      ${events.length === 0 ? `
-        <div class="glass empty">
-          <svg class="ic ic-big"><use href="#i-calendar"/></svg>
-          <h3>Chưa có lịch trình</h3>
-          <p>${isAdmin?'Bấm + để thêm sự kiện':''}</p>
-        </div>
-      ` : `<div class="list">${events.map(([id, e]) => `
-        <div class="glass tl-event" ${isAdmin?`onclick="openTimelineModal('${id}')"`:''} style="cursor:${isAdmin?'pointer':'default'}">
-          <div class="tl-time">${esc(e.time||'--:--')}</div>
-          <div class="tl-body">
-            <div class="tl-name">${esc(e.name||'')}</div>
-            ${e.note?`<div class="tl-note">${esc(e.note)}</div>`:''}
-          </div>
-        </div>
-      `).join('')}</div>`}
-    </div>
-  `;
-}
-
-// =============================================
-// MODALS
-// =============================================
-function showModal(html, maxWidth = 480) {
-  $('#modalRoot').innerHTML = `
-    <div class="modal-bd show" onclick="if(event.target===this) closeModal()">
-      <div class="glass modal" style="max-width:${maxWidth}px">${html}</div>
-    </div>
-  `;
-}
-  // Delay add 'show' để tránh event đóng ngay
-  setTimeout(() => {
-    const bd = $('#modalRoot .modal-bd');
-    if (bd) bd.classList.add('show');
-  }, 50);
-}
-window.closeModal = function() {
-  const bd = $('#modalRoot .modal-bd');
-  if (bd) {
-    bd.style.animation = 'fadeOut .2s';
-    setTimeout(() => $('#modalRoot').innerHTML = '', 180);
-  }
-};
-
-// Settings
-window.openSettings = function() {
-  const wd = DATA.config?.wedding?.date || '2026-09-13';
-  const nm = DATA.config?.wedding?.name || 'Khanh & Tú';
-  const isSuper = role === 'super';
-  showModal(`
-    <h2>Cài đặt</h2>
-    <div class="field">
-      <label class="label">Ngày cưới</label>
-      <input type="date" class="input" id="setDate" value="${wd}"/>
-    </div>
-    <div class="field">
-      <label class="label">Tên cô dâu · chú rể</label>
-      <input type="text" class="input" id="setNames" value="${esc(nm)}"/>
-    </div>
-    ${role!=='readonly'?`<div class="field">
-      <label class="label">Mật khẩu Admin ${isSuper?'(Super có thể đổi)':''}</label>
-      <input type="password" class="input" id="setAdminPw" placeholder="Để trống nếu không đổi" ${!isSuper?'disabled':''}/>
-      ${!isSuper?'<div style="font-size:11px;color:var(--cream-faint);margin-top:4px">Chỉ Super Admin được đổi mật khẩu</div>':''}
-    </div>`:''}
-    <div class="row" style="margin-top:14px">
-      <button class="btn" onclick="exportJSON()"><svg class="ic ic-sm"><use href="#i-download"/></svg> Export</button>
-      <button class="btn" onclick="$('#importFile').click()"><svg class="ic ic-sm"><use href="#i-upload"/></svg> Import</button>
-      <input type="file" id="importFile" accept=".json" style="display:none" onchange="importJSON(event)"/>
-    </div>
-    <div class="modal-actions">
-      <button class="btn" onclick="closeModal()">Hủy</button>
-      <button class="btn btn-primary" onclick="saveSettings()">Lưu</button>
-    </div>
-  `);
-};
-window.saveSettings = async function() {
-  if (role === 'readonly') return;
-  const { db, ref, update } = window.fb;
-  const date = $('#setDate').value;
-  const name = $('#setNames').value.trim();
-  const updates = {};
-  if (date) updates['config/wedding/date'] = date;
-  if (name) updates['config/wedding/name'] = name;
-  if (role === 'super') {
-    const np = $('#setAdminPw').value.trim();
-    if (np) {
-      updates['config/passwords/admin'] = np;
-      localStorage.removeItem(SK);
-      toast('Đã đổi mật khẩu — cần đăng nhập lại');
-      setTimeout(() => { showLogin(); }, 1500);
-    }
-  }
-  if (Object.keys(updates).length) await update(ref(db, '/'), updates);
-  toast('Đã lưu cài đặt');
-  closeModal();
-};
-window.exportJSON = async function() {
-  const { db, ref, get } = window.fb;
-  const snap = await get(ref(db, '/'));
-  const data = snap.val() || {};
-  const blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = `kt-wedding-backup-${new Date().toISOString().slice(0,10)}.json`;
-  a.click();
-  URL.revokeObjectURL(url);
-  toast('Đã tải file backup');
-};
-window.importJSON = function(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = async (ev) => {
-    try {
-      const data = JSON.parse(ev.target.result);
-      if (!confirm('⚠️ Hành động này sẽ GHI ĐÈ toàn bộ dữ liệu hiện tại. Tiếp tục?')) return;
-      const { db, ref, set } = window.fb;
-      await set(ref(db, '/'), data);
-      toast('Đã import thành công');
-    } catch (err) { toast('File không hợp lệ', 'error'); }
-  };
-  reader.readAsText(file);
-};
-
-// EXPENSE MODAL
-window.openExpenseModal = function(id) {
-  if (role === 'readonly') return;
-  editingId = id; editingType = 'budget';
-  const b = id ? DATA.budget[id] || {} : {};
-  const daysSorted = getDaysSorted();
-  showModal(`
-    <h2>${id?'Sửa hạng mục':'Thêm hạng mục'}</h2>
-    <div class="field"><label class="label">Tên hạng mục *</label><input class="input" id="ef-name" value="${esc(b.name||'')}"/></div>
-    <div class="row">
-      <div class="field" style="flex:2"><label class="label">Nhà cung cấp</label><input class="input" id="ef-vendor" value="${esc(b.vendor||'')}"/></div>
-      <div class="field"><label class="label">SĐT</label><input class="input" id="ef-phone" value="${esc(b.phone||'')}"/></div>
-    </div>
-    <div class="row">
-      <div class="field"><label class="label">Số lượng</label><input class="input" id="ef-qty" type="number" value="${esc(b.qty||'')}" placeholder="1"/></div>
-      <div class="field"><label class="label">Tổng tiền (đ)</label><input class="input" id="ef-total" value="${b.total||''}" placeholder="0"/></div>
-    </div>
-    <div class="row">
-      <div class="field"><label class="label">Đã cọc (đ)</label><input class="input" id="ef-deposit" value="${b.deposit||''}" placeholder="0"/></div>
-      <div class="field"><label class="label">Hạn</label><input class="input" id="ef-deadline" type="date" value="${b.deadline||''}"/></div>
-    </div>
-    <div class="row">
-      <div class="field"><label class="label">Trạng thái</label>
-        <select class="input" id="ef-status">
-          <option value="pending" ${b.status==='pending'?'selected':''}>Chưa đặt</option>
-          <option value="deposit" ${b.status==='deposit'?'selected':''}>Đã cọc</option>
-          <option value="done" ${b.status==='done'?'selected':''}>Hoàn tất</option>
-        </select>
-      </div>
-      <div class="field"><label class="label">Thuộc ngày</label>
-        <select class="input" id="ef-day">
-          ${daysSorted.map(([did, info]) => `<option value="${did}" ${(b.day||daysSorted[0][0])===did?'selected':''}>${esc(info.name)}</option>`).join('')}
-        </select>
-      </div>
-    </div>
-    <div class="field"><label class="label">Ghi chú</label><textarea class="input" id="ef-note">${esc(b.note||'')}</textarea></div>
-    <div class="modal-actions">
-      ${id?`<button class="btn btn-danger" onclick="deleteExpense('${id}')"><svg class="ic ic-sm"><use href="#i-trash"/></svg></button>`:''}
-      <button class="btn" onclick="closeModal()">Hủy</button>
-      <button class="btn btn-primary" onclick="saveExpense()">Lưu</button>
-    </div>
-  `);
-};
-window.saveExpense = async function() {
-  const data = {
-    name: $('#ef-name').value.trim(),
-    vendor: $('#ef-vendor').value.trim(),
-    phone: $('#ef-phone').value.trim(),
-    qty: Number($('#ef-qty').value) || 0,
-    total: parseMoney($('#ef-total').value),
-    deposit: parseMoney($('#ef-deposit').value),
-    status: $('#ef-status').value,
-    deadline: $('#ef-deadline').value,
-    day: $('#ef-day').value,
-    note: $('#ef-note').value.trim(),
-    ts: Date.now()
-  };
-  if (!data.name) return toast('Vui lòng nhập tên hạng mục', 'error');
-  const { db, ref, set, push, update } = window.fb;
-  if (editingId) await update(ref(db, `budget/${editingId}`), data);
-  else { const r = push(ref(db, 'budget')); await set(r, data); }
-  toast(editingId?'Đã cập nhật':'Đã thêm');
-  closeModal();
-};
-window.deleteExpense = async function(id) {
-  if (!confirm('Xoá hạng mục này?')) return;
-  await window.fb.remove(window.fb.ref(window.fb.db, `budget/${id}`));
-  toast('Đã xoá');
-  closeModal();
-};
-
-// FUND MODAL
-window.openFundModal = function(id) {
-  if (role === 'readonly') return;
-  editingId = id; editingType = 'fund';
-  const f = id ? DATA.fund[id] || {} : {};
-  showModal(`
-    <h2>${id?'Sửa nguồn quỹ':'Thêm nguồn quỹ'}</h2>
-    <div class="field"><label class="label">Tên nguồn quỹ *</label><input class="input" id="ff-name" value="${esc(f.name||'')}"/></div>
-    <div class="field"><label class="label">Số tiền (đ)</label><input class="input" id="ff-amount" value="${f.amount||''}" placeholder="0"/></div>
-    <div class="field"><label class="label">Ghi chú</label><textarea class="input" id="ff-note">${esc(f.note||'')}</textarea></div>
-    <div class="modal-actions">
-      ${id?`<button class="btn btn-danger" onclick="deleteFund('${id}')"><svg class="ic ic-sm"><use href="#i-trash"/></svg></button>`:''}
-      <button class="btn" onclick="closeModal()">Hủy</button>
-      <button class="btn btn-primary" onclick="saveFund()">Lưu</button>
-    </div>
-  `);
-};
-window.saveFund = async function() {
-  const data = {
-    name: $('#ff-name').value.trim(),
-    amount: parseMoney($('#ff-amount').value),
-    note: $('#ff-note').value.trim(),
-    ts: Date.now()
-  };
-  if (!data.name) return toast('Nhập tên nguồn quỹ', 'error');
-  const { db, ref, set, push, update } = window.fb;
-  if (editingId) await update(ref(db, `fund/${editingId}`), data);
-  else { const r = push(ref(db, 'fund')); await set(r, data); }
-  toast(editingId?'Đã cập nhật':'Đã thêm');
-  closeModal();
-};
-window.deleteFund = async function(id) {
-  if (!confirm('Xoá nguồn quỹ này?')) return;
-  await window.fb.remove(window.fb.ref(window.fb.db, `fund/${id}`));
-  toast('Đã xoá');
-  closeModal();
-};
-
-// GIFT TABLE / GUEST
-window.openGiftTableModal = function() {
-  if (role === 'readonly') return;
-  showModal(`
-    <h2>Thêm bàn tiệc</h2>
-    <div class="field"><label class="label">Tên bàn *</label><input class="input" id="gt-name" placeholder="VD: Bàn họ hàng"/></div>
-    <div class="modal-actions">
-      <button class="btn" onclick="closeModal()">Hủy</button>
-      <button class="btn btn-primary" onclick="saveGiftTable()">Thêm</button>
-    </div>
-  `);
-};
-window.saveGiftTable = async function() {
-  const name = $('#gt-name').value.trim();
-  if (!name) return toast('Nhập tên bàn', 'error');
-  const { db, ref, set, push } = window.fb;
-  const r = push(ref(db, 'gift_tables'));
-  await set(r, { name, ts: Date.now() });
-  toast('Đã thêm bàn');
-  closeModal();
-};
-window.renameTable = async function(id, current) {
-  const name = prompt('Tên bàn mới:', current);
-  if (name && name.trim()) {
-    await window.fb.update(window.fb.ref(window.fb.db, `gift_tables/${id}`), { name: name.trim() });
-    toast('Đã đổi tên');
-  }
-};
-window.deleteTable = async function(id) {
-  if (!confirm('Xoá bàn này (và tất cả khách trong bàn)?')) return;
-  const { db, ref, remove } = window.fb;
-  await remove(ref(db, `gift_tables/${id}`));
-  // Remove guests
-  Object.entries(DATA.gift_guests || {}).forEach(([gid, g]) => {
-    if (g.tableId === id) remove(ref(db, `gift_guests/${gid}`));
-  });
-  toast('Đã xoá bàn');
-};
-window.openGuestModal = function(gid, tid) {
-  if (role === 'readonly') return;
-  editingId = gid;
-  const g = gid ? DATA.gift_guests[gid] || {} : { tableId: tid, status: 'invited' };
-  showModal(`
-    <h2>${gid?'Sửa khách mời':'Thêm khách mời'}</h2>
-    <div class="field"><label class="label">Tên khách *</label><input class="input" id="gg-name" value="${esc(g.name||'')}"/></div>
-    <div class="field"><label class="label">Ghi chú</label><input class="input" id="gg-note" value="${esc(g.note||'')}" placeholder="VD: gia đình bên ngoại"/></div>
-    <div class="field">
-      <label class="label">Trạng thái</label>
-      <select class="input" id="gg-status">
-        <option value="invited" ${g.status==='invited'?'selected':''}>Đã mời</option>
-        <option value="confirmed" ${g.status==='confirmed'?'selected':''}>Xác nhận dự</option>
-        <option value="gifted" ${g.status==='gifted'?'selected':''}>Đã mừng tiền</option>
-      </select>
-    </div>
-    <div class="row">
-      <div class="field"><label class="label">Tiền mừng (đ)</label><input class="input" id="gg-amount" value="${g.amount||''}" placeholder="0"/></div>
-      <div class="field"><label class="label">Hình thức</label>
-        <select class="input" id="gg-type">
-          <option value="">—</option>
-          <option value="Tiền mặt" ${g.giftType==='Tiền mặt'?'selected':''}>Tiền mặt</option>
-          <option value="Chuyển khoản" ${g.giftType==='Chuyển khoản'?'selected':''}>Chuyển khoản</option>
-          <option value="Hiện vật" ${g.giftType==='Hiện vật'?'selected':''}>Hiện vật</option>
-        </select>
-      </div>
-    </div>
-    <div class="modal-actions">
-      ${gid?`<button class="btn btn-danger" onclick="deleteGuest('${gid}')"><svg class="ic ic-sm"><use href="#i-trash"/></svg></button>`:''}
-      <button class="btn" onclick="closeModal()">Hủy</button>
-      <button class="btn btn-primary" onclick="saveGuest('${g.tableId||tid||''}')">Lưu</button>
-    </div>
-  `);
-};
-window.saveGuest = async function(tableId) {
-  const data = {
-    tableId,
-    name: $('#gg-name').value.trim(),
-    note: $('#gg-note').value.trim(),
-    status: $('#gg-status').value,
-    amount: parseMoney($('#gg-amount').value),
-    giftType: $('#gg-type').value,
-    ts: Date.now()
-  };
-  if (!data.name) return toast('Nhập tên khách', 'error');
-  if (data.amount > 0 && data.status === 'invited') data.status = 'gifted';
-  const { db, ref, set, push, update } = window.fb;
-  if (editingId) await update(ref(db, `gift_guests/${editingId}`), data);
-  else { const r = push(ref(db, 'gift_guests')); await set(r, data); }
-  toast(editingId?'Đã cập nhật':'Đã thêm khách');
-  closeModal();
-};
-window.deleteGuest = async function(id) {
-  if (!confirm('Xoá khách này?')) return;
-  await window.fb.remove(window.fb.ref(window.fb.db, `gift_guests/${id}`));
-  toast('Đã xoá');
-  closeModal();
-};
-
-// TODO MODAL
-window.openTodoModal = function(id, isStatic) {
-  if (role === 'readonly') return;
-  editingId = id;
-  let text = '', deadline = '';
-  if (id) {
-    if (isStatic) {
-      const v = DATA.checklist?.[id];
-      text = STATIC_TODOS[id] || (v && typeof v === 'object' ? v.text : '');
-      deadline = v && typeof v === 'object' ? v.deadline || '' : '';
-    } else {
-      const v = DATA.checklist?.[id] || {};
-      text = v.text || ''; deadline = v.deadline || '';
-    }
-  }
-  showModal(`
-    <h2>${id?'Sửa việc':'Thêm việc cần làm'}</h2>
-    <div class="field"><label class="label">Nội dung *</label><input class="input" id="td-text" value="${esc(text)}"/></div>
-    <div class="field"><label class="label">Hạn hoàn thành</label><input class="input" id="td-deadline" type="date" value="${deadline}"/></div>
-    <div class="modal-actions">
-      <button class="btn" onclick="closeModal()">Hủy</button>
-      <button class="btn btn-primary" onclick="saveTodo(${!!isStatic})">Lưu</button>
-    </div>
-  `);
-};
-window.saveTodo = async function(isStatic) {
-  const text = $('#td-text').value.trim();
-  const deadline = $('#td-deadline').value;
-  if (!text) return toast('Nhập nội dung', 'error');
-  const { db, ref, set, update } = window.fb;
-  if (editingId) {
-    if (isStatic) {
-      const cur = DATA.checklist?.[editingId];
-      const done = cur && typeof cur === 'object' ? !!cur.done : cur === true;
-      await set(ref(db, `checklist/${editingId}`), { text, deadline, done });
-    } else {
-      await update(ref(db, `checklist/${editingId}`), { text, deadline });
-    }
-  } else {
-    const id = 'c_' + Date.now();
-    await set(ref(db, `checklist/${id}`), { text, deadline, done: false, order: Date.now() });
-  }
-  toast(editingId?'Đã cập nhật':'Đã thêm');
-  closeModal();
-};
-
-// CONTACT MODAL
-window.openContactModal = function(id) {
-  if (role === 'readonly') return;
-  editingId = id;
-  const c = id ? DATA.contacts[id] || {} : {};
-  pendingImg = c.img || '';
-  showModal(`
-    <h2>${id?'Sửa liên hệ':'Thêm liên hệ'}</h2>
-    <div class="field"><label class="label">Tên *</label><input class="input" id="ct-name" value="${esc(c.name||'')}"/></div>
-    <div class="row">
-      <div class="field"><label class="label">Vai trò</label><input class="input" id="ct-role" value="${esc(c.role||'')}" placeholder="VD: Nhiếp ảnh"/></div>
-      <div class="field"><label class="label">SĐT</label><input class="input" id="ct-phone" value="${esc(c.phone||'')}"/></div>
-    </div>
-    <div class="field"><label class="label">Địa chỉ</label><input class="input" id="ct-addr" value="${esc(c.addr||'')}"/></div>
-    <div class="field"><label class="label">Ghi chú</label><textarea class="input" id="ct-note">${esc(c.note||'')}</textarea></div>
-    <div class="field">
-      <label class="label">Ảnh</label>
-      <input type="file" accept="image/*" onchange="uploadImg(event)" style="font-size:12px;color:var(--cream-dim)"/>
-      <div id="imgPreview" style="margin-top:8px">${pendingImg?`<img src="${pendingImg}" style="max-width:120px;border-radius:10px"/>`:''}</div>
-    </div>
-    <div class="modal-actions">
-      ${id?`<button class="btn btn-danger" onclick="deleteContact('${id}');closeModal()"><svg class="ic ic-sm"><use href="#i-trash"/></svg></button>`:''}
-      <button class="btn" onclick="closeModal()">Hủy</button>
-      <button class="btn btn-primary" onclick="saveContact()">Lưu</button>
-    </div>
-  `);
-};
-window.uploadImg = function(e) {
-  const file = e.target.files[0]; if (!file) return;
-  const reader = new FileReader();
-  reader.onload = (ev) => {
-    const img = new Image();
-    img.onload = () => {
-      const canvas = document.createElement('canvas');
-      const max = 800;
-      let w = img.width, h = img.height;
-      if (w > h && w > max) { h = h*max/w; w = max; }
-      else if (h > max) { w = w*max/h; h = max; }
-      canvas.width = w; canvas.height = h;
-      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-      pendingImg = canvas.toDataURL('image/jpeg', 0.75);
-      $('#imgPreview').innerHTML = `<img src="${pendingImg}" style="max-width:120px;border-radius:10px"/>`;
-    };
-    img.src = ev.target.result;
-  };
-  reader.readAsDataURL(file);
-};
-window.saveContact = async function() {
-  const data = {
-    name: $('#ct-name').value.trim(),
-    role: $('#ct-role').value.trim(),
-    phone: $('#ct-phone').value.trim(),
-    addr: $('#ct-addr').value.trim(),
-    note: $('#ct-note').value.trim(),
-    img: pendingImg || '',
-    ts: Date.now()
-  };
-  if (!data.name) return toast('Nhập tên', 'error');
-  const { db, ref, set, push, update } = window.fb;
-  if (editingId) await update(ref(db, `contacts/${editingId}`), data);
-  else { const r = push(ref(db, 'contacts')); await set(r, data); }
-  toast(editingId?'Đã cập nhật':'Đã thêm');
-  pendingImg = '';
-  closeModal();
-};
-
-// TIMELINE MODAL
-window.openTimelineModal = function(id) {
-  if (role === 'readonly') return;
-  editingId = id;
-  const e = id ? DATA.timeline?.[id] || {} : {};
-  showModal(`
-    <h2>${id?'Sửa sự kiện':'Thêm sự kiện'}</h2>
-    <div class="row">
-      <div class="field"><label class="label">Giờ *</label><input class="input" id="tl-time" type="time" value="${esc(e.time||'')}"/></div>
-      <div class="field" style="flex:2"><label class="label">Tên sự kiện *</label><input class="input" id="tl-name" value="${esc(e.name||'')}"/></div>
-    </div>
-    <div class="field"><label class="label">Ghi chú</label><textarea class="input" id="tl-note">${esc(e.note||'')}</textarea></div>
-    <div class="modal-actions">
-      ${id?`<button class="btn btn-danger" onclick="deleteTimeline('${id}')"><svg class="ic ic-sm"><use href="#i-trash"/></svg></button>`:''}
-      <button class="btn" onclick="closeModal()">Hủy</button>
-      <button class="btn btn-primary" onclick="saveTimeline()">Lưu</button>
-    </div>
-  `);
-};
-window.saveTimeline = async function() {
-  const data = {
-    time: $('#tl-time').value,
-    name: $('#tl-name').value.trim(),
-    note: $('#tl-note').value.trim(),
-    ts: Date.now()
-  };
-  if (!data.time || !data.name) return toast('Nhập giờ và tên sự kiện', 'error');
-  const { db, ref, set, push, update } = window.fb;
-  if (editingId) await update(ref(db, `timeline/${editingId}`), data);
-  else { const r = push(ref(db, 'timeline')); await set(r, data); }
-  toast(editingId?'Đã cập nhật':'Đã thêm');
-  closeModal();
-};
-window.deleteTimeline = async function(id) {
-  if (!confirm('Xoá sự kiện này?')) return;
-  await window.fb.remove(window.fb.ref(window.fb.db, `timeline/${id}`));
-  toast('Đã xoá');
-  closeModal();
-};
-
-// DAY MANAGER
-window.openDayManager = function() {
-  if (role === 'readonly') return;
-  renderDayManager();
-};
-function renderDayManager() {
-  const days = getDaysSorted();
-  showModal(`
-    <h2>Quản lý ngày</h2>
-    <div id="dayMgrList">
-      ${days.map(([id, info], idx) => `
-        <div class="day-mgr-item" data-id="${id}">
-          <div class="day-mgr-color" style="background:${info.color};border-color:${info.color}" onclick="changeDayColor('${id}')"></div>
-          <input class="day-mgr-name" value="${esc(info.name)}" onchange="renameDay('${id}',this.value)"/>
-          <div class="day-mgr-actions">
-            <button class="btn-mini" onclick="moveDay('${id}',-1)" ${idx===0?'disabled style="opacity:.3"':''}><svg class="ic ic-sm"><use href="#i-arrow-up"/></svg></button>
-            <button class="btn-mini" onclick="moveDay('${id}',1)" ${idx===days.length-1?'disabled style="opacity:.3"':''}><svg class="ic ic-sm"><use href="#i-arrow-down"/></svg></button>
-            <button class="btn-mini danger" onclick="deleteDay('${id}')"><svg class="ic ic-sm"><use href="#i-trash"/></svg></button>
-          </div>
-        </div>
-      `).join('')}
-    </div>
-    <button class="btn" style="width:100%;margin-top:10px" onclick="addDay()"><svg class="ic ic-sm"><use href="#i-plus"/></svg> Thêm ngày mới</button>
-    <div class="modal-actions"><button class="btn btn-primary" style="flex:1" onclick="closeModal()">Đóng</button></div>
-  `);
-}
-window.addDay = async function() {
-  const name = prompt('Tên ngày mới:');
-  if (!name || !name.trim()) return;
-  const id = 'day_' + Date.now();
-  const days = DATA.config?.days || {};
-  const maxOrder = Math.max(0, ...Object.values(days).map(d => d.order||0));
-  const colors = ['#8fb84a','#c9a961','#a8b85a','#7a9a8e','#d4a942','#c96b5a'];
-  await window.fb.set(window.fb.ref(window.fb.db, `config/days/${id}`), {
-    name: name.trim(),
-    color: colors[Object.keys(days).length % colors.length],
-    order: maxOrder + 1
-  });
-  toast('Đã thêm ngày');
-  renderDayManager();
-};
-window.renameDay = async function(id, val) {
-  if (!val.trim()) return;
-  await window.fb.update(window.fb.ref(window.fb.db, `config/days/${id}`), { name: val.trim() });
-};
-window.changeDayColor = async function(id) {
-  const colors = ['#8fb84a','#c9a961','#a8b85a','#7a9a8e','#d4a942','#c96b5a','#6b8338','#e6c989'];
-  const cur = DATA.config?.days?.[id]?.color;
-  const idx = colors.indexOf(cur);
-  const next = colors[(idx+1) % colors.length];
-  await window.fb.update(window.fb.ref(window.fb.db, `config/days/${id}`), { color: next });
-  renderDayManager();
-};
-window.moveDay = async function(id, dir) {
-  const days = getDaysSorted();
-  const idx = days.findIndex(([k])=>k===id);
-  const swap = idx + dir;
-  if (swap < 0 || swap >= days.length) return;
-  const { db, ref, update } = window.fb;
-  await update(ref(db, '/'), {
-    [`config/days/${days[idx][0]}/order`]: days[swap][1].order,
-    [`config/days/${days[swap][0]}/order`]: days[idx][1].order
-  });
-  renderDayManager();
-};
-window.deleteDay = async function(id) {
-  const itemCount = Object.values(DATA.budget || {}).filter(b => b.day === id).length;
-  if (itemCount > 0) return toast(`Không thể xoá: còn ${itemCount} hạng mục thuộc ngày này`, 'error');
-  if (!confirm('Xoá ngày này?')) return;
-  await window.fb.remove(window.fb.ref(window.fb.db, `config/days/${id}`));
-  toast('Đã xoá');
-  renderDayManager();
-};
-
-// =============================================
-// TOAST
-// =============================================
-let toastTimer;
-function toast(msg, type='') {
-  const t = $('#toast');
-  t.textContent = msg;
-  t.className = 'toast glass show ' + type;
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
-}
-window.toast = toast;
-
-// Login enter
-$('#loginPass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
-
-// Update countdown every minute
-setInterval(updateHeader, 60000);
-</script>
-</body>
-</html>
+const $$ = s => document.queryS
