@@ -1426,7 +1426,7 @@ function renderTimeline() {
 // =============================================
 function showModal(html, maxWidth = 480) {
   $('#modalRoot').innerHTML = `
-    <div class="modal-bd show" onmousedown="window._mdStart=event.target" onclick="if(event.target===this&&window._mdStart===this)closeModal()">
+    <div class="modal-bd show" onclick="if(event.target===this) closeModal()">
       <div class="glass modal" style="max-width:${maxWidth}px">${html}</div>
     </div>
   `;
