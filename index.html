@@ -529,9 +529,12 @@ textarea.input{resize:vertical;min-height:60px}
       <a class="nav-item" data-page="timeline"><svg class="ic"><use href="#i-calendar"/></svg> Lịch trình</a>
     </nav>
     <div class="sidebar-foot">
-      <span class="role-pill" id="rolePill"><span class="dot"></span> Admin</span>
-      <button class="btn btn-ghost btn-icon" onclick="openSettings()" title="Cài đặt"><svg class="ic ic-md"><use href="#i-settings"/></svg></button>
-    </div>
+  <span class="role-pill" id="rolePill"><span class="dot"></span> Admin</span>
+  <div style="display:flex;gap:4px">
+    <button class="btn btn-ghost btn-icon" onclick="openSettings()" title="Cài đặt"><svg class="ic ic-md"><use href="#i-settings"/></svg></button>
+    <button class="btn btn-ghost btn-icon" onclick="logout()" title="Đăng xuất"><svg class="ic ic-md"><use href="#i-logout"/></svg></button>
+  </div>
+</div>
   </aside>
 
   <div class="mobile-head">
@@ -1209,7 +1212,7 @@ function renderGift() {
                   const stCls = g.status==='gifted'?'gifted':g.status==='confirmed'?'confirmed':'';
                   return `
                     <div class="guest-card" ${isAdmin?`onclick="openGuestModal('${gid}')"`:''}>
-                      <div class="guest-avatar ${stCls}">${esc(initials(g.name))}</div>
+                      <div class="guest-avatar ${stCls}"></div>
                       <div class="guest-info">
                         <div class="guest-name">${esc(g.name||'')}</div>
                         <div class="guest-note">${g.status==='gifted'?'Đã mừng':g.status==='confirmed'?'Xác nhận dự':'Đã mời'}${g.giftType?' · '+esc(g.giftType):''}</div>
@@ -1423,10 +1426,20 @@ function renderTimeline() {
 // =============================================
 function showModal(html, maxWidth = 480) {
   $('#modalRoot').innerHTML = `
-    <div class="modal-bd" onclick="if(event.target===this) closeModal()">
+    <div class="modal-bd" data-modal>
       <div class="glass modal" style="max-width:${maxWidth}px">${html}</div>
     </div>
   `;
+  const bd = $('#modalRoot .modal-bd');
+  requestAnimationFrame(() => {
+    bd.classList.add('show');
+    setTimeout(() => {
+      bd.addEventListener('click', function(e) {
+        if (e.target === bd) closeModal();
+      });
+    }, 300);
+  });
+}
   // Delay add 'show' để tránh event đóng ngay
   setTimeout(() => {
     const bd = $('#modalRoot .modal-bd');
