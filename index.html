@@ -478,7 +478,7 @@ textarea.input{resize:vertical;min-height:60px}
 
 <!-- LOGIN -->
 <div class="login" id="loginScreen">
-  <div class="login-inner">
+  <div class="glass login-inner">
     <div class="login-logo-wrap">
       <img src="logo.png" class="logo-img login-logo" alt="KT" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'"/>
       <div class="logo-fallback login-logo-fb"><span>kt</span></div>
@@ -489,15 +489,13 @@ textarea.input{resize:vertical;min-height:60px}
       <div class="login-subtitle">Wedding · Planner</div>
       <div class="login-date" id="loginDateLine">13 · 09 · 2026 <span class="cd" id="loginCountdown">— ngày</span></div>
     </div>
-    <div class="glass login-card">
+    <div class="login-form">
       <div class="label">Đăng nhập quản trị</div>
       <input type="password" class="input" id="loginPass" placeholder="Mật khẩu" autocomplete="off"/>
-      <div class="login-actions">
-        <button class="btn btn-primary" onclick="doLogin()" style="width:100%;padding:12px">Đăng nhập</button>
-      </div>
-      <div class="login-readonly">
-        <button onclick="enterReadonly()">Xem không đăng nhập →</button>
-      </div>
+      <button class="btn btn-primary" onclick="doLogin()" style="width:100%;padding:12px;margin-top:10px">Đăng nhập</button>
+      <button class="btn" onclick="enterReadonly()" style="width:100%;padding:12px;margin-top:8px">
+        <svg class="ic ic-sm"><use href="#i-eye"/></svg> Xem không cần đăng nhập
+      </button>
     </div>
   </div>
 </div>
@@ -715,7 +713,7 @@ function initFirebase() {
   if (!window.fb) { setTimeout(initFirebase, 50); return; }
   fbReady = true;
   const { db, ref, onValue } = window.fb;
-  ['config','budget','fund','gift_tables','gift_guests','contacts','checklist'].forEach(k => {
+  ['config','budget','fund','gift_tables','gift_guests','contacts','checklist','timeline'].forEach(k => {
     onValue(ref(db, k), snap => {
       DATA[k] = snap.val() || {};
       if (k === 'config') {
