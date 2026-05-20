@@ -81,9 +81,9 @@ textarea.input{resize:vertical;min-height:60px}
 .login-title{text-align:center}
 .login-couple{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;font-weight:500;line-height:1.1}
 .login-couple .sep{color:var(--gold);margin:0 3px;font-size:22px;font-style:normal;vertical-align:1px}
-.login-tagline{margin-top:6px;font-size:9px;font-weight:600;letter-spacing:.32em;color:var(--gold-light);text-transform:uppercase}
-.login-subtitle{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:6px;color:var(--cream-faint);font-size:9px;font-weight:500;letter-spacing:.3em;text-transform:uppercase}
-.login-subtitle::before,.login-subtitle::after{content:'';height:1px;width:28px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.login-tagline{display:none}
+.login-subtitle{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:10px;color:var(--gold-light);font-size:9px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;white-space:nowrap}
+.login-subtitle::before,.login-subtitle::after{content:'';height:1px;width:38px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.78}
 .login-date{margin-top:10px;font-family:'Outfit',sans-serif;font-size:13px;color:var(--gold-light);font-weight:500}
 .login-date .cd{display:inline-block;margin-left:4px;padding:1px 9px;background:rgba(201,169,97,.1);border:1px solid rgba(201,169,97,.22);border-radius:99px;font-size:11px}
 .login-form{width:100%;display:flex;flex-direction:column}
@@ -92,6 +92,11 @@ textarea.input{resize:vertical;min-height:60px}
 /* APP */
 .app{display:none}
 .app.active{display:flex;min-height:100vh}
+.app-loader{position:fixed;inset:0;z-index:120;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 28%,rgba(208,179,95,.13),transparent 34%),rgba(7,16,6,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:1;pointer-events:auto;transition:opacity .34s var(--ease-out)}
+.app-loader.is-hidden{opacity:0;pointer-events:none}
+.app-loader-card{display:flex;align-items:center;gap:12px;padding:13px 18px;border-radius:999px;background:rgba(18,26,13,.74);border:1px solid rgba(230,201,137,.2);box-shadow:0 18px 44px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,247,216,.08);color:var(--cream);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.app-loader-mark{width:10px;height:10px;border-radius:50%;background:var(--gold-300);box-shadow:0 0 18px rgba(230,201,137,.7);animation:loaderPulse 1s ease-in-out infinite}
+@keyframes loaderPulse{0%,100%{transform:scale(.75);opacity:.55}50%{transform:scale(1.15);opacity:1}}
 
 .sidebar{width:244px;flex-shrink:0;padding:18px 12px;padding-top:calc(18px + var(--safe-top));display:flex;flex-direction:column;gap:14px;border-right:1px solid rgba(234,219,154,.09);background:linear-gradient(180deg,rgba(16,24,12,.78),rgba(7,16,6,.54));backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);position:sticky;top:0;height:100vh;overflow-y:auto}
 .sidebar-head{display:flex;align-items:center;gap:10px;padding:4px 6px}
@@ -108,7 +113,7 @@ textarea.input{resize:vertical;min-height:60px}
 .nav-item:hover{color:var(--cream);background:rgba(255,247,216,.045)}
 .nav-item.active{background:linear-gradient(135deg,rgba(111,134,41,.26),rgba(208,179,95,.11));color:var(--cream);border-color:rgba(230,201,137,.24);box-shadow:inset 0 1px 0 rgba(255,247,216,.08)}
 .nav-item.active::before{content:'';position:absolute;left:-12px;top:50%;transform:translateY(-50%);width:2px;height:18px;background:linear-gradient(180deg,var(--gold-300),var(--olive-400));border-radius:0 2px 2px 0}
-.sidebar-foot{padding:12px 6px 4px;margin-top:8px;border-top:1px solid rgba(234,219,154,.08);display:flex;align-items:center;justify-content:space-between;gap:6px}
+.sidebar-foot{padding:12px 6px 4px;margin-top:auto;border-top:1px solid rgba(234,219,154,.08);display:flex;align-items:center;justify-content:space-between;gap:6px}
 .role-pill{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;background:rgba(168,184,90,.13);border:1px solid rgba(168,184,90,.25);border-radius:99px;font-size:10px;color:var(--olive-glow);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
 .role-pill .dot{width:5px;height:5px;border-radius:50%;background:var(--olive-glow);box-shadow:0 0 5px var(--olive-glow)}
 .role-pill.readonly{background:rgba(212,169,66,.13);border-color:rgba(212,169,66,.25);color:var(--warning)}
@@ -377,7 +382,10 @@ textarea.input{resize:vertical;min-height:60px}
 .tl-actions{display:flex;gap:4px;opacity:.45;transition:opacity .2s}
 .tl-event:hover .tl-actions{opacity:1}
 .tl-day-mgr-grid{display:flex;flex-direction:column;gap:8px}
-.tl-day-mgr-item{display:grid;grid-template-columns:32px 1.2fr 130px 96px minmax(140px,1fr) minmax(140px,1fr) 76px;gap:8px;align-items:center;padding:10px 12px;background:rgba(255,247,216,.035);border:1px solid var(--glass-border);border-radius:14px}
+.tl-day-mgr-item{display:grid;grid-template-columns:32px minmax(160px,1fr) 132px 104px 78px;gap:8px;align-items:center;padding:10px 12px;background:rgba(255,247,216,.035);border:1px solid var(--glass-border);border-radius:14px}
+.tl-day-mgr-item .input{min-width:0;width:100%}
+.tl-day-mgr-location{grid-column:2 / span 2}
+.tl-day-mgr-note{grid-column:4 / span 2}
 .tl-day-mgr-color-input{width:28px;height:28px;border-radius:50%;padding:0;border:0;background:transparent;overflow:hidden}
 
 /* Empty state */
@@ -445,7 +453,7 @@ textarea.input{resize:vertical;min-height:60px}
   .mobile-head .cd .l{font-size:8px;letter-spacing:.25em;color:var(--cream-faint);text-transform:uppercase;margin-top:1px}
   .main{width:100%;padding:14px;padding-bottom:calc(102px + var(--safe-bot));padding-top:14px;min-height:auto}
   .topbar{display:none}
-  .bottom-nav{display:flex!important;position:fixed;bottom:calc(12px + var(--safe-bot));left:16px;right:16px;z-index:40;padding:7px;background:rgba(18,20,19,.58);backdrop-filter:blur(24px) saturate(165%);-webkit-backdrop-filter:blur(24px) saturate(165%);border:1px solid rgba(255,247,216,.11);border-radius:28px;box-shadow:0 18px 40px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.08);justify-content:space-around}
+  .app.active + .bottom-nav{display:flex!important;position:fixed;bottom:calc(12px + var(--safe-bot));left:16px;right:16px;z-index:40;padding:7px;background:rgba(18,20,19,.58);backdrop-filter:blur(24px) saturate(165%);-webkit-backdrop-filter:blur(24px) saturate(165%);border:1px solid rgba(255,247,216,.11);border-radius:28px;box-shadow:0 18px 40px rgba(0,0,0,.38),inset 0 1px 0 rgba(255,255,255,.08);justify-content:space-around}
   .bn-item{flex:1;min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:7px 3px;border-radius:22px;cursor:pointer;color:rgba(255,247,216,.48);font-size:10px;font-weight:500;background:transparent;border:1px solid transparent;font-family:inherit;transition:transform .22s var(--ease-out),background .22s var(--ease-out),color .22s var(--ease-out),border-color .22s var(--ease-out)}
   .bn-item.active{color:var(--cream);background:rgba(255,247,216,.08);border-color:rgba(230,201,137,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
   .bn-item .ic-wrap{width:30px;height:22px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;transition:all .22s var(--ease-out)}
@@ -515,10 +523,10 @@ textarea.input{resize:vertical;min-height:60px}
   .exp-money-grid{display:none}
   .deadline-pill{font-size:9px;padding:1px 6px}
   .tl-day-name{font-size:21px}
-  .tl-day-mgr-item{grid-template-columns:30px 1fr;gap:8px}
+  .tl-day-mgr-item{grid-template-columns:30px minmax(0,1fr);gap:8px}
   .tl-day-mgr-item .input[type="date"],.tl-day-mgr-time,.tl-day-mgr-location,.tl-day-mgr-note,.tl-day-mgr-item .day-mgr-actions{grid-column:2}
-  .fab{right:14px;bottom:calc(78px + var(--safe-bot));width:auto;min-width:118px;height:48px;border-radius:999px;padding:0 16px;gap:8px}
-  .fab .fab-label{display:inline;font-size:13px;font-weight:600}
+  .fab{right:18px;bottom:calc(106px + var(--safe-bot));width:44px;min-width:0;height:44px;border-radius:50%;padding:0;gap:0}
+  .fab .fab-label{display:none}
 
   .modal-bd{align-items:flex-end;padding:0;padding-top:calc(18px + var(--safe-top))}
   .modal{max-width:none;max-height:88vh;border-radius:24px 24px 0 0;padding:20px 18px calc(18px + var(--safe-bot));animation:sheetIn .28s var(--ease-out)}
@@ -574,12 +582,12 @@ textarea.input{resize:vertical;min-height:60px}
       <img src="logo.png" class="logo-img login-logo" alt="KT" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'"/>
       <div class="logo-fallback login-logo-fb"><span>kt</span></div>
     </div>
-    <div class="login-title">
-      <div class="login-couple">Khanh <span class="sep">❦</span> Tú</div>
-      <div class="login-tagline">10 Years · Since 2016</div>
-      <div class="login-subtitle">Wedding · Planner</div>
-      <div class="login-date" id="loginDateLine">— · — · —</div>
-    </div>
+	    <div class="login-title">
+	      <div class="login-couple">Khanh <span class="sep">❦</span> Tú</div>
+	      <div class="login-tagline"></div>
+	      <div class="login-subtitle">10 Years · Since 2016</div>
+	      <div class="login-date" id="loginDateLine">— · — · —</div>
+	    </div>
     <div class="login-form">
       <div class="label" style="text-align:center;margin-bottom:10px">Nhập mật khẩu nếu cần</div>
       <input type="password" class="input" id="loginPass" placeholder="Mật khẩu" autocomplete="off"/>
@@ -592,6 +600,10 @@ textarea.input{resize:vertical;min-height:60px}
       </button>
     </div>
   </div>
+</div>
+
+<div class="app-loader is-hidden" id="appLoader">
+  <div class="app-loader-card"><span class="app-loader-mark"></span><span>Đang mở</span></div>
 </div>
 
 <!-- APP -->
@@ -759,8 +771,8 @@ function isAdminRole() {
 }
 function getPagesForRole(r = role) {
   if (r === 'public') return ['dashboard', 'timeline', 'contact'];
-  if (r === 'viewer') return ['dashboard', 'expense', 'todo', 'contact', 'timeline'];
-  return ['dashboard', 'expense', 'fund', 'gift', 'todo', 'contact', 'timeline'];
+  if (r === 'viewer') return ['dashboard', 'expense', 'todo', 'timeline', 'contact'];
+  return ['dashboard', 'expense', 'fund', 'gift', 'todo', 'timeline', 'contact'];
 }
 function canOpenPage(page, r = role) {
   return getPagesForRole(r).includes(page);
@@ -872,18 +884,34 @@ function getChecklistItems() {
   });
   return items;
 }
+function isWeddingDayName(name) {
+  return String(name || '').trim().toLowerCase() === 'ngày cưới';
+}
+function timelineDayOrderValue(day, fallback = 0) {
+  const n = Number(day && day.order);
+  return Number.isFinite(n) ? n : fallback;
+}
 function getTimelineDaysSorted() {
   const real = DATA.timeline_days || {};
   const wd = (DATA.config && DATA.config.wedding && DATA.config.wedding.date) || '2026-09-13';
   const entries = Object.entries(real).filter(([,d]) => d && typeof d === 'object');
-  if (entries.length === 0) {
-    return [['default', { name: 'Ngày cưới', date: wd, color: '#d0b35f', order: 0, virtual: true }]];
+  const hasDefault = entries.some(([id,d]) => id === 'default' || isWeddingDayName(d.name));
+  if (!hasDefault) {
+    const minOrder = entries.length ? Math.min(...entries.map(([,d], idx) => timelineDayOrderValue(d, idx))) : 0;
+    entries.push(['default', { name: 'Ngày cưới', date: wd, time: '', location: '', note: '', color: '#d0b35f', order: entries.length ? minOrder - 1 : 0, virtual: true }]);
   }
-  return entries.sort((a,b) => (a[1].order||0) - (b[1].order||0) || (a[1].date||'').localeCompare(b[1].date||''));
+  return entries.sort((a,b) =>
+    timelineDayOrderValue(a[1], 0) - timelineDayOrderValue(b[1], 0)
+    || (a[1].date||'').localeCompare(b[1].date||'')
+    || (a[1].name||'').localeCompare(b[1].name||'')
+  );
 }
 function getDefaultTimelineDayId() {
-  const days = getTimelineDaysSorted();
-  return days[0] ? days[0][0] : 'default';
+  const real = DATA.timeline_days || {};
+  if (real.default && typeof real.default === 'object') return 'default';
+  const named = Object.entries(real).find(([,d]) => d && typeof d === 'object' && isWeddingDayName(d.name));
+  if (named) return named[0];
+  return 'default';
 }
 function effectiveEventDayId(e) {
   return (e && e.dayId) || getDefaultTimelineDayId();
@@ -964,6 +992,8 @@ function enterViewer() {
 }
 function enterPublic() { role = 'public'; localStorage.setItem(SK, role); enterApp(); }
 function showLogin() {
+  const loader = $('#appLoader');
+  if (loader) loader.classList.add('is-hidden');
   $('#app').classList.remove('active');
   $('#loginScreen').style.display = 'flex';
   $('#loginPass').value = '';
@@ -972,10 +1002,15 @@ function showLogin() {
 function logout() { localStorage.removeItem(SK); role = null; showLogin(); }
 
 function enterApp() {
-  $('#loginScreen').style.display = 'none';
-  $('#app').classList.add('active');
-  updateRoleUI();
-  goto('dashboard');
+  const loader = $('#appLoader');
+  if (loader) loader.classList.remove('is-hidden');
+  setTimeout(() => {
+    $('#loginScreen').style.display = 'none';
+    $('#app').classList.add('active');
+    updateRoleUI();
+    goto('dashboard');
+    requestAnimationFrame(() => setTimeout(() => loader && loader.classList.add('is-hidden'), 180));
+  }, 420);
 }
 function updateRoleUI() {
   const isRO = !isAdminRole();
@@ -1001,7 +1036,11 @@ function updateRoleUI() {
 function syncRoleNav() {
   const pages = getPagesForRole();
   if (!pages.includes(currentPage)) currentPage = 'dashboard';
-  $$('.nav-item').forEach(n => n.classList.toggle('hidden', !pages.includes(n.dataset.page)));
+  $$('.nav-item').forEach(n => {
+    const idx = pages.indexOf(n.dataset.page);
+    n.classList.toggle('hidden', idx === -1);
+    n.style.order = idx === -1 ? 99 : idx;
+  });
   const bottom = $('#bottomNav');
   if (!bottom) return;
   let bottomPages;
@@ -1052,9 +1091,9 @@ function openMore() {
   showModal(`
     <h2>Thêm</h2>
     <div style="display:flex;flex-direction:column;gap:6px">
-      <button type="button" class="qa-more" data-act="page-fund"><span class="ic-wrap"><svg class="ic"><use href="#i-wallet"/></svg></span><span>Quỹ tiền</span></button>
-      <button type="button" class="qa-more" data-act="page-contact"><span class="ic-wrap"><svg class="ic"><use href="#i-phone"/></svg></span><span>Liên hệ</span></button>
-      <button type="button" class="qa-more" data-act="page-timeline"><span class="ic-wrap"><svg class="ic"><use href="#i-calendar"/></svg></span><span>Lịch trình</span></button>
+	      <button type="button" class="qa-more" data-act="page-fund"><span class="ic-wrap"><svg class="ic"><use href="#i-wallet"/></svg></span><span>Quỹ tiền</span></button>
+	      <button type="button" class="qa-more" data-act="page-timeline"><span class="ic-wrap"><svg class="ic"><use href="#i-calendar"/></svg></span><span>Lịch trình</span></button>
+	      <button type="button" class="qa-more" data-act="page-contact"><span class="ic-wrap"><svg class="ic"><use href="#i-phone"/></svg></span><span>Liên hệ</span></button>
       <button type="button" class="qa-more" data-act="settings"><span class="ic-wrap"><svg class="ic"><use href="#i-settings"/></svg></span><span>Cài đặt</span></button>
       <button type="button" class="qa-more" data-act="logout"><span class="ic-wrap"><svg class="ic"><use href="#i-logout"/></svg></span><span>Đăng xuất</span></button>
     </div>
@@ -1135,15 +1174,14 @@ function renderPublicDashboard() {
   const days = getTimelineDaysSorted();
   return `
     <div class="page">
-      <div class="glass public-hero">
-        <img src="logo.png" class="logo-img public-logo" alt="KT" onerror="this.style.display='none'"/>
-        <div class="public-kicker">Trân trọng thông báo</div>
-        <div class="public-title">${nmHtml}</div>
-        <div class="public-divider">✦</div>
-        <div class="public-subtitle">Lịch trình cưới</div>
-        <div class="public-meta">
-          <span>${fmtDateFull(wd)}</span>
-          <span class="hero-meta"><span class="pill">${relativeDayLabel(wd)}</span></span>
+      <div class="glass hero">
+        <div class="hero-text">
+          <div class="tagline"><span class="dot">✦</span> 10 Years · Since 2016 <span class="dot">✦</span></div>
+          <div class="hero-couple">${nmHtml}</div>
+          <div class="hero-meta">
+            <span>${fmtDateFull(wd)}</span>
+            <span class="pill">Còn ${daysTo(wd)} ngày</span>
+          </div>
         </div>
       </div>
       <div class="glass pb-wrap progress-section">
@@ -2384,8 +2422,13 @@ function renderTimelineDayManager() {
   `, 720);
 }
 async function ensureTimelineDefaultDay() {
-  if (Object.keys(DATA.timeline_days || {}).length > 0) return;
+  const existingDays = DATA.timeline_days || {};
+  if (existingDays.default && typeof existingDays.default === 'object') return 'default';
+  const named = Object.entries(existingDays).find(([,d]) => d && typeof d === 'object' && isWeddingDayName(d.name));
+  if (named) return named[0];
   const wd = (DATA.config && DATA.config.wedding && DATA.config.wedding.date) || '2026-09-13';
+  const entries = Object.values(existingDays).filter(d => d && typeof d === 'object');
+  const minOrder = entries.length ? Math.min(...entries.map((d, idx) => timelineDayOrderValue(d, idx))) : 0;
   const data = {
     name: 'Ngày cưới',
     date: wd,
@@ -2393,11 +2436,12 @@ async function ensureTimelineDefaultDay() {
     location: '',
     note: '',
     color: '#d0b35f',
-    order: 0,
+    order: entries.length ? minOrder - 1 : 0,
     ts: Date.now()
   };
-  DATA.timeline_days = { ...(DATA.timeline_days || {}), default: data };
+  DATA.timeline_days = { ...existingDays, default: data };
   await window.fb.set(window.fb.ref(window.fb.db, 'timeline_days/default'), data);
+  return 'default';
 }
 async function addTimelineDay() {
   if (!isAdminRole()) return;
@@ -2426,14 +2470,18 @@ async function updateTimelineDay(id, patch) {
 }
 async function moveTimelineDay(id, dir) {
   await ensureTimelineDefaultDay();
-  const days = getTimelineDaysSorted();
+  const days = getTimelineDaysSorted().filter(([,d]) => !d.virtual);
   const idx = days.findIndex(([k]) => k === id);
   const swap = idx + dir;
   if (idx < 0 || swap < 0 || swap >= days.length) return;
-  await window.fb.update(window.fb.ref(window.fb.db, '/'), {
-    [`timeline_days/${days[idx][0]}/order`]: days[swap][1].order,
-    [`timeline_days/${days[swap][0]}/order`]: days[idx][1].order
+  const next = days.slice();
+  [next[idx], next[swap]] = [next[swap], next[idx]];
+  const updates = {};
+  next.forEach(([dayId], order) => {
+    updates[`timeline_days/${dayId}/order`] = order;
+    if (DATA.timeline_days && DATA.timeline_days[dayId]) DATA.timeline_days[dayId].order = order;
   });
+  await window.fb.update(window.fb.ref(window.fb.db, '/'), updates);
   renderTimelineDayManager();
 }
 async function deleteTimelineDay(id) {
